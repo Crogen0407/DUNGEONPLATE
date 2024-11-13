@@ -1,7 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "Agent.h"
+
 class Texture;
-class Player : public Object
+class Player : public Agent
 {
 public:
 	Player();

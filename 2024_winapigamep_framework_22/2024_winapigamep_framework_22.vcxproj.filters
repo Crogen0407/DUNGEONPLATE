@@ -38,6 +38,12 @@
     <Filter Include="Engine\03. Object\UI">
       <UniqueIdentifier>{2524838c-6af9-4ef9-871b-f5dbbe72e6b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Agent">
+      <UniqueIdentifier>{ac7bf9fd-37bb-46fc-bf6a-2d854a92c5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Agent\FSM">
+      <UniqueIdentifier>{c041507a-4a20-46ef-9ec9-425d8b94b511}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -91,12 +97,6 @@
     <ClInclude Include="GameScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
@@ -136,6 +136,17 @@
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -181,12 +192,6 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Engine\03. Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Engine\03. Object</Filter>
-    </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
@@ -226,5 +231,16 @@
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Engine\03. Object\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
 </Project>
