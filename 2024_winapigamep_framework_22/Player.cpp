@@ -10,6 +10,7 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+
 Player::Player()
 	: m_pTex(nullptr)
 {
@@ -33,24 +34,16 @@ Player::~Player()
 void Player::Update()
 {
 	if (GET_KEY(KEY_TYPE::W))
-	{
 		Move(Vec2(0, -1) * speed * fDT);
-	}
-	else if (GET_KEY(KEY_TYPE::S))
-	{
+	if (GET_KEY(KEY_TYPE::S))
 		Move(Vec2(0, 1) * speed * fDT);
-	}
-	else if (GET_KEY(KEY_TYPE::A))
-	{
+	if (GET_KEY(KEY_TYPE::A))
 		Move(Vec2(-1, 0) * speed * fDT);
-	}
-	else if (GET_KEY(KEY_TYPE::D))
-	{
+	if (GET_KEY(KEY_TYPE::D))
 		Move(Vec2(1, 0) * speed * fDT);
-	}
 
 	Vec2 vPos = GetPos();
-	if (GET_KEYDOWN(KEY_TYPE::SPACE))
+
 	SetPos(vPos);
 }
 
@@ -58,27 +51,11 @@ void Player::Render(HDC _hdc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vSize = GetSize();
-	//RECT_RENDER(_hdc, vPos.x, vPos.y
-	//	, vSize.x, vSize.y);
+
 	int width = m_pTex->GetWidth();
 	int height = m_pTex->GetHeight();
-	//::BitBlt(_hdc
-	//	, (int)(vPos.x - vSize.x / 2)
-	//	, (int)(vPos.y - vSize.y / 2)
-	//	, width, height,
-	//	m_pTex->GetTexDC()
-	//	,0,0,SRCCOPY
-	//);
-	/*::TransparentBlt(_hdc
-		, (int)(vPos.x - width / 2)
-		, (int)(vPos.y - height / 2)
-		, width, height,
-		m_pTex->GetTexDC()
-		, 0, 0,width, height, RGB(255,0,255));*/
+	
 	ComponentRender(_hdc);
-	//::StretchBlt();
-	//::AlphaBlend();
-	//::PlgBlt();
 }
 
 void Player::Parry()

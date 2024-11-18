@@ -5,10 +5,7 @@
 #include "ResourceManager.h"
 #include "Collider.h"
 #include "EventManager.h"
-Projectile::Projectile()
-//	: m_dir(-1.f)
-	: m_angle(0.f)
-	, m_vDir(1.f, 1.f)
+Projectile::Projectile() : m_vDir(1.f, 1.f)
 {
 	//m_pTex = new Texture;
 	//wstring path = GET_SINGLE(ResourceManager)->GetResPath();
@@ -61,10 +58,7 @@ void Projectile::Render(HDC _hdc)
 void Projectile::EnterCollision(Collider* _other)
 {
 	Object* pOtherObj = _other->GetOwner();
-	if (pOtherObj->GetName() == L"Enemy")
-	{
-		GET_SINGLE(EventManager)->DeleteObject(this);
-	}
+	GET_SINGLE(EventManager)->DeleteObject(this);
 }
 
 void Projectile::StayCollision(Collider* _other)
