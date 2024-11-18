@@ -11,11 +11,11 @@
 
 void TitleScene::Init()
 {
-	Object* pTitleStartBtn = new SimpleBtnObject;
-	pTitleStartBtn->SetPos({ SCREEN_WIDTH / 2.f, SCREEN_HEIGHT*0.6f });
-	pTitleStartBtn->SetName(L"TitleStartBtn");
-	pTitleStartBtn->SetSize({300.f, 50.f});
-	AddObject(pTitleStartBtn, LAYER::DEFAULT);
+	//Object* pTitleStartBtn = new SimpleBtnObject;
+	//pTitleStartBtn->SetPos({ SCREEN_WIDTH / 2.f, SCREEN_HEIGHT*0.6f });
+	//pTitleStartBtn->SetName(L"TitleStartBtn");
+	//pTitleStartBtn->SetSize({300.f, 50.f});
+	//AddObject(pTitleStartBtn, LAYER::DEFAULT);
 
 	//pObj->SetPos({ SCREEN_WIDTH / 2.f,150.f });
 	//pObj->SetSize({ 100.f,100.f });

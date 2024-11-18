@@ -38,11 +38,11 @@
     <Filter Include="Engine\03. Object\UI">
       <UniqueIdentifier>{2524838c-6af9-4ef9-871b-f5dbbe72e6b7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\Agent">
-      <UniqueIdentifier>{ac7bf9fd-37bb-46fc-bf6a-2d854a92c5bf}</UniqueIdentifier>
+    <Filter Include="Engine\Crogen">
+      <UniqueIdentifier>{b5e96a18-c5e2-4361-802f-863c76ffab5a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\Agent\FSM">
-      <UniqueIdentifier>{c041507a-4a20-46ef-9ec9-425d8b94b511}</UniqueIdentifier>
+    <Filter Include="Engine\Crogen\ObjectPooling">
+      <UniqueIdentifier>{e7a3f073-a260-4d36-ab6b-2ef4f201c94e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +97,12 @@
     <ClInclude Include="GameScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
@@ -136,20 +142,11 @@
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="Agent.h">
-      <Filter>Engine\03. Object\Agent</Filter>
+    <ClInclude Include="PoolManager.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Engine\03. Object\Agent</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Engine\03. Object\Agent</Filter>
-    </ClInclude>
-    <ClInclude Include="StateMachine.h">
-      <Filter>Engine\03. Object\Agent\FSM</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    <ClInclude Include="PoolableObject.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +193,12 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
@@ -235,20 +238,8 @@
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Agent.cpp">
-      <Filter>Engine\03. Object\Agent</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Engine\03. Object\Agent</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Engine\03. Object\Agent</Filter>
-    </ClCompile>
-    <ClCompile Include="StateMachine.cpp">
-      <Filter>Engine\03. Object\Agent\FSM</Filter>
-    </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    <ClCompile Include="PoolManager.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
