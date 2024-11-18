@@ -1,7 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "Agent.h"
+
 class Texture;
-class Player : public Object
+class Player : public Agent
 {
 public:
 	Player();
@@ -9,8 +10,10 @@ public:
 public:
 	void Update() override;
 	void Render(HDC _hdc) override;
+
+	void Parry();
 private:
-	void CreateProjectile();
 	Texture* m_pTex;
+	float speed = 100.f;
 };
 
