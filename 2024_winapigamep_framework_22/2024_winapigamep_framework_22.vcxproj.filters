@@ -38,6 +38,12 @@
     <Filter Include="Engine\03. Object\UI">
       <UniqueIdentifier>{2524838c-6af9-4ef9-871b-f5dbbe72e6b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Crogen">
+      <UniqueIdentifier>{b5e96a18-c5e2-4361-802f-863c76ffab5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Crogen\ObjectPooling">
+      <UniqueIdentifier>{e7a3f073-a260-4d36-ab6b-2ef4f201c94e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -136,6 +142,12 @@
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
+    <ClInclude Include="PoolManager.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolableObject.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -225,6 +237,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolManager.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
