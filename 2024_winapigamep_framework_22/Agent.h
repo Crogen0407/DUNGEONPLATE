@@ -1,5 +1,4 @@
 #pragma once
-#include "Animator.h"
 #include "Object.h"
 
 class Agent : public Object

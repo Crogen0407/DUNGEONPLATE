@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Agent.h"
+#include "Animator.h"
+#include "Object.h"
 
 Agent::Agent()
 {
