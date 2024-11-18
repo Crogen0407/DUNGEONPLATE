@@ -8,7 +8,6 @@ private:
 	std::map<std::string, std::stack<PoolableObject*>> pool;
 public:
 	void Init();
-	void Update();
 public:
 	PoolableObject* Pop(std::string name);
 	void Push(PoolableObject* poolableObject);

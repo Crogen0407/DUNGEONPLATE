@@ -3,10 +3,7 @@
 #include "PoolableObject.h"
 void PoolManager::Init()
 {
-}
-
-void PoolManager::Update()
-{
+    
 }
 
 PoolableObject* PoolManager::Pop(std::string name)
