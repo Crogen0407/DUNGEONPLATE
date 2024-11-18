@@ -33,12 +33,29 @@ Player::~Player()
 }
 void Player::Update()
 {
+	if (GET_KEY(KEY_TYPE::W))
+	{
+		Move(Vec2(0, -1) * speed);
+	}
+	else if (GET_KEY(KEY_TYPE::S))
+	{
+		Move(Vec2(0, 1) * speed);
+	}
+	else if (GET_KEY(KEY_TYPE::A))
+	{
+		Move(Vec2(-1, 0) * speed);
+	}
+	else if (GET_KEY(KEY_TYPE::D))
+	{
+		Move(Vec2(1, 0) * speed);
+	}
+
 	Vec2 vPos = GetPos();
 	//if(GET_KEY(KEY_TYPE::LEFT))
-	if (GET_KEY(KEY_TYPE::A))
-		vPos.x -= 100.f * fDT;
-	if (GET_KEY(KEY_TYPE::D))
-		vPos.x += 100.f * fDT;
+	//if (GET_KEY(KEY_TYPE::A))
+	//	vPos.x -= 100.f * fDT;
+	//if (GET_KEY(KEY_TYPE::D))
+	//	vPos.x += 100.f * fDT;
 	if (GET_KEYDOWN(KEY_TYPE::SPACE))
 		CreateProjectile();
 	SetPos(vPos);

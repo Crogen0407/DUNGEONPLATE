@@ -145,8 +145,12 @@
     <ClInclude Include="Player.h">
       <Filter>Engine\03. Object\Agent</Filter>
     </ClInclude>
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="StateMachine.h">
+      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -240,7 +244,11 @@
     <ClCompile Include="Player.cpp">
       <Filter>Engine\03. Object\Agent</Filter>
     </ClCompile>
-    <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Engine\03. Object\Agent\FSM</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

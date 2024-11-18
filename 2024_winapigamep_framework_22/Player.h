@@ -13,5 +13,6 @@ public:
 private:
 	void CreateProjectile();
 	Texture* m_pTex;
+	float speed = 100.f;
 };
 
