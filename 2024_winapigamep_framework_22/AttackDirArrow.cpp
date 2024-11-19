@@ -41,7 +41,7 @@ void AttackDirArrow::Update()
 
 	float angle = atan2(dir.y, dir.x);
 
-	spriteRenderer->SetAngle(angle, false);
+	spriteRenderer->LookAt(dir);
 	//spriteRenderer->LookAt(dir);
 	SetPos(selfPos);
 }
