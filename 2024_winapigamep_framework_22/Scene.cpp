@@ -21,7 +21,6 @@ void Scene::Update()
 				m_vecObj[i][j]->Update();
 		}
 	}
-	
 }
 
 void Scene::LateUpdate()

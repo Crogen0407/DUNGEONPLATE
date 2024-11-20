@@ -1,32 +1,17 @@
 #include "pch.h"
 #include "Enemy.h"
+#include "Agent.h"
 #include "Collider.h"
 #include "EventManager.h"
-Enemy::Enemy()
-	: m_hp(5)
+
+Enemy::Enemy() : m_hp(5), m_attack(5)
 {
 	this->AddComponent<Collider>();
+	GetComponent<Collider>()->SetSize(Vec2(100,100));
 }
 
 Enemy::~Enemy()
 {
-}
-
-void Enemy::Update()
-{
-}
-
-void Enemy::Render(HDC _hdc)
-{	
-	//HBRUSH brush = CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
-	//HBRUSH oldbrush = (HBRUSH)SelectObject(_hdc, brush);
-	Vec2 vPos = GetPos();
-	Vec2 vSize = GetSize();
-	RECT_RENDER(_hdc, vPos.x, vPos.y
-		, vSize.x, vSize.y);
-	ComponentRender(_hdc);
-	//SelectObject(_hdc, oldbrush); 
-	//DeleteObject(brush);
 }
 
 void Enemy::EnterCollision(Collider* _other)

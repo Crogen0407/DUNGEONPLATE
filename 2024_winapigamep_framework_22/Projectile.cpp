@@ -28,8 +28,8 @@ void Projectile::Update()
 	//vPos.x += cosf(m_angle) * 500.f * fDT;
 	//vPos.y += sinf(m_angle) * 500.f * fDT;
 
-	vPos.x += m_vDir.x * 500.f * fDT;
-	vPos.y += m_vDir.y * 500.f * fDT;
+	vPos.x += m_vDir.x * speed * fDT;
+	vPos.y += m_vDir.y * speed * fDT;
 	SetPos(vPos);
 	Vec2 vSize = GetSize();
 	if (vPos.y < -vSize.y)

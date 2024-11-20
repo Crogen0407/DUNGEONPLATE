@@ -22,5 +22,6 @@ private:
 	//float m_dir;
 	Vec2 m_vDir;
 	Texture* m_pTex;
+	float speed = 500.f;
 };
 
