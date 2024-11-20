@@ -12,9 +12,7 @@ Object::Object()
 	, m_IsDie(false)
 {
 	std::string str = typeid(this).name();
-	wstring name;
-	str.assign(name.begin(), name.end());
-	SetName(name);
+	str.assign(m_name.begin(), m_name.end());
 }
 
 Object::~Object()
