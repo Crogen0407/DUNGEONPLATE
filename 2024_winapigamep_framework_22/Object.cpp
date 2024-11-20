@@ -5,14 +5,14 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include "Component.h"
+#include <typeinfo>
 
 Object::Object()
 	: m_vPos{}
 	, m_vSize{}
 	, m_IsDie(false)
 {
-	std::string str = typeid(this).name();
-	str.assign(m_name.begin(), m_name.end());
+	
 }
 
 Object::~Object()
