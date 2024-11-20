@@ -73,6 +73,13 @@ Object* Object::FindObject(std::wstring name, LAYER layer)
 	return nullptr;
 }
 
+vector<Object*> Object::FindObjects(LAYER layer)
+{
+	vector<Object*> objects = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(layer);
+
+	return objects;
+}
+
 //void Object::Update()
 //{
 //	if (GET_KEY(KEY_TYPE::LEFT))

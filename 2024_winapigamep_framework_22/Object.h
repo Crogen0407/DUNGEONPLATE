@@ -25,6 +25,7 @@ public:
 	void SetName(wstring _name) { m_name = _name; }
 	const wstring& GetName() const { return m_name; }
 	static Object* FindObject(std::wstring name, LAYER layer);
+	static vector<Object*> FindObjects(LAYER layer);
 private:
 	bool m_IsDie;
 	wstring m_name;
