@@ -7,12 +7,14 @@ public:
 	void Update();
 public:
 	const float& GetDT() const { return m_dT; }
+	const float& GetTime() const { return m_time; }
 private:
 	// Delta time
 	LARGE_INTEGER m_llPrevCnt = {};
 	LARGE_INTEGER m_llCurCnt = {};
 	LARGE_INTEGER m_llFrequency = {};
 	float		  m_dT = 0.f;
+	float		  m_time = 0.f;
 
 	// FPS(Frame Per Second)
 	UINT		  m_fps = 0;

@@ -10,6 +10,7 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "SpriteRenderer.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -21,29 +22,36 @@ Player::Player()
 	//m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Player", L"Texture\\planem.bmp");
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
 	this->AddComponent<Collider>();
-	AddComponent<Animator>();
-	GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
-	GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
+	this->AddComponent<SpriteRenderer>();
+	_spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
+	//AddComponent<Animator>();
+	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
+	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
+	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
 
 }
 Player::~Player()
 {
 
 }
+Vec2 dir;
+
 void Player::Update()
 {
 	if (GET_KEY(KEY_TYPE::W))
-		Move(Vec2(0, -1) * speed * fDT);
+		dir = Vec2(0, -1);
 	if (GET_KEY(KEY_TYPE::S))
-		Move(Vec2(0, 1) * speed * fDT);
+		dir = Vec2(0, 1);
 	if (GET_KEY(KEY_TYPE::A))
-		Move(Vec2(-1, 0) * speed * fDT);
+		dir = Vec2(-1, 0);
 	if (GET_KEY(KEY_TYPE::D))
-		Move(Vec2(1, 0) * speed * fDT);
+		dir = Vec2(1, 0);
+
+	Move(dir * speed * fDT);
 
 	Vec2 vPos = GetPos();
-
+	_spriteRenderer->LookAt(dir);
 	SetPos(vPos);
 }
 
