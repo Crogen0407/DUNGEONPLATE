@@ -14,9 +14,6 @@
     <Filter Include="Engine\01. Core">
       <UniqueIdentifier>{7b4f18de-b780-49f6-844a-1acc8c3fdeb1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\02. Manager">
-      <UniqueIdentifier>{f2f869a8-d2b1-4c6c-abf6-3942380e48b8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\99. Header">
       <UniqueIdentifier>{db5191d7-db19-476f-bd56-f21636c88e45}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,12 @@
     </Filter>
     <Filter Include="Engine\03. Object\UI">
       <UniqueIdentifier>{2524838c-6af9-4ef9-871b-f5dbbe72e6b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Stage">
+      <UniqueIdentifier>{8ddeeddf-cb3a-49ac-b1ea-26c31f13f079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\02. Manager">
+      <UniqueIdentifier>{f2f869a8-d2b1-4c6c-abf6-3942380e48b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +139,24 @@
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
+    <ClInclude Include="StageManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="StageScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -225,6 +246,24 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="StageManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="StageScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

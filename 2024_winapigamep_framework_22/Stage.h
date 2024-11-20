@@ -1,11 +1,10 @@
 #pragma once
-//#include "Object.h"
-class Object; // 클래스 전방선언
-class Scene	
+class Object;
+class Stage
 {
 public:
-	Scene();
-	virtual ~Scene(); // 가상 소멸자
+	Stage();
+	virtual ~Stage();
 public:
 	virtual void Init() abstract;
 	virtual void Update();
@@ -22,8 +21,5 @@ public:
 		return m_vecObj[(UINT)_type];
 	}
 private:
-	//Object m_obj;
-	//Object* m_pObj;
 	vector<Object*> m_vecObj[(UINT)LAYER::END];
 };
-
