@@ -2,7 +2,10 @@
 #include "Object.h"
 #include "TimeManager.h"
 #include "InputManager.h"
+#include "SceneManager.h"
+#include "Scene.h"
 #include "Component.h"
+
 Object::Object()
 	: m_vPos{}
 	, m_vSize{}
@@ -52,6 +55,13 @@ void Object::StayCollision(Collider* _other)
 
 void Object::ExitCollision(Collider* _other)
 {
+}
+
+Object* Object::FindObject(std::wstring name, LAYER layer)
+{
+	vector<Object*> objects = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(layer);
+
+	return objects[0];
 }
 
 //void Object::Update()

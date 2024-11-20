@@ -53,6 +53,9 @@
     <Filter Include="Engine\03. Object\WorldUI">
       <UniqueIdentifier>{105d06fe-83fe-4365-a48f-0ef4cf9ad985}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Crogen\DOTween">
+      <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -163,6 +166,16 @@
     <ClInclude Include="AttackDirArrow.h">
       <Filter>Engine\03. Object\WorldUI</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="Sequence.h">
+      <Filter>Engine\Crogen\DOTween</Filter>
+    </ClInclude>
+    <ClInclude Include="DOTween.h">
+      <Filter>Engine\Crogen\DOTween</Filter>
+    </ClInclude>
+    <ClInclude Include="Tween.h">
+      <Filter>Engine\Crogen\DOTween</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -261,6 +274,16 @@
     </ClCompile>
     <ClCompile Include="AttackDirArrow.cpp">
       <Filter>Engine\03. Object\WorldUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="Sequence.cpp">
+      <Filter>Engine\Crogen\DOTween</Filter>
+    </ClCompile>
+    <ClCompile Include="DOTween.cpp">
+      <Filter>Engine\Crogen\DOTween</Filter>
+    </ClCompile>
+    <ClCompile Include="Tween.cpp">
+      <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

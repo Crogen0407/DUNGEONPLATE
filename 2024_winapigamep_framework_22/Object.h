@@ -4,7 +4,12 @@ class Component;
 class Object
 {
 public:
-	Object();
+	Object()
+	{
+		char* charName = const_cast<char*>(typeid(this).name());
+
+		//SetName(charName);
+	}
 	virtual ~Object();
 public:
 	virtual void Update() abstract;
@@ -24,7 +29,7 @@ public:
 	void SetDead() { m_IsDie = true; }
 	void SetName(wstring _name) { m_name = _name; }
 	const wstring& GetName() const { return m_name; }
-
+	static Object* FindObject(std::wstring name, LAYER layer);
 private:
 	bool m_IsDie;
 	wstring m_name;
