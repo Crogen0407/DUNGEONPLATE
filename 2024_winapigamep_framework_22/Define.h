@@ -13,6 +13,9 @@ public:							\
 
 #define GET_SINGLE(type) type::GetInst()
 #define fDT GET_SINGLE(TimeManager)->GetDT()
+#define Deg2Rad (PI * 2) / 360
+#define Rad2Deg 360 / (PI * 2)
+
 
 #define KEY_CHECK(key, state) InputManager::GetInst()->GetKey(key) == state
 #define GET_KEYNONE(key) KEY_CHECK(key, KEY_STATE::NONE)

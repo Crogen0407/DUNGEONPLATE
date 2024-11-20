@@ -44,6 +44,15 @@
     <Filter Include="Engine\Crogen\ObjectPooling">
       <UniqueIdentifier>{e7a3f073-a260-4d36-ab6b-2ef4f201c94e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Player">
+      <UniqueIdentifier>{98e40155-6ad1-4c34-990a-72a20a254f84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Projectile">
+      <UniqueIdentifier>{04aad006-beaa-4b1f-9945-5d650f525a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\WorldUI">
+      <UniqueIdentifier>{105d06fe-83fe-4365-a48f-0ef4cf9ad985}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -97,13 +106,7 @@
     <ClInclude Include="GameScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
     <ClInclude Include="ResourceBase.h">
@@ -147,6 +150,18 @@
     </ClInclude>
     <ClInclude Include="PoolableObject.h">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="Player.h">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackDirArrow.h">
+      <Filter>Engine\03. Object\WorldUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -193,13 +208,7 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Engine\03. Object</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Engine\03. Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="ResourceBase.cpp">
@@ -240,6 +249,18 @@
     </ClCompile>
     <ClCompile Include="PoolManager.cpp">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackDirArrow.cpp">
+      <Filter>Engine\03. Object\WorldUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
