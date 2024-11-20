@@ -11,6 +11,7 @@ Object::Object()
 	, m_vSize{}
 	, m_IsDie(false)
 {
+	char* charName = const_cast<char*>(typeid(this).name());
 }
 
 Object::~Object()
@@ -61,7 +62,14 @@ Object* Object::FindObject(std::wstring name, LAYER layer)
 {
 	vector<Object*> objects = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(layer);
 
-	return objects[0];
+	for (Object* obj : objects)
+	{
+		if (obj->GetName() == name) {
+			return obj;
+		}
+	}
+
+	return nullptr;
 }
 
 //void Object::Update()
