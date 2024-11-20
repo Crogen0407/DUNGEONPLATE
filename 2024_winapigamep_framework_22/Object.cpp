@@ -11,7 +11,10 @@ Object::Object()
 	, m_vSize{}
 	, m_IsDie(false)
 {
-	char* charName = const_cast<char*>(typeid(this).name());
+	std::string str = typeid(this).name();
+	wstring name;
+	str.assign(name.begin(), name.end());
+	SetName(name);
 }
 
 Object::~Object()
