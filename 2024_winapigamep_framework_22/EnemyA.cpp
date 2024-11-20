@@ -1,10 +1,15 @@
 #include "pch.h"
 #include "EnemyA.h"
 #include "Enemy.h"
+#include "Scene.h"
+#include "Player.h"
+#include "Projectile.h"
 #include "SceneManager.h"
+#include "TimeManager.h"
 
 EnemyA::EnemyA()
 {
+	player = FindObject(L"Player", LAYER::PLAYER);
 }
 
 EnemyA::~EnemyA()
@@ -13,7 +18,13 @@ EnemyA::~EnemyA()
 
 void EnemyA::Update()
 {
-	//Object* player = ;
+	if (prevShootTime + shootDelay < TIME)
+	{
+		Fire();
+		return;
+	}
+
+
 }
 
 void EnemyA::Render(HDC _hdc)
@@ -25,6 +36,23 @@ void EnemyA::Render(HDC _hdc)
 	Vec2 vSize = GetSize();
 	RECT_RENDER(_hdc, vPos.x, vPos.y, vSize.x, vSize.y);
 
-	SelectObject(_hdc, oldbrush); 
+	SelectObject(_hdc, oldbrush);
 	DeleteObject(brush);
+}
+
+void EnemyA::Fire()
+{
+	prevShootTime = TIME;
+
+	Vec2 dir = player->GetPos();
+	dir -= GetPos();
+
+	Projectile* projectile = new Projectile();
+	projectile->SetPos(GetPos());
+	projectile->SetSize({ 10, 10 });
+
+	GET_SINGLE(SceneManager)->GetCurrentScene()
+		->AddObject(projectile, LAYER::PROJECTILE);
+
+	projectile->SetDir(dir);
 }

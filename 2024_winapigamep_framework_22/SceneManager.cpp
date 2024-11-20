@@ -12,7 +12,6 @@ void SceneManager::Init()
 	RegisterScene(L"GameScene",std::make_shared<GameScene>());
 
 	// ¾À ·Îµå
-	cout << "¾ßÈ£";
 	LoadScene(L"GameScene");
 }
 

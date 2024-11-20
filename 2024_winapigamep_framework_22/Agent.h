@@ -5,7 +5,7 @@ class Agent : public Object
 {
 public :
 	Agent();
-	virtual ~Agent();
+	virtual ~Agent() override;
 protected:
 	void Move(Vec2 dir);
 };
