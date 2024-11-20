@@ -4,19 +4,19 @@ class Tween;
 class Sequence
 {
 private:
-	std::list<Tween> tweens;
+	std::list<Tween*> tweens;
 public:
 	//Append
 	Sequence* Append(Tween& tween)
 	{
-		tweens.push_back(tween);
+		tweens.push_back(&tween);
 		return this;
 	}
 
 	//Join
 	Sequence* Join(Tween& tween)
 	{
-		tweens.push_back(tween);
+		tweens.push_back(&tween);
 		return this;
 	}
 };

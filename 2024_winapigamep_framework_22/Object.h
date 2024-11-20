@@ -4,12 +4,7 @@ class Component;
 class Object
 {
 public:
-	Object()
-	{
-		char* charName = const_cast<char*>(typeid(this).name());
-
-		//SetName(charName);
-	}
+	Object();
 	virtual ~Object();
 public:
 	virtual void Update() abstract;

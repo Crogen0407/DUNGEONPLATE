@@ -30,10 +30,11 @@ Player::Player()
 	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
 	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
 
+
+
 }
 Player::~Player()
 {
-
 }
 Vec2 dir;
 

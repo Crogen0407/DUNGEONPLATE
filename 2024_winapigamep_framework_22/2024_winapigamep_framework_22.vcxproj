@@ -176,7 +176,6 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
-    <ClInclude Include="DOTween.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyA.h" />
     <ClInclude Include="Enums.h" />
@@ -229,7 +228,6 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
-    <ClCompile Include="DOTween.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="EventManager.cpp" />
