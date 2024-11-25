@@ -170,11 +170,12 @@
     <ClInclude Include="Sequence.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
-    <ClInclude Include="DOTween.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
     <ClInclude Include="Tween.h">
       <Filter>Engine\Crogen\DOTween</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyA.h" />
+    <ClInclude Include="StageScene.h">
+      <Filter>Engine\04. Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,11 +280,12 @@
     <ClCompile Include="Sequence.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
-    <ClCompile Include="DOTween.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
     <ClCompile Include="Tween.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyA.cpp" />
+    <ClCompile Include="StageScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
