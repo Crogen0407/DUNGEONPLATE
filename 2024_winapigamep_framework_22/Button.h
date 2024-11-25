@@ -1,8 +1,7 @@
 #pragma once
 #include "Image.h"
 class Texture;
-class Button :
-    public Image
+class Button : public Image
 {
 public:
     Button();

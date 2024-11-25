@@ -20,14 +20,14 @@ void Image::Render(HDC _hdc)
 {
 	if (texture == nullptr) return;
 
-	Vec2 pos = GetOwner()->GetPos();
-	Vec2 size = GetOwner()->GetSize();
+	Vec2 pos = GetPos();
+	Vec2 size = GetSize();
 
 	TransparentBlt(_hdc,
 		(int)(pos.x) - size.x / 2,
 		(int)(pos.y) - size.y / 2,
-		(int)(pos.x) + size.x / 2,
-		(int)(pos.y) + size.y / 2,
+		(int)size.x,
+		(int)size.y,
 		texture->GetTexDC(),
 		0,
 		0,

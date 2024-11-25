@@ -1,7 +1,7 @@
 #pragma once
-#include "Component.h"
+#include "UI.h"
 class Texture;
-class Slider : public Component
+class Slider : public UI
 {
 public:
 	Slider();
