@@ -142,9 +142,6 @@
     <ClInclude Include="Animation.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleBtnObject.h">
-      <Filter>Engine\03. Object\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
@@ -176,6 +173,11 @@
     <ClInclude Include="EnemyA.h" />
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="Slider.h" />
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\03. Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -255,9 +257,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleBtnObject.cpp">
-      <Filter>Engine\03. Object\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
@@ -286,6 +285,11 @@
     <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Slider.cpp" />
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

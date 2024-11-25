@@ -169,6 +169,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AttackDirArrow.h" />
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Collider.h" />
@@ -214,6 +215,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AttackDirArrow.cpp" />
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Button.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

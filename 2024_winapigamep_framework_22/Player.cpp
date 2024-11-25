@@ -37,18 +37,18 @@ Player::Player()
 Player::~Player()
 {
 }
-Vec2 dir;
 
 void Player::Update()
 {
+	Vec2 dir;
 	if (GET_KEY(KEY_TYPE::W))
-		dir = Vec2(0, -1);
+		dir += Vec2(0, -1);
 	if (GET_KEY(KEY_TYPE::S))
-		dir = Vec2(0, 1);
+		dir += Vec2(0, 1);
 	if (GET_KEY(KEY_TYPE::A))
-		dir = Vec2(-1, 0);
+		dir += Vec2(-1, 0);
 	if (GET_KEY(KEY_TYPE::D))
-		dir = Vec2(1, 0);
+		dir += Vec2(1, 0);
 
 	Move(dir * speed * fDT);
 
