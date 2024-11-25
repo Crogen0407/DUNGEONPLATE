@@ -45,7 +45,6 @@ GameCanvas::GameCanvas()
 
 			AddUI(shieldBar);
 		}
-
 	}
 
 	//BottomAttackCountContainer
