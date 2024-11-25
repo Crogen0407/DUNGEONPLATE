@@ -1,8 +1,8 @@
 #pragma once
-#include "Component.h"
+#include "Image.h"
 class Texture;
 class Button :
-    public Component
+    public Image
 {
 public:
     Button();
@@ -20,7 +20,6 @@ public:
 private:
     bool m_isSelected = false;
 private:
-    Texture* m_curTex;
     Texture* m_defaultTex;
     Texture* m_selectedTex;
     Texture* m_pressedTex;

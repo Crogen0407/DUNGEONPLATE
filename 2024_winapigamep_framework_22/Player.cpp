@@ -24,6 +24,7 @@ Player::Player()
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	_spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer->isRotatable = false;
 	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),

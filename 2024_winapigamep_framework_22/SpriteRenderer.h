@@ -35,6 +35,8 @@ public:
     {
         angle = atan2(dir.y, dir.x);
     }
+public:
+    bool isRotatable = true;
 private:
     float angle;
 };

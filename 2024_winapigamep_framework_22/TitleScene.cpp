@@ -7,7 +7,7 @@
 #include "Enemy.h"
 #include "CollisionManager.h"
 #include "ResourceManager.h"
-#include "SimpleBtnObject.h"
+#include "Slider.h"
 #include "AttackDirArrow.h"
 
 void TitleScene::Init()

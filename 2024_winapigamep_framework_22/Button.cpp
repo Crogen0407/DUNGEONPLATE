@@ -7,7 +7,6 @@
 #include "ResourceManager.h"
 
 Button::Button() :
-	m_curTex(nullptr),
 	m_defaultTex(nullptr),
 	m_selectedTex(nullptr),
 	m_pressedTex(nullptr)
@@ -15,7 +14,6 @@ Button::Button() :
 {
 	m_defaultTex = GET_SINGLE(ResourceManager)->TextureLoad(L"UI", L"Texture\\UI.bmp");
 	m_selectedTex = GET_SINGLE(ResourceManager)->TextureLoad(L"UI", L"Texture\\UI.bmp");
-	m_curTex = m_defaultTex;
 }
 
 Button::~Button()
@@ -31,17 +29,17 @@ void Button::Init(Texture* defultTex, Texture* selectedTex, Texture* pressedTex)
 
 void Button::OnClick()
 {
-	m_curTex = m_pressedTex;
+	texture = m_pressedTex;
 }
 
 void Button::OnSelectEnter()
 {
-	m_curTex = m_selectedTex;
+	texture = m_selectedTex;
 }
 
 void Button::OnSelectExit()
 {
-	m_curTex = m_defaultTex;
+	texture = m_defaultTex;
 }
 
 void Button::LateUpdate()
@@ -78,6 +76,8 @@ void Button::LateUpdate()
 
 void Button::Render(HDC _hdc)
 {
+	Image::Render(_hdc);
+
 	Vec2 pos = GetOwner()->GetPos();
 	Vec2 size = GetOwner()->GetSize();
 
@@ -89,18 +89,4 @@ void Button::Render(HDC _hdc)
 		RECT_RENDER(_hdc, pos.x, pos.y,
 			size.x, size.y);
 	}
-
-	if (m_curTex == nullptr) return;
-
-	TransparentBlt(_hdc,
-		(int)(pos.x) - 24,
-		(int)(pos.y) - 24,
-		(int)48,
-		(int)48,
-		m_curTex->GetTexDC(),
-		0,
-		0,
-		48,
-		48,
-		RGB(255, 0, 255));
 }
