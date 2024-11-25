@@ -199,6 +199,7 @@
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="targetver.h" />
@@ -243,6 +244,7 @@
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Texture.cpp" />

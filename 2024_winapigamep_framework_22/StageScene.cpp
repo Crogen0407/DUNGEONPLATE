@@ -13,13 +13,13 @@ void StageScene::Init()
 
 	for (int i = 0; i < 10; i++)
 	{
-		Object* obj = new Enemy;
+		//Object* obj = new Enemy;
 		Object* obj2 = new BackGround;
 
 		obj2->SetPos({rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT});
 		obj2->SetSize({ 50, 50 });
 
-		AddObject(obj, LAYER::ENEMY);
+		//AddObject(obj, LAYER::ENEMY);
 		AddObject(obj2, LAYER::BACKGROUND);
 	}
 }
