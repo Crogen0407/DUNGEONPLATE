@@ -19,7 +19,7 @@ public:
         this->maxHp = maxHp;
     }
     void ApplyDamage(int value);
-    void TakeHeal(int value);
+    void ApplyHeal(int value);
     const float GetHp() const
     {
         return hp;
