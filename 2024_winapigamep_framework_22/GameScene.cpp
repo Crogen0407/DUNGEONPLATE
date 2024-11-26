@@ -2,9 +2,11 @@
 #include "GameScene.h"
 #include "EnemyA.h"
 #include "Player.h"
+#include "GameCanvas.h"
 
 void GameScene::Init()
 {
+	canvas = new GameCanvas;
 	Object* player = new Player;
 
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
@@ -20,4 +22,16 @@ void GameScene::Init()
 	/*for (size_t i = 0; i < 100; i++)
 	{
 	}*/
+}
+
+void GameScene::Update()
+{
+	Scene::Update();
+	canvas->Update();
+}
+
+void GameScene::Render(HDC hdc)
+{
+	Scene::Render(hdc);
+	canvas->Render(hdc);
 }

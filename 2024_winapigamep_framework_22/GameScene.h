@@ -1,10 +1,14 @@
 #pragma once
 #include "Scene.h"
+class Canvas;
 class GameScene :
     public Scene
 {
 public:
-    // Scene을(를) 통해 상속됨
     virtual void Init() override;
+    void Update() override;
+    void Render(HDC hdc) override;
+private:
+    Canvas* canvas;
 };
 
