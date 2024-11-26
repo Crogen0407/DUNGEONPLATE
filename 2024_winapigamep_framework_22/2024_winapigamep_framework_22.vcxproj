@@ -172,6 +172,7 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="Stage2.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
@@ -223,6 +225,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -246,6 +249,7 @@
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />

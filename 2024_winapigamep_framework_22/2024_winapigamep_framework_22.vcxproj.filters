@@ -179,6 +179,10 @@
     <ClInclude Include="BackGround.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
+    <ClInclude Include="Stage2.h" />
+    <ClInclude Include="CameraManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -290,6 +294,10 @@
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp" />
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

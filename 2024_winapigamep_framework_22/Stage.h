@@ -11,6 +11,7 @@ public:
 	virtual void LateUpdate();
 	virtual void Render(HDC _hdc);
 	virtual void Release();
+	bool m_isClear = false;
 public:
 	void AddObject(Object* _obj, LAYER _type)
 	{

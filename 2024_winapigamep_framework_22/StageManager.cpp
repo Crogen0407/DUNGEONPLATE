@@ -3,15 +3,14 @@
 #include "Scene.h"
 #include "GameScene.h"
 #include "Stage1.h"
+#include "Stage2.h"
 
 void StageManager::Init()
 {
 	m_pCurrentStage = nullptr;
 
 	RegisterStage(L"Stage1", std::make_shared<Stage1>());
-
-
-	LoadStage(L"Stage1");
+	RegisterStage(L"Stage2", std::make_shared<Stage2>());
 }
 
 void StageManager::Update()

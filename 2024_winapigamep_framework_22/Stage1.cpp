@@ -1,25 +1,33 @@
 #include "pch.h"
 #include "Stage1.h"
-#include "Enemy.h"
+#include "Stage2.h"
+#include "EnemyA.h"
 #include "CameraManager.h"
 #include "BackGround.h"
+#include "StageManager.h"
 
 void Stage1::Init()
 {
-	CameraManager cameraManager;
+    const int cellSize = 20;
+    const int gridWidth = SCREEN_WIDTH / cellSize;
+    const int gridHeight = SCREEN_HEIGHT / cellSize;
 
-	cameraManager.ShakeConsoleWindow(100, 10);
+    for (int i = 0; i < gridWidth; i++)
+    {
+        for (int j = 0; j < gridHeight; j++)
+        {
+            if (i == 1 || i == gridWidth - 1 || j == 3 || j == 41)
+            {
+                Object* obj2 = new BackGround;
 
-	for (int i = 0; i < 100; i++)
-	{
-		Object* obj = new Enemy;
-		Object* obj2 = new BackGround;
+                obj2->SetPos({ i * cellSize, j * cellSize });
+                obj2->SetSize({ cellSize, cellSize });
 
-		obj->SetPos({ rand() % SCREEN_WIDTH,
-				rand() % SCREEN_HEIGHT });
-		obj->SetSize({ 100, 100 });
+                AddObject(obj2, LAYER::BACKGROUND);
+            }
+        }
+    }
 
-		AddObject(obj, LAYER::ENEMY);
-		AddObject(obj2, LAYER::BACKGROUND);
-	}
+	if(m_isClear)
+		StageManager::LoadStage(L"Stage2");
 }
