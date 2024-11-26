@@ -10,6 +10,11 @@ public:
 	void LateUpdate() override;
 	void Render(HDC _hdc) override;
 public:
+	void SetValue(float value)
+	{
+		this->value = value;
+	}
+public:
 	float value = 1.f;
 	bool isVertical = false;
 	bool flip = false;

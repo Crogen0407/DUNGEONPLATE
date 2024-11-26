@@ -1,15 +1,16 @@
 #include "pch.h"
+#include <format>
 #include "GameCanvas.h"
 #include "Image.h"
 #include "Text.h"
 #include "Button.h"
 #include "Slider.h"
-#include "ResourceManager.h"
+#include "Player.h"
 #include "Action.h"
+#include "HealthCompo.h"
+#include "ResourceManager.h"
 #include "InputManager.h"
 #include "TimeManager.h"
-#include <iostream>
-#include <format>
 
 GameCanvas::GameCanvas() :
 	healthBar(nullptr),
@@ -19,6 +20,7 @@ GameCanvas::GameCanvas() :
 	timeText(nullptr)
 {
 	int offset = 10;
+	Player* player = static_cast<Player*>(FindObject(L"Player", LAYER::PLAYER));
 
 	//BottomHeathContainer
 	{
@@ -36,7 +38,6 @@ GameCanvas::GameCanvas() :
 			healthBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y + offset - 35 },
 				{ size.x - offset*2, 35.f }));
-
 			healthBar->fillTexture = LOADTEXTURE(L"HealthBar_Fill", L"Texture\\HealthBar_Fill.bmp");
 			healthBar->backTexture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
@@ -120,6 +121,11 @@ void GameCanvas::Update()
 	std::string finalStr = std::format("{0:02}:{1:02}", m, s);
 	wstring message_w;
 	timeText->SetText(message_w.assign(finalStr.begin(), finalStr.end()).c_str());
+
+	if (GET_KEYDOWN(KEY_TYPE::ENTER))
+	{
+		healthBar->value -= 0.1f;
+	}
 }
 
 void GameCanvas::LateUpdate()
