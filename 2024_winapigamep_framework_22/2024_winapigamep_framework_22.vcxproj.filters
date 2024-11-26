@@ -56,6 +56,9 @@
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Enemy">
+      <UniqueIdentifier>{03afcfa3-8142-4769-8217-a1b49e8f2a42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -170,11 +173,17 @@
     <ClInclude Include="Sequence.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
-    <ClInclude Include="DOTween.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
     <ClInclude Include="Tween.h">
       <Filter>Engine\Crogen\DOTween</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyA.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,11 +288,17 @@
     <ClCompile Include="Sequence.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
-    <ClCompile Include="DOTween.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
     <ClCompile Include="Tween.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyA.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

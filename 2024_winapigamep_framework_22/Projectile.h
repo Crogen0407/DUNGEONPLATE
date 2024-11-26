@@ -14,6 +14,10 @@ public:
 		m_vDir = _dir;
 		m_vDir.Normalize();
 	}
+	Vec2 GetDir()
+	{
+		return m_vDir;
+	}
 public:
 	virtual void EnterCollision(Collider* _other);
 	virtual void StayCollision(Collider* _other);

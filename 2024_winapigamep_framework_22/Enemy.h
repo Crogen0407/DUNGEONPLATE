@@ -1,7 +1,7 @@
 #pragma once
 #include "Agent.h"
 
-class Enemy : public Agent
+class Enemy : public Object
 {
 public:
 	Enemy();
@@ -16,5 +16,6 @@ public:
 protected:
 	int m_hp;
 	int m_attack;
+	Vec2 m_moveDesire;
 };
 

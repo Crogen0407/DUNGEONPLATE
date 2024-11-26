@@ -19,6 +19,8 @@ void Enemy::EnterCollision(Collider* _other)
 	std::cout << "Enter" << std::endl;
 	Object* pOtherObj = _other->GetOwner();
 	wstring str = pOtherObj->GetName();
+
+	//¸Â´Â°Å
 	if (pOtherObj->GetName() == L"PlayerBullet")
 	{
 		m_hp -= 1;

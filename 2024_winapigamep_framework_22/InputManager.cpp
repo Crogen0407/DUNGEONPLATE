@@ -9,7 +9,6 @@ void InputManager::Init()
 
 void InputManager::Update()
 {
-
 	//GetActiveWindow(); // 창을 여러개 띄울때 맨 위에있는 윈도우
 	HWND hWnd = GetFocus(); // 지금 딱 포커싱한거
 	if (hWnd == nullptr)
