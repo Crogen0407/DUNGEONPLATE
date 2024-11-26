@@ -32,12 +32,8 @@ public:
         return hp;
     }
 public:
-    void LateUpdate() override {
-        Component::LateUpdate();
-    }
-    void Render(HDC hdc) override {
-        Component::Render(hdc);
-    }
+    void LateUpdate() override;
+    void Render(HDC hdc) override;
 private:
     float hp;
     float maxHp;
