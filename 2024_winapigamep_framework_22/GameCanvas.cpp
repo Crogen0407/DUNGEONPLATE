@@ -20,7 +20,7 @@ GameCanvas::GameCanvas()
 
 		Image* BottomHeathContainer = static_cast<Image*>(UI::CreateUI(UIOPTION::IMAGE,
 			pos, size));
-		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite2X1", L"Texture\\UISprite2X1.bmp");
+		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
 		AddUI(BottomHeathContainer);
 
@@ -57,7 +57,7 @@ GameCanvas::GameCanvas()
 		Vec2 pos = { SCREEN_WIDTH - (int)(size.x / 2) - offset / 2, (int)(SCREEN_HEIGHT - size.y / 2 - offset/2) };
 
 		Image* BottomHeathContainer = static_cast<Image*>(UI::CreateUI(UIOPTION::IMAGE, pos, size));
-		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite", L"Texture\\UISprite.bmp");
+		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite1X2", L"Texture\\UISprite1X2.bmp");
 		AddUI(BottomHeathContainer);
 
 		//AttackCountSlider
