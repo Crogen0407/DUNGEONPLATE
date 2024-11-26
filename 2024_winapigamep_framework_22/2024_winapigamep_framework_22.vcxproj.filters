@@ -56,6 +56,9 @@
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\08.UI">
+      <UniqueIdentifier>{080fcf78-1167-493d-af0d-63e9d0c60fa0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -142,9 +145,6 @@
     <ClInclude Include="Animation.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Engine\06. Component</Filter>
-    </ClInclude>
     <ClInclude Include="PoolManager.h">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClInclude>
@@ -174,14 +174,36 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="Slider.h" />
     <ClInclude Include="BackGround.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="HealthCompo.h" />
+    <ClInclude Include="UIScene.h" />
+    <ClInclude Include="UI.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -261,9 +283,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Engine\06. Component</Filter>
-    </ClCompile>
     <ClCompile Include="PoolManager.cpp">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
@@ -290,14 +309,35 @@
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthCompo.cpp" />
+    <ClCompile Include="UIScene.cpp" />
+    <ClCompile Include="UI.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
