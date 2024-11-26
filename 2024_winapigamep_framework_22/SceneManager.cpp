@@ -3,7 +3,6 @@
 #include "Scene.h"
 #include "TitleScene.h"
 #include "GameScene.h"
-#include "UIScene.h"
 
 void SceneManager::Init()
 {
@@ -12,10 +11,9 @@ void SceneManager::Init()
 	// ¾À µî·Ï
 	RegisterScene(L"TitleScene",std::make_shared<TitleScene>());
 	RegisterScene(L"GameScene",std::make_shared<GameScene>());
-	RegisterScene(L"UIScene",std::make_shared<UIScene>());
 
 	// ¾À ·Îµå
-	LoadScene(L"UIScene");
+	LoadScene(L"GameScene");
 }
 
 void SceneManager::Update()
