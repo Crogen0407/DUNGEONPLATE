@@ -75,7 +75,7 @@ GameCanvas::GameCanvas()
 	//ScoreText
 	{
 		Vec2 size = { 0, 0 };
-		Vec2 pos = { SCREEN_WIDTH / 2, 25 };
+		Vec2 pos = { SCREEN_WIDTH / 2, 15 };
 		Text* scoreText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
 
 		scoreText->LoadFont(L"엘리스 DX널리체 Bold", 45, 60);

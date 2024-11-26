@@ -20,24 +20,27 @@ void Slider::LateUpdate()
 
 void Slider::Render(HDC _hdc)
 {
-	if (backTexture == nullptr) return;
-	if (fillTexture == nullptr) return;
 
 	Vec2 pos = GetPos();
 	Vec2 size = GetSize();
 
-	//BackTexture
-	TransparentBlt(_hdc,
-		(int)(pos.x) - size.x / 2,
-		(int)(pos.y) - size.y / 2,
-		(int)size.x,
-		(int)size.y,
-		backTexture->GetTexDC(),
-		0,
-		0,
-		backTexture->GetWidth(),
-		backTexture->GetHeight(),
-		RGB(255, 0, 255));
+	if (backTexture != nullptr)
+	{
+		//BackTexture
+		TransparentBlt(_hdc,
+			(int)(pos.x) - size.x / 2,
+			(int)(pos.y) - size.y / 2,
+			(int)size.x,
+			(int)size.y,
+			backTexture->GetTexDC(),
+			0,
+			0,
+			backTexture->GetWidth(),
+			backTexture->GetHeight(),
+			RGB(255, 0, 255));
+	}
+
+	if (fillTexture == nullptr) return;
 
 	Vec2 fillPos = { (pos.x) - size.x / 2 + offsetX / 2, (pos.y) - size.y / 2 + offsetY / 2 };;
 	Vec2 fillSize;
