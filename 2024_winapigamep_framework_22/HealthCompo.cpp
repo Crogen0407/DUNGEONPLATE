@@ -13,16 +13,24 @@ HealthCompo::~HealthCompo()
 
 void HealthCompo::ApplyDamage(int value)
 {
-	hp -= value;
-	//데미지 이벤트 실행
+	SetHp(hp - value);
+
 	if (hp <= 0)
 	{
-		//죽음 이벤트 실행
+		OnDie();
 	}
 }
 
 void HealthCompo::ApplyHeal(int value)
 {
-	//힐 이벤트 실행
-	hp += value;
+	SetHp(hp + value);
+}
+
+void HealthCompo::LateUpdate()
+{
+	
+}
+
+void HealthCompo::Render(HDC hdc)
+{
 }

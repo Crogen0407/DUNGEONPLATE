@@ -8,6 +8,8 @@ public:
 public:
 	const float& GetDT() const { return m_dT; }
 	const float& GetTime() const { return m_time; }
+public:
+	float timeScale = 1.f;
 private:
 	// Delta time
 	LARGE_INTEGER m_llPrevCnt = {};
