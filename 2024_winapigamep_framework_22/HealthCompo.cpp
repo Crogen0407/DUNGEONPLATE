@@ -25,3 +25,12 @@ void HealthCompo::ApplyHeal(int value)
 {
 	SetHp(hp + value);
 }
+
+void HealthCompo::LateUpdate()
+{
+	
+}
+
+void HealthCompo::Render(HDC hdc)
+{
+}
