@@ -56,6 +56,9 @@
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Enemy">
+      <UniqueIdentifier>{03afcfa3-8142-4769-8217-a1b49e8f2a42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -142,6 +145,9 @@
     <ClInclude Include="Animation.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleBtnObject.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
@@ -170,18 +176,14 @@
     <ClInclude Include="Tween.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyA.h" />
-    <ClInclude Include="StageScene.h">
-      <Filter>Engine\04. Scene</Filter>
+    <ClInclude Include="EnemyA.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="Slider.h" />
-    <ClInclude Include="BackGround.h">
-      <Filter>Engine\03. Object</Filter>
+    <ClInclude Include="Movement.h">
+      <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2.h" />
-    <ClInclude Include="CameraManager.h">
-      <Filter>Engine\02. Manager</Filter>
+    <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +263,9 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleBtnObject.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
@@ -286,18 +291,14 @@
     <ClCompile Include="Tween.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyA.cpp" />
-    <ClCompile Include="StageScene.cpp">
-      <Filter>Engine\04. Scene</Filter>
+    <ClCompile Include="EnemyA.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Slider.cpp" />
-    <ClCompile Include="BackGround.cpp">
-      <Filter>Engine\03. Object</Filter>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2.cpp" />
-    <ClCompile Include="CameraManager.cpp">
-      <Filter>Engine\02. Manager</Filter>
+    <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
