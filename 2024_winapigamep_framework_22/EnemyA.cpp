@@ -13,27 +13,38 @@
 EnemyA::EnemyA()
 {
 	m_moveDesire = Vec2(0, 0);
+	target = FindObject(L"Player", LAYER::PLAYER);
 
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();
-	GetComponent<AttackCompo>()->Init(shootDelay, FindObject(L"Player", LAYER::PLAYER));
 }
 
 EnemyA::~EnemyA()
 {
 }
 
-float prevDash = 0;
 void EnemyA::Update()
 {
-	GetComponent<AttackCompo>()->TryFire();
+	if (prevShootTime + shootDelay < TIME)
+	{
+		prevShootTime = TIME;
+
+		Vec2 attackDir = target->GetPos();
+		attackDir -= GetPos();
+
+		GetComponent<AttackCompo>()->TryFire(attackDir);
+	}
+
 
 	if (prevDash + 2 < TIME)
 	{
 		prevDash = TIME;
 
 		Vec2 dashDir = { rand() % 2 == 0 ? 1 : -1, 0 };
-		GetComponent<Movement>()->Dash(dashDir, 10.f, 0.1f);
+		if (GetPos().x < 100) dashDir = { 1,0 };
+		else if (GetPos().x > SCREEN_WIDTH - 100) dashDir = { -1,0 };
+
+		GetComponent<Movement>()->Dash(dashDir, 1000.f, 0.1f);
 	}
 }
 

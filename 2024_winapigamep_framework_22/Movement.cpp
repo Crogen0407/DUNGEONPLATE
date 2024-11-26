@@ -34,14 +34,16 @@ void Movement::LateUpdate()
 {
 	if (isDashing)
 	{
-		if (dashStartTime + dashTime < TIME)
+		Vec2 position = GetOwner()->GetPos();
+		Vec2 size = GetOwner()->GetSize();
+
+		if (dashStartTime + dashTime < TIME
+			|| position.x - (size.x / 2) < 0 || position.x + (size.x / 2) > SCREEN_WIDTH)
 		{
 			isDashing = false;
 		}
 
-		Vec2 position = GetOwner()->GetPos();
-		position += dashDir;
-
+		position += dashDir * dashSpeed * fDT;
 		GetOwner()->SetPos(position);
 	}
 }

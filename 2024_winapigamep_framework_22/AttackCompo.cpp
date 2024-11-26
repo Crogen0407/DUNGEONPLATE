@@ -6,10 +6,7 @@
 #include "Object.h"
 #include "Scene.h"
 
-AttackCompo::AttackCompo() :
-	shootDelay{ 0 },
-	prevShootTime{ 0 },
-	target{ nullptr }
+AttackCompo::AttackCompo()
 {
 }
 
@@ -17,24 +14,16 @@ AttackCompo::~AttackCompo()
 {
 }
 
-void AttackCompo::TryFire()
+void AttackCompo::TryFire(Vec2 dir)
 {
-	if (prevShootTime + shootDelay < TIME)
-	{
-		prevShootTime = TIME;
+	Projectile* projectile = new Projectile();
+	projectile->SetPos(GetOwner()->GetPos());
+	projectile->SetSize({ 10, 10 });
 
-		Vec2 dir = target->GetPos();
-		dir -= GetOwner()->GetPos();
+	GET_SINGLE(SceneManager)->GetCurrentScene()
+		->AddObject(projectile, LAYER::PROJECTILE);
 
-		Projectile* projectile = new Projectile();
-		projectile->SetPos(GetOwner()->GetPos());
-		projectile->SetSize({ 10, 10 });
-
-		GET_SINGLE(SceneManager)->GetCurrentScene()
-			->AddObject(projectile, LAYER::PROJECTILE);
-
-		projectile->SetDir(dir);
-	}
+	projectile->SetDir(dir);
 }
 
 void AttackCompo::LateUpdate()
