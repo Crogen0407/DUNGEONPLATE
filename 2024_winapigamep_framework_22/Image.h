@@ -1,7 +1,7 @@
 #pragma once
-#include "Component.h"
+#include "UI.h"
 class Texture;
-class Image : public Component
+class Image : public UI
 {
 public:
 	Image();

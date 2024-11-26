@@ -10,6 +10,14 @@
 #include "Slider.h"
 #include "AttackDirArrow.h"
 
+TitleScene::TitleScene()
+{
+}
+
+TitleScene::~TitleScene()
+{
+}
+
 void TitleScene::Init()
 {
 	//Object* pTitleStartBtn = new SimpleBtnObject;

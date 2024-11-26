@@ -17,6 +17,7 @@ public:							\
 #define Deg2Rad (PI * 2) / 360
 #define Rad2Deg 360 / (PI * 2)
 
+#define LOADTEXTURE(key, path) GET_SINGLE(ResourceManager)->TextureLoad(key, path)
 
 #define KEY_CHECK(key, state) InputManager::GetInst()->GetKey(key) == state
 #define GET_KEYNONE(key) KEY_CHECK(key, KEY_STATE::NONE)
