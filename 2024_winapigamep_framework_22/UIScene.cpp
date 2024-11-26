@@ -9,6 +9,7 @@
 UIScene::UIScene() :
 	canvas(nullptr)
 {
+	
 }
 
 UIScene::~UIScene()

@@ -218,7 +218,6 @@
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Action.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />

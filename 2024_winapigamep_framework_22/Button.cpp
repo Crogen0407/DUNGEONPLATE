@@ -30,16 +30,19 @@ void Button::Init(Texture* defultTex, Texture* selectedTex, Texture* pressedTex)
 void Button::OnClick()
 {
 	texture = m_pressedTex;
+	OnClickEvent.Invoke(NULL);
 }
 
 void Button::OnSelectEnter()
 {
 	texture = m_selectedTex;
+	OnSelectEnterEvent.Invoke(NULL);
 }
 
 void Button::OnSelectExit()
 {
 	texture = m_defaultTex;
+	OnSelectExitEvent.Invoke(NULL);
 }
 
 void Button::LateUpdate()
