@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Action.h"
 class HealthCompo :
     public Component
 {
@@ -7,22 +8,35 @@ public:
     HealthCompo();
     ~HealthCompo() override;
 public:
-    //여기에 실행 이벤트
+    Action<float> ChangeHpEvent;
+    Action<int> DieEvent;
 public:
     void SetHp(float hp)
     {
         this->hp = hp;
+        ChangeHpEvent.Invoke(hp/maxHp);
     }
     void SetHp(float hp, float maxHp)
     {
-        this->hp = hp;
         this->maxHp = maxHp;
+        SetHp(hp);
     }
     void ApplyDamage(int value);
     void ApplyHeal(int value);
+    void OnDie()
+    {
+        DieEvent.Invoke(NULL);
+    }
     const float GetHp() const
     {
         return hp;
+    }
+public:
+    void LateUpdate() override {
+        Component::LateUpdate();
+    }
+    void Render(HDC hdc) override {
+        Component::Render(hdc);
     }
 private:
     float hp;

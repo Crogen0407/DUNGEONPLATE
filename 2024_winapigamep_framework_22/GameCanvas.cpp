@@ -7,9 +7,16 @@
 #include "ResourceManager.h"
 #include "Action.h"
 #include "InputManager.h"
+#include "TimeManager.h"
 #include <iostream>
+#include <format>
 
-GameCanvas::GameCanvas()
+GameCanvas::GameCanvas() :
+	healthBar(nullptr),
+	shieldBar(nullptr),
+	attackCountBar(nullptr),
+	scoreText(nullptr),
+	timeText(nullptr)
 {
 	int offset = 10;
 
@@ -26,7 +33,7 @@ GameCanvas::GameCanvas()
 
 		//HealthBar
 		{
-			Slider* healthBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER, 
+			healthBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y + offset - 35 },
 				{ size.x - offset*2, 35.f }));
 
@@ -38,7 +45,7 @@ GameCanvas::GameCanvas()
 
 		//ShieldBar
 		{
-			Slider* shieldBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
+			shieldBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y + offset + 15 },
 				{ size.x - offset * 2, 35.f }));
 
@@ -60,18 +67,18 @@ GameCanvas::GameCanvas()
 		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite1X2", L"Texture\\UISprite1X2.bmp");
 		AddUI(BottomHeathContainer);
 
-		//AttackCountSlider
+		//AttackCountBar
 		{
-			Slider* attackCountSlider = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
+			attackCountBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
 				pos, { size.x - offset * 2, size.y-offset*2 }));
 
-			attackCountSlider->isVertical = true;
-			attackCountSlider->fillTexture = LOADTEXTURE(L"AttackBar_Fill", L"Texture\\AttackBar_Fill.bmp");
-			attackCountSlider->backTexture = LOADTEXTURE(L"UISprite", L"Texture\\UISprite.bmp");
+			attackCountBar->isVertical = true;
+			attackCountBar->fillTexture = LOADTEXTURE(L"AttackBar_Fill", L"Texture\\AttackBar_Fill.bmp");
+			attackCountBar->backTexture = LOADTEXTURE(L"UISprite", L"Texture\\UISprite.bmp");
 
-			attackCountSlider->value = 0.75f;
-			attackCountSlider->flip = true;
-			AddUI(attackCountSlider);
+			attackCountBar->value = 0.75f;
+			attackCountBar->flip = true;
+			AddUI(attackCountBar);
 		}
 	}
 
@@ -79,7 +86,7 @@ GameCanvas::GameCanvas()
 	{
 		Vec2 size = { 0, 0 };
 		Vec2 pos = { SCREEN_WIDTH / 2, 15 };
-		Text* scoreText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
+		scoreText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
 
 		scoreText->LoadFont(L"엘리스 DX널리체 Bold", 45, 60);
 		scoreText->SetText(L"5");
@@ -91,10 +98,9 @@ GameCanvas::GameCanvas()
 	{
 		Vec2 size = { 0, 0 };
 		Vec2 pos = { offset, (int)(SCREEN_HEIGHT - (SCREEN_HEIGHT / 8.f) - offset/2) };
-		Text* timeText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
+		timeText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
 
 		timeText->LoadFont(L"엘리스 DX널리체 Bold", 18, 24);
-		timeText->SetText(L"00:00");
 		timeText->SetPitchAndFamily(TA_BOTTOM | TA_LEFT);
 		AddUI(timeText);
 	}
@@ -107,6 +113,13 @@ GameCanvas::~GameCanvas()
 void GameCanvas::Update()
 {
 	Canvas::Update();
+
+	int s = (int)TIME%60;
+	int m = (TIME / 60);
+
+	std::string finalStr = std::format("{0:02}:{1:02}", m, s);
+	wstring message_w;
+	timeText->SetText(message_w.assign(finalStr.begin(), finalStr.end()).c_str());
 }
 
 void GameCanvas::LateUpdate()
