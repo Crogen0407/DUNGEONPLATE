@@ -187,6 +187,7 @@
     <ClInclude Include="GameCanvas.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
+    <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Object.h" />
@@ -242,6 +243,7 @@
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
+    <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
