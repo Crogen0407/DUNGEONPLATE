@@ -9,27 +9,34 @@
 
 void StageScene::Init()
 {
-    CameraManager cameraManager;
+    const int cellSizeX = 190;
+    const int cellSizeY = 240;
+    const int gridSize = 3;
+    const int totalGridSize = cellSizeX * gridSize;
 
-    cameraManager.ShakeConsoleWindow(1, 50);
+    const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 95;
+    const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 - 15;
 
-    const int cellSize = 20;
-    const int gridWidth = SCREEN_WIDTH / cellSize;
-    const int gridHeight = SCREEN_HEIGHT / cellSize;
-
-    for (int i = 0; i < gridWidth; i++)
+    for (int i = 0; i < gridSize; i++)
     {
-        for (int j = 0; j < gridHeight; j++)
+        for (int j = 0; j < gridSize; j++)
         {
-            if (i == 1 || i == gridWidth - 1 || j == 3 || j == 41)
-            {
-                Object* obj2 = new BackGround;
+            grid[i][j] = new BackGround;
 
-                obj2->SetPos({ i * cellSize, j * cellSize });
-                obj2->SetSize({ cellSize, cellSize });
+            grid[i][j]->SetPos({ startX + i * cellSizeX, startY + j * cellSizeY });
+            grid[i][j]->SetSize({ cellSizeX, cellSizeY });
 
-                AddObject(obj2, LAYER::BACKGROUND);
-            }
+            AddObject(grid[i][j], LAYER::BACKGROUND);
         }
     }
+}
+
+BackGround* StageScene::GetBackGroundAt(int x, int y)
+{
+    if (x >= 0 && x < gridSize && y >= 0 && y < gridSize)
+    {
+        return grid[x][y];
+    }
+
+    return nullptr;
 }

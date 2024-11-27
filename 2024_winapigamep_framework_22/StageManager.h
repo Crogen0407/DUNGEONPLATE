@@ -16,4 +16,3 @@ private:
 
 	std::shared_ptr<Stage> m_pCurrentStage;
 };
-
