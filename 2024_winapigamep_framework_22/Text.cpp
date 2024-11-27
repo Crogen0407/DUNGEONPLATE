@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Text.h"
 #include "ResourceManager.h"
+#include "Canvas.h"
 
 Text::Text()
 {
@@ -19,13 +20,13 @@ void Text::LateUpdate()
 
 void Text::Render(HDC _hdc)
 {
+	Vec2 pos = GetPos() + owner->GetPos();
 	::SetTextColor(_hdc, color);
 	HFONT oldFont = static_cast<HFONT>(SelectObject(_hdc, pfont));
 
-	Vec2 pos = { GetPos().x - GetSize().x / 2 , GetPos().y - GetSize().y / 2 };
 	::SetBkMode(_hdc, 1);
 	::SetTextAlign(_hdc, iPitchAndFamily);
-	::TextOut(_hdc, pos.x, pos.y, 
+	::TextOut(_hdc, pos.x - GetSize().x / 2, pos.y - GetSize().y / 2,
 		text.c_str(), text.size());
 
 	SetTextColor(_hdc, RGB(0, 0, 0));

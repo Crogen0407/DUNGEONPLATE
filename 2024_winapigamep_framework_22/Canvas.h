@@ -1,7 +1,13 @@
 #pragma once
 #include "Object.h"
+enum class UIOPTION
+{
+    BUTTON = 1,
+    IMAGE = 2,
+    SLIDER = 4,
+    TEXT = 8
+};
 class UI;
-
 class Canvas :
     public Object
 {
@@ -14,6 +20,9 @@ public:
     void Update() override;
     void LateUpdate() override;
     void Render(HDC _hdc) override;
+public:
+    UI* CreateUI(UIOPTION uiOption);
+    UI* CreateUI(UIOPTION uiOption, Vec2 pos, Vec2 size);
 public:
     void AddUI(UI* newUI)
     {

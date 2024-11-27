@@ -21,13 +21,12 @@ GameCanvas::GameCanvas() :
 {
 	int offset = 10;
 	Player* player = static_cast<Player*>(FindObject(L"Player", LAYER::PLAYER));
-
 	//BottomHeathContainer
 	{
 		Vec2 size = { (int)(SCREEN_WIDTH / 7 * 6) - offset/2, (int)(SCREEN_HEIGHT / 8.f) - offset };
 		Vec2 pos = { (int)(size.x / 2) + offset / 2, (int)(SCREEN_HEIGHT - size.y / 2) - offset/2 };
 
-		Image* BottomHeathContainer = static_cast<Image*>(UI::CreateUI(UIOPTION::IMAGE,
+		Image* BottomHeathContainer = static_cast<Image*>(CreateUI(UIOPTION::IMAGE,
 			pos, size));
 		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
@@ -35,7 +34,7 @@ GameCanvas::GameCanvas() :
 
 		//HealthBar
 		{
-			healthBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
+			healthBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y + offset - 35 },
 				{ size.x - offset*2, 35.f }));
 			healthBar->fillTexture = LOADTEXTURE(L"HealthBar_Fill", L"Texture\\HealthBar_Fill.bmp");
@@ -52,7 +51,7 @@ GameCanvas::GameCanvas() :
 
 		//ShieldBar
 		{
-			shieldBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
+			shieldBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y + offset + 15 },
 				{ size.x - offset * 2, 35.f }));
 
@@ -74,13 +73,13 @@ GameCanvas::GameCanvas() :
 		Vec2 size = { (int)((SCREEN_WIDTH / 7) - offset / 2), (int)(SCREEN_HEIGHT / 8.f) - offset };
 		Vec2 pos = { SCREEN_WIDTH - (int)(size.x / 2) - offset / 2, (int)(SCREEN_HEIGHT - size.y / 2 - offset/2) };
 
-		Image* BottomHeathContainer = static_cast<Image*>(UI::CreateUI(UIOPTION::IMAGE, pos, size));
+		Image* BottomHeathContainer = static_cast<Image*>(CreateUI(UIOPTION::IMAGE, pos, size));
 		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite1X2", L"Texture\\UISprite1X2.bmp");
 		AddUI(BottomHeathContainer);
 
 		//AttackCountBar
 		{
-			attackCountBar = static_cast<Slider*>(UI::CreateUI(UIOPTION::SLIDER,
+			attackCountBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
 				pos, { size.x - offset * 2, size.y-offset*2 }));
 
 			attackCountBar->isVertical = true;
@@ -101,7 +100,7 @@ GameCanvas::GameCanvas() :
 	{
 		Vec2 size = { 0, 0 };
 		Vec2 pos = { SCREEN_WIDTH / 2, 15 };
-		scoreText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
+		scoreText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
 		scoreText->LoadFont(L"엘리스 DX널리체 Bold", 45, 60);
 		scoreText->SetText(L"5");
@@ -113,7 +112,7 @@ GameCanvas::GameCanvas() :
 	{
 		Vec2 size = { 0, 0 };
 		Vec2 pos = { offset, (int)(SCREEN_HEIGHT - (SCREEN_HEIGHT / 8.f) - offset/2) };
-		timeText = static_cast<Text*>(UI::CreateUI(UIOPTION::TEXT, pos, size));
+		timeText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
 		timeText->LoadFont(L"엘리스 DX널리체 Bold", 18, 24);
 		timeText->SetPitchAndFamily(TA_BOTTOM | TA_LEFT);

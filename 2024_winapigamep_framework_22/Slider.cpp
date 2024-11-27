@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Slider.h"
-#include "Object.h"
+#include "Canvas.h"
 #include "Texture.h"
 
 Slider::Slider():
@@ -20,7 +20,7 @@ void Slider::LateUpdate()
 
 void Slider::Render(HDC _hdc)
 {
-	Vec2 pos = GetPos();
+	Vec2 pos = GetPos() + owner->GetPos();
 	Vec2 size = GetSize();
 
 	if (backTexture != nullptr)

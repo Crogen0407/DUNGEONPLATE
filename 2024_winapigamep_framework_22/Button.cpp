@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Button.h"
 #include "Texture.h"
-#include "Object.h"
 #include "InputManager.h"
 #include "GDISelector.h"
 #include "ResourceManager.h"
+#include "Canvas.h"
 
 Button::Button() :
 	m_defaultTex(nullptr),
@@ -47,7 +47,7 @@ void Button::OnSelectExit()
 
 void Button::LateUpdate()
 {
-	Vec2 pos = GetPos();
+	Vec2 pos = GetPos() + owner->GetPos();
 	Vec2 size = GetSize();
 
 	Vec2 mousePos = GET_MOUSEPOS;

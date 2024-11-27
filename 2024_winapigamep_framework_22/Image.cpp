@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Image.h"
-#include "Object.h"
+#include "Canvas.h"
 #include "Texture.h"
 
 Image::Image() :
@@ -20,7 +20,7 @@ void Image::Render(HDC _hdc)
 {
 	if (texture == nullptr) return;
 
-	Vec2 pos = GetPos();
+	Vec2 pos = GetPos() + owner->GetPos();
 	Vec2 size = GetSize();
 
 	TransparentBlt(_hdc,

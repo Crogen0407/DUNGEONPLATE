@@ -1,28 +1,22 @@
 #pragma once
-
-enum class UIOPTION
-{
-    BUTTON = 1,
-    IMAGE = 2,
-    SLIDER = 4,
-    TEXT = 8
-};
-
+class Canvas;
 class UI
 {
-private:
+protected:
     Vec2 pos;
     Vec2 size;
+    Canvas* owner;
 public:
     UI();
     virtual ~UI();
 public:
-    static UI* CreateUI(UIOPTION uiOption);
-    static UI* CreateUI(UIOPTION uiOption, Vec2 pos, Vec2 size);
-public:
     virtual void LateUpdate() abstract;
     virtual void Render(HDC _hdc) abstract;
 public:
+    void SetOwner(Canvas *canvas)
+    {
+        owner = canvas;
+    }
     void SetPos(Vec2& pos)
     {
         this->pos = pos;
