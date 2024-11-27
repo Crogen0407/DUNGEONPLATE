@@ -3,10 +3,9 @@
 #include "EnemyA.h"
 #include "Player.h"
 #include "GameCanvas.h"
-
+#include "CollisionManager.h"
 void GameScene::Init()
 {
-	canvas = new GameCanvas;
 	Object* player = new Player;
 
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
@@ -18,10 +17,12 @@ void GameScene::Init()
 	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
 	obj->SetSize({ 50, 50 });
 	AddObject(obj, LAYER::ENEMY);
-
+	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	/*for (size_t i = 0; i < 100; i++)
 	{
 	}*/
+
+	canvas = new GameCanvas;
 }
 
 void GameScene::Update()
