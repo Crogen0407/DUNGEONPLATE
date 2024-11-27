@@ -32,8 +32,8 @@ void SpriteRenderer::Render(HDC _hdc)
 		float sinA = sinf(angle - PI / 2);
 		float cosA = cosf(angle - PI / 2);
 
-		float halfWidth = GetOwner()->GetSize().x / 2;
-		float halfHeight = GetOwner()->GetSize().y / 2;
+		float halfWidth = size.x / 2;
+		float halfHeight = size.y / 2;
 
 		POINT vertices[4];
 
@@ -112,8 +112,9 @@ void SpriteRenderer::Render(HDC _hdc)
 
 		float xPercent = (maxX - minX) / texSize.x;
 		float yPercent = (maxY - minY) / texSize.y;
-		size.x *= xPercent;
-		size.y *= yPercent;
+		size.x = xPercent * size.x;
+		size.y = yPercent * size.y;
+
 		TransparentBlt(_hdc,
 			(int)((pos.x) - size.x / 2),
 			(int)((pos.y) - size.y / 2),

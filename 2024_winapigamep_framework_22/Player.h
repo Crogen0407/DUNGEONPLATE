@@ -22,11 +22,13 @@ public:
 private:
 	SpriteRenderer* _spriteRenderer;
 	HealthCompo* healthCompo;
+	Collider* collider;
 	Texture* m_pTex;
-	float speed = 100.f;
 //ÆÐ¸µ
 private:
-	float parryDist = 70.f;
+	float speed = 100.f;
+
+	float parryDist = 100.f;
 	float parryingTime = 0.1f;
 	bool isParrying = false;
 

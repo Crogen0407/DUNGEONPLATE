@@ -22,43 +22,53 @@ Player::Player()
 	//m_pTex->Load(path);
 	//m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Player", L"Texture\\planem.bmp");
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
+
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	this->AddComponent<HealthCompo>();
+
 	_spriteRenderer = GetComponent<SpriteRenderer>();
 	healthCompo = GetComponent<HealthCompo>();
+	collider = GetComponent<Collider>();
+
 	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
+	collider->SetSize({ 50, 50 });
+
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
 	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
 	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
 
-
-
+	SetSize({ 75, 75 });
+	speed = 400;
 }
 Player::~Player()
 {
 }
-Vec2 dir;
 
 void Player::Update()
 {
-	if (GET_KEY(KEY_TYPE::W))
-		dir = Vec2(0, -1);
-	if (GET_KEY(KEY_TYPE::S))
-		dir = Vec2(0, 1);
-	if (GET_KEY(KEY_TYPE::A))
-		dir = Vec2(-1, 0);
-	if (GET_KEY(KEY_TYPE::D))
-		dir = Vec2(1, 0);
-	if (GET_KEY(KEY_TYPE::SPACE))
-		Parry();
+	Vec2 dir;
 
+	if (GET_KEY(KEY_TYPE::W))
+		dir += Vec2(0, -1);
+	if (GET_KEY(KEY_TYPE::S))
+		dir += Vec2(0, 1);
+	if (GET_KEY(KEY_TYPE::A))
+		dir += Vec2(-1, 0);
+	if (GET_KEY(KEY_TYPE::D))
+		dir += Vec2(1, 0);
+	if (GET_KEY(KEY_TYPE::LBUTTON))
+		Parry();
+	dir.Normalize();
 	Move(dir * speed * fDT);
 	Parrying();
 
 	Vec2 vPos = GetPos();
-	_spriteRenderer->LookAt(dir);
+
+	Vec2 lookDir = (Vec2)GET_MOUSEPOS - GetPos();
+
+	_spriteRenderer->LookAt(lookDir);
 	SetPos(vPos);
 }
 
