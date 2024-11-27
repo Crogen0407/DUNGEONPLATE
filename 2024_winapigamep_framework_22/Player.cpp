@@ -11,7 +11,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "SpriteRenderer.h"
-
+#include "HealthCompo.h"
 Player::Player()
 	: m_pTex(nullptr)
 {
@@ -21,18 +21,17 @@ Player::Player()
 	//m_pTex->Load(path);
 	//m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Player", L"Texture\\planem.bmp");
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
+	this->AddComponent<HealthCompo>();
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	_spriteRenderer = GetComponent<SpriteRenderer>();
+	healthCompo = GetComponent<HealthCompo>();
 	_spriteRenderer->isRotatable = false;
 	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
 	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
 	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
-
-
-
 }
 Player::~Player()
 {
@@ -71,4 +70,17 @@ void Player::Render(HDC _hdc)
 void Player::Parry()
 {
 
+}
+
+void Player::EnterCollision(Collider* _other)
+{
+	healthCompo->ApplyDamage(1);
+}
+
+void Player::StayCollision(Collider* _other)
+{
+}
+
+void Player::ExitCollision(Collider* _other)
+{
 }
