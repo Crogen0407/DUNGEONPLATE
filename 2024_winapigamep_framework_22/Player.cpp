@@ -31,7 +31,8 @@ Player::Player()
 	healthCompo = GetComponent<HealthCompo>();
 	collider = GetComponent<Collider>();
 
-	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
+	_spriteRenderer->SetTexture(L"Player", L"Texture\\Player.bmp");
+	_spriteRenderer->isRotatable = false;
 	collider->SetSize({ 50, 50 });
 
 	//AddComponent<Animator>();
