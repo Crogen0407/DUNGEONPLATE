@@ -59,6 +59,9 @@
     <Filter Include="Engine\08.UI">
       <UniqueIdentifier>{080fcf78-1167-493d-af0d-63e9d0c60fa0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.Skill">
+      <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -163,7 +166,6 @@
     <ClInclude Include="AttackDirArrow.h">
       <Filter>Engine\03. Object\WorldUI</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Sequence.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
@@ -182,7 +184,6 @@
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Action.h" />
-    <ClInclude Include="UIScene.h" />
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
@@ -205,8 +206,6 @@
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
     <ClInclude Include="Movement.h" />
-    <ClInclude Include="Skill.h" />
-    <ClInclude Include="SkillManager.h" />
     <ClInclude Include="PlayerHealthCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
@@ -214,6 +213,21 @@
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
     <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="Stage1.h" />
+    <ClInclude Include="StageManager.h" />
+    <ClInclude Include="UIScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillManager.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
@@ -309,7 +323,6 @@
     <ClCompile Include="AttackDirArrow.cpp">
       <Filter>Engine\03. Object\WorldUI</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="Sequence.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
@@ -327,7 +340,6 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="UIScene.cpp" />
     <ClCompile Include="UI.cpp">
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
@@ -350,8 +362,6 @@
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
     <ClCompile Include="Movement.cpp" />
-    <ClCompile Include="Skill.cpp" />
-    <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="PlayerHealthCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
@@ -359,6 +369,21 @@
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
     <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Stage1.cpp" />
+    <ClCompile Include="StageManager.cpp" />
+    <ClCompile Include="UIScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillManager.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
   </ItemGroup>
