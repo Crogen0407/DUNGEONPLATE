@@ -204,6 +204,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="Skill.h" />
+    <ClInclude Include="SkillManager.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Stage2.h" />
@@ -259,6 +260,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Skill.cpp" />
+    <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="Stage2.cpp" />
