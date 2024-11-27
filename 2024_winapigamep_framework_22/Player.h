@@ -2,7 +2,7 @@
 #include "Agent.h"
 
 class SpriteRenderer;
-class HealthCompo;
+class PlayerHealthCompo;
 class Texture;
 class Player : public Agent
 {
@@ -21,7 +21,7 @@ public:
 	void ExitCollision(Collider* _other)	override;
 private:
 	SpriteRenderer* _spriteRenderer;
-	HealthCompo* healthCompo;
+	PlayerHealthCompo* healthCompo;
 	Collider* collider;
 	Texture* m_pTex;
 //ÆÐ¸µ

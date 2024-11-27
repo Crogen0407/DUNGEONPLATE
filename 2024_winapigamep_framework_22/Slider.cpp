@@ -20,7 +20,6 @@ void Slider::LateUpdate()
 
 void Slider::Render(HDC _hdc)
 {
-
 	Vec2 pos = GetPos();
 	Vec2 size = GetSize();
 

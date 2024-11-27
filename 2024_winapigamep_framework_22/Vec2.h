@@ -25,6 +25,10 @@ public:
 	{
 		return Vec2(x * _val, y * _val);
 	}
+	Vec2 operator / (const float value)
+	{
+		return Vec2(x * value, y * value);
+	}
 	Vec2 operator / (const Vec2& _vOther)
 	{
 		assert(!(0.f == _vOther.x || 0.f == _vOther.y));

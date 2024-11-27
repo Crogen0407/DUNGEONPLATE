@@ -11,7 +11,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "SpriteRenderer.h"
-#include "HealthCompo.h"
+#include "PlayerHealthCompo.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -25,16 +25,16 @@ Player::Player()
 
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
-	this->AddComponent<HealthCompo>();
+	this->AddComponent<PlayerHealthCompo>();
 
 	_spriteRenderer = GetComponent<SpriteRenderer>();
-	healthCompo = GetComponent<HealthCompo>();
+	healthCompo = GetComponent<PlayerHealthCompo>();
 	collider = GetComponent<Collider>();
 
 	_spriteRenderer->SetTexture(L"Player", L"Texture\\Player.bmp");
 	_spriteRenderer->isRotatable = false;
+	healthCompo->SetHpBarActive(0);
 	collider->SetSize({ 50, 50 });
-
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
 	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);

@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "GameCanvas.h"
 #include "CollisionManager.h"
+
 void GameScene::Init()
 {
 	Object* player = new Player;

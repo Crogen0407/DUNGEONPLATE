@@ -7,7 +7,7 @@
 #include "Slider.h"
 #include "Player.h"
 #include "Action.h"
-#include "HealthCompo.h"
+#include "PlayerHealthCompo.h"
 #include "ResourceManager.h"
 #include "InputManager.h"
 #include "TimeManager.h"
@@ -59,7 +59,11 @@ GameCanvas::GameCanvas() :
 			shieldBar->fillTexture = LOADTEXTURE(L"ShieldBar_Fill", L"Texture\\ShieldBar_Fill.bmp");
 			shieldBar->backTexture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
-			shieldBar->value = 0.5f;
+			player->GetComponent<PlayerHealthCompo>()->ChangeSubHpEvent +=
+				[ct = shieldBar](float value)
+				{
+					ct->SetValue(value);
+				};
 
 			AddUI(shieldBar);
 		}
