@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <functional>
 
 template<typename T>
 class Action
@@ -7,14 +8,15 @@ class Action
 public:
 	Action() = default;
 	~Action() = default;
+	
 private:
-	std::list<void(*)(T)> functions;
+	std::list<std::function<void>(T)> functions;
 public:
-	void operator +=(void(*ft)(T))
+	void operator +=(std::function<void()> fn)
 	{
 		functions.push_back(ft);
 	}
-	void operator -=(void(*ft)(T))
+	void operator -=(std::function<void()> fn)
 	{
 		functions.remove(ft);
 	}
