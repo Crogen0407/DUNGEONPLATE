@@ -209,7 +209,10 @@
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="Stage1.h" />
     <ClInclude Include="Stage2.h" />
+    <ClInclude Include="StageManager.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
@@ -267,7 +270,10 @@
     <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Stage2.cpp" />
+    <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />
