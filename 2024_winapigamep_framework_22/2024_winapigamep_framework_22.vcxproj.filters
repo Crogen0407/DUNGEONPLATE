@@ -56,6 +56,9 @@
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Scene\Stage">
+      <UniqueIdentifier>{ad94f2c2-490b-4d98-9ede-84e028d2d30a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -179,9 +182,20 @@
     <ClInclude Include="BackGround.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\04. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="StageManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>Engine\04. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Engine\04. Scene\Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -295,9 +309,20 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\04. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="StageManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>Engine\04. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Engine\04. Scene\Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
