@@ -206,12 +206,6 @@
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
     <ClInclude Include="Movement.h" />
-    <ClInclude Include="PlayerHealthCompo.h">
-      <Filter>Engine\06. Component</Filter>
-    </ClInclude>
-    <ClInclude Include="HealthCompo.h">
-      <Filter>Engine\06. Component</Filter>
-    </ClInclude>
     <ClInclude Include="AttackCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
@@ -228,6 +222,12 @@
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
@@ -362,12 +362,6 @@
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
     <ClCompile Include="Movement.cpp" />
-    <ClCompile Include="PlayerHealthCompo.cpp">
-      <Filter>Engine\06. Component</Filter>
-    </ClCompile>
-    <ClCompile Include="HealthCompo.cpp">
-      <Filter>Engine\06. Component</Filter>
-    </ClCompile>
     <ClCompile Include="AttackCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
@@ -384,6 +378,12 @@
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHealthCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
   </ItemGroup>
