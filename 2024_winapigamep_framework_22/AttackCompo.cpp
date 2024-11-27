@@ -5,6 +5,7 @@
 #include "SceneManager.h"
 #include "Object.h"
 #include "Scene.h"
+#include "GuidedMissile.h"
 
 AttackCompo::AttackCompo()
 {
@@ -24,6 +25,16 @@ void AttackCompo::TryFire(Vec2 dir)
 		->AddObject(projectile, LAYER::PROJECTILE);
 
 	projectile->SetDir(dir);
+}
+
+void AttackCompo::TryFireMissile()
+{
+	GuidedMissile* missile = new GuidedMissile();
+	missile->SetPos(GetOwner()->GetPos());
+	missile->SetSize({ 10, 10 });
+
+	GET_SINGLE(SceneManager)->GetCurrentScene()
+		->AddObject(missile, LAYER::PROJECTILE);
 }
 
 void AttackCompo::LateUpdate()

@@ -183,12 +183,14 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyA.h" />
+    <ClInclude Include="EnemyB.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameCanvas.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
+    <ClInclude Include="GuidedMissile.h" />
     <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputManager.h" />
@@ -243,10 +245,12 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyA.cpp" />
+    <ClCompile Include="EnemyB.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
+    <ClCompile Include="GuidedMissile.cpp" />
     <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="InputManager.cpp" />

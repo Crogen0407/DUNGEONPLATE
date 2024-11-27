@@ -5,13 +5,15 @@
 #include "ResourceManager.h"
 #include "Collider.h"
 #include "EventManager.h"
+
 Projectile::Projectile() : m_vDir(1.f, 1.f)
 {
 	//m_pTex = new Texture;
 	//wstring path = GET_SINGLE(ResourceManager)->GetResPath();
 	//path += L"Texture\\Bullet.bmp";
 	//m_pTex->Load(path);
-	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Bullet", L"Texture\\Bullet.bmp");
+
+	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 	this->AddComponent<Collider>();
 	GetComponent<Collider>()->SetSize({ 20.f,20.f });
 }

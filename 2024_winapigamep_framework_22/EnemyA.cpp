@@ -9,6 +9,7 @@
 #include "TimeManager.h"
 #include "AttackCompo.h"
 #include "Movement.h"
+#include "GuidedMissile.h"
 
 EnemyA::EnemyA()
 {
@@ -28,13 +29,8 @@ void EnemyA::Update()
 	if (prevShootTime + shootDelay < TIME)
 	{
 		prevShootTime = TIME;
-
-		Vec2 attackDir = target->GetPos();
-		attackDir -= GetPos();
-
-		GetComponent<AttackCompo>()->TryFire(attackDir);
+		GetComponent<AttackCompo>()->TryFireMissile();
 	}
-
 
 	if (prevDash + 2 < TIME)
 	{
