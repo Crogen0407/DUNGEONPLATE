@@ -86,9 +86,13 @@ GameCanvas::GameCanvas() :
 			attackCountBar->isVertical = true;
 			attackCountBar->fillTexture = LOADTEXTURE(L"AttackBar_Fill", L"Texture\\AttackBar_Fill.bmp");
 			attackCountBar->backTexture = LOADTEXTURE(L"UISprite", L"Texture\\UISprite.bmp");
-
-			attackCountBar->value = 0.75f;
 			attackCountBar->flip = true;
+
+			player->ParryCoolTimeEvent +=
+				[ct = attackCountBar](float value) 
+				{
+					ct->SetValue(value);
+				};
 			AddUI(attackCountBar);
 		}
 	}

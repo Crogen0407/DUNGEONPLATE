@@ -12,6 +12,7 @@
 #include "Animation.h"
 #include "SpriteRenderer.h"
 #include "PlayerHealthCompo.h"
+#include "Action.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -86,18 +87,29 @@ void Player::Render(HDC _hdc)
 
 void Player::Parry()
 {
-	if (prevParryTime + parryingTime + parryCoolTime > TIME || isParrying) return;
-	prevParryTime = TIME;
+	if (isParrying == true) return;
+	if (curParryTime < parryCoolTime)
+	{
+		return;
+	}
+	curParryTime = 0;
 	isParrying = true;
 }
 
 void Player::Parrying()
 {
-	if (prevParryTime + parryingTime < TIME || !isParrying)
+	if (curParryTime < parryCoolTime)
+	{
+		curParryTime += fDT;
+		ParryCoolTimeEvent.Invoke(curParryTime / parryCoolTime);
+	}
+
+	if (curParryTime > parryingTime || isParrying == false)
 	{
 		isParrying = false;
 		return;
 	}
+	
 
 	Vec2 vPos = GetPos();
 	bool parried = false;
