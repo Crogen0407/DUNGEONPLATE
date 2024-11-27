@@ -41,6 +41,12 @@ GameCanvas::GameCanvas() :
 			healthBar->fillTexture = LOADTEXTURE(L"HealthBar_Fill", L"Texture\\HealthBar_Fill.bmp");
 			healthBar->backTexture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
+			player->GetComponent<HealthCompo>()->ChangeHpEvent += 
+				[ct = healthBar](float value) 
+				{ 
+					ct->SetValue(value); 
+				};
+
 			AddUI(healthBar);
 		}
 

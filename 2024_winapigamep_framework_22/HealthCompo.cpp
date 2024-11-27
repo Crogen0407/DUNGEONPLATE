@@ -5,6 +5,7 @@ HealthCompo::HealthCompo() :
 	hp(100),
 	maxHp(100)
 {
+
 }
 
 HealthCompo::~HealthCompo()

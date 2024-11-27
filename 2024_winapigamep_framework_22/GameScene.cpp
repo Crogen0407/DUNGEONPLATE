@@ -1,13 +1,11 @@
 #include "pch.h"
 #include "GameScene.h"
 #include "EnemyA.h"
-#include "EnemyB.h"
 #include "Player.h"
 #include "GameCanvas.h"
-
+#include "CollisionManager.h"
 void GameScene::Init()
 {
-	canvas = new GameCanvas;
 	Object* player = new Player;
 
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
@@ -15,19 +13,16 @@ void GameScene::Init()
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 
-	Object* enemyA = new EnemyA;
-	enemyA->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	enemyA->SetSize({ 50, 50 });
-	AddObject(enemyA, LAYER::ENEMY);
-
-	Object* enemyB = new EnemyB;
-	enemyB->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	enemyB->SetSize({ 50, 50 });
-	AddObject(enemyB, LAYER::ENEMY);
-
+	Object* obj = new EnemyA;
+	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
+	obj->SetSize({ 50, 50 });
+	AddObject(obj, LAYER::ENEMY);
+	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	/*for (size_t i = 0; i < 100; i++)
 	{
 	}*/
+
+	canvas = new GameCanvas;
 }
 
 void GameScene::Update()

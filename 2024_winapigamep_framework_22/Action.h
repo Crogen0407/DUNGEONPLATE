@@ -1,22 +1,25 @@
 #pragma once
 #include <list>
+#include <functional>
 
 template<typename T>
 class Action
 {
+	using Func = std::function<void(T)>;
 public:
 	Action() = default;
 	~Action() = default;
+	
 private:
-	std::list<void(*)(T)> functions;
+	std::list<Func> functions;
 public:
-	void operator +=(void(*ft)(T))
+	void operator +=(Func fn)
 	{
-		functions.push_back(ft);
+		functions.push_back(fn);
 	}
-	void operator -=(void(*ft)(T))
+	void operator -=(Func fn)
 	{
-		functions.remove(ft);
+		functions.remove(fn);
 	}
 public:
 	void Clear()

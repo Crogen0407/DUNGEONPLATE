@@ -15,6 +15,7 @@
 #include<ctime>
 #define _USE_MATH_DEFINES
 #include<math.h>
+#include<functional>
 
 // My Header
 #include "Define.h"

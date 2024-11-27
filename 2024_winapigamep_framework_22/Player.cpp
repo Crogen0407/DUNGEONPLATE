@@ -11,6 +11,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "SpriteRenderer.h"
+#include "HealthCompo.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -23,7 +24,9 @@ Player::Player()
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
+	this->AddComponent<HealthCompo>();
 	_spriteRenderer = GetComponent<SpriteRenderer>();
+	healthCompo = GetComponent<HealthCompo>();
 	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
@@ -100,4 +103,17 @@ void Player::Parrying()
 	}
 
 	if (parried) isParrying = false;
+}
+
+void Player::EnterCollision(Collider* _other)
+{
+	healthCompo->ApplyDamage(10);
+}
+
+void Player::StayCollision(Collider* _other)
+{
+}
+
+void Player::ExitCollision(Collider* _other)
+{
 }
