@@ -18,11 +18,6 @@
 Player::Player()
 	: m_pTex(nullptr)
 {
-	//m_pTex = new Texture;
-	//wstring path = GET_SINGLE(ResourceManager)->GetResPath();
-	//path += L"Texture\\planem.bmp";
-	//m_pTex->Load(path);
-	//m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Player", L"Texture\\planem.bmp");
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
 
 	this->AddComponent<Collider>();
@@ -37,10 +32,6 @@ Player::Player()
 	_spriteRenderer->isRotatable = false;
 	healthCompo->SetHpBarActive(0);
 	collider->SetSize({ 50, 50 });
-	//AddComponent<Animator>();
-	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
-	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
-	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
 
 	SetSize({ 75, 75 });
 	speed = 400;
