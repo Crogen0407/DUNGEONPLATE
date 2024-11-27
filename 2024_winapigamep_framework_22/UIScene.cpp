@@ -7,11 +7,7 @@
 UIScene::UIScene() :
 	canvas(nullptr)
 {
-	Object* player = new Player;
-
-	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
-	player->SetName(L"Player");
-	AddObject(player, LAYER::PLAYER);
+	
 }
 
 UIScene::~UIScene()
@@ -21,6 +17,12 @@ UIScene::~UIScene()
 
 void UIScene::Init()
 {
+	Object* player = new Player;
+
+	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
+	player->SetName(L"Player");
+	AddObject(player, LAYER::PLAYER);
+
 	canvas = new GameCanvas;
 }
 

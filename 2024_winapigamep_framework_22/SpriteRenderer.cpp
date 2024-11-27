@@ -146,7 +146,7 @@ void SpriteRenderer::Render(HDC _hdc)
 
 void SpriteRenderer::SetTexture(std::wstring name, std::wstring path)
 {
-	texture = GET_SINGLE(ResourceManager)->TextureLoad(name, path);
+	texture = LOADTEXTURE(name, path);
 	if (isRotatable == false) return;
 	memDC = CreateCompatibleDC(texture->GetTexDC());
 }

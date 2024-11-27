@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "AttackDirArrow.h"
-#include "GDISelector.h"
 #include "Object.h"
 #include "InputManager.h"
 #include "ResourceManager.h"
@@ -12,11 +11,11 @@ AttackDirArrow::AttackDirArrow()
 	m_defaultTex(nullptr),
 	spriteRenderer(nullptr)
 {
-	m_defaultTex = GET_SINGLE(ResourceManager)->TextureLoad(L"dirArrow", L"Texture\\arrow.bmp");
 	AddComponent<SpriteRenderer>();
 	spriteRenderer = GetComponent<SpriteRenderer>();
-	spriteRenderer->SetTexture(L"arrow", L"Texture/arrow.bmp");
+	spriteRenderer->SetTexture(L"Arrow", L"Texture\\Arrow.bmp");
 	spriteRenderer->SetAngle(PI);
+	SetSize({ 12, 12 });
 }
 
 AttackDirArrow::~AttackDirArrow()
@@ -36,14 +35,13 @@ void AttackDirArrow::Update()
 	dir = mousePos - parent->GetPos();
 	dir.Normalize();
 
-	float distance = 30;
+	float distance = 60;
 
 	Vec2 selfPos = (dir * distance) + parent->GetPos();
 
 	float angle = atan2(dir.y, dir.x);
 
 	spriteRenderer->LookAt(dir);
-	//spriteRenderer->LookAt(dir);
 	SetPos(selfPos);
 }
 

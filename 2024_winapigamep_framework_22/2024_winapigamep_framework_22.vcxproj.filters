@@ -50,9 +50,6 @@
     <Filter Include="Engine\03. Object\Projectile">
       <UniqueIdentifier>{04aad006-beaa-4b1f-9945-5d650f525a40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\WorldUI">
-      <UniqueIdentifier>{105d06fe-83fe-4365-a48f-0ef4cf9ad985}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
@@ -163,9 +160,6 @@
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="AttackDirArrow.h">
-      <Filter>Engine\03. Object\WorldUI</Filter>
-    </ClInclude>
     <ClInclude Include="Sequence.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
@@ -183,7 +177,6 @@
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Action.h" />
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
@@ -229,6 +222,12 @@
     </ClInclude>
     <ClInclude Include="HealthCompo.h">
       <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackDirArrow.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Engine\01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -320,9 +319,6 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="AttackDirArrow.cpp">
-      <Filter>Engine\03. Object\WorldUI</Filter>
-    </ClCompile>
     <ClCompile Include="Sequence.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
@@ -385,6 +381,9 @@
     </ClCompile>
     <ClCompile Include="PlayerHealthCompo.cpp">
       <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackDirArrow.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

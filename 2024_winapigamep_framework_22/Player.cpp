@@ -3,7 +3,6 @@
 #include "TimeManager.h"
 #include "InputManager.h"
 #include "Projectile.h"
-#include "SceneManager.h"
 #include "Scene.h"
 #include "Texture.h"
 #include "ResourceManager.h"
@@ -13,6 +12,8 @@
 #include "SpriteRenderer.h"
 #include "PlayerHealthCompo.h"
 #include "Action.h"
+#include "SceneManager.h"
+#include "AttackDirArrow.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -43,6 +44,10 @@ Player::Player()
 
 	SetSize({ 75, 75 });
 	speed = 400;
+
+	AttackDirArrow* arrow = new AttackDirArrow;
+	arrow->SetParent(this);
+	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(arrow, LAYER::UI);
 }
 Player::~Player()
 {
