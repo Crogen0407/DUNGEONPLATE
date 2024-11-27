@@ -107,7 +107,7 @@ void Player::Parrying()
 
 void Player::EnterCollision(Collider* _other)
 {
-	healthCompo->ApplyDamage(1);
+	healthCompo->ApplyDamage(10);
 }
 
 void Player::StayCollision(Collider* _other)
