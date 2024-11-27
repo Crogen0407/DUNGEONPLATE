@@ -182,7 +182,6 @@
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Action.h" />
-    <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="UIScene.h" />
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
@@ -204,6 +203,18 @@
     </ClInclude>
     <ClInclude Include="Canvas.h">
       <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h" />
+    <ClInclude Include="Skill.h" />
+    <ClInclude Include="SkillManager.h" />
+    <ClInclude Include="PlayerHealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -316,7 +327,6 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="UIScene.cpp" />
     <ClCompile Include="UI.cpp">
       <Filter>Engine\03. Object\UI</Filter>
@@ -338,6 +348,18 @@
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
       <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="Skill.cpp" />
+    <ClCompile Include="SkillManager.cpp" />
+    <ClCompile Include="PlayerHealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

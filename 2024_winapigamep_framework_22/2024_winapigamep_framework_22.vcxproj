@@ -196,6 +196,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerHealthCompo.h" />
     <ClInclude Include="PoolableObject.h" />
     <ClInclude Include="PoolManager.h" />
     <ClInclude Include="Projectile.h" />
@@ -256,6 +257,7 @@
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerHealthCompo.cpp" />
     <ClCompile Include="PoolManager.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceBase.cpp" />
