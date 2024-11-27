@@ -11,7 +11,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "SpriteRenderer.h"
-#include "HealthCompo.h"
+
 Player::Player()
 	: m_pTex(nullptr)
 {
@@ -21,35 +21,38 @@ Player::Player()
 	//m_pTex->Load(path);
 	//m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Player", L"Texture\\planem.bmp");
 	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
-	this->AddComponent<HealthCompo>();
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	_spriteRenderer = GetComponent<SpriteRenderer>();
-	healthCompo = GetComponent<HealthCompo>();
-	_spriteRenderer->isRotatable = false;
 	_spriteRenderer->SetTexture(L"planem", L"Texture\\planem.bmp");
 	//AddComponent<Animator>();
 	//GetComponent<Animator>()->CreateAnimation(L"JiwooFront", m_pTex, Vec2(0.f, 150.f),
 	//	Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.1f);
 	//GetComponent<Animator>()->PlayAnimation(L"JiwooFront", true);
+
+
+
 }
 Player::~Player()
 {
 }
+Vec2 dir;
 
 void Player::Update()
 {
-	Vec2 dir;
 	if (GET_KEY(KEY_TYPE::W))
-		dir += Vec2(0, -1);
+		dir = Vec2(0, -1);
 	if (GET_KEY(KEY_TYPE::S))
-		dir += Vec2(0, 1);
+		dir = Vec2(0, 1);
 	if (GET_KEY(KEY_TYPE::A))
-		dir += Vec2(-1, 0);
+		dir = Vec2(-1, 0);
 	if (GET_KEY(KEY_TYPE::D))
-		dir += Vec2(1, 0);
+		dir = Vec2(1, 0);
+	if (GET_KEY(KEY_TYPE::SPACE))
+		Parry();
 
 	Move(dir * speed * fDT);
+	Parrying();
 
 	Vec2 vPos = GetPos();
 	_spriteRenderer->LookAt(dir);
@@ -63,24 +66,38 @@ void Player::Render(HDC _hdc)
 
 	int width = m_pTex->GetWidth();
 	int height = m_pTex->GetHeight();
-	
+
 	ComponentRender(_hdc);
 }
 
 void Player::Parry()
 {
-
+	if (prevParryTime + parryingTime + parryCoolTime > TIME || isParrying) return;
+	prevParryTime = TIME;
+	isParrying = true;
 }
 
-void Player::EnterCollision(Collider* _other)
+void Player::Parrying()
 {
-	healthCompo->ApplyDamage(1);
-}
+	if (prevParryTime + parryingTime < TIME || !isParrying)
+	{
+		isParrying = false;
+		return;
+	}
 
-void Player::StayCollision(Collider* _other)
-{
-}
+	Vec2 vPos = GetPos();
+	bool parried = false;
+	vector<Object*> projectiles = FindObjects(LAYER::PROJECTILE);
 
-void Player::ExitCollision(Collider* _other)
-{
+	for (Object* projObj : projectiles)
+	{
+		Vec2 dist = vPos - projObj->GetPos();
+		if (dist.Length() > parryDist) continue;
+
+		Projectile* proj = (Projectile*)projObj;
+		proj->SetDir(proj->GetDir() * -1);
+		parried = true;
+	}
+
+	if (parried) isParrying = false;
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Agent.h"
-class HealthCompo;
+
 class SpriteRenderer;
 class Texture;
 class Player : public Agent
@@ -13,14 +13,18 @@ public:
 	void Render(HDC _hdc) override;
 
 	void Parry();
-public:
-	void EnterCollision(Collider* _other)	override;
-	void StayCollision(Collider* _other)	override;
-	void ExitCollision(Collider* _other)	override;
+	void Parrying();
 private:
 	SpriteRenderer* _spriteRenderer;
-	HealthCompo* healthCompo;
 	Texture* m_pTex;
 	float speed = 100.f;
+//ÆÐ¸µ
+private:
+	float parryDist = 70.f;
+	float parryingTime = 0.1f;
+	bool isParrying = false;
+
+	float prevParryTime;
+	float parryCoolTime = 0.5f;
 };
 
