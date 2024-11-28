@@ -13,6 +13,5 @@ public:
 	void LoadStage(const wstring& _stageName);
 private:
 	map<wstring, std::shared_ptr<Stage>> m_mapStages;
-
 	std::shared_ptr<Stage> m_pCurrentStage;
 };

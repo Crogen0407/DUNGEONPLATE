@@ -9,10 +9,12 @@ BackGround::BackGround()
 
 BackGround::~BackGround()
 {
+
 }
 
 void BackGround::Update()
 {
+	
 }
 
 void BackGround::Render(HDC _hdc)
