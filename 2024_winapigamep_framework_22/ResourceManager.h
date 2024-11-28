@@ -27,6 +27,15 @@ public:
 	void Stop(SOUND_CHANNEL _channel);
 	void Volume(SOUND_CHANNEL _channel, float _vol);
 	void Pause(SOUND_CHANNEL _channel, bool _ispause);
+	bool AddFont(wstring fileName) {
+		if (fontNames.find(fileName) == fontNames.end())
+		{
+			AddFontResource(fileName.c_str());
+			fontNames.insert(fileName);
+			return true;
+		}
+		return false;
+	}
 private:
 	tSoundInfo* FindSound(const wstring& _key);
 private:
@@ -35,5 +44,6 @@ private:
 	map<wstring, tSoundInfo*> m_mapSounds;
 	FMOD::System* m_pSoundSystem; // 사운드 시스템
 	FMOD::Channel* m_pChannel[(UINT)SOUND_CHANNEL::END]; // 오디오 채널
+	std::set<wstring> fontNames;
 };
 

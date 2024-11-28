@@ -229,6 +229,9 @@
     <ClInclude Include="Action.h">
       <Filter>Engine\01. Core</Filter>
     </ClInclude>
+    <ClInclude Include="SkillCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -384,6 +387,9 @@
     </ClCompile>
     <ClCompile Include="AttackDirArrow.cpp">
       <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

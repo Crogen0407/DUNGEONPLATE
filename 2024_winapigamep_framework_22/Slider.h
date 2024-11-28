@@ -16,11 +16,14 @@ public:
 	}
 public:
 	float value = 1.f;
+	Vec2 valueVec = Vec2(1.f, 1.f);
 	bool isVertical = false;
 	bool flip = false;
-	int offsetX = 10;
-	int offsetY = 10;
+	int offsetX = 5;
+	int offsetY = 5;
+	HBRUSH backBrush;
+	HBRUSH fillBrush;
 public:
-	Texture* backTexture;
-	Texture* fillTexture;
+	COLORREF backColor;
+	COLORREF fillColor;
 };

@@ -39,7 +39,7 @@ void Text::LoadFont(std::wstring fontName, int fontWidth, int fontHegith)
 	path.append(L"Font\\");
 	path.append(fontName.c_str());
 	path.append(L".TTF");
-	AddFontResource(path.c_str());
+	GET_SINGLE(ResourceManager)->AddFont(fontName);
 	pfont = CreateFont(fontHegith, fontWidth,
 		0, 0, 0, 0, 0, 0, HANGEUL_CHARSET,
 		0, 0, 0, VARIABLE_PITCH | FF_ROMAN, fontName.c_str());
