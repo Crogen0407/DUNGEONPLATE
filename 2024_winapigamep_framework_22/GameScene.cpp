@@ -4,12 +4,12 @@
 #include "Player.h"
 #include "GameCanvas.h"
 #include "CollisionManager.h"
+
 void GameScene::Init()
 {
 	Object* player = new Player;
 
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
-	player->SetSize({ 50, 50 });
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 

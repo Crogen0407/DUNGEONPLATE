@@ -50,14 +50,14 @@
     <Filter Include="Engine\03. Object\Projectile">
       <UniqueIdentifier>{04aad006-beaa-4b1f-9945-5d650f525a40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\WorldUI">
-      <UniqueIdentifier>{105d06fe-83fe-4365-a48f-0ef4cf9ad985}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Crogen\DOTween">
       <UniqueIdentifier>{5677b2bd-b674-41aa-98d0-d2c91cd0bd93}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\08.UI">
       <UniqueIdentifier>{080fcf78-1167-493d-af0d-63e9d0c60fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.Skill">
+      <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -160,10 +160,6 @@
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="AttackDirArrow.h">
-      <Filter>Engine\03. Object\WorldUI</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Sequence.h">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClInclude>
@@ -181,9 +177,6 @@
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Action.h" />
-    <ClInclude Include="HealthCompo.h" />
-    <ClInclude Include="UIScene.h" />
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
@@ -204,6 +197,37 @@
     </ClInclude>
     <ClInclude Include="Canvas.h">
       <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h" />
+    <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="Stage1.h" />
+    <ClInclude Include="StageManager.h" />
+    <ClInclude Include="UIScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillManager.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackDirArrow.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Engine\01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -295,10 +319,6 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="AttackDirArrow.cpp">
-      <Filter>Engine\03. Object\WorldUI</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="Sequence.cpp">
       <Filter>Engine\Crogen\DOTween</Filter>
     </ClCompile>
@@ -316,8 +336,6 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="HealthCompo.cpp" />
-    <ClCompile Include="UIScene.cpp" />
     <ClCompile Include="UI.cpp">
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
@@ -338,6 +356,34 @@
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
       <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Stage1.cpp" />
+    <ClCompile Include="StageManager.cpp" />
+    <ClCompile Include="UIScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillManager.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackDirArrow.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

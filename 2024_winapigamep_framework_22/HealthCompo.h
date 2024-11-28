@@ -11,6 +11,14 @@ public:
     Action<float> ChangeHpEvent;
     Action<int> DieEvent;
 public:
+    void SetOffsetY(float value)
+    {
+        offsetY = value;
+    }
+    const void SetHpBarActive(bool active)
+    {
+        hpBarActive = active;
+    }
     void SetHp(float hp)
     {
         this->hp = hp;
@@ -21,7 +29,7 @@ public:
         this->maxHp = maxHp;
         SetHp(hp);
     }
-    void ApplyDamage(int value);
+    virtual void ApplyDamage(int value);
     void ApplyHeal(int value);
     void OnDie()
     {
@@ -32,9 +40,15 @@ public:
         return hp;
     }
 public:
-    void LateUpdate() override;
+    virtual void LateUpdate() override;
     void Render(HDC hdc) override;
 private:
+    //HpBar
+    HBRUSH fillBrush;
+    HBRUSH backBrush;
+protected:
+    bool hpBarActive = true;
+    float offsetY = 0;
     float hp;
     float maxHp;
 };

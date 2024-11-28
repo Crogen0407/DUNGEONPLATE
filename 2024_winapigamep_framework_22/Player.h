@@ -1,8 +1,9 @@
 #pragma once
 #include "Agent.h"
+#include "Action.h"
 
 class SpriteRenderer;
-class HealthCompo;
+class PlayerHealthCompo;
 class Texture;
 class Player : public Agent
 {
@@ -21,16 +22,20 @@ public:
 	void ExitCollision(Collider* _other)	override;
 private:
 	SpriteRenderer* _spriteRenderer;
-	HealthCompo* healthCompo;
+	PlayerHealthCompo* healthCompo;
+	Collider* collider;
 	Texture* m_pTex;
-	float speed = 100.f;
 //ÆÐ¸µ
+public:
+	Action<float> ParryCoolTimeEvent;
 private:
-	float parryDist = 70.f;
+	float speed = 100.f;
+
+	float parryDist = 100.f;
 	float parryingTime = 0.1f;
 	bool isParrying = false;
 
-	float prevParryTime;
+	float curParryTime;
 	float parryCoolTime = 0.5f;
 };
 
