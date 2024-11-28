@@ -1,25 +1,19 @@
 #pragma once
-#include "Object.h"
+#include "Projectile.h"
 class Texture;
 
-class GuidedMissile : public Object
+class GuidedMissile : public Projectile
 {
 public:
 	GuidedMissile();
-	~GuidedMissile();
+	~GuidedMissile() override;
 	void Update() override;
 	void Render(HDC _hdc) override;
-public:
-	virtual void EnterCollision(Collider* _other);
-	virtual void StayCollision(Collider* _other);
-	virtual void ExitCollision(Collider* _other);
 private:
-	Texture* tex;
-	float speed = 300.f;
-	float lifetime = 3.f;
+	float _rotation = 0;
+	float lifetime = 2.f;
 	float spawnedTime = 0.f;
 
-	Vec2 currentDir = { 0,0 };
 	Object* target;
 };
 

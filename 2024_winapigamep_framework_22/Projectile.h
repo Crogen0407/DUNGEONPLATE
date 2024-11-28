@@ -5,27 +5,29 @@ class Projectile : public Object
 {
 public:
 	Projectile();
-	~Projectile();
-	void Update() override;
-	void Render(HDC _hdc) override;
+	virtual ~Projectile();
+	void Update() abstract;
+	void Render(HDC _hdc) abstract;
 public:
 	void SetDir(Vec2 _dir)
 	{
-		m_vDir = _dir;
-		m_vDir.Normalize();
+		_dir = _dir;
+		_dir.Normalize();
 	}
 	Vec2 GetDir()
 	{
-		return m_vDir;
+		return _dir;
 	}
 public:
 	virtual void EnterCollision(Collider* _other);
 	virtual void StayCollision(Collider* _other);
 	virtual void ExitCollision(Collider* _other);
-private:
+public:
+	bool _canParry;
+protected:
 	//float m_dir;
-	Vec2 m_vDir;
-	Texture* m_pTex;
+	Vec2 _dir;
+	Texture* _texture;
 	float speed = 500.f;
 };
 

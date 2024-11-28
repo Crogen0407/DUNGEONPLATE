@@ -15,7 +15,6 @@ void GameScene::Init()
 
 	Object* obj = new EnemyA;
 	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	obj->SetSize({ 50, 50 });
 	AddObject(obj, LAYER::ENEMY);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	/*for (size_t i = 0; i < 100; i++)
