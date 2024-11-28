@@ -232,6 +232,21 @@
     <ClInclude Include="SkillCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
+    <ClInclude Include="SkillSlot.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseMaxHpSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="HealPackSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseAttackSpeedSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="DashSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -390,6 +405,18 @@
     </ClCompile>
     <ClCompile Include="SkillCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseMaxHpSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="HealPackSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseAttackSpeedSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="DashSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

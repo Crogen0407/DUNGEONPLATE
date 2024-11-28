@@ -7,6 +7,7 @@
 #include "CollisionManager.h"
 #include "EventManager.h"
 #include "PoolManager.h"
+#include "SkillManager.h"
 
 bool Core::Init(HWND _hwnd)
 {
@@ -31,6 +32,7 @@ bool Core::Init(HWND _hwnd)
 	GET_SINGLE(ResourceManager)->Init();
 	GET_SINGLE(PoolManager)->Init();
 	GET_SINGLE(SceneManager)->Init();
+	GET_SINGLE(SkillManager)->Init();
 
 	//m_obj.SetPos(Vec2(SCREEN_WIDTH / 2
 	//				,SCREEN_HEIGHT/ 2));
@@ -81,6 +83,7 @@ void Core::MainUpdate()
 	GET_SINGLE(InputManager)->Update();
 	GET_SINGLE(SceneManager)->Update();
 	GET_SINGLE(CollisionManager)->Update();
+	GET_SINGLE(SkillManager)->Update();
 
 }
 

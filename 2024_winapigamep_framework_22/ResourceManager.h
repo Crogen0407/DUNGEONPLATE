@@ -30,7 +30,9 @@ public:
 	bool AddFont(wstring fileName) {
 		if (fontNames.find(fileName) == fontNames.end())
 		{
-			AddFontResource(fileName.c_str());
+			std::wstring path;
+			path.append(L".ttf");
+			AddFontResource(path.c_str());
 			fontNames.insert(fileName);
 			return true;
 		}

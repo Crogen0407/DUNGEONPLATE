@@ -21,7 +21,7 @@ HealthCompo::~HealthCompo()
 void HealthCompo::ApplyDamage(int value)
 {
 	SetHp(hp - value);
-
+	DamagedEvent.Invoke(NULL);
 	if (hp <= 0)
 	{
 		OnDie();

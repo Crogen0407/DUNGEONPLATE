@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "UIScene.h"
 #include "GameCanvas.h"
+#include "SkillCanvas.h"
 #include "ResourceManager.h"
 #include "Player.h"
+#include "InputManager.h"
 
 UIScene::UIScene() :
-	canvas(nullptr)
+	gameCanvas(nullptr)
 {
 	
 }
@@ -23,17 +25,26 @@ void UIScene::Init()
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 
-	canvas = new GameCanvas;
+	gameCanvas = new GameCanvas;
+	skillCanvas = new SkillCanvas;
 }
 
 void UIScene::Update()
 {
 	Scene::Update();
-	canvas->Update();
+	gameCanvas->Update();
+	skillCanvas->Update();
+
+	gameCanvas->LateUpdate();
+	skillCanvas->LateUpdate();
+
+	if (GET_KEYDOWN(KEY_TYPE::SPACE))
+		static_cast<SkillCanvas*>(skillCanvas)->ShowSlots();
 }
 
 void UIScene::Render(HDC _hdc)
 {
 	Scene::Render(_hdc);
-	canvas->Render(_hdc);
+	gameCanvas->Render(_hdc);
+	skillCanvas->Render(_hdc);
 }

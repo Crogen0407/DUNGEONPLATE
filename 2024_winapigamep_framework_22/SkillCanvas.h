@@ -1,13 +1,6 @@
 #pragma once
 #include "Canvas.h"
-class Image;
-class Text;
-struct SkillSlot
-{
-	Image* base;
-	Text* name;
-	Text* description;
-};
+#include "SkillSlot.h"
 
 class SkillCanvas : public Canvas
 {
@@ -19,5 +12,11 @@ public:
 	void LateUpdate() override;
 	void Render(HDC hdc) override;
 public:
+	void CreateSlot(Vec2 slotPos);
+	void ShowSlots();
+	void CloseSlot();
+public:
 	vector<SkillSlot*> skillSlots;
+private:
+	bool showSkillSlots = false;
 };

@@ -5,7 +5,8 @@ class UIScene :
     public Scene
 {
 private:
-    Canvas* canvas;
+    Canvas* gameCanvas;
+    Canvas* skillCanvas;
 public:
     UIScene();
     ~UIScene();

@@ -11,7 +11,7 @@ public:
 public:
 	void LoadFont(std::wstring fontName, int fontWidth, int fontHegith);
 public:
-	void SetPitchAndFamily(DWORD iPitchAndFamily)
+	void SetPitchAndFamily(UINT iPitchAndFamily)
 	{
 		this->iPitchAndFamily = iPitchAndFamily;
 	}
@@ -28,7 +28,7 @@ public:
 		this->color = color;
 	}
 private:
-	DWORD iPitchAndFamily;
+	UINT iPitchAndFamily;
 	HFONT pfont;
 	wstring text;
 	COLORREF color;

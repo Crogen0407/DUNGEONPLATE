@@ -16,6 +16,7 @@ Canvas::~Canvas()
 
 void Canvas::Update()
 {
+	
 }
 
 void Canvas::LateUpdate()
@@ -49,6 +50,7 @@ UI* Canvas::CreateUI(UIOPTION uiOption)
 		break;
 	}
 	newInstance->SetOwner(this);
+	AddUI(newInstance);
 	return newInstance;
 }
 

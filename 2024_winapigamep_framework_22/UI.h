@@ -17,11 +17,11 @@ public:
     {
         owner = canvas;
     }
-    void SetPos(Vec2& pos)
+    void SetPos(Vec2 pos)
     {
         this->pos = pos;
     }
-    void SetSize(Vec2& size)
+    void SetSize(Vec2 size)
     {
         this->size = size;
     }
