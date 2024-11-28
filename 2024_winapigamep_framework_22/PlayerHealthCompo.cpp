@@ -16,15 +16,11 @@ PlayerHealthCompo::~PlayerHealthCompo()
 void PlayerHealthCompo::ApplyDamage(int value)
 {
 	isTakedDamage = true;
-	if (subHp > 0)
-	{
-		SetSubHp(subHp - value);
-		ChangeSubHpEvent.Invoke(subHp/maxSubHp);
-	}
-	else
-	{
-		HealthCompo::ApplyDamage(value);
-	}
+	int temp = value;
+	SetSubHp((int)std::clamp(value - subHp, 0.f, maxSubHp));
+	subHp -= value;
+	if (value <= 0) return;
+	HealthCompo::ApplyDamage(value);
 }
 
 void PlayerHealthCompo::LateUpdate()

@@ -14,12 +14,11 @@
 #include "Action.h"
 #include "SceneManager.h"
 #include "AttackDirArrow.h"
+#include "GameManager.h"
+#include "SkillManager.h"
 
 Player::Player()
-	: m_pTex(nullptr)
 {
-	m_pTex = GET_SINGLE(ResourceManager)->TextureLoad(L"Jiwoo", L"Texture\\jiwoo.bmp");
-
 	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	this->AddComponent<PlayerHealthCompo>();
@@ -39,6 +38,8 @@ Player::Player()
 	AttackDirArrow* arrow = new AttackDirArrow;
 	arrow->SetParent(this);
 	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(arrow, LAYER::UI);
+	GET_SINGLE(SkillManager)->player = this;
+	GET_SINGLE(GameManager)->player = this;
 }
 Player::~Player()
 {
@@ -66,18 +67,17 @@ void Player::Update()
 
 	Vec2 lookDir = (Vec2)GET_MOUSEPOS - GetPos();
 
+	if (GET_KEYDOWN(KEY_TYPE::CTRL))
+	{
+		healthCompo->ApplyDamage(55);
+	}
+
 	_spriteRenderer->LookAt(lookDir);
 	SetPos(vPos);
 }
 
 void Player::Render(HDC _hdc)
 {
-	Vec2 vPos = GetPos();
-	Vec2 vSize = GetSize();
-
-	int width = m_pTex->GetWidth();
-	int height = m_pTex->GetHeight();
-
 	ComponentRender(_hdc);
 }
 

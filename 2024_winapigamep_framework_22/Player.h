@@ -4,7 +4,6 @@
 
 class SpriteRenderer;
 class PlayerHealthCompo;
-class Texture;
 class Player : public Agent
 {
 public:
@@ -24,7 +23,6 @@ private:
 	SpriteRenderer* _spriteRenderer;
 	PlayerHealthCompo* healthCompo;
 	Collider* collider;
-	Texture* m_pTex;
 //ÆÐ¸µ
 public:
 	Action<float> ParryCoolTimeEvent;

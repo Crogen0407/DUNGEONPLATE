@@ -9,6 +9,7 @@ public:
     ~HealthCompo() override;
 public:
     Action<float> ChangeHpEvent;
+    Action<float> DamagedEvent;
     Action<int> DieEvent;
 public:
     void SetOffsetY(float value)
@@ -22,6 +23,7 @@ public:
     void SetHp(float hp)
     {
         this->hp = hp;
+        hp = std::clamp(hp, 0.f, maxHp);
         ChangeHpEvent.Invoke(hp/maxHp);
     }
     void SetHp(float hp, float maxHp)

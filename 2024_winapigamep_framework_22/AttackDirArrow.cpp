@@ -5,6 +5,7 @@
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "SpriteRenderer.h"
+#include "TimeManager.h"
 
 AttackDirArrow::AttackDirArrow()
 	: parent(nullptr),
@@ -30,7 +31,7 @@ void AttackDirArrow::SetParent(Object* parent)
 void AttackDirArrow::Update()
 {
 	if (parent == nullptr) return;
-
+	if (TIMESCALE == 0) return;
 	Vec2 mousePos = GET_MOUSEPOS;
 	dir = mousePos - parent->GetPos();
 	dir.Normalize();

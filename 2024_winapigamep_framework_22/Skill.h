@@ -6,6 +6,9 @@ public:
 	Skill();
 	virtual ~Skill();
 protected:
+	wstring nameText;
+	wstring descriptionText;
+protected:
 	bool enable = false;
 	bool isActiveSkill = false;
 	int level = 0;
@@ -13,6 +16,14 @@ public:
 	float maxDelayTime = 10;
 	float curDelayTime = 0;
 public:
+	const wstring GetNameText() const
+	{
+		return nameText;
+	}
+	const wstring GetDescriptionText() const
+	{
+		return descriptionText;
+	}
 	const bool IsActiveSkill() const
 	{
 		return isActiveSkill;
@@ -30,7 +41,7 @@ public:
 		return level;
 	}
 public:
-	virtual void OnLevelUp() {
+	virtual void OnLevelUp(Player* player) {
 		++level;
 	}
 	virtual void OnUse(Player* player) abstract;

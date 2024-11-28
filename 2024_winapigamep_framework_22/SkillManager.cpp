@@ -1,11 +1,19 @@
 #include "pch.h"
 #include "SkillManager.h"
-#include "Skill.h"
 #include "TimeManager.h"
+#include "Skill.h"
+#include "HealPackSkill.h"
+#include "IncreaseAttackSpeedSkill.h"
+#include "IncreaseMaxHpSkill.h"
+#include "DashSkill.h"
 
 void SkillManager::Init()
 {
-
+	AddSkill(ESkillType::DashSkill,					static_cast<Skill*>(new DashSkill));
+	AddSkill(ESkillType::HealPack,					static_cast<Skill*>(new HealPackSkill));
+	AddSkill(ESkillType::IncreaseAttackSpeed,		static_cast<Skill*>(new IncreaseAttackSpeedSkill));
+	AddSkill(ESkillType::IncreaseMaxHp,				static_cast<Skill*>(new IncreaseMaxHpSkill));
+	AddSkill(ESkillType::IncreaseMaxHp,				static_cast<Skill*>(new IncreaseMaxHpSkill));
 }
 
 void SkillManager::Update()
@@ -15,6 +23,8 @@ void SkillManager::Update()
 		//엑티브 스킬은 활성화되어 있는 동안 실행되는 것이기 때문에
 		//레벨업할 때만 갱신하면 된다.
 		if (skill.second->IsActiveSkill()) continue;
+		//0레벨은 가지고 있지 않은 상태이다.
+		if (skill.second->GetLevel() == 0) continue;
 
 		//쿨타임 돌기
 		skill.second->curDelayTime += fDT;
@@ -27,9 +37,44 @@ void SkillManager::Update()
 	}
 }
 
-void SkillManager::AddSkill(ESkillType type, Skill& skill)
+const vector<Skill*> SkillManager::GetRendomSkills()
 {
-	skills[type] = &skill;
+	int arr[(UINT)ESkillType::LAST];
+	int lastNum = 0;
+	for (int i = 0; i < (UINT)ESkillType::LAST; i++)
+	{
+		arr[i] = i;
+		lastNum = i;
+	}
+
+	srand((unsigned int)TIME);
+
+	for (int i = 0; i < 30; i++)
+	{
+		int dest = rand() % (UINT)ESkillType::LAST;
+		int sour = rand() % (UINT)ESkillType::LAST;
+
+		int temp = arr[dest];
+		arr[dest] = arr[sour];
+		arr[sour] = temp;
+	}
+
+	vector<Skill*> output;
+
+	//만랩 제외
+	for (int i = 0; i < (UINT)ESkillType::LAST; i++)
+	{
+		if (output.size() >= 3) break;
+		if (skills[(ESkillType)arr[i]]->GetLevel() >= 10) continue;
+		output.push_back(skills[(ESkillType)arr[i]]);
+	}
+
+	return output;
+}
+
+void SkillManager::AddSkill(ESkillType type, Skill* skill)
+{
+	skills[type] = skill;
 }
 
 void SkillManager::LevelUpSkill(ESkillType type)
@@ -40,6 +85,6 @@ void SkillManager::LevelUpSkill(ESkillType type)
 	{
 		skill->SetEnable(true);
 	}
-	skill->OnLevelUp();
+	skill->OnLevelUp(player);
 	skill->OnUse(player);
 }

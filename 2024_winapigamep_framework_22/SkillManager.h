@@ -3,21 +3,26 @@ class Skill;
 class Player;
 enum class ESkillType
 {
-	FIREBALL,
+	DashSkill,
+	HealPack,
+	IncreaseAttackSpeed,
+	IncreaseMaxHp,
 	LAST
 };
 
 class SkillManager
 {
 	DECLARE_SINGLE(SkillManager);
-private:
+public:
 	Player* player;
+private:
 	map<ESkillType, Skill*> skills;
 public:
 	void Init();
 	void Update();
 public:
-	void AddSkill(ESkillType type, Skill& skill);
+	const vector<Skill*> GetRendomSkills();
+	void AddSkill(ESkillType type, Skill* skill);
 	void LevelUpSkill(ESkillType type);
 public:
 };

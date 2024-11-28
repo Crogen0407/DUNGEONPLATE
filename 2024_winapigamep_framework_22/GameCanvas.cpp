@@ -30,8 +30,6 @@ GameCanvas::GameCanvas() :
 			pos, size));
 		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite4X1", L"Texture\\UISprite4X1.bmp");
 
-		AddUI(BottomHeathContainer);
-
 		//HealthBar
 		{
 			healthBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
@@ -43,8 +41,6 @@ GameCanvas::GameCanvas() :
 				{ 
 					ct->SetValue(value); 
 				};
-
-			AddUI(healthBar);
 		}
 
 		//ShieldBar
@@ -58,8 +54,6 @@ GameCanvas::GameCanvas() :
 				{
 					ct->SetValue(value);
 				};
-
-			AddUI(shieldBar);
 		}
 	}
 
@@ -70,7 +64,6 @@ GameCanvas::GameCanvas() :
 
 		Image* BottomHeathContainer = static_cast<Image*>(CreateUI(UIOPTION::IMAGE, pos, size));
 		BottomHeathContainer->texture = LOADTEXTURE(L"UISprite1X2", L"Texture\\UISprite1X2.bmp");
-		AddUI(BottomHeathContainer);
 
 		//AttackCountBar
 		{
@@ -85,7 +78,6 @@ GameCanvas::GameCanvas() :
 				{
 					ct->SetValue(value);
 				};
-			AddUI(attackCountBar);
 		}
 	}
 
@@ -95,11 +87,10 @@ GameCanvas::GameCanvas() :
 		Vec2 pos = { SCREEN_WIDTH / 2, 15 };
 		scoreText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
-		scoreText->LoadFont(L"PF스타더스트", 45, 60);
+		scoreText->LoadFont(L"PF스타더스트 Bold", 45, 60);
 		scoreText->SetText(L"5");
 		scoreText->SetColor(RGB(139, 172, 15));
 		scoreText->SetPitchAndFamily(TA_TOP | TA_CENTER);
-		AddUI(scoreText);
 	}
 
 	//TimeText
@@ -111,7 +102,6 @@ GameCanvas::GameCanvas() :
 		timeText->LoadFont(L"PF스타더스트", 18, 24);
 		timeText->SetColor(RGB(139, 172, 15));
 		timeText->SetPitchAndFamily(TA_BOTTOM | TA_LEFT);
-		AddUI(timeText);
 	}
 }
 

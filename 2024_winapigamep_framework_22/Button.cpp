@@ -12,8 +12,6 @@ Button::Button() :
 	m_pressedTex(nullptr)
 	
 {
-	m_defaultTex = GET_SINGLE(ResourceManager)->TextureLoad(L"UI", L"Texture\\UI.bmp");
-	m_selectedTex = GET_SINGLE(ResourceManager)->TextureLoad(L"UI", L"Texture\\UI.bmp");
 }
 
 Button::~Button()
@@ -29,19 +27,22 @@ void Button::Init(Texture* defultTex, Texture* selectedTex, Texture* pressedTex)
 
 void Button::OnClick()
 {
-	texture = m_pressedTex;
+	if(m_pressedTex != nullptr)
+		texture = m_pressedTex;
 	OnClickEvent.Invoke(NULL);
 }
 
 void Button::OnSelectEnter()
 {
-	texture = m_selectedTex;
+	if (m_selectedTex != nullptr)
+		texture = m_selectedTex;
 	OnSelectEnterEvent.Invoke(NULL);
 }
 
 void Button::OnSelectExit()
 {
-	texture = m_defaultTex;
+	if (m_defaultTex != nullptr)
+		texture = m_defaultTex;
 	OnSelectExitEvent.Invoke(NULL);
 }
 

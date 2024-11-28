@@ -180,6 +180,7 @@
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="DashSkill.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyA.h" />
@@ -189,8 +190,11 @@
     <ClInclude Include="GameCanvas.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
+    <ClInclude Include="HealPackSkill.h" />
     <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="IncreaseAttackSpeedSkill.h" />
+    <ClInclude Include="IncreaseMaxHpSkill.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
@@ -209,6 +213,7 @@
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillCanvas.h" />
     <ClInclude Include="SkillManager.h" />
+    <ClInclude Include="SkillSlot.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Stage.h" />
@@ -248,14 +253,18 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="DashSkill.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
+    <ClCompile Include="HealPackSkill.cpp" />
     <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
+    <ClCompile Include="IncreaseMaxHpSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movement.cpp" />
