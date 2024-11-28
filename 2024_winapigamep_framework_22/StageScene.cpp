@@ -6,9 +6,22 @@
 #include "EnemyA.h"
 #include "Stage1.h"
 #include "Stage2.h"
+#include "Player.h"
 
 void StageScene::Init()
 {
+    Object* player = new Player;
+
+    player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
+    player->SetName(L"Player");
+    AddObject(player, LAYER::PLAYER);
+
+    Object* enemy = new EnemyA;
+
+    enemy->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
+    enemy->SetName(L"Enemy");
+    AddObject(enemy, LAYER::ENEMY);
+
     const int cellSizeX = 190;
     const int cellSizeY = 240;
     const int gridSize = 3;
