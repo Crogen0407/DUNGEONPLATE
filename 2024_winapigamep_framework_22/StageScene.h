@@ -12,7 +12,6 @@ private:
 
 public:
     void Init() override;
-
     BackGround* GetBackGroundAt(int x, int y);
 };
 
