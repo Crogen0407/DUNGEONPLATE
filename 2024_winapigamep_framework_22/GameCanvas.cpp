@@ -83,20 +83,20 @@ GameCanvas::GameCanvas() :
 
 	//ScoreText
 	{
-		Vec2 size = { 0, 0 };
-		Vec2 pos = { SCREEN_WIDTH / 2, 15 };
+		Vec2 size = { 50, 60 };
+		Vec2 pos = { SCREEN_WIDTH / 2, (int)size.y/2+15 };
 		scoreText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
 		scoreText->LoadFont(L"PF스타더스트 Bold", 45, 60);
 		scoreText->SetText(L"5");
 		scoreText->SetColor(RGB(139, 172, 15));
-		scoreText->SetPitchAndFamily(TA_TOP | TA_CENTER);
+		scoreText->SetPitchAndFamily(DT_VCENTER);
 	}
 
-	//TimeText
+	//TimeText //이거 고쳐야 함
 	{
-		Vec2 size = { 0, 0 };
-		Vec2 pos = { 0.1f + offset,  (SCREEN_HEIGHT - 125.f - offset / 2) + offset /2 };
+		Vec2 size = { 100, 25 };
+		Vec2 pos = { 0.1f + offset,  (SCREEN_HEIGHT - 125.f - offset / 2) + size.y /2 };
 		timeText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
 		timeText->LoadFont(L"PF스타더스트", 18, 24);
