@@ -8,13 +8,8 @@ private:
 	std::map<std::string, std::stack<PoolableObject*>> pool;
 public:
 	void Init();
-	template<typename PoolableObject* T>
-	void AddPool(std::string key, PoolableObject* object)
-	{
-		object->name = key;
-		pool[key].push(object);
-	}
+	void AddPool(std::string key, PoolableObject* object);
 public:
-	PoolableObject* Pop(std::string name);
-	void Push(PoolableObject* poolableObject);
+	PoolableObject* Pop(std::string type);
+	void Push(PoolableObject* object);
 };

@@ -247,6 +247,16 @@
     <ClInclude Include="DashSkill.h">
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
+    <ClInclude Include="GuidedMissile.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBounceBullet.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBullet.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyB.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -418,5 +428,16 @@
     <ClCompile Include="DashSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
+    <ClCompile Include="PoolableObject.cpp" />
+    <ClCompile Include="GuidedMissile.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBounceBullet.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBullet.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyB.cpp" />
   </ItemGroup>
 </Project>

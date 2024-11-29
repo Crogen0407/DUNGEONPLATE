@@ -7,6 +7,12 @@ void PoolManager::Init()
     
 }
 
+void PoolManager::AddPool(std::string key, PoolableObject* object)
+{
+    object->name = key;
+    pool[key].push(object);
+}
+
 PoolableObject* PoolManager::Pop(std::string name)
 {
     PoolableObject* poolObject = pool[name].top();
