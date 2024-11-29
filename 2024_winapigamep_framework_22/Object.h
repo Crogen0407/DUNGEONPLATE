@@ -22,6 +22,7 @@ public:
 	virtual void ExitCollision(Collider* _other);
 	const bool& GetIsDead() const { return m_IsDie; }
 	void SetDead() { m_IsDie = true; }
+	void SetDead(bool value) { m_IsDie = value; }
 	void SetName(wstring _name) { m_name = _name; }
 	const wstring& GetName() const { return m_name; }
 	static Object* FindObject(std::wstring name, LAYER layer);

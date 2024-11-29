@@ -1,10 +1,17 @@
 #include "pch.h"
 #include "PoolableObject.h"
 
-void PoolableObject::OnPop()
+void PoolableObject::Update()
 {
+	Object::Update();
 }
 
-void PoolableObject::OnPush()
+void PoolableObject::LateUpdate()
 {
+	Object::LateUpdate();
+}
+
+void PoolableObject::Render(HDC _hdc)
+{
+	Object::Render(_hdc);
 }

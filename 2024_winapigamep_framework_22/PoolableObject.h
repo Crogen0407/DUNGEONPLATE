@@ -1,10 +1,21 @@
 #pragma once
-class PoolableObject
+#include "Object.h"
+class PoolableObject : public Object
 {
 public:
-	std::string name;
+	std::wstring name;
 public:
-	virtual void OnPop() abstract;
-	virtual void OnPush() abstract;
+	virtual void OnPop()
+	{
+		SetDead(false);
+	}
+	virtual void OnPush()
+	{
+		SetDead(true);
+	}
+public:
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void Render(HDC _hdc) override;
 };
 

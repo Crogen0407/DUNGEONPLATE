@@ -1,23 +1,18 @@
 #include "pch.h"
 #include "PoolManager.h"
 #include "PoolableObject.h"
+#include "SlashEffect.h"
 
 void PoolManager::Init()
 {
-    
+    MakeObjectPool<SlashEffect>(L"SlashEffect", 5);
 }
 
-void PoolManager::AddPool(std::string key, PoolableObject* object)
-{
-    object->name = key;
-    pool[key].push(object);
-}
-
-PoolableObject* PoolManager::Pop(std::string name)
+PoolableObject* PoolManager::Pop(std::wstring name)
 {
     PoolableObject* poolObject = pool[name].top();
-    poolObject->OnPop();
     pool[name].pop();
+    poolObject->OnPop();
     return poolObject;
 }
 
