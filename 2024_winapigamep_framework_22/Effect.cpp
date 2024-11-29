@@ -13,14 +13,6 @@ Effect::~Effect()
 {
 }
 
-void Effect::OnPop()
-{
-}
-
-void Effect::OnPush()
-{
-}
-
 void Effect::Update()
 {
 }
@@ -44,7 +36,7 @@ void Effect::SetTexture(wstring name, wstring path)
 {
 	_spriteRenderer->SetTexture(name, path);
 }
-void Effect::SetAngle(float angle, bool isDeg = false)
+void Effect::SetAngle(float angle, bool isDeg)
 {
 	_spriteRenderer->SetAngle(angle, isDeg);
 }

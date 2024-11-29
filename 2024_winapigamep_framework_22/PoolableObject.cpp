@@ -3,8 +3,8 @@
 
 void PoolableObject::Update()
 {
-	Object::Update();
 }
+
 
 void PoolableObject::LateUpdate()
 {
@@ -13,5 +13,4 @@ void PoolableObject::LateUpdate()
 
 void PoolableObject::Render(HDC _hdc)
 {
-	Object::Render(_hdc);
 }

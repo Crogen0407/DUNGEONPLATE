@@ -12,19 +12,19 @@ private:
 public:
 	void Init();
 	template<typename T>
-	void MakeObjectPool(std::wstring key, int count) 
+	void MakeObjectPool(std::wstring key, LAYER layer, int count)
 	{
 		for (int i = 0; i < count; i++)
 		{
-			AddPool<T>(key);
+			AddPool<T>(key, layer);
 		}
 	}
 	template<typename T>
-	void AddPool(std::wstring key)
+	void AddPool(std::wstring key, LAYER layer)
 	{
 		T* object = new T;
 		object->name = key;
-		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(object);
+		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(object, layer);
 		pool[key].push(object);
 		object->SetDead();
 	}

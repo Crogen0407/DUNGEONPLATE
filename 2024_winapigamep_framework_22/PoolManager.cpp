@@ -2,10 +2,10 @@
 #include "PoolManager.h"
 #include "PoolableObject.h"
 #include "SlashEffect.h"
-
+#include <string>
 void PoolManager::Init()
 {
-    MakeObjectPool<SlashEffect>(L"SlashEffect", 5);
+    MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
 }
 
 PoolableObject* PoolManager::Pop(std::wstring name)

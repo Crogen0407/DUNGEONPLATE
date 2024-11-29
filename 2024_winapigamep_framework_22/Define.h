@@ -21,7 +21,7 @@ public:							\
 #define LOADTEXTURE(key, path) GET_SINGLE(ResourceManager)->TextureLoad(key, path)
 
 #define POP(name) GET_SINGLE(PoolManager)->Pop(name)
-#define PUSH(poolableObject) GET_SINGLE(PoolManager)->PoolableObject(poolableObject)
+#define PUSH(poolableObject) GET_SINGLE(PoolManager)->Push(poolableObject)
 
 #define KEY_CHECK(key, state) InputManager::GetInst()->GetKey(key) == state
 #define GET_KEYNONE(key) KEY_CHECK(key, KEY_STATE::NONE)

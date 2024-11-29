@@ -16,6 +16,7 @@
 #include "AttackDirArrow.h"
 #include "GameManager.h"
 #include "SkillManager.h"
+#include "PoolManager.h"
 
 Player::Player()
 {
@@ -58,7 +59,10 @@ void Player::Update()
 	if (GET_KEY(KEY_TYPE::D))
 		dir += Vec2(1, 0);
 	if (GET_KEY(KEY_TYPE::LBUTTON))
+	{
+		POP(L"SlashEffect");
 		Parry();
+	}
 	dir.Normalize();
 	Move(dir * speed * fDT);
 	Parrying();
