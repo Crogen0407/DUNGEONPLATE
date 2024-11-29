@@ -26,16 +26,18 @@ void Stage1::Update()
 
 }
 
-void Stage1::Render(HDC _hdc)
+void Stage1::Render(StageScene* stageScene, HDC _hdc)
 {
     Stage::Render(_hdc);
+    
+    DrawScene(stageScene, 1, 1, _hdc);
 }
 
-void Stage1::DrawScene(StageScene* _stageScene, int x, int y)
+void Stage1::DrawScene(StageScene* stageScene, int x, int y, HDC _hdc)
 {
-    BackGround* bg = _stageScene->GetBackGroundAt(1, 1);
+    BackGround* bg = stageScene->GetBackGroundAt(x, y);
     if (bg)
     {
-        AddObject(bg, LAYER::BACKGROUND); 
+        bg->Render(_hdc);
     }
 }

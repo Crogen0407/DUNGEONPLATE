@@ -22,19 +22,20 @@ void BackGround::Update()
 
 void BackGround::Render(HDC _hdc)
 {
-	Vec2 vPos = GetPos();
-	Vec2 vSize = GetSize();
-	RECT_RENDER(_hdc, vPos.x, vPos.y,
-		vSize.x, vSize.y);
-	/*BitBlt(_hdc,
-		vPos.x - vSize.x / 2, vPos.y - vSize.y / 2,
-		vPos.x + vSize.x / 2, vPos.y + vSize.y / 2,
-		m_backTexture->GetTexDC(), 0, 0, SRCCOPY);*/
+    Vec2 vPos = GetPos();
+    Vec2 vSize = GetSize();
 
+    RECT_RENDER(_hdc, vPos.x, vPos.y, vSize.x, vSize.y);
 
-	TransparentBlt(_hdc,
-		vPos.x - vSize.x / 2, vPos.y - vSize.y / 2,
-		vSize.x, vSize.y,
-		m_backTexture->GetTexDC(), 0, 0, 112, 112, RGB(255, 0, 255));
-	ComponentRender(_hdc);
+    if (m_backTexture && m_backTexture->GetTexDC())
+    {
+        TransparentBlt(_hdc,
+            vPos.x - vSize.x / 2, vPos.y - vSize.y / 2,
+            vSize.x, vSize.y,
+            m_backTexture->GetTexDC(), 0, 0,
+            m_backTexture->GetWidth(), m_backTexture->GetHeight(),
+            RGB(255, 0, 255));
+    }
+
+    ComponentRender(_hdc);
 }
