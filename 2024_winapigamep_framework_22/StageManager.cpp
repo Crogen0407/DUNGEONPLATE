@@ -11,6 +11,8 @@ void StageManager::Init()
 
 	RegisterStage(L"Stage1", std::make_shared<Stage1>());
 	RegisterStage(L"Stage2", std::make_shared<Stage2>());
+
+	LoadStage(L"Stage1");
 }
 
 void StageManager::Update()

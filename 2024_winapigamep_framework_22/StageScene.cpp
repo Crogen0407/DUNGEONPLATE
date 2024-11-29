@@ -23,7 +23,7 @@ void StageScene::Init()
     AddObject(enemy, LAYER::ENEMY);
 
     const int cellSizeX = 190;
-    const int cellSizeY = 240;
+    const int cellSizeY = 190;
     const int gridSize = 3;
     const int totalGridSize = cellSizeX * gridSize;
 
