@@ -1,5 +1,8 @@
 #pragma once
 #include "Object.h"
+
+class Texture;
+
 class BackGround :
     public Object
 {
@@ -9,5 +12,8 @@ public:
 public:
     void Update() override;
     void Render(HDC _hdc) override;
+private:
+    Texture* m_backTexture;
+    bool m_isDraw = false;
 };
 
