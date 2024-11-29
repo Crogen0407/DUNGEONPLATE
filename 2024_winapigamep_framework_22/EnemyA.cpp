@@ -28,9 +28,9 @@ EnemyA::EnemyA()
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();
 
-	GetComponent<Animator>()->CreateAnimation(L"Enemy01Idle", texture, {0,0}, texSize, {0,0}, 3, 1.f);
-	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 100);
-
+	GetComponent<Animator>()
+		->CreateAnimation(L"Enemy01Idle", texture, {0,0}, texSize, { (int)texSize.x, 0}, 3, 0.2f);
+	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
 }
 
 EnemyA::~EnemyA()
@@ -42,7 +42,10 @@ void EnemyA::Update()
 	if (prevShootTime + shootDelay < TIME)
 	{
 		prevShootTime = TIME;
-		GetComponent<AttackCompo>()->TryFireMissile();
+
+		Vec2 attackDir = target->GetPos();
+		attackDir -= GetPos();
+		GetComponent<AttackCompo>()->TryFireBullet(attackDir);
 	}
 
 	if (prevDash + 2 < TIME)

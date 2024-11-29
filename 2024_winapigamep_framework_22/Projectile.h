@@ -9,9 +9,9 @@ public:
 	void Update() abstract;
 	void Render(HDC _hdc) abstract;
 public:
-	void SetDir(Vec2 _dir)
+	void SetDir(Vec2 dir)
 	{
-		_dir = _dir;
+		_dir = dir;
 		_dir.Normalize();
 	}
 	Vec2 GetDir()

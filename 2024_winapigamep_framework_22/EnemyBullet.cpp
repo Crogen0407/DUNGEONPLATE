@@ -9,9 +9,11 @@
 
 EnemyBullet::EnemyBullet()
 {
+	_canParry = true;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 	AddComponent<SpriteRenderer>();
 	AddComponent<Collider>();
+	SetSize({ 20,20 });
 
 	GetComponent<Collider>()->SetSize({ 20.f,20.f });
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
@@ -37,7 +39,7 @@ void EnemyBullet::Update()
 
 void EnemyBullet::Render(HDC _hdc)
 {
-	Vec2 vPos = GetPos();
+	/*Vec2 vPos = GetPos();
 	Vec2 vSize = GetSize();
 
 	int width = _texture->GetWidth();
@@ -47,6 +49,6 @@ void EnemyBullet::Render(HDC _hdc)
 		, (int)(vPos.y - height / 2)
 		, width, height,
 		_texture->GetTexDC()
-		, 0, 0, width, height, RGB(255, 0, 255));
+		, 0, 0, width, height, RGB(255, 0, 255));*/
 	ComponentRender(_hdc);
 }

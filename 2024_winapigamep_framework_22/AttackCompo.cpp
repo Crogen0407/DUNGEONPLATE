@@ -7,6 +7,7 @@
 #include "Scene.h"
 #include "GuidedMissile.h"
 #include "EnemyBullet.h"
+#include "EnemyBounceBullet.h"
 
 AttackCompo::AttackCompo()
 {
@@ -16,22 +17,32 @@ AttackCompo::~AttackCompo()
 {
 }
 
-void AttackCompo::TryFire(Vec2 dir)
+void AttackCompo::TryFireBullet(Vec2 dir)
 {
 	Projectile* projectile = new EnemyBullet();
 	projectile->SetPos(GetOwner()->GetPos());
-	projectile->SetSize({ 10, 10 });
+	projectile->SetDir(dir);
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()
 		->AddObject(projectile, LAYER::PROJECTILE);
 
-	projectile->SetDir(dir);
 }
 
-void AttackCompo::TryFireMissile()
+void AttackCompo::TryFireBounceBullet(Vec2 dir)
 {
-	GuidedMissile* missile = new GuidedMissile();
+	Projectile* missile = new EnemyBounceBullet();
 	missile->SetPos(GetOwner()->GetPos());
+	missile->SetDir(dir);
+
+	GET_SINGLE(SceneManager)->GetCurrentScene()
+		->AddObject(missile, LAYER::PROJECTILE);
+}
+
+void AttackCompo::TryFireMissile(Vec2 dir)
+{
+	Projectile* missile = new GuidedMissile();
+	missile->SetPos(GetOwner()->GetPos());
+	missile->SetDir(dir);
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()
 		->AddObject(missile, LAYER::PROJECTILE);
