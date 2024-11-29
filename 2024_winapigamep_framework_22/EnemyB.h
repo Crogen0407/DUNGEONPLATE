@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 
+class Texture;
 class EnemyB : public Enemy
 {
 public:
@@ -12,6 +13,7 @@ public:
 private:
 	float shootDelay = 1;
 	float prevShootTime = 0;
+	Texture* texture;
 	Object* target;
 private:
 	float prevDash = 0;

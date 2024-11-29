@@ -4,19 +4,33 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Object.h"
+#include "Texture.h"
 #include "Projectile.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
 #include "AttackCompo.h"
 #include "Movement.h"
+#include "GuidedMissile.h"
+#include "SpriteRenderer.h"
+#include "Animator.h"
+#include "Animation.h"
 
 EnemyA::EnemyA()
 {
 	m_moveDesire = Vec2(0, 0);
 	target = FindObject(L"Player", LAYER::PLAYER);
+	SetSize({ 100, 100 });
 
+	Texture* texture = LOADTEXTURE(L"Enemy01", L"Texture\\Enemy01.bmp");
+	Vec2 texSize = Vec2((int)texture->GetWidth() / 3, (int)texture->GetHeight());
+
+	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();
+
+	GetComponent<Animator>()
+		->CreateAnimation(L"Enemy01Idle", texture, {0,0}, texSize, { (int)texSize.x, 0}, 3, 0.2f);
+	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
 }
 
 EnemyA::~EnemyA()
@@ -31,10 +45,8 @@ void EnemyA::Update()
 
 		Vec2 attackDir = target->GetPos();
 		attackDir -= GetPos();
-
-		GetComponent<AttackCompo>()->TryFire(attackDir);
+		GetComponent<AttackCompo>()->TryFireBullet(attackDir);
 	}
-
 
 	if (prevDash + 2 < TIME)
 	{
@@ -50,7 +62,9 @@ void EnemyA::Update()
 
 void EnemyA::Render(HDC _hdc)
 {
-	HBRUSH brush = CreateSolidBrush(RGB(255, 0, 0));
+	ComponentRender(_hdc);
+	//cout << (int)GetComponent<Animator>()->FindAnimation(L"Enemy01Idle")->GetCurFrame();
+	/*HBRUSH brush = CreateSolidBrush(RGB(255, 0, 0));
 	HBRUSH oldbrush = (HBRUSH)SelectObject(_hdc, brush);
 
 	Vec2 vPos = GetPos();
@@ -58,7 +72,7 @@ void EnemyA::Render(HDC _hdc)
 	RECT_RENDER(_hdc, vPos.x, vPos.y, vSize.x, vSize.y);
 
 	SelectObject(_hdc, oldbrush);
-	DeleteObject(brush);
+	DeleteObject(brush);*/
 }
 
 //void EnemyA::Fire()

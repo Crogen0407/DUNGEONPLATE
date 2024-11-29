@@ -45,14 +45,15 @@ void Animation::Render(HDC _hdc)
 {
 	Object* pObj = m_pAnimator->GetOwner();
 	Vec2 vPos = pObj->GetPos();
+	Vec2 vSize = pObj->GetSize();
 
 	// 오프셋 적용
 	vPos = vPos + m_vecAnimFrame[m_CurFrame].vOffset;
 	TransparentBlt(_hdc
-		, (int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x / 2.f)
-		, (int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
-		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
-		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, (int)(vPos.x - vSize.x / 2.f)
+		, (int)(vPos.y - vSize.y / 2.f)
+		, vSize.x//(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, vSize.y//(int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
 		, m_pTex->GetTexDC()
 		, (int)(m_vecAnimFrame[m_CurFrame].vLT.x)
 		, (int)(m_vecAnimFrame[m_CurFrame].vLT.y)
