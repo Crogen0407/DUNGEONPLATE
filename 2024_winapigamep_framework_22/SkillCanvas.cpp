@@ -8,6 +8,7 @@
 
 SkillCanvas::SkillCanvas()
 {
+	SetName(L"SkillCanvas");
 	int slotCount = 3;
 	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
 	int xDeltaPos = 175;

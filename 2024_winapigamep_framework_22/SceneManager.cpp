@@ -4,6 +4,7 @@
 #include "TitleScene.h"
 #include "GameScene.h"
 #include "UIScene.h"
+#include "Object.h"
 
 void SceneManager::Init()
 {
@@ -55,4 +56,18 @@ void SceneManager::LoadScene(const wstring& _sceneName)
 		m_pCurrentScene = iter->second;
 		m_pCurrentScene->Init();
 	}
+}
+
+Object* SceneManager::FindObject(std::wstring name, LAYER layer)
+{
+	vector<Object*> objects = GetCurrentScene()->GetLayerObjects(layer);
+
+	for (Object* obj : objects)
+	{
+		if (obj->GetName() == name) {
+			return obj;
+		}
+	}
+
+	return nullptr;
 }

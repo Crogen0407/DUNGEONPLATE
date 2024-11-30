@@ -30,9 +30,9 @@ bool Core::Init(HWND _hwnd)
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(InputManager)->Init();
 	GET_SINGLE(ResourceManager)->Init();
+	GET_SINGLE(SkillManager)->Init();
 	GET_SINGLE(SceneManager)->Init();
 	GET_SINGLE(PoolManager)->Init();
-	GET_SINGLE(SkillManager)->Init();
 
 	//m_obj.SetPos(Vec2(SCREEN_WIDTH / 2
 	//				,SCREEN_HEIGHT/ 2));
@@ -81,9 +81,9 @@ void Core::MainUpdate()
 	// === Manager Update === 
 	GET_SINGLE(TimeManager)->Update();
 	GET_SINGLE(InputManager)->Update();
+	GET_SINGLE(SkillManager)->Update();
 	GET_SINGLE(SceneManager)->Update();
 	GET_SINGLE(CollisionManager)->Update();
-	GET_SINGLE(SkillManager)->Update();
 
 }
 

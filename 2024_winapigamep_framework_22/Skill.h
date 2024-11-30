@@ -1,4 +1,5 @@
 #pragma once
+#include "Action.h"
 class Player;
 class Skill
 {
@@ -13,6 +14,7 @@ protected:
 	bool isActiveSkill = false;
 	int level = 0;
 public:
+	Action<float> DelayTimeEvent;
 	float maxDelayTime = 10;
 	float curDelayTime = 0;
 public:
@@ -40,6 +42,7 @@ public:
 	{
 		return level;
 	}
+	virtual void Update() {}
 public:
 	virtual void OnLevelUp(Player* player) {
 		++level;

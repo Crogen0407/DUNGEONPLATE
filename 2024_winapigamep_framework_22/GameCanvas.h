@@ -12,10 +12,14 @@ public:
     void Update() override;
     void LateUpdate() override;
     void Render(HDC hdc) override;
+public:
+    void ShowDashUI();
 private: //UI
     Slider* healthBar;
     Slider* shieldBar;
     Slider* attackCountBar;
+    Slider* dashCoolTimeBar;
+    Image* bottomDashCoolTimeContainer;
     Text* scoreText;
     Text* timeText;
 };

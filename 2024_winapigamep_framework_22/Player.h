@@ -27,6 +27,7 @@ private:
 public:
 	Action<float> ParryCoolTimeEvent;
 public:
+	//MoveSpeed
 	const float GetMoveSpeed() const
 	{
 		return speed;
@@ -35,6 +36,8 @@ public:
 	{
 		this->speed = speed;
 	}
+
+	//ParryCoolTime
 	const float GetParryCoolTime() const
 	{
 		return parryCoolTime;
@@ -43,13 +46,30 @@ public:
 	{
 		this->parryCoolTime = parryCoolTime;
 	}
+
+	//AttackDir
+	const Vec2 GetAttackDir() const
+	{
+		return attackDir;
+	}
+
+	//CanMove
+	const bool GetCanMove() const
+	{
+		return canMove;
+	}
+	void SetCanMove(const bool& canMove)
+	{
+		this->canMove = canMove;
+	}
+
 private:
 	float speed = 100.f;
 	Vec2 attackDir;
 	float parryDist = 100.f;
 	float parryingTime = 0.1f;
 	bool isParrying = false;
-
+	bool canMove;
 	float curParryTime;
 	float parryCoolTime = 0.5f;
 };

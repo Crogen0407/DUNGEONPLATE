@@ -52,7 +52,6 @@ Player::~Player()
 void Player::Update()
 {
 	Vec2 dir;
-
 	if (GET_KEY(KEY_TYPE::W))
 		dir += Vec2(0, -1);
 	if (GET_KEY(KEY_TYPE::S))
@@ -67,6 +66,10 @@ void Player::Update()
 		Parry();
 	}
 	dir.Normalize();
+
+	attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
+	attackDir.Normalize();
+
 	Move(dir * speed * fDT);
 	Parrying();
 
@@ -98,8 +101,6 @@ void Player::Parry()
 	curParryTime = 0;
 
 	{
-		attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
-		attackDir.Normalize();
 		Vec2 effectPos = GetPos();
 		effectPos += attackDir * 50.f;
 		SlashEffect* slashEffect = static_cast<SlashEffect*>(POP(L"SlashEffect", effectPos));

@@ -1,5 +1,6 @@
 #pragma once
 class Scene;
+class Object;
 class SceneManager
 {
 	DECLARE_SINGLE(SceneManager);
@@ -16,6 +17,7 @@ public:
 	{
 		return m_pCurrentScene;
 	}
+	Object* FindObject(std::wstring name, LAYER layer);
 private:
 	// 씬들을 map으로 관리
 	map<wstring, std::shared_ptr<Scene>> m_mapScenes;

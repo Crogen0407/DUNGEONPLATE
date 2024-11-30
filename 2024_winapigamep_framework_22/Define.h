@@ -23,6 +23,8 @@ public:							\
 #define POP(name, pos) GET_SINGLE(PoolManager)->Pop(name, pos)
 #define PUSH(name, poolableObject) GET_SINGLE(PoolManager)->Push(name, poolableObject)
 
+#define FINDOBJECT(name, layer) GET_SINGLE(SceneManager)->FindObject(name, layer)
+
 #define KEY_CHECK(key, state) InputManager::GetInst()->GetKey(key) == state
 #define GET_KEYNONE(key) KEY_CHECK(key, KEY_STATE::NONE)
 #define GET_KEYUP(key) KEY_CHECK(key, KEY_STATE::UP)

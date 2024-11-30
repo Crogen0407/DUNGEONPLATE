@@ -306,7 +306,6 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
-    <ClCompile Include="UI.cpp" />
     <ClCompile Include="UIScene.cpp" />
   </ItemGroup>
   <ItemGroup>

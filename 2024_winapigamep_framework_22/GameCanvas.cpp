@@ -11,6 +11,8 @@
 #include "ResourceManager.h"
 #include "InputManager.h"
 #include "TimeManager.h"
+#include "SkillManager.h"
+#include "DashSkill.h"
 
 GameCanvas::GameCanvas() :
 	healthBar(nullptr),
@@ -19,6 +21,8 @@ GameCanvas::GameCanvas() :
 	scoreText(nullptr),
 	timeText(nullptr)
 {
+	SetName(L"GameCanvas");
+
 	int offset = 30;
 	Player* player = static_cast<Player*>(FindObject(L"Player", LAYER::PLAYER));
 	//BottomHeathContainer
@@ -81,6 +85,35 @@ GameCanvas::GameCanvas() :
 		}
 	}
 
+	//BottomDashCoolTimeContainer
+	{
+		Vec2 size = { 62.5f - offset / 2, 125.f - offset };
+		Vec2 pos = { 400 + offset + (int)size.x + offset / 4, (int)(SCREEN_HEIGHT - size.y / 2 - offset / 2) };
+
+		bottomDashCoolTimeContainer = static_cast<Image*>(CreateUI(UIOPTION::IMAGE, pos, size));
+		bottomDashCoolTimeContainer->texture = LOADTEXTURE(L"UISprite1X2", L"Texture\\UISprite1X2.bmp");
+
+
+		//DashCoolTimeBar
+		{
+			dashCoolTimeBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
+				pos, { size.x - offset, size.y - offset }));
+
+			dashCoolTimeBar->isVertical = true;
+			dashCoolTimeBar->flip = true;
+
+			DashSkill* dashSkill = static_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
+			dashSkill->DelayTimeEvent +=
+				[ct = dashCoolTimeBar](float value)
+				{
+					ct->SetValue(value);
+				};
+		}
+
+		bottomDashCoolTimeContainer->SetActive(false);
+		dashCoolTimeBar->SetActive(false);
+	}
+
 	//ScoreText
 	{
 		Vec2 size = { 50, 60 };
@@ -136,4 +169,10 @@ void GameCanvas::LateUpdate()
 void GameCanvas::Render(HDC hdc)
 {
 	Canvas::Render(hdc);
+}
+
+void GameCanvas::ShowDashUI()
+{
+	dashCoolTimeBar->SetActive(true);
+	bottomDashCoolTimeContainer->SetActive(true);
 }

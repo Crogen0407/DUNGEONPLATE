@@ -27,24 +27,19 @@ void UIScene::Init()
 
 	gameCanvas = new GameCanvas;
 	skillCanvas = new SkillCanvas;
+	AddObject(gameCanvas, LAYER::UI);
+	AddObject(skillCanvas, LAYER::UI);
 }
 
 void UIScene::Update()
 {
 	Scene::Update();
-	gameCanvas->Update();
-	skillCanvas->Update();
 
-	gameCanvas->LateUpdate();
-	skillCanvas->LateUpdate();
-
-	if (GET_KEYDOWN(KEY_TYPE::SPACE))
+	if (GET_KEYDOWN(KEY_TYPE::P))
 		static_cast<SkillCanvas*>(skillCanvas)->ShowSlots();
 }
 
 void UIScene::Render(HDC _hdc)
 {
 	Scene::Render(_hdc);
-	gameCanvas->Render(_hdc);
-	skillCanvas->Render(_hdc);
 }

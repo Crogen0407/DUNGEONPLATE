@@ -28,7 +28,10 @@ void Canvas::LateUpdate()
 void Canvas::Render(HDC _hdc)
 {
 	for (auto child : children)
-		child->Render(_hdc);
+	{
+		if(child->GetActive())
+			child->Render(_hdc);
+	}
 }
 
 UI* Canvas::CreateUI(UIOPTION uiOption)

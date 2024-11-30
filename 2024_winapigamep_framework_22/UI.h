@@ -3,16 +3,25 @@ class Canvas;
 class UI
 {
 protected:
+    bool active = true;
     Vec2 pos;
     Vec2 size;
     Canvas* owner;
 public:
-    UI();
-    virtual ~UI();
+    UI() = default;
+    virtual ~UI() = default;
 public:
     virtual void LateUpdate() abstract;
     virtual void Render(HDC _hdc) abstract;
 public:
+    const bool GetActive() const
+    {
+        return active;
+    }
+    void SetActive(const bool& active)
+    {
+        this->active = active;
+    }
     void SetOwner(Canvas *canvas)
     {
         owner = canvas;

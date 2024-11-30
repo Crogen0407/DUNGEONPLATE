@@ -21,11 +21,12 @@ void SkillManager::Update()
 {
 	for (auto skill : skills)
 	{
+		//0레벨은 가지고 있지 않은 상태이다.
+		if (skill.second->GetLevel() == 0) continue;
+		skill.second->Update();
 		//엑티브 스킬은 활성화되어 있는 동안 실행되는 것이기 때문에
 		//레벨업할 때만 갱신하면 된다.
 		if (skill.second->IsActiveSkill()) continue;
-		//0레벨은 가지고 있지 않은 상태이다.
-		if (skill.second->GetLevel() == 0) continue;
 
 		//쿨타임 돌기
 		skill.second->curDelayTime += fDT;
@@ -35,6 +36,7 @@ void SkillManager::Update()
 			skill.second->curDelayTime = 0.f;
 			skill.second->OnUse(player);
 		}
+		skill.second->DelayTimeEvent.Invoke(skill.second->curDelayTime/ skill.second->maxDelayTime);
 	}
 }
 
