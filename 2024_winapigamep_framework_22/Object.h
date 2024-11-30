@@ -13,6 +13,7 @@ public:
 	void ComponentRender(HDC _hdc);
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
+	void AddPos(Vec2 pos) { m_vPos += pos; }
 	void SetSize(Vec2 _vSize) { m_vSize = _vSize; }
 	const Vec2& GetPos() const { return m_vPos; }
 	const Vec2& GetSize() const { return m_vSize; }
@@ -22,13 +23,15 @@ public:
 	virtual void ExitCollision(Collider* _other);
 	const bool& GetIsDead() const { return m_IsDie; }
 	void SetDead() { m_IsDie = true; }
-	void SetDead(bool value) { m_IsDie = value; }
+	void SetActive(bool active) { activeSelf = active; }
+	const bool GetActive() const { return activeSelf; }
 	void SetName(wstring _name) { m_name = _name; }
 	const wstring& GetName() const { return m_name; }
 	static Object* FindObject(std::wstring name, LAYER layer);
 	static vector<Object*> FindObjects(LAYER layer);
-private:
+protected:
 	bool m_IsDie;
+	bool activeSelf = true;
 	wstring m_name;
 public:
 	template<typename T>
@@ -54,7 +57,7 @@ private:
 	//POINT m_ptPos;
 	//POINT m_ptSize;
 	Vec2 m_vPos;
-	Vec2 m_vSize;
+	Vec2 m_vSize = { 100, 100 };
 	vector<Component*> m_vecComponents;
 };
 

@@ -1,5 +1,5 @@
 #pragma once
-//#include "Object.h"
+class SlashEffect;
 class Object; // 클래스 전방선언
 class Scene	
 {

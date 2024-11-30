@@ -31,9 +31,9 @@ public:
         else
             this->angle = angle;
     }
-    void LookAt(Vec2 dir)
+    void LookAt(const Vec2& dir)
     {
-        angle = atan2(dir.y, dir.x);
+        this->angle = std::atan2(dir.y, dir.x);
     }
 public:
     bool isRotatable = true;

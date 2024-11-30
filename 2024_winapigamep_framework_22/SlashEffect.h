@@ -1,5 +1,6 @@
 #pragma once
 #include "Effect.h"
+class SpriteRenderer;
 class SlashEffect :
     public Effect
 {
@@ -7,12 +8,16 @@ public:
     SlashEffect();
     ~SlashEffect() override;
 private:
-    float lifeTime = 0.5f;
-    float curTime = 0.f;
+    SpriteRenderer* _spriteRenderer;
+    Vec2 _dir;
 public:
     void Update() override;
+    void LateUpdate() override;
+    void Render(HDC _hdc) override;
 public:
     void OnPop() override;
     void OnPush() override;
+public:
+    void LookAt(const Vec2& dir);
 };
 

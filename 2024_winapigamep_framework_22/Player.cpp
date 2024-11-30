@@ -17,6 +17,7 @@
 #include "GameManager.h"
 #include "SkillManager.h"
 #include "PoolManager.h"
+#include "SlashEffect.h"
 
 Player::Player()
 {
@@ -58,9 +59,8 @@ void Player::Update()
 		dir += Vec2(-1, 0);
 	if (GET_KEY(KEY_TYPE::D))
 		dir += Vec2(1, 0);
-	if (GET_KEY(KEY_TYPE::LBUTTON))
+	if (GET_KEYDOWN(KEY_TYPE::LBUTTON))
 	{
-		POP(L"SlashEffect");
 		Parry();
 	}
 	dir.Normalize();
@@ -93,6 +93,16 @@ void Player::Parry()
 		return;
 	}
 	curParryTime = 0;
+
+	{
+		attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
+		attackDir.Normalize();
+		Vec2 effectPos = GetPos();
+		effectPos += attackDir * 50.f;
+		SlashEffect* slashEffect = static_cast<SlashEffect*>(POP(L"SlashEffect", effectPos));
+		slashEffect->LookAt(attackDir);
+	}
+	
 	isParrying = true;
 }
 

@@ -95,13 +95,14 @@ GameCanvas::GameCanvas() :
 
 	//TimeText //이거 고쳐야 함
 	{
-		Vec2 size = { 100, 25 };
-		Vec2 pos = { 0.1f + offset,  (SCREEN_HEIGHT - 125.f - offset / 2) + size.y /2 };
+		Vec2 size = { 80, 30 };
+		Vec2 pos = { SCREEN_WIDTH - (int)size.x/2,  offset };
 		timeText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, pos, size));
 
 		timeText->LoadFont(L"PF스타더스트", 18, 24);
+		timeText->SetText(L"00:00");
 		timeText->SetColor(RGB(139, 172, 15));
-		timeText->SetPitchAndFamily(TA_BOTTOM | TA_LEFT);
+		timeText->SetPitchAndFamily(DT_LEFT);
 	}
 }
 

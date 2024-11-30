@@ -2,11 +2,12 @@
 #include "Effect.h"
 #include "SpriteRenderer.h"
 #include "Object.h"
+#include "TimeManager.h"
+#include "PoolManager.h"
 
 Effect::Effect()
 {
-	AddComponent<SpriteRenderer>();
-	_spriteRenderer = GetComponent<SpriteRenderer>();
+	
 }
 
 Effect::~Effect()
@@ -15,32 +16,16 @@ Effect::~Effect()
 
 void Effect::Update()
 {
+	PoolableObject::Update();
+	/*std::string str;
+	str.assign(GetKey().begin(), GetKey().end());
+	cout << str;*/
+	_curTime += fDT;
+	if (_curTime > _lifeTime)
+	{
+		//SetActive(false);
+		
+		PUSH(L"SlashEffect", this);
+	}
 }
 
-void Effect::LateUpdate()
-{
-
-}
-
-void Effect::Render(HDC _hdc)
-{
-	ComponentRender(_hdc);
-}
-
-
-void Effect::SetTexture(Texture* texture)
-{
-	_spriteRenderer->SetTexture(texture);
-}
-void Effect::SetTexture(wstring name, wstring path)
-{
-	_spriteRenderer->SetTexture(name, path);
-}
-void Effect::SetAngle(float angle, bool isDeg)
-{
-	_spriteRenderer->SetAngle(angle, isDeg);
-}
-void Effect::LookAt(Vec2 dir)
-{
-	_spriteRenderer->LookAt(dir);
-}

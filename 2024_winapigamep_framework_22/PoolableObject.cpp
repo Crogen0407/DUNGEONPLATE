@@ -1,10 +1,17 @@
 #include "pch.h"
 #include "PoolableObject.h"
 
-void PoolableObject::Update()
+PoolableObject::PoolableObject()
 {
 }
 
+PoolableObject::~PoolableObject()
+{
+}
+
+void PoolableObject::Update()
+{
+}
 
 void PoolableObject::LateUpdate()
 {

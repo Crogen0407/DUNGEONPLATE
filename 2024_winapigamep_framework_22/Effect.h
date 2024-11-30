@@ -1,6 +1,5 @@
 #pragma once
 #include "PoolableObject.h"
-class SpriteRenderer;
 class Texture;
 class Effect : public PoolableObject
 {
@@ -8,19 +7,15 @@ public:
     Effect();
     ~Effect() override;
 protected:
-    SpriteRenderer* _spriteRenderer;
+    float _lifeTime = 0.5f;
+    float _curTime = 0.f;
 public:
-    void Update() override;
-    void LateUpdate() override;
-    void Render(HDC _hdc) override;
+    virtual void Update() override;
+    virtual void LateUpdate() abstract override;
+    virtual void Render(HDC _hdc) abstract override;
 public:
-    virtual void OnPop() override {};
-    virtual void OnPush() override {};
-public:
-    void SetTexture(Texture* texture);
-    void SetTexture(wstring name, wstring path);
-    void SetAngle(float angle, bool isDeg);
-    void LookAt(Vec2 dir);
+    virtual void OnPop() override { }
+    virtual void OnPush() override { _curTime = 0.f; }
 };
 
  

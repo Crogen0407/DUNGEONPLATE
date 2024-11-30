@@ -12,11 +12,12 @@ Object::Object()
 	, m_vSize{}
 	, m_IsDie(false)
 {
-	
+
 }
 
 Object::~Object()
 {
+	int a = 0;
 	for (Component* com : m_vecComponents)
 	{
 		if (com != nullptr)

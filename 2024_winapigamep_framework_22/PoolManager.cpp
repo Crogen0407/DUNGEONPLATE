@@ -3,21 +3,29 @@
 #include "PoolableObject.h"
 #include "SlashEffect.h"
 #include <string>
+
 void PoolManager::Init()
 {
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
+    vector<Object*> o = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(LAYER::PROJECTILE);
+    int a = 0;
 }
 
-PoolableObject* PoolManager::Pop(std::wstring name)
+PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)
 {
-    PoolableObject* poolObject = pool[name].top();
-    pool[name].pop();
+    if (pool.find(type) == pool.end()) return nullptr;
+
+    PoolableObject* poolObject = pool.at(type).top();
+    poolObject->SetPos(pos);
+    poolObject->SetActive(true);
     poolObject->OnPop();
+    pool.at(type).pop();
     return poolObject;
 }
 
-void PoolManager::Push(PoolableObject* poolableObject)
+void PoolManager::Push(const std::wstring& type, PoolableObject* poolableObject)
 {
     poolableObject->OnPush();
-    pool[poolableObject->name].push(poolableObject);
+    poolableObject->SetActive(false);
+    pool[type].push(poolableObject);
 }

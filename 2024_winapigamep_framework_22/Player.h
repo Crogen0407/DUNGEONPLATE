@@ -28,7 +28,7 @@ public:
 	Action<float> ParryCoolTimeEvent;
 private:
 	float speed = 100.f;
-
+	Vec2 attackDir;
 	float parryDist = 100.f;
 	float parryingTime = 0.1f;
 	bool isParrying = false;
