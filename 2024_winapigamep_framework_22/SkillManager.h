@@ -6,7 +6,6 @@ enum class ESkillType
 	DashSkill,
 	HealPack,
 	IncreaseAttackSpeed,
-	IncreaseMaxHp,
 	IncreaseMoveSpeed,
 	LAST
 };

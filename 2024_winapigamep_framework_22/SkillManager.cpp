@@ -4,7 +4,6 @@
 #include "Skill.h"
 #include "HealPackSkill.h"
 #include "IncreaseAttackSpeedSkill.h"
-#include "IncreaseMaxHpSkill.h"
 #include "IncreaseMoveSpeedSkill.h"
 #include "DashSkill.h"
 
@@ -13,7 +12,6 @@ void SkillManager::Init()
 	AddSkill(ESkillType::DashSkill,					static_cast<Skill*>(new DashSkill));
 	AddSkill(ESkillType::HealPack,					static_cast<Skill*>(new HealPackSkill));
 	AddSkill(ESkillType::IncreaseAttackSpeed,		static_cast<Skill*>(new IncreaseAttackSpeedSkill));
-	AddSkill(ESkillType::IncreaseMaxHp,				static_cast<Skill*>(new IncreaseMaxHpSkill));
 	AddSkill(ESkillType::IncreaseMoveSpeed,			static_cast<Skill*>(new IncreaseMoveSpeedSkill));
 }
 
