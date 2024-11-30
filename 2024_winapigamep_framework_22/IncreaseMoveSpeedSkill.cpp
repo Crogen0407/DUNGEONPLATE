@@ -23,7 +23,7 @@ void IncreaseMoveSpeedSkill::OnLevelUp(Player* player)
 	if (_playerOriginMoveSpeed == -1)
 	{
 		_playerOriginMoveSpeed = player->GetMoveSpeed();
-
+		//이펙트 넣기
 	}
 
 	_increasePercent += 0.15f;
