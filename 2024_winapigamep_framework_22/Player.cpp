@@ -61,6 +61,7 @@ void Player::Update()
 		dir += Vec2(1, 0);
 	if (GET_KEYDOWN(KEY_TYPE::LBUTTON))
 	{
+		if (TIMESCALE <= 0.01f) return;
 		Parry();
 	}
 	dir.Normalize();

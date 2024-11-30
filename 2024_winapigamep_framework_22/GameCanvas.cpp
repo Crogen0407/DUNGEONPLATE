@@ -93,7 +93,7 @@ GameCanvas::GameCanvas() :
 		scoreText->SetPitchAndFamily(DT_VCENTER);
 	}
 
-	//TimeText //이거 고쳐야 함
+	//TimeText
 	{
 		Vec2 size = { 80, 30 };
 		Vec2 pos = { SCREEN_WIDTH - (int)size.x/2,  offset };

@@ -15,7 +15,7 @@ void SceneManager::Init()
 	RegisterScene(L"UIScene",std::make_shared<UIScene>());
 
 	// ¾À ·Îµå
-	LoadScene(L"GameScene");
+	LoadScene(L"UIScene");
 }
 
 void SceneManager::Update()

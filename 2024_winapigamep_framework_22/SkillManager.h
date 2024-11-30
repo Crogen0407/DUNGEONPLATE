@@ -7,6 +7,7 @@ enum class ESkillType
 	HealPack,
 	IncreaseAttackSpeed,
 	IncreaseMaxHp,
+	IncreaseMoveSpeed,
 	LAST
 };
 

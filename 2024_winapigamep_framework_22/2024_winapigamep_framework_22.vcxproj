@@ -200,6 +200,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMaxHpSkill.h" />
+    <ClInclude Include="IncreaseMoveSpeedSkill.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
@@ -274,6 +275,7 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMaxHpSkill.cpp" />
+    <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movement.cpp" />

@@ -160,12 +160,6 @@
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Sequence.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
-    <ClInclude Include="Tween.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyA.h" />
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
@@ -257,6 +251,11 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="EnemyB.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="SlashEffect.h" />
+    <ClInclude Include="IncreaseMoveSpeedSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -347,12 +346,6 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Sequence.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
-    <ClCompile Include="Tween.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
@@ -439,5 +432,10 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
     <ClCompile Include="EnemyB.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="SlashEffect.cpp" />
+    <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

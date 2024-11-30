@@ -19,7 +19,9 @@ public:
 		name->SetText(skill->GetNameText());
 		description->SetText(skill->GetDescriptionText());
 		if (skill->GetLevel() == 0)
-			level->SetText(L"New!");
+			level->SetText(L"NEW!");
+		else if(skill->GetLevel() == 9)
+			level->SetText(std::to_wstring(skill->GetLevel()) + L" -> MAX");
 		else
 			level->SetText(std::to_wstring(skill->GetLevel()) + L" -> " + std::to_wstring(skill->GetLevel()+1));
 	}

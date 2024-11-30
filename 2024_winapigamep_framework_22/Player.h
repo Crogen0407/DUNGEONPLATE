@@ -26,6 +26,15 @@ private:
 //ÆÐ¸µ
 public:
 	Action<float> ParryCoolTimeEvent;
+public:
+	const float GetMoveSpeed() const
+	{
+		return speed;
+	}
+	void SetMoveSpeed(const float& speed)
+	{
+		this->speed = speed;
+	}
 private:
 	float speed = 100.f;
 	Vec2 attackDir;
