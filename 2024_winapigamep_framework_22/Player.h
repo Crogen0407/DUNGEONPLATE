@@ -35,6 +35,14 @@ public:
 	{
 		this->speed = speed;
 	}
+	const float GetParryCoolTime() const
+	{
+		return parryCoolTime;
+	}
+	void SetParryCoolTime(const float& parryCoolTime)
+	{
+		this->parryCoolTime = parryCoolTime;
+	}
 private:
 	float speed = 100.f;
 	Vec2 attackDir;

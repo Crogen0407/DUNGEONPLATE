@@ -34,8 +34,10 @@ Player::Player()
 	healthCompo->SetHpBarActive(0);
 	collider->SetSize({ 50, 50 });
 
+	//나중에 밸패하기
 	SetSize({ 75, 75 });
 	speed = 400;
+	parryCoolTime = 0.87f;
 
 	AttackDirArrow* arrow = new AttackDirArrow;
 	arrow->SetParent(this);
