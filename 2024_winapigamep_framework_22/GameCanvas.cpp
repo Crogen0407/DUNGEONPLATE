@@ -25,6 +25,8 @@ GameCanvas::GameCanvas() :
 
 	int offset = 30;
 	Player* player = static_cast<Player*>(FindObject(L"Player", LAYER::PLAYER));
+	PlayerHealthCompo* playerHealthCompo = player->GetComponent<PlayerHealthCompo>();
+
 	//BottomHeathContainer
 	{
 		Vec2 size = { 400.f - offset/2, 125.f - offset };
@@ -36,9 +38,28 @@ GameCanvas::GameCanvas() :
 
 		//HealthBar
 		{
+			//HealthText
+			{
+				healthText = static_cast<Text*>(CreateUI(UIOPTION::TEXT, 
+					{ pos.x, pos.y - offset / 2 },
+					{ (int)size.x - offset, 45}));
+
+				healthText->LoadFont(L"PF스타더스트", 12, 15);
+				healthText->SetText(L"HP : 100%");
+				healthText->SetColor(RGB(15, 56, 15));
+				healthText->SetPitchAndFamily(DT_LEFT);
+
+				playerHealthCompo->ChangeHpEvent +=
+					[ct = healthText](float value)
+					{
+						std::wstring wstr;
+						ct->SetText(L"HP : " + std::to_wstring((int)(value * 100.f)) + L"%");
+					};
+			}
+
 			healthBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
 				{ pos.x, pos.y - offset/2 },
-				{ size.x - offset*2, 45.f- offset }));
+				{ size.x - offset, 45.f- offset }));
 
 			player->GetComponent<HealthCompo>()->ChangeHpEvent += 
 				[ct = healthBar](float value) 
@@ -49,9 +70,28 @@ GameCanvas::GameCanvas() :
 
 		//ShieldBar
 		{
+			//ShieldText
+			{
+				shieldText = static_cast<Text*>(CreateUI(UIOPTION::TEXT,
+					{ pos.x, pos.y + offset*0.8f },
+					{ (int)size.x - offset, 45 }));
+
+				shieldText->LoadFont(L"PF스타더스트", 12, 15);
+				shieldText->SetText(L"SHIELD : 100%");
+				shieldText->SetColor(RGB(15, 56, 15));
+				shieldText->SetPitchAndFamily(DT_LEFT);
+
+				playerHealthCompo->ChangeSubHpEvent +=
+					[ct = shieldText](float value)
+					{
+						std::wstring wstr;
+						ct->SetText(L"SHIELD : " + std::to_wstring((int)(value * 100.f)) + L"%");
+					};
+			}
+
 			shieldBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
-				{ pos.x, pos.y + offset/2 },
-				{ size.x - offset * 2, 45.f- offset }));
+				{ pos.x, pos.y + offset * 0.8f },
+				{ size.x - offset, 45.f- offset }));
 
 			player->GetComponent<PlayerHealthCompo>()->ChangeSubHpEvent +=
 				[ct = shieldBar](float value)

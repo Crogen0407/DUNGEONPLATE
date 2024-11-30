@@ -123,7 +123,6 @@ void Player::Parrying()
 		isParrying = false;
 		return;
 	}
-	
 
 	Vec2 vPos = GetPos();
 	bool parried = false;

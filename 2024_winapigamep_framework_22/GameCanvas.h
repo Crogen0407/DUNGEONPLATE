@@ -19,7 +19,11 @@ private: //UI
     Slider* shieldBar;
     Slider* attackCountBar;
     Slider* dashCoolTimeBar;
+
     Image* bottomDashCoolTimeContainer;
+
     Text* scoreText;
     Text* timeText;
+    Text* healthText;
+    Text* shieldText;
 };

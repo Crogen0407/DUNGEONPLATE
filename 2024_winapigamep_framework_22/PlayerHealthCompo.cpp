@@ -37,6 +37,6 @@ void PlayerHealthCompo::LateUpdate()
 	{
 		if (curDelay < 1.f) return;
 		curDelay = 0.f;
-		SetSubHp(subHp + 1);
+		SetSubHp(subHp + 10);
 	}
 }
