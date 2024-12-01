@@ -190,6 +190,8 @@
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FireBallEffect.h" />
+    <ClInclude Include="FireBallSkill.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameCanvas.h" />
     <ClInclude Include="GameScene.h" />
@@ -258,13 +260,14 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DashSkill.cpp" />
-    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="EnemyB.cpp" />
     <ClCompile Include="EnemyBounceBullet.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FireBallEffect.cpp" />
+    <ClCompile Include="FireBallSkill.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />

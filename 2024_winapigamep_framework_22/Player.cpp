@@ -138,6 +138,9 @@ void Player::Parrying()
 		parried = true;
 	}
 
+	if (projectiles.size() > 0)
+		AttackEvent.Invoke(NULL);
+
 	if (parried) isParrying = false;
 }
 

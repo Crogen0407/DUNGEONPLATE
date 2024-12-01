@@ -2,11 +2,12 @@
 #include "PoolManager.h"
 #include "PoolableObject.h"
 #include "SlashEffect.h"
-#include <string>
+#include "FireBallEffect.h"
 
 void PoolManager::Init()
 {
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
+    MakeObjectPool<FireBallEffect>(L"FireBallEffect", LAYER::PROJECTILE, 150);
     vector<Object*> o = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(LAYER::PROJECTILE);
     int a = 0;
 }
@@ -14,7 +15,6 @@ void PoolManager::Init()
 PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)
 {
     if (pool.find(type) == pool.end()) return nullptr;
-
     PoolableObject* poolObject = pool.at(type).top();
     poolObject->SetPos(pos);
     poolObject->SetActive(true);

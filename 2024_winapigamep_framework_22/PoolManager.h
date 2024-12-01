@@ -2,7 +2,6 @@
 #include <stack>
 #include "SceneManager.h"
 #include "Scene.h"
-#include <string>
 
 class PoolableObject;
 class PoolManager

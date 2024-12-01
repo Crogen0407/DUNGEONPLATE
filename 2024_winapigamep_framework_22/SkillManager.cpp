@@ -6,6 +6,7 @@
 #include "IncreaseAttackSpeedSkill.h"
 #include "IncreaseMoveSpeedSkill.h"
 #include "DashSkill.h"
+#include "FireBallSkill.h"
 
 void SkillManager::Init()
 {
@@ -13,6 +14,7 @@ void SkillManager::Init()
 	AddSkill(ESkillType::HealPack,					static_cast<Skill*>(new HealPackSkill));
 	AddSkill(ESkillType::IncreaseAttackSpeed,		static_cast<Skill*>(new IncreaseAttackSpeedSkill));
 	AddSkill(ESkillType::IncreaseMoveSpeed,			static_cast<Skill*>(new IncreaseMoveSpeedSkill));
+	AddSkill(ESkillType::FireBall,					static_cast<Skill*>(new FireBallSkill));
 }
 
 void SkillManager::Update()

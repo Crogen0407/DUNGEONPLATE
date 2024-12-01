@@ -26,6 +26,7 @@ private:
 //ÆÐ¸µ
 public:
 	Action<float> ParryCoolTimeEvent;
+	Action<int> AttackEvent;
 public:
 	//MoveSpeed
 	const float GetMoveSpeed() const

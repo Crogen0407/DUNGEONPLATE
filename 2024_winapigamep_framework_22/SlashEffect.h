@@ -7,9 +7,6 @@ class SlashEffect :
 public:
     SlashEffect();
     ~SlashEffect() override;
-private:
-    SpriteRenderer* _spriteRenderer;
-    Vec2 _dir;
 public:
     void Update() override;
     void LateUpdate() override;
@@ -19,5 +16,17 @@ public:
     void OnPush() override;
 public:
     void LookAt(const Vec2& dir);
+public:
+    float EaseOutCirc(float x)
+    {
+        return std::sqrtf(1 - std::powf(x - 1, 2));
+    }
+    float EaseInSine(float x)
+    {
+        return 1 - std::cosf((x * PI) / 2);
+    }
+private:
+    SpriteRenderer* _spriteRenderer;
+    Vec2 _dir;
 };
 

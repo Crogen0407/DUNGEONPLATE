@@ -59,6 +59,9 @@
     <Filter Include="Engine\09.Skill">
       <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Effect">
+      <UniqueIdentifier>{6ed72887-2824-4086-831a-cea3848c0e32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -229,9 +232,6 @@
     <ClInclude Include="SkillSlot.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="IncreaseMaxHpSkill.h">
-      <Filter>Engine\09.Skill</Filter>
-    </ClInclude>
     <ClInclude Include="HealPackSkill.h">
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
@@ -251,10 +251,20 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="EnemyB.h" />
-    <ClInclude Include="Effect.h" />
-    <ClInclude Include="SlashEffect.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h">
       <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBallSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="SlashEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBallEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -357,9 +367,6 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>Engine\03. Object\UI</Filter>
-    </ClCompile>
     <ClCompile Include="GameCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
@@ -409,9 +416,6 @@
     <ClCompile Include="SkillCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="IncreaseMaxHpSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
-    </ClCompile>
     <ClCompile Include="HealPackSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
@@ -421,7 +425,6 @@
     <ClCompile Include="DashSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
-    <ClCompile Include="PoolableObject.cpp" />
     <ClCompile Include="GuidedMissile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
@@ -432,10 +435,20 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
     <ClCompile Include="EnemyB.cpp" />
-    <ClCompile Include="Effect.cpp" />
-    <ClCompile Include="SlashEffect.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBallSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SlashEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBallEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolableObject.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
