@@ -12,8 +12,9 @@ public:
 public:
     void Update() override;
     void Render(HDC _hdc) override;
+
 private:
     Texture* m_backTexture;
-    bool m_isDraw = false;
+    bool m_isVisible = true; 
 };
 

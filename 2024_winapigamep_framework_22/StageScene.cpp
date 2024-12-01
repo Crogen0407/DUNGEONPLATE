@@ -22,13 +22,15 @@ void StageScene::Init()
     enemy->SetName(L"Enemy");
     AddObject(enemy, LAYER::ENEMY);
 
-    const int cellSizeX = 200;
-    const int cellSizeY = 200;
+    cout << "왜 안그려져";
+
+    const int cellSizeX = 195;
+    const int cellSizeY = 195;
     const int gridSize = 3;
     const int totalGridSize = cellSizeX * gridSize;
 
-    const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 95;
-    const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 - 15;
+    const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 97;
+    const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 + 30;
 
     for (int i = 0; i < gridSize; i++)
     {
@@ -38,18 +40,19 @@ void StageScene::Init()
 
             grid[i][j]->SetPos({ startX + i * cellSizeX, startY + j * cellSizeY });
             grid[i][j]->SetSize({ cellSizeX, cellSizeY });
-
-            AddObject(grid[i][j], LAYER::BACKGROUND);
         }
     }
 }
 
+void StageScene::Render(HDC _hdc)
+{
+    Stage1* stage1 = new Stage1;
+
+    stage1->DrawScene(this, 1, 1, _hdc);
+    stage1->DrawScene(this, 1, 2, _hdc);
+}
+
 BackGround* StageScene::GetBackGroundAt(int x, int y)
 {
-    if (x >= 0 && x < gridSize && y >= 0 && y < gridSize)
-    {
-        return grid[x][y];
-    }
-
-    return nullptr;
+    return grid[x][y];
 }

@@ -4,20 +4,18 @@
 #include "EventManager.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+
 BackGround::BackGround()
 {
-	m_backTexture = LOADTEXTURE(L"Background", 
-		L"Texture\\Background.bmp");
+    m_backTexture = LOADTEXTURE(L"Background", L"Texture\\Background.bmp");
 }
 
 BackGround::~BackGround()
 {
-
 }
 
 void BackGround::Update()
 {
-	
 }
 
 void BackGround::Render(HDC _hdc)
