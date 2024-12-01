@@ -8,10 +8,10 @@ class StageScene  :
 {
 private:
     static const int gridSize = 3;
-    BackGround* grid[gridSize][gridSize];  // 3x3 °ÝÀÚ
-
+    BackGround* grid[gridSize][gridSize]; 
 public:
     void Init() override;
+    void Render(HDC _hdc);
     BackGround* GetBackGroundAt(int x, int y);
 };
 
