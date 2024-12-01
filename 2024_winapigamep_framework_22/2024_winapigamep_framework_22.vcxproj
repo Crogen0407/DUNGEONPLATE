@@ -190,6 +190,8 @@
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FadeManager.h" />
+    <ClInclude Include="FadeObject.h" />
     <ClInclude Include="FireBallEffect.h" />
     <ClInclude Include="FireBallSkill.h" />
     <ClInclude Include="framework.h" />
@@ -266,6 +268,8 @@
     <ClCompile Include="EnemyBounceBullet.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FadeManager.cpp" />
+    <ClCompile Include="FadeObject.cpp" />
     <ClCompile Include="FireBallEffect.cpp" />
     <ClCompile Include="FireBallSkill.cpp" />
     <ClCompile Include="GameCanvas.cpp" />

@@ -5,9 +5,6 @@ class FadeManager
 {
 	DECLARE_SINGLE(FadeManager);
 public:
-	FadeManager();
-	~FadeManager();
-public:
-	
+	void Init();
 };
 

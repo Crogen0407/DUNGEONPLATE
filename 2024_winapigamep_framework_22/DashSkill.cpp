@@ -10,7 +10,7 @@ DashSkill::DashSkill() :
 	_player(nullptr)
 {
 	nameText = L"대쉬";
-	descriptionText = L"공격 기능은 없지만\n 회피용으론 아주 \n제격입니다! \n\n(스페이스바으로\n작동합니다)";
+	descriptionText = L"공격 기능은 없지만\n 회피용으론 아주 \n제격입니다! \n\n(스페이스바으로\n발동합니다)";
 	isActiveSkill = true;
 	maxDelayTime = 4.f;
 	_originMaxDelayTime = maxDelayTime;
