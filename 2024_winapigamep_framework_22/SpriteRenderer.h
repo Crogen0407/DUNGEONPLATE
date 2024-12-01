@@ -36,6 +36,7 @@ public:
         this->angle = std::atan2(dir.y, dir.x);
     }
 public:
+    bool enable = true;
     bool isRotatable = true;
 private:
     float angle;

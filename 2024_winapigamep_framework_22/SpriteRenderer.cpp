@@ -24,6 +24,7 @@ void SpriteRenderer::LateUpdate()
 void SpriteRenderer::Render(HDC _hdc)
 {
 	if (texture == nullptr) return;
+	if (enable == false) return;
 	Vec2 pos = GetOwner()->GetPos();
 	Vec2 size = GetOwner()->GetSize();
 	Vec2 texSize = { (float)texture->GetWidth(), (float)texture->GetHeight() };

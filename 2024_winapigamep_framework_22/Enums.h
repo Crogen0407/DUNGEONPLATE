@@ -7,6 +7,7 @@ enum class LAYER
 	PROJECTILE,
 	ENEMY,
 	UI,
+	SCREENEFFECT,
 	END = 30
 };
 
