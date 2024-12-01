@@ -5,6 +5,7 @@
 #include "GameScene.h"
 #include "UIScene.h"
 #include "Object.h"
+#include "PoolManager.h"
 
 void SceneManager::Init()
 {
@@ -56,6 +57,7 @@ void SceneManager::LoadScene(const wstring& _sceneName)
 		m_pCurrentScene = iter->second;
 		m_pCurrentScene->Init();
 	}
+	GET_SINGLE(PoolManager)->Init();
 }
 
 Object* SceneManager::FindObject(std::wstring name, LAYER layer)
