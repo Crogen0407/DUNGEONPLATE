@@ -171,6 +171,7 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AttackCompo.h" />
     <ClInclude Include="AttackDirArrow.h" />
+    <ClInclude Include="AttackRange.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
@@ -264,6 +265,7 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AttackCompo.cpp" />
     <ClCompile Include="AttackDirArrow.cpp" />
+    <ClCompile Include="AttackRange.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />

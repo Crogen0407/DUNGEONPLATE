@@ -179,9 +179,6 @@
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
-    <ClInclude Include="GameCanvas.h">
-      <Filter>Engine\08.UI</Filter>
-    </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
@@ -226,9 +223,6 @@
     <ClInclude Include="Action.h">
       <Filter>Engine\01. Core</Filter>
     </ClInclude>
-    <ClInclude Include="SkillCanvas.h">
-      <Filter>Engine\08.UI</Filter>
-    </ClInclude>
     <ClInclude Include="SkillSlot.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
@@ -270,9 +264,6 @@
     </ClInclude>
     <ClInclude Include="FadeObject.h">
       <Filter>Engine\03. Object</Filter>
-    </ClInclude>
-    <ClInclude Include="GameResultScene.h">
-      <Filter>Engine\04. Scene</Filter>
     </ClInclude>
     <ClInclude Include="XPManager.h">
       <Filter>Engine\02. Manager</Filter>
@@ -330,6 +321,28 @@
     </ClInclude>
     <ClInclude Include="Razer.h">
       <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h" />
+    <ClInclude Include="AttackRange.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClearScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClearCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverCanvas.h">
+      <Filter>Engine\08.UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -428,9 +441,6 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="GameCanvas.cpp">
-      <Filter>Engine\08.UI</Filter>
-    </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
@@ -472,9 +482,6 @@
     <ClCompile Include="AttackDirArrow.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="SkillCanvas.cpp">
-      <Filter>Engine\08.UI</Filter>
-    </ClCompile>
     <ClCompile Include="HealPackSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
@@ -513,9 +520,6 @@
     </ClCompile>
     <ClCompile Include="FadeObject.cpp">
       <Filter>Engine\03. Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameResultScene.cpp">
-      <Filter>Engine\04. Scene</Filter>
     </ClCompile>
     <ClCompile Include="XPManager.cpp">
       <Filter>Engine\02. Manager</Filter>
@@ -574,5 +578,31 @@
     <ClCompile Include="Razer.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
+    <ClCompile Include="Stage3.cpp" />
+    <ClCompile Include="AttackRange.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClearScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClearCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>
