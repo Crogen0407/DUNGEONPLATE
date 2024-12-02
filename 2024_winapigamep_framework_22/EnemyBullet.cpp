@@ -9,7 +9,8 @@
 
 EnemyBullet::EnemyBullet()
 {
-	_canParry = true;
+	damage = 50;
+	_hitEnemy = false;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 	AddComponent<SpriteRenderer>();
 	AddComponent<Collider>();

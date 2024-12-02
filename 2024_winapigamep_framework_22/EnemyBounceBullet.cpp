@@ -7,7 +7,8 @@
 
 EnemyBounceBullet::EnemyBounceBullet()
 {
-	_canParry = true;
+	damage = 2;
+	_hitEnemy = false;
 	remainBounce = bounceCnt;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 

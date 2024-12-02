@@ -26,6 +26,7 @@ void HealthCompo::ApplyDamage(int value)
 	{
 		OnDie();
 	}
+	cout << hp;
 }
 
 void HealthCompo::ApplyHeal(int value)

@@ -20,12 +20,12 @@ EnemyA::EnemyA()
 {
 	m_moveDesire = Vec2(0, 0);
 	_target = FindObject(L"Player", LAYER::PLAYER);
-	SetSize({ 100, 100 });
+	SetSize({ 50, 50 });
 
 	Texture* texture = LOADTEXTURE(L"Enemy01", L"Texture\\Enemy01.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 3, (int)texture->GetHeight());
 
-	AddComponent<HealthCompo>();
+	//AddComponent<HealthCompo>();
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();

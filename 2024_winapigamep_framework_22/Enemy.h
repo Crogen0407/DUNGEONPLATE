@@ -9,6 +9,7 @@ public:
 public:
 	virtual void Update() abstract;
 	virtual void Render(HDC _hdc) abstract;
+	virtual void OnDie();
 public:
 	virtual void EnterCollision(Collider* _other);
 	virtual void StayCollision(Collider* _other);
