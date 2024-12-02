@@ -16,7 +16,7 @@
 
 EnemyB::EnemyB()
 {
-	SetSize({ 100,100 });
+	SetSize({ 50,50 });
 	target = FindObject(L"Player", LAYER::PLAYER);
 	texture = LOADTEXTURE(L"Enemy02", L"Texture\\Enemy02.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 7, (int)texture->GetHeight());
@@ -24,7 +24,7 @@ EnemyB::EnemyB()
 
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
-	AddComponent<HealthCompo>();
+	//AddComponent<HealthCompo>();
 
 	GetComponent<Animator>()
 		->CreateAnimation(L"Enemy02Idle", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 7, 0.2f, false);

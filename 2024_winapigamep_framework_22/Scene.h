@@ -29,6 +29,18 @@ public:
 	{
 		return m_vecObj[(UINT)_type];
 	}
+	LAYER GetLayer(Object* _obj)
+	{
+		for (int i = 0; i < (UINT)LAYER::END; i++)
+		{
+			if (find(m_vecObj[i].begin(), m_vecObj[i].end(), _obj) != m_vecObj[i].end())
+			{
+				return (LAYER)i;
+			}
+		}
+
+		return LAYER::END;
+	}
 private:
 	//Object m_obj;
 	//Object* m_pObj;

@@ -8,7 +8,8 @@
 
 GuidedMissile::GuidedMissile()
 {
-	_canParry = false;
+	damage = 3;
+	_hitEnemy = false;
 	SetSize({ 20,20 });
 	_texture = LOADTEXTURE(L"EnemyMissile", L"Texture\\EnemyMissile.bmp");
 	AddComponent<Collider>();

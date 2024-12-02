@@ -36,6 +36,7 @@ void GameScene::Init()
 	AddObject(boss, LAYER::ENEMY);
 
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
+	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 	/*for (size_t i = 0; i < 100; i++)
 	{
 	}*/

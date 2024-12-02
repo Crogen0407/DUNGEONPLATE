@@ -18,7 +18,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	texture = LOADTEXTURE(L"Boss", L"Texture\\Enemy03.bmp");
 	Vec2 texSize = { (int)texture->GetWidth() / 6, (int)texture->GetHeight() };
 	AddComponent< Collider>();
-	AddComponent<HealthCompo>();
+	//AddComponent<HealthCompo>();
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 

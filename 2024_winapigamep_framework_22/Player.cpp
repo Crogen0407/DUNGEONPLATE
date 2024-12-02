@@ -133,12 +133,9 @@ void Player::Parrying()
 		Vec2 dist = vPos - projObj->GetPos();
 		if (dist.Length() > parryDist) continue;
 
-		Projectile* proj = (Projectile*)projObj;
-		proj->SetDir(proj->GetDir() * -1);
+		Projectile* proj = (Projectile*)projObj; 
+		proj->Parry();
 		parried = true;
-
-		GET_SINGLE(SceneManager)->GetCurrentScene()
-			->ChangeLayer(projObj, LAYER::PROJECTILE, LAYER::PLAYERATTACK);
 	}
 
 	if (projectiles.size() > 0)
