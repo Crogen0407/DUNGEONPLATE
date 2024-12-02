@@ -4,6 +4,7 @@
 
 class SpriteRenderer;
 class PlayerHealthCompo;
+class AttackRange;
 class Player : public Agent
 {
 public:
@@ -73,5 +74,6 @@ private:
 	bool canMove;
 	float curParryTime;
 	float parryCoolTime = 0.5f;
+	AttackRange* attackRange;
 };
 

@@ -14,6 +14,7 @@
 #include "Action.h"
 #include "SceneManager.h"
 #include "AttackDirArrow.h"
+#include "AttackRange.h"
 #include "GameManager.h"
 #include "SkillManager.h"
 #include "PoolManager.h"
@@ -41,7 +42,13 @@ Player::Player()
 
 	AttackDirArrow* arrow = new AttackDirArrow;
 	arrow->SetParent(this);
-	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(arrow, LAYER::UI);
+
+	attackRange = new AttackRange;
+	attackRange->SetParent(this);
+
+	ADDOBJECT(attackRange, LAYER::DEFAULT);
+	ADDOBJECT(arrow, LAYER::DEFAULT);
+
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
 }
@@ -69,6 +76,7 @@ void Player::Update()
 
 	attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
 	attackDir.Normalize();
+	attackRange->SetDir(attackDir);
 
 	Move(dir * speed * fDT);
 	Parrying();
