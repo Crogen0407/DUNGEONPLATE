@@ -26,8 +26,15 @@ void Stage1::Update()
 void Stage1::Render(StageScene* stageScene, HDC _hdc)
 {
     Stage::Render(_hdc);
-    DrawScene(stageScene, 1, 1, _hdc);
+    DrawScene(stageScene, 0, 0, _hdc);
     DrawScene(stageScene, 0, 1, _hdc);
+    DrawScene(stageScene, 0, 2, _hdc);
+    DrawScene(stageScene, 1, 0, _hdc);
+    DrawScene(stageScene, 1, 1, _hdc);
+    DrawScene(stageScene, 1, 2, _hdc);
+    DrawScene(stageScene, 2, 0, _hdc);
+    DrawScene(stageScene, 2, 1, _hdc);
+    DrawScene(stageScene, 2, 2, _hdc);
 }
 
 void Stage1::DrawScene(StageScene* stageScene, int x, int y, HDC _hdc)
