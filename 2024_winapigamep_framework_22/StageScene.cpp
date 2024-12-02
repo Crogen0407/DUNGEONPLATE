@@ -46,14 +46,14 @@ void StageScene::Init()
 
 void StageScene::Update()
 {
-    //frameCount++; 
+    frameCount++; 
 
-    if (enemyCount <= 0) 
+    if (frameCount >= framesToClear) 
     {
         StageManager::GetInstance()->SetClear(true);
         m_currentStage++;
-        //frameCount = 0;
-        SetEnemyCount();
+        frameCount = 0;
+        //SetEnemyCount();
         cout << "다음 스테이지로 이동!";
     }
 
@@ -62,8 +62,8 @@ void StageScene::Update()
 
 void StageScene::SetEnemyCount()
 {
-    if (m_currentStage == 1)
-        enemyCount = 10;
+    //if (m_currentStage == 1)
+        //enemyCount = 10;
 
     /*if(적이 죽으면)
         enemyCount--;*/
