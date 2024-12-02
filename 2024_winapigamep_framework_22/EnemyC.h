@@ -14,6 +14,5 @@ private:
 	float _shootDelay = 1;
 	float _prevShootTime = 0;
 	Texture* _texture;
-	Object* _target;
 };
 

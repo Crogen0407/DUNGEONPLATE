@@ -1,5 +1,5 @@
 #pragma once
-#include "Agent.h"
+#include "Object.h"
 
 class Enemy : public Object
 {
@@ -18,5 +18,10 @@ protected:
 	int m_hp;
 	int m_attack;
 	Vec2 m_moveDesire;
+
+	Object* _target;
+	Vec2 _knockDir;
+	float _rotation;
+	bool _isDead;
 };
 

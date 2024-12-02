@@ -7,8 +7,9 @@
 #include "XPManager.h"
 #include "StageScene.h"
 #include "StageManager.h"
+#include "Movement.h"
 
-Enemy::Enemy() : m_hp(5), m_attack(5)
+Enemy::Enemy() : m_hp(5), m_attack(5), _isDead(false)
 {
 	this->AddComponent<Collider>();
 	this->AddComponent<HealthCompo>();
@@ -27,11 +28,14 @@ Enemy::~Enemy()
 
 void Enemy::OnDie()
 {
-	GET_SINGLE(EventManager)->DeleteObject(this);
-
 	ADDXP(1);
-
 	StageManager::GetInstance()->enemyCount--;
+	
+	_isDead = true;
+	_rotation = 0;
+	_knockDir = GetPos();
+	_knockDir -= _target->GetPos();
+	_knockDir.Normalize();
 }
 
 void Enemy::EnterCollision(Collider* _other)

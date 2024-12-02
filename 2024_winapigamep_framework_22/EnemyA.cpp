@@ -15,6 +15,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "HealthCompo.h"
+#include "EventManager.h"
 
 EnemyA::EnemyA()
 {
@@ -31,7 +32,7 @@ EnemyA::EnemyA()
 	AddComponent<Movement>();
 
 	GetComponent<Animator>()
-		->CreateAnimation(L"Enemy01Idle", texture, {0,0}, texSize, { (int)texSize.x, 0}, 3, 0.2f);
+		->CreateAnimation(L"Enemy01Idle", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 3, 0.2f);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
 	GetComponent<HealthCompo>()->SetOffsetY(50);
 }
@@ -42,6 +43,24 @@ EnemyA::~EnemyA()
 
 void EnemyA::Update()
 {
+	if (_isDead)
+	{
+		Vec2 vSize = GetSize();
+		Vec2 curPos = GetPos();
+		curPos += _knockDir * 500 * fDT;
+		_rotation += 420 * fDT;
+
+		SetPos(curPos);
+		//GetComponent<SpriteRenderer>()->SetAngle(_rotation, true);
+
+		if (curPos.x < -vSize.x / 2 || curPos.x > SCREEN_WIDTH + vSize.x / 2
+			|| curPos.y < -vSize.y / 2 || curPos.y > SCREEN_HEIGHT + vSize.y / 2)
+		{
+			GET_SINGLE(EventManager)->DeleteObject(this);
+		}
+		return;
+	}
+
 	if (_prevShootTime + _shootDelay < TIME)
 	{
 		Vec2 dir = _target->GetPos();
