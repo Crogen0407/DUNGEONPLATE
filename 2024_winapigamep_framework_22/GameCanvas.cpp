@@ -58,7 +58,7 @@ GameCanvas::GameCanvas() :
 			}
 
 			healthBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
-				{ pos.x, pos.y - offset/2 },
+				healthText->GetPos(),
 				{ size.x - offset, 45.f- offset }));
 
 			player->GetComponent<HealthCompo>()->ChangeHpEvent += 
@@ -73,7 +73,7 @@ GameCanvas::GameCanvas() :
 			//ShieldText
 			{
 				shieldText = static_cast<Text*>(CreateUI(UIOPTION::TEXT,
-					{ pos.x, pos.y + offset*0.8f },
+					{ pos.x, pos.y + offset*0.9f },
 					{ (int)size.x - offset, 45 }));
 
 				shieldText->LoadFont(L"PF스타더스트", 12, 15);
@@ -90,7 +90,7 @@ GameCanvas::GameCanvas() :
 			}
 
 			shieldBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER,
-				{ pos.x, pos.y + offset * 0.8f },
+				shieldText->GetPos(),
 				{ size.x - offset, 45.f- offset }));
 
 			player->GetComponent<PlayerHealthCompo>()->ChangeSubHpEvent +=

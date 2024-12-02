@@ -20,6 +20,8 @@ public:							\
 
 #define LOADTEXTURE(key, path) GET_SINGLE(ResourceManager)->TextureLoad(key, path)
 
+#define ADDXP(value) GET_SINGLE(XPManager)->AddXP(value)
+
 #define POP(name, pos) GET_SINGLE(PoolManager)->Pop(name, pos)
 #define PUSH(name, poolableObject) GET_SINGLE(PoolManager)->Push(name, poolableObject)
 

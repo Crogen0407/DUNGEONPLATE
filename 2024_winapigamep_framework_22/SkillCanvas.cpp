@@ -24,6 +24,7 @@ SkillCanvas::~SkillCanvas()
 void SkillCanvas::Update()
 {
 	Canvas::Update();
+	//약간 둥둥 거리는 거 만들기
 }
 
 void SkillCanvas::LateUpdate()
