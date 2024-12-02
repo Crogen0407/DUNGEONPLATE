@@ -6,9 +6,13 @@
 #include "Texture.h"
 #include "Collider.h"
 #include "EventManager.h"
+#include "SceneManager.h"
+#include "Scene.h"
+#include "HealthCompo.h"
 
 Razer::Razer(float lifeTime)
 {
+	damage = 2;
 	SetSize({ 0,0 });
 	_lifeTime = lifeTime;
 	_texture = LOADTEXTURE(L"Razer", L"Texture\\Razer.bmp");
@@ -57,4 +61,16 @@ void Razer::Render(HDC _hdc)
 		, 0, 0, width, height, RGB(255, 0, 255));
 }
 
-void Razer::EnterCollision(Collider* _other) { }
+void Razer::EnterCollision(Collider* _other)
+{
+	LAYER layer =
+		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+
+	if (layer == LAYER::PLAYER)
+	{
+		HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
+
+		if (health != nullptr)
+			health->ApplyDamage(damage);
+	}
+}

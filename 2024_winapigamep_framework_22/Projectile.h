@@ -23,11 +23,13 @@ public:
 	virtual void StayCollision(Collider* _other);
 	virtual void ExitCollision(Collider* _other);
 public:
-	bool _canParry;
+	virtual void Parry();
+	bool _hitEnemy = false;
 protected:
 	//float m_dir;
 	Vec2 _dir;
 	Texture* _texture;
 	float speed = 500.f;
+	int damage;
 };
 

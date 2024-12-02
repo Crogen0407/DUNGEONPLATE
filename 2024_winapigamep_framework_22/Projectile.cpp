@@ -3,17 +3,19 @@
 #include "TimeManager.h"
 #include "Texture.h"
 #include "ResourceManager.h"
+#include "SceneManager.h"
 #include "Collider.h"
 #include "EventManager.h"
+#include "HealthCompo.h"
+#include "Scene.h"
 
-Projectile::Projectile() : _dir(1.f, 1.f), _canParry(true)
+Projectile::Projectile() : _dir(1.f, 1.f)
 {
 	//m_pTex = new Texture;
 	//wstring path = GET_SINGLE(ResourceManager)->GetResPath();
 	//path += L"Texture\\Bullet.bmp";
 	//m_pTex->Load(path);
 
-	
 }
 
 Projectile::~Projectile()
@@ -52,8 +54,19 @@ Projectile::~Projectile()
 
 void Projectile::EnterCollision(Collider* _other)
 {
+	LAYER layer = 
+		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+	
+	if (layer == LAYER::PLAYER || (layer == LAYER::ENEMY && _hitEnemy))
+	{
+	HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
+
+	if (health != nullptr)
+		health->ApplyDamage(damage);
+
 	Object* pOtherObj = _other->GetOwner();
 	GET_SINGLE(EventManager)->DeleteObject(this);
+	}
 }
 
 void Projectile::StayCollision(Collider* _other)
@@ -62,4 +75,10 @@ void Projectile::StayCollision(Collider* _other)
 
 void Projectile::ExitCollision(Collider* _other)
 {
+}
+
+void Projectile::Parry()
+{
+	SetDir(GetDir() * -1);
+	_hitEnemy = true;
 }
