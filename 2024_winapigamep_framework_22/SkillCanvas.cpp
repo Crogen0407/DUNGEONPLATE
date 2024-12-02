@@ -5,6 +5,7 @@
 #include "ResourceManager.h"
 #include "SkillManager.h"
 #include "TimeManager.h"
+#include "XPManager.h"
 
 SkillCanvas::SkillCanvas()
 {
@@ -15,6 +16,12 @@ SkillCanvas::SkillCanvas()
 	CreateSlot(center - Vec2(xDeltaPos, 0));
 	CreateSlot(center);
 	CreateSlot(center + Vec2(xDeltaPos, 0));
+
+	GET_SINGLE(XPManager)->LevelUpEvent +=
+		[ct = this](int level)
+		{
+			ct->ShowSlots();
+		};
 }
 
 SkillCanvas::~SkillCanvas()

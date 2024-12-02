@@ -12,6 +12,7 @@
 #include "InputManager.h"
 #include "TimeManager.h"
 #include "SkillManager.h"
+#include "XPManager.h"
 #include "DashSkill.h"
 
 GameCanvas::GameCanvas() :
@@ -185,6 +186,11 @@ GameCanvas::GameCanvas() :
 		xpBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER, pos, size));
 		xpBar->offsetX = 0;
 		xpBar->offsetY = 0;
+		xpBar->SetValue(0.f);
+		GET_SINGLE(XPManager)->IncreaseXPEvent +=
+			[ct = xpBar](float value) {
+				ct->SetValue(value);
+			};
 	}
 }
 
@@ -195,6 +201,11 @@ GameCanvas::~GameCanvas()
 void GameCanvas::Update()
 {
 	Canvas::Update();
+
+	if (GET_KEYDOWN(KEY_TYPE::NUM_1))
+	{
+		GET_SINGLE(XPManager)->AddXP(1.f);
+	}
 
 	int s = (int)TIME%60;
 	int m = (TIME / 60);

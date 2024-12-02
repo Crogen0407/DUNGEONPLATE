@@ -16,11 +16,12 @@ public:
 	{
 		_xp += value;
 		IncreaseXPEvent.Invoke(_xp/_maxXP);
-		if (_xp > _maxXP)
+		if (_xp >= _maxXP)
 		{
 			_maxXP *= 1.5f;
 			_xp = 0;
 			++_level;
+			IncreaseXPEvent.Invoke(_xp / _maxXP);
 			LevelUpEvent.Invoke(_level);
 		}
 	}
