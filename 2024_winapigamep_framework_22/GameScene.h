@@ -9,6 +9,7 @@ public:
     void Update() override;
     void Render(HDC hdc) override;
 private:
-    Canvas* canvas;
+    Canvas* _gameCanvas;
+    Canvas* _skillCanvas;
 };
 

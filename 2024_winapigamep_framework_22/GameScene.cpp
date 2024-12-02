@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Boss.h"
 #include "GameCanvas.h"
+#include "SkillCanvas.h"
 #include "CollisionManager.h"
 #include "EnemySpawner.h"
 
@@ -39,17 +40,19 @@ void GameScene::Init()
 	{
 	}*/
 
-	canvas = new GameCanvas;
+	_gameCanvas = new GameCanvas;
+	_skillCanvas = new SkillCanvas;
+
+	AddObject(_gameCanvas, LAYER::UI);
+	AddObject(_skillCanvas, LAYER::UI);
 }
 
 void GameScene::Update()
 {
 	Scene::Update();
-	canvas->Update();
 }
 
 void GameScene::Render(HDC hdc)
 {
 	Scene::Render(hdc);
-	canvas->Render(hdc);
 }
