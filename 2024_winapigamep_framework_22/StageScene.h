@@ -9,10 +9,9 @@ class StageScene  :
 private:
     static const int gridSize = 3;
     BackGround* grid[gridSize][gridSize];
-    int frameCount = 0;  
-    const int framesToClear = 300;
-    int enemyCount;
-    int m_currentStage = 1;
+    //int frameCount = 0;  
+    //const int framesToClear = 300;
+    int m_currentStage = 0;
 public:
     void Init() override;
     void Render(HDC _hdc);
