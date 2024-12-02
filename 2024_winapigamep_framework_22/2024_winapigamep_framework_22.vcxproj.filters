@@ -62,6 +62,12 @@
     <Filter Include="Engine\03. Object\Effect">
       <UniqueIdentifier>{6ed72887-2824-4086-831a-cea3848c0e32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Enemy">
+      <UniqueIdentifier>{d6810418-02bc-47cb-97a3-632b69391d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Enemy\SkillSystem">
+      <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -154,16 +160,12 @@
     <ClInclude Include="PoolableObject.h">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClInclude>
-    <ClInclude Include="Agent.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Player.h">
       <Filter>Engine\03. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyA.h" />
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
@@ -195,13 +197,11 @@
     <ClInclude Include="Canvas.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Movement.h" />
     <ClInclude Include="AttackCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Stage1.h" />
-    <ClInclude Include="StageManager.h" />
     <ClInclude Include="UIScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
@@ -250,7 +250,6 @@
     <ClInclude Include="EnemyBullet.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyB.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h">
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
@@ -277,6 +276,60 @@
     </ClInclude>
     <ClInclude Include="XPManager.h">
       <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="StageManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyA.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyB.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyC.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceBulletSkill.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyPaternA.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillSystem.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundAttackSkill.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="RazerSkill.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MissileSkill.h">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Razer.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -359,16 +412,12 @@
     <ClCompile Include="PoolManager.cpp">
       <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
-    <ClCompile Include="Agent.cpp" />
-    <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Player.cpp">
       <Filter>Engine\03. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
@@ -397,13 +446,11 @@
     <ClCompile Include="Canvas.cpp">
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Movement.cpp" />
     <ClCompile Include="AttackCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stage1.cpp" />
-    <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="UIScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
@@ -446,7 +493,6 @@
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyB.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
@@ -473,6 +519,60 @@
     </ClCompile>
     <ClCompile Include="XPManager.cpp">
       <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="StageManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyA.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyB.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyC.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BounceBulletSkill.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyPaternA.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillSystem.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundAttackSkill.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="RazerSkill.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="MissileSkill.cpp">
+      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Razer.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
