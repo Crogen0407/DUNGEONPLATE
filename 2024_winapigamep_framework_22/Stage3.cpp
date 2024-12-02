@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Stage3.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "EnemyA.h"
@@ -7,7 +8,7 @@
 #include "StageManager.h"
 #include "StageScene.h"
 
-void Stage2::Init()
+void Stage3::Init()
 {
     const int cellSize = 20;
     const int gridWidth = SCREEN_WIDTH / cellSize;
@@ -30,19 +31,19 @@ void Stage2::Init()
     }
 }
 
-void Stage2::Update()
+void Stage3::Update()
 {
-    Stage::Update();
+	Stage::Update();
 }
 
-void Stage2::Render(StageScene* stageScene, HDC _hdc)
+void Stage3::Render(StageScene* stageScene, HDC _hdc)
 {
     Stage::Render(_hdc);
-    DrawScene(stageScene, 2, 2,
+    DrawScene(stageScene, 2, 1,
         _hdc);
 }
 
-void Stage2::DrawScene(StageScene* stageScene, int x, int y, HDC _hdc)
+void Stage3::DrawScene(StageScene* stageScene, int x, int y, HDC _hdc)
 {
     BackGround* bg = stageScene->GetBackGroundAt(x, y);
     if (bg)

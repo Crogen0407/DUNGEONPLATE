@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Player.h"   
 #include "StageScene.h"
 #include "CameraManager.h"
 #include "StageManager.h"
@@ -6,7 +7,7 @@
 #include "EnemyA.h"
 #include "Stage1.h"
 #include "Stage2.h"
-#include "Player.h"
+#include "Stage3.h" 
 
 void StageScene::Init()
 {
@@ -22,7 +23,6 @@ void StageScene::Init()
     enemy->SetName(L"Enemy");
     AddObject(enemy, LAYER::ENEMY);
 
-    cout << "왜 안그려져";
 
     const int cellSizeX = 195;
     const int cellSizeY = 195;
@@ -44,12 +44,56 @@ void StageScene::Init()
     }
 }
 
+void StageScene::Update()
+{
+    //frameCount++; 
+
+    if (enemyCount <= 0) 
+    {
+        StageManager::GetInstance()->SetClear(true);
+        m_currentStage++;
+        //frameCount = 0;
+        SetEnemyCount();
+        cout << "다음 스테이지로 이동!";
+    }
+
+    Scene::Update();
+}
+
+void StageScene::SetEnemyCount()
+{
+    if (m_currentStage == 1)
+        enemyCount = 10;
+
+    /*if(적이 죽으면)
+        enemyCount--;*/
+}
+
 void StageScene::Render(HDC _hdc)
 {
     Stage1* stage1 = new Stage1;
+    Stage2* stage2 = new Stage2;
+    Stage3* stage3 = new Stage3;
 
-    stage1->DrawScene(this, 1, 1, _hdc);
-    stage1->DrawScene(this, 1, 2, _hdc);
+    auto stageManager = StageManager::GetInstance();
+
+    if (stageManager->IsClear())
+    {
+        if (m_currentStage == 1) {
+            stage1->Render(this, _hdc);
+        }
+        else if (m_currentStage == 2) {
+            stage2->Render(this, _hdc);
+        }
+        else if (m_currentStage == 3) {
+            stage3->Render(this, _hdc);
+        }
+    }
+    else
+    {
+        if (!stage1) stage1 = new Stage1();
+        stage1->Render(this, _hdc);
+    }
 }
 
 BackGround* StageScene::GetBackGroundAt(int x, int y)
