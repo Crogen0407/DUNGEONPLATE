@@ -196,6 +196,7 @@
     <ClInclude Include="FireBallSkill.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameCanvas.h" />
+    <ClInclude Include="GameResultScene.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
     <ClInclude Include="GuidedMissile.h" />
@@ -240,6 +241,7 @@
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIScene.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="XPManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
@@ -273,6 +275,7 @@
     <ClCompile Include="FireBallEffect.cpp" />
     <ClCompile Include="FireBallSkill.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
+    <ClCompile Include="GameResultScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
     <ClCompile Include="GuidedMissile.cpp" />
@@ -312,6 +315,7 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="UIScene.cpp" />
+    <ClCompile Include="XPManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc" />

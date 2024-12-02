@@ -59,11 +59,8 @@
     <Filter Include="Engine\09.Skill">
       <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\SkillSystem">
-      <UniqueIdentifier>{5b4f96b4-971e-484f-9d26-eab118b0e6b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\03. Object\Enemy">
-      <UniqueIdentifier>{3fbc36a0-3d92-4387-a2c1-1fa2065cfb85}</UniqueIdentifier>
+    <Filter Include="Engine\03. Object\Effect">
+      <UniqueIdentifier>{6ed72887-2824-4086-831a-cea3848c0e32}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -166,12 +163,7 @@
     <ClInclude Include="Projectile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Sequence.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
-    <ClInclude Include="Tween.h">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClInclude>
+    <ClInclude Include="EnemyA.h" />
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
@@ -240,9 +232,6 @@
     <ClInclude Include="SkillSlot.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="IncreaseMaxHpSkill.h">
-      <Filter>Engine\09.Skill</Filter>
-    </ClInclude>
     <ClInclude Include="HealPackSkill.h">
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
@@ -261,41 +250,33 @@
     <ClInclude Include="EnemyBullet.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Razer.h">
-      <Filter>Engine\03. Object\Projectile</Filter>
+    <ClInclude Include="EnemyB.h" />
+    <ClInclude Include="IncreaseMoveSpeedSkill.h">
+      <Filter>Engine\09.Skill</Filter>
     </ClInclude>
-    <ClInclude Include="SkillSystem.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClInclude Include="FireBallSkill.h">
+      <Filter>Engine\09.Skill</Filter>
     </ClInclude>
-    <ClInclude Include="RoundAttackSkill.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClInclude Include="Effect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="MissileSkill.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClInclude Include="SlashEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="RazerSkill.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClInclude Include="FireBallEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="BounceBulletSkill.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClInclude Include="FadeManager.h">
+      <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyB.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClInclude Include="FadeObject.h">
+      <Filter>Engine\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyA.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClInclude Include="GameResultScene.h">
+      <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Boss.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyPaternA.h">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyC.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySpawner.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClInclude Include="XPManager.h">
+      <Filter>Engine\02. Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -387,12 +368,7 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Sequence.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
-    <ClCompile Include="Tween.cpp">
-      <Filter>Engine\Crogen\DOTween</Filter>
-    </ClCompile>
+    <ClCompile Include="EnemyA.cpp" />
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
@@ -402,9 +378,6 @@
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
     <ClCompile Include="GameCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
@@ -455,9 +428,6 @@
     <ClCompile Include="SkillCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="IncreaseMaxHpSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
-    </ClCompile>
     <ClCompile Include="HealPackSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
@@ -467,7 +437,6 @@
     <ClCompile Include="DashSkill.cpp">
       <Filter>Engine\09.Skill</Filter>
     </ClCompile>
-    <ClCompile Include="PoolableObject.cpp" />
     <ClCompile Include="GuidedMissile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
@@ -477,41 +446,33 @@
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Razer.cpp">
-      <Filter>Engine\03. Object\Projectile</Filter>
+    <ClCompile Include="EnemyB.cpp" />
+    <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
     </ClCompile>
-    <ClCompile Include="RoundAttackSkill.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClCompile Include="FireBallSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
     </ClCompile>
-    <ClCompile Include="SkillSystem.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClCompile Include="SlashEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="MissileSkill.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClCompile Include="FireBallEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="RazerSkill.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClCompile Include="PoolableObject.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
     </ClCompile>
-    <ClCompile Include="BounceBulletSkill.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
+    <ClCompile Include="FadeManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyA.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClCompile Include="FadeObject.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyB.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClCompile Include="GameResultScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Boss.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyPaternA.cpp">
-      <Filter>Engine\03. Object\SkillSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyC.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemySpawner.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClCompile Include="XPManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

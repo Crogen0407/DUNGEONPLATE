@@ -177,6 +177,15 @@ GameCanvas::GameCanvas() :
 		timeText->SetColor(RGB(139, 172, 15));
 		timeText->SetPitchAndFamily(DT_LEFT);
 	}
+
+	//XPBar
+	{
+		Vec2 size = {SCREEN_WIDTH, 10};
+		Vec2 pos = { SCREEN_WIDTH / 2.f, size.y / 2 };
+		xpBar = static_cast<Slider*>(CreateUI(UIOPTION::SLIDER, pos, size));
+		xpBar->offsetX = 0;
+		xpBar->offsetY = 0;
+	}
 }
 
 GameCanvas::~GameCanvas()

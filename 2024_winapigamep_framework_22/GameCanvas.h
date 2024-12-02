@@ -19,6 +19,7 @@ private: //UI
     Slider* shieldBar;
     Slider* attackCountBar;
     Slider* dashCoolTimeBar;
+    Slider* xpBar;
 
     Image* bottomDashCoolTimeContainer;
 
