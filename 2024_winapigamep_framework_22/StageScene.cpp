@@ -5,6 +5,9 @@
 #include "StageManager.h"
 #include "BackGround.h"
 #include "EnemyA.h"
+#include "EnemyB.h"
+#include "EnemyC.h"
+#include "EnemySpawner.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h" 
@@ -24,13 +27,13 @@ void StageScene::Init()
     AddObject(enemy, LAYER::ENEMY);
 
 
-    const int cellSizeX = 195;
-    const int cellSizeY = 195;
+    const int cellSizeX = 320;
+    const int cellSizeY = 320;
     const int gridSize = 3;
     const int totalGridSize = cellSizeX * gridSize;
 
-    const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 97;
-    const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 + 30;
+    const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 160;
+    const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 + 140;
 
     for (int i = 0; i < gridSize; i++)
     {
@@ -44,30 +47,30 @@ void StageScene::Init()
     }
 }
 
+void StageScene::SetEnemyCount()
+{
+    if (m_currentStage == 1)
+        StageManager::GetInstance()->enemyCount = 10;
+    else if (m_currentStage == 2)
+        StageManager::GetInstance()->enemyCount = 15;
+    else if (m_currentStage == 3)
+        StageManager::GetInstance()->enemyCount = 20;
+}
+
 void StageScene::Update()
 {
-    frameCount++; 
-
-    if (frameCount >= framesToClear) 
+    if (StageManager::GetInstance()->enemyCount <= 0)
     {
         StageManager::GetInstance()->SetClear(true);
         m_currentStage++;
-        frameCount = 0;
-        //SetEnemyCount();
-        cout << "다음 스테이지로 이동!";
+        SetEnemyCount();
+        cout << m_currentStage;
+        cout << "다음 스테이지로 이동!" << endl;
     }
 
     Scene::Update();
 }
 
-void StageScene::SetEnemyCount()
-{
-    //if (m_currentStage == 1)
-        //enemyCount = 10;
-
-    /*if(적이 죽으면)
-        enemyCount--;*/
-}
 
 void StageScene::Render(HDC _hdc)
 {
@@ -75,8 +78,12 @@ void StageScene::Render(HDC _hdc)
     Stage2* stage2 = new Stage2;
     Stage3* stage3 = new Stage3;
 
-    auto stageManager = StageManager::GetInstance();
+    EnemySpawner enemySpawner;
 
+    //enemySpawner.SpawnEnemy()
+
+    auto stageManager = StageManager::GetInstance();
+    
     if (stageManager->IsClear())
     {
         if (m_currentStage == 1) {

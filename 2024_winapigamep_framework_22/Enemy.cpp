@@ -4,6 +4,9 @@
 #include "Collider.h"
 #include "EventManager.h"
 #include "HealthCompo.h"
+#include "XPManager.h"
+#include "StageScene.h"
+#include "StageManager.h"
 
 Enemy::Enemy() : m_hp(5), m_attack(5)
 {
@@ -25,6 +28,10 @@ Enemy::~Enemy()
 void Enemy::OnDie()
 {
 	GET_SINGLE(EventManager)->DeleteObject(this);
+
+	ADDXP(1);
+
+	StageManager::GetInstance()->enemyCount--;
 }
 
 void Enemy::EnterCollision(Collider* _other)

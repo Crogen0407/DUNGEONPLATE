@@ -21,7 +21,7 @@ public:
 public:
 	void SetClear(bool isClear) { m_isClear = isClear; }
 	bool IsClear() const { return m_isClear; }
-
+	int enemyCount;
 	//std::shared_ptr<Stage> GetCurrentStage() { return m_pCurrentStage; }
 private:
 	map<wstring, std::shared_ptr<Stage>> m_mapStages;
