@@ -13,6 +13,14 @@ public:
 	virtual void Render(HDC _hdc);
 	virtual void Release();
 public:
+	void ChangeLayer(Object* _obj, LAYER from, LAYER to)
+	{
+		m_vecObj[(UINT)from].erase(
+			remove(m_vecObj[(UINT)from].begin(), m_vecObj[(UINT)from].end(), _obj),
+			m_vecObj[(UINT)from].end());
+
+		AddObject(_obj, to);
+	}
 	void AddObject(Object* _obj, LAYER _type)
 	{
 		m_vecObj[(UINT)_type].push_back(_obj);

@@ -136,6 +136,9 @@ void Player::Parrying()
 		Projectile* proj = (Projectile*)projObj;
 		proj->SetDir(proj->GetDir() * -1);
 		parried = true;
+
+		GET_SINGLE(SceneManager)->GetCurrentScene()
+			->ChangeLayer(projObj, LAYER::PROJECTILE, LAYER::PLAYERATTACK);
 	}
 
 	if (projectiles.size() > 0)
