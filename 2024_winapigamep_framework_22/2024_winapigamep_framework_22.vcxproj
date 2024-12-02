@@ -201,8 +201,11 @@
     <ClInclude Include="FireBallSkill.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameCanvas.h" />
+    <ClInclude Include="GameClearCanvas.h" />
+    <ClInclude Include="GameClearScene.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameResultScene.h" />
+    <ClInclude Include="GameOverCanvas.h" />
+    <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
     <ClInclude Include="GuidedMissile.h" />
@@ -291,8 +294,11 @@
     <ClCompile Include="FireBallEffect.cpp" />
     <ClCompile Include="FireBallSkill.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
+    <ClCompile Include="GameClearCanvas.cpp" />
+    <ClCompile Include="GameClearScene.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameResultScene.cpp" />
+    <ClCompile Include="GameOverCanvas.cpp" />
+    <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
     <ClCompile Include="GuidedMissile.cpp" />

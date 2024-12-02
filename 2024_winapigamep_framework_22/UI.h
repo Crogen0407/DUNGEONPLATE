@@ -26,6 +26,11 @@ public:
     {
         owner = canvas;
     }
+    void SetPosAndSize(const Vec2& pos, const Vec2& size)
+    {
+        this->pos = pos;
+        this->size = size;
+    }
     void SetPos(Vec2 pos)
     {
         this->pos = pos;
