@@ -173,6 +173,8 @@
     <ClInclude Include="AttackDirArrow.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BaseWindow.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BounceBulletSkill.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Canvas.h" />
@@ -187,6 +189,9 @@
     <ClInclude Include="EnemyB.h" />
     <ClInclude Include="EnemyBounceBullet.h" />
     <ClInclude Include="EnemyBullet.h" />
+    <ClInclude Include="EnemyC.h" />
+    <ClInclude Include="EnemyPaternA.h" />
+    <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="framework.h" />
@@ -200,6 +205,8 @@
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMaxHpSkill.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Razer.h" />
+    <ClInclude Include="MissileSkill.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
@@ -208,9 +215,11 @@
     <ClInclude Include="PoolableObject.h" />
     <ClInclude Include="PoolManager.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="RazerSkill.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceBase.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="RoundAttackSkill.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sequence.h" />
@@ -218,6 +227,7 @@
     <ClInclude Include="SkillCanvas.h" />
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="SkillSlot.h" />
+    <ClInclude Include="SkillSystem.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Stage.h" />
@@ -245,6 +255,8 @@
     <ClCompile Include="AttackDirArrow.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BounceBulletSkill.cpp" />
     <ClCompile Include="Button.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -263,6 +275,9 @@
     <ClCompile Include="EnemyB.cpp" />
     <ClCompile Include="EnemyBounceBullet.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
+    <ClCompile Include="EnemyC.cpp" />
+    <ClCompile Include="EnemyPaternA.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -274,7 +289,9 @@
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMaxHpSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Razer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MissileSkill.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -282,14 +299,17 @@
     <ClCompile Include="PoolableObject.cpp" />
     <ClCompile Include="PoolManager.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="RazerSkill.cpp" />
     <ClCompile Include="ResourceBase.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="RoundAttackSkill.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Skill.cpp" />
     <ClCompile Include="SkillCanvas.cpp" />
     <ClCompile Include="SkillManager.cpp" />
+    <ClCompile Include="SkillSystem.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="Stage.cpp" />

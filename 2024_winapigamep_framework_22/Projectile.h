@@ -9,7 +9,7 @@ public:
 	void Update() abstract;
 	void Render(HDC _hdc) abstract;
 public:
-	void SetDir(Vec2 dir)
+	virtual void SetDir(Vec2 dir)
 	{
 		_dir = dir;
 		_dir.Normalize();

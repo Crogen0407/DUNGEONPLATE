@@ -31,7 +31,8 @@ void EnemyBullet::Update()
 	vPos.y += _dir.y * speed * fDT;
 	SetPos(vPos);
 	Vec2 vSize = GetSize();
-	if (vPos.y < -vSize.y)
+	if (vPos.y < -vSize.y / 2 || vPos.x < -vSize.x / 2
+		|| vPos.y > SCREEN_HEIGHT + vSize.y || vPos.x > SCREEN_WIDTH)
 	{
 		GET_SINGLE(EventManager)->DeleteObject(this);
 	}

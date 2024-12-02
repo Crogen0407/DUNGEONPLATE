@@ -12,6 +12,7 @@ public:
 	void TryFireBullet(Vec2 dir);
 	void TryFireMissile(Vec2 dir);
 	void TryFireBounceBullet(Vec2 dir);
+	void TryFireRazer(float lifeTime);
 
 protected:
 	// Component을(를) 통해 상속됨

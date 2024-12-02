@@ -8,6 +8,7 @@
 #include "GuidedMissile.h"
 #include "EnemyBullet.h"
 #include "EnemyBounceBullet.h"
+#include "Razer.h"
 
 AttackCompo::AttackCompo()
 {
@@ -36,6 +37,16 @@ void AttackCompo::TryFireBounceBullet(Vec2 dir)
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()
 		->AddObject(missile, LAYER::PROJECTILE);
+}
+
+void AttackCompo::TryFireRazer(float lifeTime)
+{
+	Razer* razer = new Razer(lifeTime);
+	razer->SetDir({ 0,1 });
+	razer->SetOwner(GetOwner());
+
+	GET_SINGLE(SceneManager)->GetCurrentScene()
+		->AddObject(razer, LAYER::PROJECTILE);
 }
 
 void AttackCompo::TryFireMissile(Vec2 dir)
