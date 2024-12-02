@@ -35,7 +35,7 @@ Player::Player()
 	collider->SetSize({ 25, 25 });
 
 	//나중에 밸패하기
-	SetSize({ 75, 75 });
+	SetSize({ 45, 45 });
 	speed = 400;
 	parryCoolTime = 0.87f;
 
