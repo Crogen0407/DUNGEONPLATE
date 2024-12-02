@@ -14,6 +14,7 @@ enum class ESkillType
 class SkillManager
 {
 	DECLARE_SINGLE(SkillManager);
+	~SkillManager();
 public:
 	Player* player;
 private:

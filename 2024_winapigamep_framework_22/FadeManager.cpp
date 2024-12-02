@@ -20,29 +20,14 @@ void FadeManager::Update()
 			GET_SINGLE(SceneManager)->LoadScene(_sceneName);
 			_isSceneFading = false;
 			_sceneLoadComplete = false;
-			cout << "SceneLoad";
 			_fadeObject = nullptr;
 			FadeIn();
 		}
-	}
-
-	if (GET_KEYDOWN(KEY_TYPE::I))
-	{
-		FadeIn();
-	}
-	if (GET_KEYDOWN(KEY_TYPE::O))
-	{
-		FadeOut();
-	}
-	if (GET_KEYDOWN(KEY_TYPE::U))
-	{
-		LoadScene(L"GameScene");
 	}
 }
 
 void FadeManager::CreateFadeObject()
 {
-	cout << "Create";
 	_fadeObject = new FadeObject;
 	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(_fadeObject, LAYER::SCREENEFFECT);
 }

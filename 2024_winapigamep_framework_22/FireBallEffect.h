@@ -1,6 +1,7 @@
 #pragma once
 #include "Effect.h"
-
+class SpriteRenderer;
+class Collider;
 enum class EFireBallModeType
 {
     FireBall_S,
@@ -25,6 +26,8 @@ public:
     void SetDir(const Vec2& dir);
     void SetMode(const EFireBallModeType& mode);
 private:
+    Collider* _collider;
+    SpriteRenderer* _spriteRenderer;
     Vec2 _moveDir;
     const float _speed = 400.f;
 };

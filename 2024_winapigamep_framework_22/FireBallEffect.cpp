@@ -9,8 +9,9 @@ FireBallEffect::FireBallEffect()
 {
 	AddComponent<Collider>();
 	AddComponent<SpriteRenderer>();
-	SpriteRenderer* spriteRenderer = GetComponent<SpriteRenderer>();
-	spriteRenderer->isRotatable = true;
+	_collider = GetComponent<Collider>();
+	_spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer->isRotatable = true;
 	_lifeTime = 5.f;
 }
 
@@ -29,7 +30,7 @@ void FireBallEffect::OnPush()
 
 void FireBallEffect::Update()
 {
-	GetComponent<SpriteRenderer>()->LookAt(_moveDir);
+	_spriteRenderer->LookAt(_moveDir);
 	_curTime += fDT;
 	if (_curTime > _lifeTime)
 		PUSH(L"FireBallEffect", this);
@@ -44,34 +45,35 @@ void FireBallEffect::Render(HDC _hdc)
 
 void FireBallEffect::EnterCollision(Collider* _other)
 {
+	if (activeSelf == false) return;
 	Object::EnterCollision(_other);
 	//적들에게 데미지 입히는 거 넣기
-	//PUSH(L"FireBallEffect", this);
+	PUSH(L"FireBallEffect", this);
 }
 
 void FireBallEffect::SetDir(const Vec2& dir)
 {
 	_moveDir = dir;
-	SpriteRenderer* spriteRenderer = GetComponent<SpriteRenderer>();
-	spriteRenderer->LookAt(_moveDir);
+	_spriteRenderer->LookAt(_moveDir);
 }
 
 void FireBallEffect::SetMode(const EFireBallModeType& mode)
 {
-	SpriteRenderer* spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer = GetComponent<SpriteRenderer>();
 	switch (mode)
 	{
 	case EFireBallModeType::FireBall_S:
 		SetSize({ 45, 45 });
-		spriteRenderer->SetTexture(L"FireBall_S", L"Texture\\Effect\\FireBall_S.bmp");
+		_spriteRenderer->SetTexture(L"FireBall_S", L"Texture\\Effect\\FireBall_S.bmp");
 		break;
 	case EFireBallModeType::FireBall_M:
 		SetSize({ 50, 50 });
-		spriteRenderer->SetTexture(L"FireBall_M", L"Texture\\Effect\\FireBall_M.bmp");
+		_spriteRenderer->SetTexture(L"FireBall_M", L"Texture\\Effect\\FireBall_M.bmp");
 		break;
 	case EFireBallModeType::FireBall_L:
 		SetSize({ 60, 60 });
-		spriteRenderer->SetTexture(L"FireBall_L", L"Texture\\Effect\\FireBall_L.bmp");
+		_spriteRenderer->SetTexture(L"FireBall_L", L"Texture\\Effect\\FireBall_L.bmp");
 		break;
 	}
+	_collider->SetSize(GetSize());
 }

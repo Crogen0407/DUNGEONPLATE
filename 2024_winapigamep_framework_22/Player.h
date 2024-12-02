@@ -72,7 +72,7 @@ private:
 	float parryingTime = 0.1f;
 	bool isParrying = false;
 	bool canMove;
-	float curParryTime;
+	float curParryTime = 0;
 	float parryCoolTime = 0.5f;
 	AttackRange* attackRange;
 };
