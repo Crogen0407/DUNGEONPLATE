@@ -9,8 +9,8 @@ class StageScene  :
 private:
     static const int gridSize = 3;
     BackGround* grid[gridSize][gridSize];
-    //int frameCount = 0;  
-    //const int framesToClear = 300;
+    int frameCount = 0;  
+    const int framesToClear = 300;
     int enemyCount;
     int m_currentStage = 1;
 public:
