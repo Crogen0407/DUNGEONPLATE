@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Stage.h"
+#include "Scene.h"
 #include "Object.h"
 #include "CollisionManager.h"
 

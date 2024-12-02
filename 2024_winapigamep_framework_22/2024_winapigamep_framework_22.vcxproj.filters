@@ -272,6 +272,7 @@
     <ClInclude Include="FadeObject.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
+    <ClInclude Include="Stage3.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -462,5 +463,6 @@
     <ClCompile Include="FadeObject.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
+    <ClCompile Include="Stage3.cpp" />
   </ItemGroup>
 </Project>
