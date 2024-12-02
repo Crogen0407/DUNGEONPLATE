@@ -202,6 +202,7 @@ void GameCanvas::Update()
 {
 	Canvas::Update();
 
+	//Debug
 	if (GET_KEYDOWN(KEY_TYPE::NUM_1))
 	{
 		GET_SINGLE(XPManager)->AddXP(1.f);
