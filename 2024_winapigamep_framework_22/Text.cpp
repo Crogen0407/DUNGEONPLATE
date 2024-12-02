@@ -21,12 +21,12 @@ void Text::LateUpdate()
 void Text::Render(HDC _hdc)
 {
 	Vec2 pos = GetPos() + owner->GetPos();
+	Vec2 size = GetSize();
 	::SetTextColor(_hdc, color);
 	HFONT oldFont = static_cast<HFONT>(SelectObject(_hdc, pfont));
 
 	::SetBkMode(_hdc, 1);
-	::SetTextAlign(_hdc, iPitchAndFamily);
-	RECT rect = { pos.x - GetSize().x / 2, pos.y - GetSize().y / 2, pos.x + GetSize().x / 2, pos.y + GetSize().y / 2 };  // 출력할 영역
+	RECT rect = { pos.x - size.x / 2, pos.y - size.y / 2, pos.x + size.x / 2, pos.y + size.y / 2 };  // 출력할 영역
 
 	::DrawText(_hdc, text.c_str(), -1, &rect, iPitchAndFamily);
 

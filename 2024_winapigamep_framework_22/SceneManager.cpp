@@ -4,6 +4,7 @@
 #include "TitleScene.h"
 #include "GameScene.h"
 #include "UIScene.h"
+#include "GameOverScene.h"
 #include "Object.h"
 #include "PoolManager.h"
 
@@ -15,6 +16,7 @@ void SceneManager::Init()
 	RegisterScene(L"TitleScene",std::make_shared<TitleScene>());
 	RegisterScene(L"GameScene",std::make_shared<GameScene>());
 	RegisterScene(L"UIScene",std::make_shared<UIScene>());
+	RegisterScene(L"GameOverScene",std::make_shared<GameOverScene>());
 
 	// ¾À ·Îµå
 	LoadScene(L"GameScene");
