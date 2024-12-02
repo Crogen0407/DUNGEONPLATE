@@ -6,6 +6,7 @@
 #include "SkillManager.h"
 #include "TimeManager.h"
 #include "XPManager.h"
+#include "InputManager.h"
 
 SkillCanvas::SkillCanvas()
 {
@@ -26,12 +27,17 @@ SkillCanvas::SkillCanvas()
 
 SkillCanvas::~SkillCanvas()
 {
+
 }
 
 void SkillCanvas::Update()
 {
 	Canvas::Update();
 	//약간 둥둥 거리는 거 만들기
+	if (GET_KEYDOWN(KEY_TYPE::U))
+	{
+		ShowSlots();
+	}
 }
 
 void SkillCanvas::LateUpdate()
@@ -53,10 +59,19 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 	skillSlot->pos = slotPos;
 	skillSlot->size = Vec2(150, 200);
 
-	skillSlot->base = static_cast<Button*>(CreateUI(UIOPTION::BUTTON));
-	skillSlot->name = static_cast<Text*>(CreateUI(UIOPTION::TEXT));
-	skillSlot->level = static_cast<Text*>(CreateUI(UIOPTION::TEXT));
-	skillSlot->description = static_cast<Text*>(CreateUI(UIOPTION::TEXT));
+	Vec2 namePos = Vec2(0, -55) + skillSlot->pos;
+	Vec2 nameSize = Vec2(skillSlot->size.x - 30, 30.f);
+
+	Vec2 levelPos = Vec2(0, -32) + skillSlot->pos;
+	Vec2 levelSize = Vec2(skillSlot->size.x-30, 30.f);
+
+	Vec2 descriptionPos = Vec2(0, 55) + skillSlot->pos;
+	Vec2 descriptionSize = skillSlot->size - Vec2(30, 30);
+
+	skillSlot->base =			CreateUI<Button>(skillSlot->pos, skillSlot->size);
+	skillSlot->name =			CreateUI<Text>(namePos, nameSize);
+	skillSlot->level =			CreateUI<Text>(levelPos, levelSize);
+	skillSlot->description =	CreateUI<Text>(descriptionPos, descriptionSize);
 	skillSlot->level->SetText(L"New!");
 	skillSlot->base->texture = LOADTEXTURE(L"UISpriteSlot", L"Texture\\UISpriteSlot.bmp");
 
@@ -68,27 +83,6 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 	skillSlot->description->LoadFont(L"PF스타더스트", 12, 15);
 	skillSlot->description->SetPitchAndFamily(DT_LEFT | DT_TOP);
-
-	Vec2 namePos = Vec2(0, -55) + skillSlot->pos;
-	Vec2 nameSize = Vec2(skillSlot->size.x - 30, 30.f);
-
-	Vec2 levelPos = Vec2(0, -32) + skillSlot->pos;
-	Vec2 levelSize = Vec2(skillSlot->size.x-30, 30.f);
-
-	Vec2 descriptionPos = Vec2(0, 55) + skillSlot->pos;
-	Vec2 descriptionSize = skillSlot->size - Vec2(30, 30);
-
-	skillSlot->base->SetPos(skillSlot->pos);
-	skillSlot->base->SetSize(skillSlot->size);
-
-	skillSlot->name->SetPos(namePos);
-	skillSlot->name->SetSize(nameSize);
-
-	skillSlot->level->SetPos(levelPos);
-	skillSlot->level->SetSize(levelSize);
-
-	skillSlot->description->SetPos(descriptionPos);
-	skillSlot->description->SetSize(descriptionSize);
 
 	skillSlot->base->OnClickEvent +=
 		[ct = this, ss = skillSlot, player = GET_SINGLE(SkillManager)->player](int _)

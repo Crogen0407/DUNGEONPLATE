@@ -8,6 +8,14 @@
 #include "DashSkill.h"
 #include "FireBallSkill.h"
 
+SkillManager::~SkillManager()
+{
+	for (auto skill : skills)
+	{
+		delete skill.second;
+	}
+}
+
 void SkillManager::Init()
 {
 	AddSkill(ESkillType::DashSkill,					static_cast<Skill*>(new DashSkill));

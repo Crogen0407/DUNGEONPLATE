@@ -40,6 +40,8 @@ using std::wstring;
 
 // 디버깅용 콘솔창
 #ifdef _DEBUG
+#define new new(_CLIENT_BLOCK, __FILE__, __LINE__)
+#define malloc(s) _malloc_dbg(s, _NORMAL_BLOCK, __FILE__, __LINE__)
 #ifdef UNICODE
 #pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 #else
