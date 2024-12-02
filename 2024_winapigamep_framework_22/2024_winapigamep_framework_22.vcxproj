@@ -212,6 +212,7 @@
     <ClInclude Include="GuidedMissile.h" />
     <ClInclude Include="HealPackSkill.h" />
     <ClInclude Include="HealthCompo.h" />
+    <ClInclude Include="HelpScene.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
@@ -253,6 +254,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="TitleCanvas.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIScene.h" />
@@ -307,6 +309,7 @@
     <ClCompile Include="GuidedMissile.cpp" />
     <ClCompile Include="HealPackSkill.cpp" />
     <ClCompile Include="HealthCompo.cpp" />
+    <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
@@ -345,6 +348,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="TitleCanvas.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="UIScene.cpp" />
     <ClCompile Include="XPManager.cpp" />
