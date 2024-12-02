@@ -9,10 +9,11 @@ public:
 	~GuidedMissile() override;
 	void Update() override;
 	void Render(HDC _hdc) override;
+	void SetDir(Vec2 dir) override;
 private:
 	float _rotation = 0;
-	float lifetime = 2.f;
-	float spawnedTime = 0.f;
+	float _lifetime = 3.f;
+	float _spawnedTime = 0.f;
 
 	Object* target;
 };

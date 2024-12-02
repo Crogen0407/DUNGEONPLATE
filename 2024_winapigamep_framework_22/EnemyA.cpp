@@ -14,16 +14,18 @@
 #include "SpriteRenderer.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "HealthCompo.h"
 
 EnemyA::EnemyA()
 {
 	m_moveDesire = Vec2(0, 0);
-	target = FindObject(L"Player", LAYER::PLAYER);
+	_target = FindObject(L"Player", LAYER::PLAYER);
 	SetSize({ 100, 100 });
 
 	Texture* texture = LOADTEXTURE(L"Enemy01", L"Texture\\Enemy01.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 3, (int)texture->GetHeight());
 
+	AddComponent<HealthCompo>();
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();
@@ -31,6 +33,7 @@ EnemyA::EnemyA()
 	GetComponent<Animator>()
 		->CreateAnimation(L"Enemy01Idle", texture, {0,0}, texSize, { (int)texSize.x, 0}, 3, 0.2f);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
+	GetComponent<HealthCompo>()->SetOffsetY(50);
 }
 
 EnemyA::~EnemyA()
@@ -39,18 +42,18 @@ EnemyA::~EnemyA()
 
 void EnemyA::Update()
 {
-	if (prevShootTime + shootDelay < TIME)
+	if (_prevShootTime + _shootDelay < TIME)
 	{
-		prevShootTime = TIME;
+		Vec2 dir = _target->GetPos();
+		dir -= GetPos();
 
-		Vec2 attackDir = target->GetPos();
-		attackDir -= GetPos();
-		GetComponent<AttackCompo>()->TryFireBullet(attackDir);
+		_prevShootTime = TIME;
+		GetComponent<AttackCompo>()->TryFireBullet(dir);
 	}
 
-	if (prevDash + 2 < TIME)
+	if (_prevDash + 2 < TIME)
 	{
-		prevDash = TIME;
+		_prevDash = TIME;
 
 		Vec2 dashDir = { rand() % 2 == 0 ? 1 : -1, 0 };
 		if (GetPos().x < 100) dashDir = { 1,0 };

@@ -1,19 +1,19 @@
 #pragma once
 #include "Enemy.h"
-
-class EnemyA : public Enemy
+class Texture;
+class EnemyC : public Enemy
 {
 public:
-	EnemyA();
-	~EnemyA() override;
-public:
-	void Update() override; 
+	EnemyC();
+	~EnemyC() override;
+
+	// Enemy을(를) 통해 상속됨
+	void Update() override;
 	void Render(HDC _hdc) override;
 private:
 	float _shootDelay = 1;
 	float _prevShootTime = 0;
+	Texture* _texture;
 	Object* _target;
-private:
-	float _prevDash = 0;
 };
 

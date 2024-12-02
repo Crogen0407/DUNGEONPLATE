@@ -18,13 +18,13 @@ GuidedMissile::GuidedMissile()
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
 
 	target = FindObject(L"Player", LAYER::PLAYER);
-	spawnedTime = TIME;
+	_spawnedTime = TIME;
+	speed = 400;
 
-	_dir = target->GetPos();
+	/*_dir = target->GetPos();
 	_dir -= GetPos();
 	_dir.Normalize();
-
-	_rotation = atan2f(_dir.y, _dir.x) * Rad2Deg;
+	_rotation = atan2f(_dir.y, _dir.x) * Rad2Deg;*/
 }
 
 GuidedMissile::~GuidedMissile()
@@ -40,29 +40,29 @@ void GuidedMissile::Update()
 	float cross = targetDir.Cross(_dir);
 
 	if (cross > 0)
-		_rotation -= 2.7f * fDT;
+		_rotation -= 3.f * fDT;
 	else if (cross < 0)
-		_rotation += 2.7f * fDT;
+		_rotation += 3.f * fDT;
 
-
-	_dir = { cosf(_rotation) , sinf(_rotation) };
-	_dir.Normalize();
-
-	if (spawnedTime + lifetime < TIME)
-		GET_SINGLE(EventManager)->DeleteObject(this);
+	_dir = { cos(_rotation), sin(_rotation) };
 
 	vPos.x += _dir.x * speed * fDT;
 	vPos.y += _dir.y * speed * fDT;
 	SetPos(vPos);
 
-	GetComponent<SpriteRenderer>()->LookAt(_dir);
-
-	Vec2 vSize = GetSize();
-	if (vPos.y < -vSize.y)
+	if (_spawnedTime + _lifetime < TIME)
 		GET_SINGLE(EventManager)->DeleteObject(this);
 }
 
 void GuidedMissile::Render(HDC _hdc)
 {
 	ComponentRender(_hdc);
+	GetComponent<SpriteRenderer>()->LookAt(_dir);
+}
+
+void GuidedMissile::SetDir(Vec2 dir)
+{
+	_dir = dir;
+	_dir.Normalize();
+	_rotation = atan2f(_dir.y, _dir.x) * Rad2Deg;
 }
