@@ -14,4 +14,3 @@ private:
 	Text* mentText;
 	Button* gotoTitleSceneButton;
 };
-

@@ -25,13 +25,13 @@ FadeObject::FadeObject()
 		L"FadeIn",
 		_fadeInTexture,
 		{ 0, 0 }, { 256, 256 },
-		{ 256, 0 }, 19, 0.05f, false);
+		{ 256, 0 }, 20, 0.05f, false);
 
 	_animator->CreateAnimation(
 		L"FadeOut",
 		_fadeOutTexture,
 		{ 0, 0 }, { 256, 256 },
-		{ 256, 0 }, 19, 0.05f, false);
+		{ 256, 0 }, 20, 0.05f, false);
 }
 
 FadeObject::~FadeObject()
