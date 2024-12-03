@@ -344,6 +344,15 @@
     <ClInclude Include="GameOverCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
+    <ClInclude Include="HelpCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -598,6 +607,15 @@
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
     <ClCompile Include="GameOverCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
   </ItemGroup>
