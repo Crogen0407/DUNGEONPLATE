@@ -8,7 +8,9 @@ class Action
 	using Func = std::function<void(T)>;
 public:
 	Action() = default;
-	~Action() = default;
+	~Action()
+	{
+	}
 	
 private:
 	std::list<Func> functions;
@@ -16,10 +18,6 @@ public:
 	void operator +=(Func fn)
 	{
 		functions.push_back(fn);
-	}
-	void operator -=(Func fn)
-	{
-		functions.remove(fn);
 	}
 public:
 	void Clear()

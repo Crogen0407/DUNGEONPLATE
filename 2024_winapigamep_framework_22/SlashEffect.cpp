@@ -54,5 +54,5 @@ void SlashEffect::Render(HDC _hdc)
 void SlashEffect::LookAt(const Vec2& dir)
 {
 	_dir = dir;
-	GetComponent<SpriteRenderer>()->LookAt(dir);
+	_spriteRenderer->LookAt(dir);
 }

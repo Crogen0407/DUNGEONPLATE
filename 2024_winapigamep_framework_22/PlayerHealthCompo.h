@@ -32,10 +32,12 @@ public:
         return autoCureValue;
     }
     void ApplyDamage(int value) override;
+    void OnDie() override;
 
 public:
     void LateUpdate() override;
 private:
+    bool _isDie = false;
     float curDelay = 0;
     bool isTakedDamage = false;
     float subHp;

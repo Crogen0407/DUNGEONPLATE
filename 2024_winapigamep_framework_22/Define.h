@@ -21,6 +21,7 @@ public:							\
 #define LOADTEXTURE(key, path) GET_SINGLE(ResourceManager)->TextureLoad(key, path)
 
 #define ADDXP(value) GET_SINGLE(XPManager)->AddXP(value)
+#define ADDOBJECT(object, layer) GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(object, layer);
 
 #define POP(name, pos) GET_SINGLE(PoolManager)->Pop(name, pos)
 #define PUSH(name, poolableObject) GET_SINGLE(PoolManager)->Push(name, poolableObject)

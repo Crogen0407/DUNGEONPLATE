@@ -8,7 +8,6 @@
 
 FadeObject::FadeObject()
 {
-	cout << "ÃÊ±âÈ­";
 	AddComponent<SpriteRenderer>();
 	AddComponent<Animator>();
 

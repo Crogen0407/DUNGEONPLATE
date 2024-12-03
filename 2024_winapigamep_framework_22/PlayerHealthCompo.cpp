@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PlayerHealthCompo.h"
 #include "TimeManager.h"
+#include "FadeManager.h"
 
 PlayerHealthCompo::PlayerHealthCompo() :
 	subHp(100),
@@ -17,10 +18,19 @@ void PlayerHealthCompo::ApplyDamage(int value)
 {
 	isTakedDamage = true;
 	int temp = value;
-	SetSubHp((int)std::clamp(value - subHp, 0.f, maxSubHp));
-	subHp -= value;
-	if (value <= 0) return;
+	value -= subHp;
+	if (value < 0)
+		value = 0;
+	SetSubHp((int)std::clamp(subHp - temp, 0.f, maxSubHp));
 	HealthCompo::ApplyDamage(value);
+}
+
+void PlayerHealthCompo::OnDie()
+{
+	if (_isDie) return;
+	HealthCompo::OnDie();
+	_isDie = true;
+	GET_SINGLE(FadeManager)->LoadScene(L"GameOverScene");
 }
 
 void PlayerHealthCompo::LateUpdate()
