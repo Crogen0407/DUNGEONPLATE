@@ -9,6 +9,7 @@
 #include "SkillCanvas.h"
 #include "CollisionManager.h"
 #include "EnemySpawner.h"
+#include "ResourceManager.h"
 
 void GameScene::Init()
 {
@@ -46,6 +47,15 @@ void GameScene::Init()
 
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
+
+	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+}
+
+void GameScene::Release()
+{
+	Scene::Release();
+	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 }
 
 void GameScene::Update()

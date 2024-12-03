@@ -17,8 +17,11 @@ void TimeManager::Update()
 	
 	//m_dT  = ;
 	// deltatime(변화시간) : 한 프레임에 걸린 시간 
-	m_dT = (float)(m_llCurCnt.QuadPart - m_llPrevCnt.QuadPart)
-		/ (float)m_llFrequency.QuadPart * timeScale;
+	m_unscaledDT = (float)(m_llCurCnt.QuadPart - m_llPrevCnt.QuadPart)
+		/ (float)m_llFrequency.QuadPart;
+
+	m_dT = m_unscaledDT * timeScale;
+
 	m_llPrevCnt = m_llCurCnt;
 
 	// FPS(Frame Per Second): 1초당 몇 프레임 가냐.

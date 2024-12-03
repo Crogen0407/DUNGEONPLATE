@@ -65,7 +65,7 @@ void HelpCanvas::Update()
 	if (GET_KEYDOWN(KEY_TYPE::LBUTTON))
 	{
 		++_curSlide;
-		if (_curSlide >= slides.size()-1 && _isFading == false)
+		if (_curSlide > slides.size()-1 && _isFading == false)
 		{
 			_isFading = true;
 			GET_SINGLE(FadeManager)->LoadScene(L"TitleScene");

@@ -24,10 +24,16 @@ void TitleScene::Init()
 	_canvas = new TitleCanvas;
 	AddObject(_canvas, LAYER::UI);
 
-	//GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PROJECTILE, LAYER::ENEMY);
-	////GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::ENEMY);
-	//GET_SINGLE(ResourceManager)->LoadSound(L"BGM", L"Sound\\Retro_bgm.wav", true);
-	//GET_SINGLE(ResourceManager)->Play(L"BGM");
+	//BGM Àç»ý
+	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+}
+
+void TitleScene::Release()
+{
+	Scene::Release();
+	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
+
 }
 
 void TitleScene::Update()

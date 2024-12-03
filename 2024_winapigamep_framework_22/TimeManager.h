@@ -7,6 +7,7 @@ public:
 	void Update();
 public:
 	const float& GetDT() const { return m_dT; }
+	const float& GetUnscaledDT() const { return m_unscaledDT; }
 	const float& GetTime() const { return m_time; }
 public:
 	float timeScale = 1.f;
@@ -16,6 +17,7 @@ private:
 	LARGE_INTEGER m_llCurCnt = {};
 	LARGE_INTEGER m_llFrequency = {};
 	float		  m_dT = 0.f;
+	float		  m_unscaledDT = 0.f;
 	float		  m_time = 0.f;
 
 	// FPS(Frame Per Second)

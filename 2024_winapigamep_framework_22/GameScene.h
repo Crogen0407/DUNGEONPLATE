@@ -5,7 +5,8 @@ class GameScene :
     public Scene
 {
 public:
-    virtual void Init() override;
+    void Init() override;
+    void Release() override;
     void Update() override;
     void Render(HDC hdc) override;
 private:
