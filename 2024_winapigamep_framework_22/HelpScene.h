@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+class Canvas;
 class HelpScene :
     public Scene
 {
@@ -8,5 +9,7 @@ public:
     ~HelpScene() override;
 public:
     void Init() override;
+private:
+    Canvas* _canvas;
 };
 
