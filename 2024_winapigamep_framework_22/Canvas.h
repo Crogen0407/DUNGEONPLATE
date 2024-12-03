@@ -26,7 +26,7 @@ public:
         children.push_back(std::move(newInstance));
         return rawPointer;
     }
-
+    
     template<typename T>
     T* CreateUI(const Vec2& pos, const Vec2& size) {
         T* newInstance = CreateUI<T>();

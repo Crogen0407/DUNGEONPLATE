@@ -33,7 +33,7 @@ public:
     }
     virtual void ApplyDamage(int value);
     void ApplyHeal(int value);
-    void OnDie()
+    virtual void OnDie()
     {
         DieEvent.Invoke(NULL);
     }

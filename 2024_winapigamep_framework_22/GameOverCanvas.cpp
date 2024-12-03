@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Action.h"
 #include "ResourceManager.h"
+#include "FadeManager.h"
 
 GameOverCanvas::GameOverCanvas()
 {
@@ -15,7 +16,7 @@ GameOverCanvas::GameOverCanvas()
 		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
 		Vec2 pos = { size.x * 0.5f, size.y * 0.5f };
 		Image* background = CreateUI<Image>(pos, size);
-		background->texture = LOADTEXTURE(L"OnePoint", L"Texture\\OnePoint.bmp");
+		background->texture = LOADTEXTURE(L"GameOver", L"Texture\\GameOver.bmp");
 	}
 
 	//TitleText
@@ -49,8 +50,16 @@ GameOverCanvas::GameOverCanvas()
 		retryButton->OnClickEvent +=
 			[](int _)
 			{
-				//여기에 게임 다시 시작시키는 코드 넣기
+				GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
 			};
+		//RetryButtonText
+		{
+			Text* retryButtonText = CreateUI<Text>(pos, size);
+			retryButtonText->SetText(L"RETRY");
+			retryButtonText->LoadFont(L"PF스타더스트 Bold", 18, 21);
+			retryButtonText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			retryButtonText->SetColor(RGB(15, 56, 15));
+		}
 	}
 
 	//GotoTitleSceneButton
@@ -62,8 +71,16 @@ GameOverCanvas::GameOverCanvas()
 		gotoTitleSceneButton->OnClickEvent +=
 			[](int _)
 			{
-				//여기에 게임 다시 시작시키는 코드 넣기
+				GET_SINGLE(FadeManager)->LoadScene(L"TitleScene");
 			};
+		//GotoTitleButtonText
+		{
+			Text* retryButtonText = CreateUI<Text>(pos, size);
+			retryButtonText->SetText(L"GOTOTITLE");
+			retryButtonText->LoadFont(L"PF스타더스트 Bold", 18, 21);
+			retryButtonText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			retryButtonText->SetColor(RGB(15, 56, 15));
+		}
 	}
 }
 
