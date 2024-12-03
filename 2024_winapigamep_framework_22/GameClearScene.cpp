@@ -10,12 +10,15 @@ void GameClearScene::Init()
 
 void GameClearScene::Update()
 {
+	Scene::Update();
 }
 
 void GameClearScene::LateUpdate()
 {
+	Scene::LateUpdate();
 }
 
 void GameClearScene::Render(HDC _hdc)
 {
+	Scene::Render(_hdc);
 }
