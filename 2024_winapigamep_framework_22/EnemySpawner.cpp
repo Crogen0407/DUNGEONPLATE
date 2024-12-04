@@ -5,6 +5,7 @@
 #include "EnemyA.h"
 #include "EnemyB.h"
 #include "EnemyC.h"
+#include "EnemyD.h"
 #include "Boss.h"
 #include "Scene.h"
 
@@ -30,6 +31,9 @@ void EnemySpawner::SpawnEnemy(Vec2 pos, EnemyType enemyType)
 		break;
 	case EnemyType::EnemyC:
 		enemy = new EnemyC();
+		break;
+	case EnemyType::EnemyD:
+		enemy = new EnemyD();
 		break;
 	case EnemyType::Boss:
 		enemy = new Boss();

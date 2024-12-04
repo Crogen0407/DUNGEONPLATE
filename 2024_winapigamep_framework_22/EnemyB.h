@@ -14,7 +14,6 @@ private:
 	float shootDelay = 1;
 	float prevShootTime = 0;
 	Texture* texture;
-	Object* target;
 private:
 	float prevDash = 0;
 };

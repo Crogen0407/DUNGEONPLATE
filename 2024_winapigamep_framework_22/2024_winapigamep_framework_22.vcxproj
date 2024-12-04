@@ -192,10 +192,12 @@
     <ClInclude Include="EnemyBounceBullet.h" />
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EnemyC.h" />
+    <ClInclude Include="EnemyD.h" />
     <ClInclude Include="EnemyPaternA.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="ExplosionEffect.h" />
     <ClInclude Include="FadeManager.h" />
     <ClInclude Include="FadeObject.h" />
     <ClInclude Include="FireBallEffect.h" />
@@ -292,9 +294,11 @@
     <ClCompile Include="EnemyBounceBullet.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyC.cpp" />
+    <ClCompile Include="EnemyD.cpp" />
     <ClCompile Include="EnemyPaternA.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="ExplosionEffect.cpp" />
     <ClCompile Include="FadeManager.cpp" />
     <ClCompile Include="FadeObject.cpp" />
     <ClCompile Include="FireBallEffect.cpp" />

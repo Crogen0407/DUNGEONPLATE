@@ -83,14 +83,12 @@ void Player::Update()
 
 	Vec2 vPos = GetPos();
 
-	Vec2 lookDir = (Vec2)GET_MOUSEPOS - GetPos();
-
 	if (GET_KEYDOWN(KEY_TYPE::CTRL))
 	{
 		healthCompo->ApplyDamage(55);
 	}
 
-	_spriteRenderer->LookAt(lookDir);
+	_spriteRenderer->LookAt(attackDir);
 	SetPos(vPos);
 }
 
@@ -114,7 +112,7 @@ void Player::Parry()
 		SlashEffect* slashEffect = static_cast<SlashEffect*>(POP(L"SlashEffect", effectPos));
 		slashEffect->LookAt(attackDir);
 	}
-	
+
 	isParrying = true;
 }
 
@@ -138,12 +136,21 @@ void Player::Parrying()
 
 	for (Object* projObj : projectiles)
 	{
-		Vec2 dist = vPos - projObj->GetPos();
+		Vec2 dist = projObj->GetPos();
+		dist -= vPos;
 		if (dist.Length() > parryDist) continue;
 
-		Projectile* proj = (Projectile*)projObj; 
-		proj->Parry();
-		parried = true;
+		attackDir.Normalize();
+		dist.Normalize();
+
+		float rotation = acos(attackDir.Dot(dist)) * Rad2Deg;
+		cout << rotation << "µµ\n";
+		if (attackDir.Cross(dist) > 0 && abs(rotation) < 45)
+		{
+			Projectile* proj = (Projectile*)projObj;
+			proj->Parry();
+			parried = true;
+		}
 	}
 
 	if (projectiles.size() > 0)

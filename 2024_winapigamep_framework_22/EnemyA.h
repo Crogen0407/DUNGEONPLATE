@@ -12,7 +12,6 @@ public:
 private:
 	float _shootDelay = 1;
 	float _prevShootTime = 0;
-	Object* _target;
 private:
 	float _prevDash = 0;
 };

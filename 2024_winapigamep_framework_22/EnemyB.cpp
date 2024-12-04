@@ -13,15 +13,16 @@
 #include "Animator.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "EventManager.h"
 
 EnemyB::EnemyB()
 {
 	SetSize({ 50,50 });
-	target = FindObject(L"Player", LAYER::PLAYER);
+	_target = FindObject(L"Player", LAYER::PLAYER);
 	texture = LOADTEXTURE(L"Enemy02", L"Texture\\Enemy02.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 7, (int)texture->GetHeight());
 
-
+	prevShootTime = TIME;
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	//AddComponent<HealthCompo>();
@@ -31,6 +32,7 @@ EnemyB::EnemyB()
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 
 	GetComponent<HealthCompo>()->SetOffsetY(60);
+	GetComponent<HealthCompo>()->SetHp(100);
 }
 
 EnemyB::~EnemyB()
@@ -41,6 +43,24 @@ float _rotation = 0;
 
 void EnemyB::Update()
 {
+	if (_isDead)
+	{
+		Vec2 vSize = GetSize();
+		Vec2 curPos = GetPos();
+		curPos += _knockDir * 500 * fDT;
+		_rotation += 420 * fDT;
+
+		SetPos(curPos);
+		//GetComponent<SpriteRenderer>()->SetAngle(_rotation, true);
+
+		if (curPos.x < -vSize.x / 2 || curPos.x > SCREEN_WIDTH + vSize.x / 2
+			|| curPos.y < -vSize.y / 2 || curPos.y > SCREEN_HEIGHT + vSize.y / 2)
+		{
+			GET_SINGLE(EventManager)->DeleteObject(this);
+		}
+		return;
+	}
+
 	float delay = shootDelay;
 
 	if (prevShootTime + delay < TIME)

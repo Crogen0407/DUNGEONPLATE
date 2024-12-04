@@ -3,17 +3,20 @@
 #include "Agent.h"
 #include "Collider.h"
 #include "EventManager.h"
+#include "PoolManager.h"
 #include "HealthCompo.h"
 #include "XPManager.h"
 #include "StageScene.h"
 #include "StageManager.h"
+#include "Movement.h"
+#include "ExplosionEffect.h"
 
-Enemy::Enemy() : m_hp(5), m_attack(5)
+Enemy::Enemy() : m_hp(5), m_attack(5), _isDead(false)
 {
 	this->AddComponent<Collider>();
 	this->AddComponent<HealthCompo>();
 
-	GetComponent<Collider>()->SetSize(Vec2(100,100));
+	GetComponent<Collider>()->SetSize(Vec2(50,50));
 	GetComponent<HealthCompo>()->DieEvent += 
 		[ct = this](int _) 
 		{
@@ -27,11 +30,18 @@ Enemy::~Enemy()
 
 void Enemy::OnDie()
 {
-	GET_SINGLE(EventManager)->DeleteObject(this);
-
 	ADDXP(1);
-
 	StageManager::GetInstance()->enemyCount--;
+	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
+	explosion->SetPos(GetPos());
+	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+	GET_SINGLE(EventManager)->DeleteObject(this);
+	
+	//_isDead = true;
+	/*_rotation = 0;
+	_knockDir = GetPos();
+	_knockDir -= _target->GetPos();
+	_knockDir.Normalize();*/
 }
 
 void Enemy::EnterCollision(Collider* _other)

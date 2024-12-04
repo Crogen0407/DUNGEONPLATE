@@ -68,7 +68,7 @@ public:
 private:
 	float speed = 100.f;
 	Vec2 attackDir;
-	float parryDist = 100.f;
+	float parryDist = 250.f;
 	float parryingTime = 0.1f;
 	bool isParrying = false;
 	bool canMove;

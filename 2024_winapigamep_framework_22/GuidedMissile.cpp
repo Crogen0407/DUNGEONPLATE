@@ -5,6 +5,9 @@
 #include "EventManager.h"
 #include "TimeManager.h"
 #include "Collider.h"
+#include "ExplosionEffect.h"
+#include "SceneManager.h"
+#include "Scene.h"
 
 GuidedMissile::GuidedMissile()
 {
@@ -52,7 +55,13 @@ void GuidedMissile::Update()
 	SetPos(vPos);
 
 	if (_spawnedTime + _lifetime < TIME)
+	{
+		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
+		explosion->SetPos(GetPos());
+		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+
 		GET_SINGLE(EventManager)->DeleteObject(this);
+	}
 }
 
 void GuidedMissile::Render(HDC _hdc)

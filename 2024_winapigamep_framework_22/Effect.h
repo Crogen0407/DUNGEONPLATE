@@ -7,7 +7,7 @@ public:
     Effect() = default;
     ~Effect() override = default;
 protected:
-    float _lifeTime = 0.5f;
+    float _lifeTime = 1.f;
     float _curTime = 0.f;
 public:
     virtual void Update() override  {}

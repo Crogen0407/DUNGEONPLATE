@@ -11,11 +11,13 @@
 #include "AttackCompo.h"
 #include "RazerSkill.h"
 #include "BounceBulletSkill.h"
+#include "EventManager.h"
 
 Boss::Boss() : _currentSkill{ nullptr }
 {
 	SetSize({ 100,100 });
 	texture = LOADTEXTURE(L"Boss", L"Texture\\Enemy03.bmp");
+	_target = FindObject(L"Player", LAYER::PLAYER);
 	Vec2 texSize = { (int)texture->GetWidth() / 6, (int)texture->GetHeight() };
 	AddComponent< Collider>();
 	//AddComponent<HealthCompo>();
@@ -26,6 +28,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	GetComponent<HealthCompo>()->SetOffsetY(50);
 	GetComponent<Animator>()->CreateAnimation(L"Boss", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 6, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Boss", true, 100);
+	GetComponent<HealthCompo>()->SetHp(5000);
 
 	_prevSkillTime = TIME;
 	MissileSkill* mSkill = new MissileSkill();
@@ -52,6 +55,24 @@ Boss::~Boss()
 
 void Boss::Update()
 {
+	if (_isDead)
+	{
+		Vec2 vSize = GetSize();
+		Vec2 curPos = GetPos();
+		curPos += _knockDir * 500 * fDT;
+		_rotation += 420 * fDT;
+
+		SetPos(curPos);
+		//GetComponent<SpriteRenderer>()->SetAngle(_rotation, true);
+
+		if (curPos.x < -vSize.x / 2 || curPos.x > SCREEN_WIDTH + vSize.x / 2
+			|| curPos.y < -vSize.y / 2 || curPos.y > SCREEN_HEIGHT + vSize.y / 2)
+		{
+			GET_SINGLE(EventManager)->DeleteObject(this);
+		}
+		return;
+	}
+
 	if (_currentSkill != nullptr)
 	{
 		_currentSkill->Update();
