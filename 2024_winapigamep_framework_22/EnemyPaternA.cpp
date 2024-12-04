@@ -10,6 +10,7 @@ EnemyPaternA::EnemyPaternA()
 
 EnemyPaternA::~EnemyPaternA()
 {
+	delete(_roundAttack);
 }
 
 void EnemyPaternA::Update()

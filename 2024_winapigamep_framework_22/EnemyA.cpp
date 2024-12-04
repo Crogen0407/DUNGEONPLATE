@@ -23,6 +23,7 @@ EnemyA::EnemyA()
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	SetSize({ 50, 50 });
 
+	_prevShootTime = TIME;
 	Texture* texture = LOADTEXTURE(L"Enemy01", L"Texture\\Enemy01.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 3, (int)texture->GetHeight());
 
@@ -35,6 +36,7 @@ EnemyA::EnemyA()
 		->CreateAnimation(L"Enemy01Idle", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 3, 0.2f);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
 	GetComponent<HealthCompo>()->SetOffsetY(50);
+	GetComponent<HealthCompo>()->SetHp(100);
 }
 
 EnemyA::~EnemyA()

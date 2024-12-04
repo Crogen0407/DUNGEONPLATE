@@ -51,8 +51,8 @@ void FireBallEffect::EnterCollision(Collider* _other)
 	LAYER layer = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 	HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
-	if (health != nullptr && layer != LAYER::PLAYER)
-		health->ApplyDamage(_damage);
+	//if (health != nullptr && layer != LAYER::PLAYER)
+		//health->ApplyDamage(_damage);
 
 	PUSH(L"FireBallEffect", this);
 

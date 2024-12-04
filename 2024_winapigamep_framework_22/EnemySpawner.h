@@ -5,6 +5,7 @@ enum class EnemyType
 	EnemyA,
 	EnemyB,
 	EnemyC,
+	EnemyD,
 	Boss
 };
 

@@ -22,7 +22,7 @@ EnemyB::EnemyB()
 	texture = LOADTEXTURE(L"Enemy02", L"Texture\\Enemy02.bmp");
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 7, (int)texture->GetHeight());
 
-
+	prevShootTime = TIME;
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	//AddComponent<HealthCompo>();
@@ -32,6 +32,7 @@ EnemyB::EnemyB()
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 
 	GetComponent<HealthCompo>()->SetOffsetY(60);
+	GetComponent<HealthCompo>()->SetHp(100);
 }
 
 EnemyB::~EnemyB()
