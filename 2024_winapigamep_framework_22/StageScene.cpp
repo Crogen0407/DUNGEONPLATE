@@ -86,9 +86,6 @@ void StageScene::Render(HDC _hdc)
     
    /*if (stageManager->IsClear())
     {
-        if (m_currentStage == 1) {
-            stage1->Render(this, _hdc);
-        }
         else if (m_currentStage == 2) {
             stage2->Render(this, _hdc);
         }

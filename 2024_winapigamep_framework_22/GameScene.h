@@ -29,6 +29,7 @@ public:
     void SetEnemyCount();
     BackGround* GetBackGroundAt(int x, int y);
 private:
+    EnemySpawner* _spawner;
     Canvas* _gameCanvas;
     Canvas* _skillCanvas;
 };
