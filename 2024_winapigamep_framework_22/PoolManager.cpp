@@ -6,6 +6,7 @@
 
 void PoolManager::Init(Scene* curScene)
 {
+    pool = {};
     _curScene = curScene;
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
     MakeObjectPool<FireBallEffect>(L"FireBallEffect", LAYER::PROJECTILE, 150);

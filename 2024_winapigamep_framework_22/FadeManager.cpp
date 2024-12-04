@@ -2,9 +2,15 @@
 #include "FadeManager.h"
 #include "InputManager.h"
 #include "FadeObject.h"
+#include "EventManager.h"
 #include "SceneManager.h"
 #include "Scene.h"
 #include "TimeManager.h"
+
+FadeManager::~FadeManager()
+{
+	delete(_fadeObject);
+}
 
 void FadeManager::Init()
 {
@@ -17,19 +23,28 @@ void FadeManager::Update()
 		_curTime += fDT;
 		if (_curTime > 0.05f * 20.f)
 		{
-			GET_SINGLE(SceneManager)->LoadScene(_sceneName);
+			GET_SINGLE(EventManager)->LoadScene(_sceneName);
 			_isSceneFading = false;
 			_sceneLoadComplete = false;
 			_fadeObject = nullptr;
 			FadeIn();
 		}
 	}
+
+	if (_fadeObject == nullptr) return;
+	_fadeObject->Update();
+	_fadeObject->LateUpdate();
+}
+
+void FadeManager::Render(HDC hdc)
+{
+	if (_fadeObject == nullptr) return;
+	_fadeObject->Render(hdc);
 }
 
 void FadeManager::CreateFadeObject()
 {
 	_fadeObject = new FadeObject;
-	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(_fadeObject, LAYER::SCREENEFFECT);
 }
 
 void FadeManager::LoadScene(std::wstring sceneName)

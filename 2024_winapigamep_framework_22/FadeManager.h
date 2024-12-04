@@ -3,9 +3,11 @@ class FadeObject;
 class FadeManager
 {
 	DECLARE_SINGLE(FadeManager);
+	~FadeManager();
 public:
 	void Init();
 	void Update();
+	void Render(HDC hdc);
 	void CreateFadeObject();
 	void LoadScene(std::wstring sceneName);
 public:

@@ -31,7 +31,8 @@ void Scene::LateUpdate()
 		for (UINT j = 0; j < m_vecObj[i].size(); ++j)
 		{
 			if (m_vecObj[i][j]->GetActive() == false) continue;
-			m_vecObj[i][j]->LateUpdate();
+			if (!m_vecObj[i][j]->GetIsDead())
+				m_vecObj[i][j]->LateUpdate();
 		}
 	}
 }
@@ -68,6 +69,7 @@ void Scene::Release()
 			delete m_vecObj[i][j];
 		}
 		m_vecObj[i].clear();
+		m_vecObj[i] = { };
 	}
 	GET_SINGLE(CollisionManager)->CheckReset();
 }
