@@ -1,6 +1,7 @@
 #include "pch.h"
-#include "Stage1.h"
 #include "Stage2.h"
+#include "Stage1.h"
+#include "Stage3.h"
 #include "EnemyA.h"
 #include "EnemyB.h"
 #include "EnemyC.h"
@@ -11,15 +12,10 @@
 #include "StageScene.h"
 #include "GameScene.h"
 #include "Player.h"
+#include "Object.h"
 
 void Stage2::Init()
 {
-    //Object* player = new Player;
-
-    //player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
-    //player->SetName(L"Player");
-    //AddObject(player, LAYER::PLAYER);
-
     Object* backGround = new BackGround;
 
     AddObject(backGround, LAYER::BACKGROUND);

@@ -12,15 +12,10 @@
 #include "StageScene.h"
 #include "GameScene.h"
 #include "Player.h"
+#include "Object.h"
 
 void Stage3::Init()
 {
-    //Object* player = new Player;
-
-    //player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
-    //player->SetName(L"Player");
-    //AddObject(player, LAYER::PLAYER);
-
     Object* backGround = new BackGround;
 
     AddObject(backGround, LAYER::BACKGROUND);
