@@ -11,7 +11,7 @@ protected:
     float _curTime = 0.f;
 public:
     virtual void Update() override  {}
-    virtual void LateUpdate() override {}
+    virtual void LateUpdate() override { PoolableObject::LateUpdate(); }
     virtual void Render(HDC _hdc) override {} 
 public:
     virtual void OnPop() override { }

@@ -1,6 +1,5 @@
 #pragma once
 #include <stack>
-#include "SceneManager.h"
 #include "Scene.h"
 
 class PoolableObject;
@@ -10,8 +9,9 @@ class PoolManager
 
 private:
 	std::unordered_map<std::wstring, std::stack<PoolableObject*>> pool = {};
+	Scene* _curScene;
 public:
-	void Init();
+	void Init(Scene* curScene);
 	template<typename T>
 	void MakeObjectPool(const std::wstring& key, LAYER layer, int count)
 	{
@@ -19,17 +19,11 @@ public:
 		pool.insert({ key, stack });
 		for (int i = 0; i < count; i++)
 		{
-			AddPool<T>(key, layer);
+			T* object = new T;
+			_curScene->AddObject(object, layer);
+			pool.at(key).push(object);
+			object->SetActive(false);
 		}
-
-	}
-	template<typename T>
-	void AddPool(const std::wstring& key, LAYER layer)
-	{
-		T* object = new T;
-		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(object, layer);
-		pool.at(key).push(object);
-		object->SetActive(false);
 	}
 public:
 	PoolableObject* Pop(const std::wstring& type, Vec2 pos);

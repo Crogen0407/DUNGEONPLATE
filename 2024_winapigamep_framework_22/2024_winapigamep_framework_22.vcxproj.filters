@@ -169,9 +169,6 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="BackGround.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
@@ -344,13 +341,19 @@
     <ClInclude Include="GameOverCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="HelpScene.h" />
-    <ClInclude Include="TitleCanvas.h" />
-    <ClInclude Include="EnemyD.h">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClInclude Include="HelpCanvas.h">
+      <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="ExplosionEffect.h">
-      <Filter>Engine\03. Object\Effect</Filter>
+    <ClInclude Include="HelpScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyD.h" />
+    <ClInclude Include="ExplosionEffect.h" />
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\03. Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -441,9 +444,6 @@
     </ClCompile>
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="BackGround.cpp">
-      <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
@@ -608,13 +608,19 @@
     <ClCompile Include="GameOverCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="HelpScene.cpp" />
-    <ClCompile Include="TitleCanvas.cpp" />
-    <ClCompile Include="EnemyD.cpp">
-      <Filter>Engine\03. Object\Enemy</Filter>
+    <ClCompile Include="HelpCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="ExplosionEffect.cpp">
-      <Filter>Engine\03. Object\Effect</Filter>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyD.cpp" />
+    <ClCompile Include="ExplosionEffect.cpp" />
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

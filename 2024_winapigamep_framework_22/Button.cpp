@@ -27,6 +27,11 @@ void Button::Init(Texture* defultTex, Texture* selectedTex, Texture* pressedTex)
 
 void Button::OnClick()
 {
+	if (onlyOneCountClick)
+	{
+		if (_isClicked == true) return;
+		_isClicked = true;
+	}
 	if(m_pressedTex != nullptr)
 		texture = m_pressedTex;
 	OnClickEvent.Invoke(NULL);

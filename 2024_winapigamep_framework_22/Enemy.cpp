@@ -10,6 +10,7 @@
 #include "StageManager.h"
 #include "Movement.h"
 #include "ExplosionEffect.h"
+#include "SceneManager.h"
 
 Enemy::Enemy() : m_hp(5), m_attack(5), _isDead(false)
 {
@@ -34,7 +35,7 @@ void Enemy::OnDie()
 	StageManager::GetInstance()->enemyCount--;
 	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 	explosion->SetPos(GetPos());
-	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+	ADDOBJECT(explosion, LAYER::SCREENEFFECT);
 	GET_SINGLE(EventManager)->DeleteObject(this);
 	
 	//_isDead = true;

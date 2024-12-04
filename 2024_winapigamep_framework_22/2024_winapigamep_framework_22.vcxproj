@@ -214,6 +214,7 @@
     <ClInclude Include="GuidedMissile.h" />
     <ClInclude Include="HealPackSkill.h" />
     <ClInclude Include="HealthCompo.h" />
+    <ClInclude Include="HelpCanvas.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
@@ -313,6 +314,7 @@
     <ClCompile Include="GuidedMissile.cpp" />
     <ClCompile Include="HealPackSkill.cpp" />
     <ClCompile Include="HealthCompo.cpp" />
+    <ClCompile Include="HelpCanvas.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />

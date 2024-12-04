@@ -3,15 +3,12 @@
 #include "PoolableObject.h"
 #include "SlashEffect.h"
 #include "FireBallEffect.h"
-#include "ExplosionEffect.h"
 
-void PoolManager::Init()
+void PoolManager::Init(Scene* curScene)
 {
+    _curScene = curScene;
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
     MakeObjectPool<FireBallEffect>(L"FireBallEffect", LAYER::PROJECTILE, 150);
-    //MakeObjectPool<ExplosionEffect>(L"ExplosionEffect", LAYER::SCREENEFFECT, 100);
-    vector<Object*> o = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(LAYER::PROJECTILE);
-    int a = 0;
 }
 
 PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)

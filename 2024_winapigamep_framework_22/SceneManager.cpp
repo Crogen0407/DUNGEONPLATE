@@ -9,6 +9,7 @@
 #include "HelpScene.h"
 #include "Object.h"
 #include "PoolManager.h"
+#include "EventManager.h"
 
 void SceneManager::Init()
 {
@@ -57,14 +58,13 @@ void SceneManager::LoadScene(const wstring& _sceneName)
 		m_pCurrentScene->Release();
 		m_pCurrentScene = nullptr;
 	}
-
 	auto iter = m_mapScenes.find(_sceneName);
 	if (iter != m_mapScenes.end())
 	{
 		m_pCurrentScene = iter->second;
 		m_pCurrentScene->Init();
 	}
-	GET_SINGLE(PoolManager)->Init();
+	GET_SINGLE(PoolManager)->Init(m_pCurrentScene.get());
 }
 
 Object* SceneManager::FindObject(std::wstring name, LAYER layer)

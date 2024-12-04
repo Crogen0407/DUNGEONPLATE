@@ -22,7 +22,9 @@ public:
     void Render(HDC _hdc) override;
 public:
     bool m_showDebug = false;
+    bool onlyOneCountClick = false;
 private:
+    bool _isClicked = false;
     bool m_isSelected = false;
 private:
     Texture* m_defaultTex;

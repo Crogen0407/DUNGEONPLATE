@@ -15,7 +15,7 @@ void FadeManager::Update()
 	if (_isSceneFading)
 	{
 		_curTime += fDT;
-		if (_curTime > 0.05f * 19.f)
+		if (_curTime > 0.05f * 20.f)
 		{
 			GET_SINGLE(SceneManager)->LoadScene(_sceneName);
 			_isSceneFading = false;

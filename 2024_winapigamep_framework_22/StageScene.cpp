@@ -59,14 +59,14 @@ void StageScene::SetEnemyCount()
 
 void StageScene::Update()
 {
-    if (StageManager::GetInstance()->enemyCount <= 0)
-    {
-        StageManager::GetInstance()->SetClear(true);
-        m_currentStage++;
-        SetEnemyCount();
-        cout << m_currentStage;
-        cout << "다음 스테이지로 이동!" << endl;
-    }
+    //if (StageManager::GetInstance()->enemyCount <= 0)
+    //{
+    //    StageManager::GetInstance()->SetClear(true);
+    //    m_currentStage++;
+    //    SetEnemyCount();
+    //    cout << m_currentStage;
+    //    cout << "다음 스테이지로 이동!" << endl;
+    //}
 
     Scene::Update();
 }
@@ -84,11 +84,8 @@ void StageScene::Render(HDC _hdc)
 
     auto stageManager = StageManager::GetInstance();
     
-    if (stageManager->IsClear())
+   /*if (stageManager->IsClear())
     {
-        if (m_currentStage == 1) {
-            stage1->Render(this, _hdc);
-        }
         else if (m_currentStage == 2) {
             stage2->Render(this, _hdc);
         }
@@ -100,7 +97,7 @@ void StageScene::Render(HDC _hdc)
     {
         if (!stage1) stage1 = new Stage1();
         stage1->Render(this, _hdc);
-    }
+    }*/
 }
 
 BackGround* StageScene::GetBackGroundAt(int x, int y)
