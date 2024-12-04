@@ -144,8 +144,7 @@ void Player::Parrying()
 		dist.Normalize();
 
 		float rotation = acos(attackDir.Dot(dist)) * Rad2Deg;
-		cout << rotation << "µµ\n";
-		if (attackDir.Cross(dist) > 0 && abs(rotation) < 45)
+		if (abs(rotation) < 45)
 		{
 			Projectile* proj = (Projectile*)projObj;
 			proj->Parry();

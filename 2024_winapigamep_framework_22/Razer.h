@@ -20,11 +20,14 @@ public:
 	}
 
 	void EnterCollision(Collider* _other) override;
+	void StayCollision(Collider* _other) override;
 private:
 	Texture* _texture;
 	Object* _owner;
 	float _targetSize = 0;
 	float _lifeTime = 1.f;
 	float _startLifeTime = 0.f;
+	float _prevAttackTime = 0;
+	float _attackDelay = 0.1f;
 };
 

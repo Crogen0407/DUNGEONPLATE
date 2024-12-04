@@ -54,18 +54,18 @@ Projectile::~Projectile()
 
 void Projectile::EnterCollision(Collider* _other)
 {
-	LAYER layer = 
+	LAYER layer =
 		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
-	
+
 	if (layer == LAYER::PLAYER || (layer == LAYER::ENEMY && _hitEnemy))
 	{
-	HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
+		HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
-	if (health != nullptr)
-		health->ApplyDamage(damage);
+		if (health != nullptr)
+			health->ApplyDamage(damage);
 
-	Object* pOtherObj = _other->GetOwner();
-	GET_SINGLE(EventManager)->DeleteObject(this);
+		Object* pOtherObj = _other->GetOwner();
+		GET_SINGLE(EventManager)->DeleteObject(this);
 	}
 }
 

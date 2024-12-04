@@ -28,13 +28,13 @@ void GameScene::Init()
 	AddObject(obj, LAYER::ENEMY);
 	
 	_spawner = new EnemySpawner();
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
-	/*_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
+	/*_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
+	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
 	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyC);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 500 }, EnemyType::EnemyD);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::Boss);*/
+	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 500 }, EnemyType::EnemyD);*/
+	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::Boss);
 	
-	/*Object* enemyb = new EnemyB;
+	/*Object* enemyb = new EnemyB;s
 	enemyb->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
 	AddObject(enemyb, LAYER::ENEMY);*/
 
