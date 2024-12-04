@@ -10,6 +10,7 @@
 #include "Object.h"
 #include "PoolManager.h"
 #include "EventManager.h"
+#include "StageScene.h"
 
 void SceneManager::Init()
 {
@@ -23,9 +24,10 @@ void SceneManager::Init()
 	RegisterScene(L"GameClearScene",std::make_shared<GameClearScene>());
 	RegisterScene(L"TitleScene",std::make_shared<TitleScene>());
 	RegisterScene(L"HelpScene",std::make_shared<HelpScene>());
+	RegisterScene(L"StageScene", std::make_shared<StageScene>());
 
 	// ¾À ·Îµå
-	LoadScene(L"GameScene");
+	LoadScene(L"StageScene");
 }
 
 void SceneManager::Update()
