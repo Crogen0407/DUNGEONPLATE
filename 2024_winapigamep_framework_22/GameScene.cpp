@@ -78,3 +78,12 @@ void GameScene::Render(HDC hdc)
 {
 	Scene::Render(hdc);
 }
+
+void GameScene::SetEnemyCount()
+{
+}
+
+BackGround* GameScene::GetBackGroundAt(int x, int y)
+{
+	return _grid[x][y];
+}
