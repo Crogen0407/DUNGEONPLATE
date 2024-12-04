@@ -15,6 +15,7 @@ public:							\
 #define fDT GET_SINGLE(TimeManager)->GetDT()
 #define fUNSCALEDDT GET_SINGLE(TimeManager)->GetUnscaledDT()
 #define TIME GET_SINGLE(TimeManager)->GetTime()
+#define UNSCALEDTIME GET_SINGLE(TimeManager)->GetUnscaledTime()
 #define TIMESCALE GET_SINGLE(TimeManager)->timeScale
 #define Deg2Rad (PI * 2) / 360
 #define Rad2Deg 360 / (PI * 2)

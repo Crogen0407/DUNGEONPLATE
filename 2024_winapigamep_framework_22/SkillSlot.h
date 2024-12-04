@@ -6,14 +6,6 @@
 struct SkillSlot
 {
 public:
-	SkillSlot() = default;
-	~SkillSlot()
-	{
-		delete(base);
-		delete(name);
-		delete(description);
-	}
-public:
 	void Init(Skill* skill) {
 		this->skill = skill;
 		name->SetText(skill->GetNameText());

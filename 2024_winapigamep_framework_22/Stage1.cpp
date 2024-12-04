@@ -14,6 +14,7 @@
 
 Stage1::Stage1()
 {
+    
 }
 
 Stage1::~Stage1()
@@ -22,17 +23,9 @@ Stage1::~Stage1()
 
 void Stage1::Init()
 {
-    AddBackground(0, 0, false);
-    AddBackground(0, 1, false);
-    AddBackground(0, 2, false);
-    AddBackground(1, 0, false);
-    AddBackground(1, 1, true);
-}
-
-void Stage1::Update()
-{
-}
-
-void Stage1::Release()
-{
+    AddBackground(0, 0, true);
+    AddBackground(0, 1);
+    AddBackground(0, 2);
+    AddBackground(1, 0);
+    AddBackground(1, 1);
 }

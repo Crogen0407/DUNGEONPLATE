@@ -50,4 +50,5 @@ void TimeManager::Update()
 	}
 
 	m_time += m_dT;
+	m_unscaledTime += m_unscaledDT;
 }

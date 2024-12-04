@@ -13,7 +13,15 @@ SkillCanvas::SkillCanvas()
 	SetName(L"SkillCanvas");
 	int slotCount = 3;
 	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
-	int xDeltaPos = 175;
+	int xDeltaPos = 300;
+
+	{
+		Vec2 size = { SCREEN_WIDTH * 2, 420};
+		Vec2 pos = center;
+		Image* backImage = CreateUI<Image>(pos, size);
+		backImage->texture = LOADTEXTURE(L"UISprite2X2", L"Texture\\UISprite2X2.bmp");
+	}
+
 	CreateSlot(center - Vec2(xDeltaPos, 0));
 	CreateSlot(center);
 	CreateSlot(center + Vec2(xDeltaPos, 0));
@@ -27,12 +35,16 @@ SkillCanvas::SkillCanvas()
 
 SkillCanvas::~SkillCanvas()
 {
-
+	for (int i = 0; i < 3; i++)
+	{
+		delete(_skillSlots[i]);
+	}
 }
 
 void SkillCanvas::Update()
 {
 	Canvas::Update();
+
 	//약간 둥둥 거리는 거 만들기
 	if (GET_KEYDOWN(KEY_TYPE::U))
 	{
@@ -57,15 +69,15 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 	SkillSlot* skillSlot = new SkillSlot;
 
 	skillSlot->pos = slotPos;
-	skillSlot->size = Vec2(150, 200);
+	skillSlot->size = Vec2(250, 320);
 
-	Vec2 namePos = Vec2(0, -55) + skillSlot->pos;
+	Vec2 namePos = Vec2(0, -110) + skillSlot->pos;
 	Vec2 nameSize = Vec2(skillSlot->size.x - 30, 30.f);
 
-	Vec2 levelPos = Vec2(0, -32) + skillSlot->pos;
+	Vec2 levelPos = Vec2(0, -64) + skillSlot->pos;
 	Vec2 levelSize = Vec2(skillSlot->size.x-30, 30.f);
 
-	Vec2 descriptionPos = Vec2(0, 55) + skillSlot->pos;
+	Vec2 descriptionPos = Vec2(0, 110) + skillSlot->pos;
 	Vec2 descriptionSize = skillSlot->size - Vec2(30, 30);
 
 	skillSlot->base =			CreateUI<Button>(skillSlot->pos, skillSlot->size);
@@ -75,23 +87,47 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 	skillSlot->level->SetText(L"New!");
 	skillSlot->base->texture = LOADTEXTURE(L"UISpriteSlot", L"Texture\\UISpriteSlot.bmp");
 
-	skillSlot->name->LoadFont(L"PF스타더스트 Bold", 15, 18);
+	skillSlot->name->LoadFont(L"PF스타더스트 Bold", 25, 30);
 	skillSlot->name->SetPitchAndFamily(DT_VCENTER);
 
-	skillSlot->level->LoadFont(L"PF스타더스트", 9, 12);
+	skillSlot->level->LoadFont(L"PF스타더스트", 18, 24);
 	skillSlot->level->SetPitchAndFamily(DT_VCENTER);
 
-	skillSlot->description->LoadFont(L"PF스타더스트", 12, 15);
+	skillSlot->description->LoadFont(L"PF스타더스트", 15, 18);
 	skillSlot->description->SetPitchAndFamily(DT_LEFT | DT_TOP);
 
+	//Button Events
 	skillSlot->base->OnClickEvent +=
-		[ct = this, ss = skillSlot, player = GET_SINGLE(SkillManager)->player](int _)
+		[ct = this, skillSlot, player = GET_SINGLE(SkillManager)->player](int _)
 		{
-			ss->skill->OnLevelUp(player);
+			skillSlot->skill->OnLevelUp(player);
 			ct->CloseSlot();
 		};
 
-	skillSlots.push_back(skillSlot);
+	skillSlot->base->OnSelectEnterEvent +=
+		[skillSlot](int _)
+		{
+			Vec2 posDelta = { 0, -10 };
+			skillSlot->base->SetSize({250 * 1.05f, 320 * 1.05f });
+			skillSlot->name->AddPos(posDelta);
+			skillSlot->description->AddPos(posDelta);
+			skillSlot->level->AddPos(posDelta);
+			skillSlot->base->AddPos(posDelta);
+		};
+
+	skillSlot->base->OnSelectExitEvent +=
+		[skillSlot](int _)
+		{
+			Vec2 posDelta = { 0, 10 };
+			skillSlot->base->SetSize({ 250, 320 });
+			skillSlot->name->AddPos(posDelta);
+			skillSlot->description->AddPos(posDelta);
+			skillSlot->level->AddPos(posDelta);
+			skillSlot->base->AddPos(posDelta);
+		};
+
+
+	_skillSlots.push_back(skillSlot);
 }
 
 void SkillCanvas::ShowSlots()
@@ -99,7 +135,7 @@ void SkillCanvas::ShowSlots()
 	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRendomSkills();
 	showSkillSlots = true;
 	int i = 0;
-	for (auto skillSlot : skillSlots)
+	for (auto skillSlot : _skillSlots)
 	{
 		skillSlot->Init(selectedSkills[i]);
 		i++;

@@ -71,6 +71,9 @@
     <Filter Include="Engine\03. Object\Stage">
       <UniqueIdentifier>{190e2c3e-1dde-43e9-af90-28e372746e71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Background">
+      <UniqueIdentifier>{a33b9f64-72ef-48c6-bd24-bf6eb39a075e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -350,9 +353,6 @@
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
     <ClInclude Include="ExplosionEffect.h" />
-    <ClInclude Include="Background.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
     <ClInclude Include="Stage.h">
       <Filter>Engine\03. Object\Stage</Filter>
     </ClInclude>
@@ -367,6 +367,9 @@
     </ClInclude>
     <ClInclude Include="EnemyD.h">
       <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Engine\03. Object\Background</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -627,9 +630,6 @@
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
     <ClCompile Include="ExplosionEffect.cpp" />
-    <ClCompile Include="Background.cpp">
-      <Filter>Engine\03. Object</Filter>
-    </ClCompile>
     <ClCompile Include="Stage.cpp">
       <Filter>Engine\03. Object\Stage</Filter>
     </ClCompile>
@@ -644,6 +644,9 @@
     </ClCompile>
     <ClCompile Include="EnemyD.cpp">
       <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Engine\03. Object\Background</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

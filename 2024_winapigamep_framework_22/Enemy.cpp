@@ -32,7 +32,7 @@ Enemy::~Enemy()
 void Enemy::OnDie()
 {
 	ADDXP(1);
-	StageLoader::GetInstance()->enemyCount--;
+	//StageLoader::GetInstance()->enemyCount--;
 	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 	explosion->SetPos(GetPos());
 	ADDOBJECT(explosion, LAYER::SCREENEFFECT);

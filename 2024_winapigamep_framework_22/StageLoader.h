@@ -1,22 +1,17 @@
 #pragma once
 #include <queue>
 class Stage;
+class EnemySpawner;
+class Background;
 class StageLoader
 {
 public:
 	StageLoader();
 	~StageLoader();
 public:
-	static StageLoader* GetInstance()
-	{
-		static StageLoader instance;
-		return &instance;
-	}
-public:
 	void Init();
 	void Update();
 public:
-	//static Background* grid[3][3];
 	template<typename T>
 	void RegisterStage()
 	{
@@ -27,10 +22,11 @@ public:
 public:
 	void SetClear(bool isClear) { m_isClear = isClear; }
 	bool IsClear() const { return m_isClear; }
+public:
 	int enemyCount;
-	//std::shared_ptr<Stage> GetCurrentStage() { return m_pCurrentStage; }
-private:
 	std::queue<std::unique_ptr<Stage>> _stageQueue;
 	std::unique_ptr<Stage> _currentStage;
 	bool m_isClear = false;
+private:
+	std::unique_ptr<EnemySpawner> _enemySpawner;
 };
