@@ -2,32 +2,31 @@
 #include "Stage1.h"
 #include "Stage2.h"
 #include "EnemyA.h"
+#include "EnemyB.h"
+#include "EnemyC.h"
+#include "EnemySpawner.h"
 #include "CameraManager.h"
 #include "BackGround.h"
 #include "StageManager.h"
 #include "StageScene.h"
+#include "GameScene.h"
+#include "Player.h"
 
 void Stage2::Init()
 {
-    const int cellSize = 20;
-    const int gridWidth = SCREEN_WIDTH / cellSize;
-    const int gridHeight = SCREEN_HEIGHT / cellSize;
+    //Object* player = new Player;
 
-    for (int i = 0; i < gridWidth; i++)
-    {
-        for (int j = 0; j < gridHeight; j++)
-        {
-            if (i == 1 || i == gridWidth - 1 || j == 3 || j == 41)
-            {
-                Object* obj2 = new BackGround;
+    //player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
+    //player->SetName(L"Player");
+    //AddObject(player, LAYER::PLAYER);
 
-                obj2->SetPos({ i * cellSize, j * cellSize });
-                obj2->SetSize({ cellSize, cellSize });
+    Object* backGround = new BackGround;
 
-                AddObject(obj2, LAYER::BACKGROUND);
-            }
-        }
-    }
+    AddObject(backGround, LAYER::BACKGROUND);
+
+    EnemySpawner* spawner = new EnemySpawner;
+
+    spawner->SpawnEnemy({ SCREEN_WIDTH / 2.5f, SCREEN_HEIGHT / 2.5f }, EnemyType::EnemyA);
 }
 
 void Stage2::Update()
@@ -35,19 +34,18 @@ void Stage2::Update()
     Stage::Update();
 }
 
-void Stage2::Render(StageScene* stageScene, HDC _hdc)
+void Stage2::Render(GameScene* _gameScene, HDC _hdc)
 {
     Stage::Render(_hdc);
-    DrawScene(stageScene, 2, 2,
-        _hdc);
+    DrawScene(_gameScene, 2, 2, _hdc);
 }
 
-void Stage2::DrawScene(StageScene* stageScene, int x, int y, HDC _hdc)
+void Stage2::DrawScene(GameScene* _gameScene, int x, int y, HDC _hdc)
 {
-    BackGround* bg = stageScene->GetBackGroundAt(x, y);
+    BackGround* bg = _gameScene->GetBackGroundAt(x, y);
+
     if (bg)
     {
-        stageScene->AddObject(bg, LAYER::BACKGROUND);
         bg->Render(_hdc);
     }
 }

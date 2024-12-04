@@ -9,6 +9,12 @@
 #include "SkillCanvas.h"
 #include "CollisionManager.h"
 #include "EnemySpawner.h"
+#include "Stage.h"
+#include "Stage1.h"
+#include "Stage2.h"
+#include "Stage3.h"
+#include "BackGround.h"
+#include "StageManager.h"
 
 void GameScene::Init()
 {
@@ -18,42 +24,96 @@ void GameScene::Init()
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 
-	Object* obj = new EnemyC;
-	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	AddObject(obj, LAYER::ENEMY);
-	
-	EnemySpawner* spawner = new EnemySpawner();
-	spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
-	spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
-	spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyC);
-	
-	/*Object* enemyb = new EnemyB;
-	enemyb->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	AddObject(enemyb, LAYER::ENEMY);*/
-
-	Object* boss = new Boss;
-	boss->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 });
-	AddObject(boss, LAYER::ENEMY);
-
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
-	/*for (size_t i = 0; i < 100; i++)
-	{
-	}*/
+	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::BACKGROUND);
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
 
+	const int cellSizeX = 320;
+	const int cellSizeY = 320;
+	const int gridSize = 3;
+	const int totalGridSize = cellSizeX * gridSize;
+
+	const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 160;
+	const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 + 140;
+
+	for (int i = 0; i < gridSize; i++)
+	{
+		for (int j = 0; j < gridSize; j++)
+		{
+			_grid[i][j] = new BackGround;
+
+			_grid[i][j]->SetPos({ startX + i * cellSizeX, startY + j * cellSizeY });
+			_grid[i][j]->SetSize({ cellSizeX, cellSizeY });
+		}
+	}
+
+	isInitialized = true;
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
 }
 
 void GameScene::Update()
 {
+	//if (StageManager::GetInstance()->enemyCount <= 0)
+	//{
+	//	StageManager::GetInstance()->SetClear(true);
+	//	m_currentStage++;
+	//	SetEnemyCount();
+	//	cout << m_currentStage;
+	//	cout << "´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀÌµ¿!" << endl;
+	//}
+
+	//frameCount++;
+
+	if (frameCount >= maxFrame)
+	{
+		StageManager::GetInstance()->SetClear(true);
+		m_currentStage++;
+		frameCount = 0;
+		cout << "³Ñ¾î°¬´Ù.¾ÆÀ×¾ÆÀ× ²ó²ó ³ª´Â ¹Ì¼Ò³à°¡ µÇ°íÇÂ ±èµ¿·üÀÎ°Å½Ã¿Í¿ä~";
+	}
+
 	Scene::Update();
 }
 
 void GameScene::Render(HDC hdc)
 {
+	if (!isInitialized) return;
+
+	auto stageManager = StageManager::GetInstance();
+
+	if (stageManager->IsClear())
+	{
+		if (m_currentStage == 2)
+			stage2->Render(this, hdc);
+		else if (m_currentStage == 3)
+			stage3->Render(this, hdc);
+	}
+	else
+	{
+		if (!stage1) 
+			stage1 = new Stage1();
+		stage1->Init();
+		stage1->Render(this, hdc);
+	}
+
 	Scene::Render(hdc);
+}
+
+void GameScene::SetEnemyCount()
+{
+	if (m_currentStage == 1)
+		StageManager::GetInstance()->enemyCount = 10;
+	else if (m_currentStage == 2)
+		StageManager::GetInstance()->enemyCount = 15;
+	else if (m_currentStage == 3)
+		StageManager::GetInstance()->enemyCount = 20;
+}
+
+BackGround* GameScene::GetBackGroundAt(int x, int y)
+{
+	return _grid[x][y];
 }
