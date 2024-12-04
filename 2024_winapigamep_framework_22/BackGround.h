@@ -1,20 +1,20 @@
 #pragma once
 #include "Object.h"
-
+class SpriteRenderer;
 class Texture;
 
-class BackGround :
+class Background :
     public Object
 {
 public:
-    BackGround();
-    ~BackGround();
+    Background();
+    ~Background();
 public:
     void Update() override;
     void Render(HDC _hdc) override;
-
+public:
+    bool isPlayerArea = false;
 private:
-    Texture* m_backTexture;
-    bool m_isVisible = true; 
+    SpriteRenderer* _spriteRenderer;
 };
 

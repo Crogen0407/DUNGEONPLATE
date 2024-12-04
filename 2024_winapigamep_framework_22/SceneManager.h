@@ -1,6 +1,7 @@
 #pragma once
 class Scene;
 class Object;
+class Background;
 class SceneManager
 {
 	DECLARE_SINGLE(SceneManager);

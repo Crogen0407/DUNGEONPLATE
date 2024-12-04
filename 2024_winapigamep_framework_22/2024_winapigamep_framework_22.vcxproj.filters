@@ -68,6 +68,9 @@
     <Filter Include="Engine\03. Object\Enemy\SkillSystem">
       <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Object\Stage">
+      <UniqueIdentifier>{190e2c3e-1dde-43e9-af90-28e372746e71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -169,7 +172,6 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
@@ -194,8 +196,6 @@
     <ClInclude Include="AttackCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="Stage.h" />
-    <ClInclude Include="Stage1.h" />
     <ClInclude Include="UIScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
@@ -268,7 +268,7 @@
     <ClInclude Include="GameManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="StageManager.h">
+    <ClInclude Include="StageLoader.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Agent.h">
@@ -319,7 +319,6 @@
     <ClInclude Include="Razer.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Stage3.h" />
     <ClInclude Include="AttackRange.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
@@ -350,10 +349,24 @@
     <ClInclude Include="TitleCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyD.h" />
     <ClInclude Include="ExplosionEffect.h" />
-    <ClInclude Include="BackGround.h">
+    <ClInclude Include="Background.h">
       <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyD.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -445,7 +458,6 @@
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
@@ -467,8 +479,6 @@
     <ClCompile Include="AttackCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Stage.cpp" />
-    <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="UIScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
@@ -535,7 +545,7 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="StageManager.cpp">
+    <ClCompile Include="StageLoader.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Agent.cpp">
@@ -586,7 +596,6 @@
     <ClCompile Include="Razer.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="AttackRange.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
@@ -617,10 +626,24 @@
     <ClCompile Include="TitleCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyD.cpp" />
     <ClCompile Include="ExplosionEffect.cpp" />
-    <ClCompile Include="BackGround.cpp">
+    <ClCompile Include="Background.cpp">
       <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>Engine\03. Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyD.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

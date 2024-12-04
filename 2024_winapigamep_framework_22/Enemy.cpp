@@ -7,7 +7,7 @@
 #include "HealthCompo.h"
 #include "XPManager.h"
 #include "StageScene.h"
-#include "StageManager.h"
+#include "StageLoader.h"
 #include "Movement.h"
 #include "ExplosionEffect.h"
 #include "SceneManager.h"
@@ -32,7 +32,7 @@ Enemy::~Enemy()
 void Enemy::OnDie()
 {
 	ADDXP(1);
-	StageManager::GetInstance()->enemyCount--;
+	StageLoader::GetInstance()->enemyCount--;
 	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 	explosion->SetPos(GetPos());
 	ADDOBJECT(explosion, LAYER::SCREENEFFECT);

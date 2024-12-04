@@ -1,5 +1,7 @@
 #pragma once
 class Object;
+class Background;
+class EnemySpawner;
 class Stage
 {
 public:
@@ -7,20 +9,15 @@ public:
 	virtual ~Stage();
 public:
 	virtual void Init() abstract;
-	virtual void Update();
-	virtual void LateUpdate();
-	virtual void Render(HDC _hdc);
-	virtual void Release();
-	bool m_isClear = false;
+	virtual void Update() abstract;
+	virtual void Release() abstract;
 public:
-	void AddObject(Object* _obj, LAYER _type)
-	{
-		m_vecObj[(UINT)_type].push_back(_obj);
-	}
-	const vector<Object*>& GetLayerObjects(LAYER _type)
-	{
-		return m_vecObj[(UINT)_type];
-	}
-private:
-	vector<Object*> m_vecObj[(UINT)LAYER::END];
+	Background* AddBackground(int x, int y);
+	Background* AddBackground(int x, int y, bool isPlayerArea);
+	int GetEnemyCount() const { return _enemyCount; }
+protected:
+	int _enemyCount;
+	Background* grid[3][3];
+	bool m_isClear = false;
+	EnemySpawner* spawner;
 };

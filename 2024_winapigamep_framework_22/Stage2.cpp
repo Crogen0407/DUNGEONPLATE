@@ -1,47 +1,40 @@
 #include "pch.h"
 #include "Stage2.h"
-#include "Stage1.h"
-#include "Stage3.h"
 #include "EnemyA.h"
 #include "EnemyB.h"
 #include "EnemyC.h"
 #include "EnemySpawner.h"
 #include "CameraManager.h"
-#include "BackGround.h"
-#include "StageManager.h"
+#include "Background.h"
 #include "StageScene.h"
 #include "GameScene.h"
 #include "Player.h"
 #include "Object.h"
 
+Stage2::Stage2()
+{
+    
+}
+
+Stage2::~Stage2()
+{
+}
+
 void Stage2::Init()
 {
-    Object* backGround = new BackGround;
-
-    AddObject(backGround, LAYER::BACKGROUND);
-
-    EnemySpawner* spawner = new EnemySpawner;
-
-    spawner->SpawnEnemy({ SCREEN_WIDTH / 2.5f, SCREEN_HEIGHT / 2.5f }, EnemyType::EnemyA);
+    AddBackground(0, 0, false);
+    AddBackground(0, 1, false);
+    AddBackground(0, 2, false);
+    AddBackground(1, 0, false);
+    AddBackground(1, 1, true);
 }
 
 void Stage2::Update()
 {
-    Stage::Update();
 }
 
-void Stage2::Render(GameScene* _gameScene, HDC _hdc)
+void Stage2::Release()
 {
-    Stage::Render(_hdc);
-    DrawScene(_gameScene, 2, 2, _hdc);
 }
 
-void Stage2::DrawScene(GameScene* _gameScene, int x, int y, HDC _hdc)
-{
-    BackGround* bg = _gameScene->GetBackGroundAt(x, y);
 
-    if (bg)
-    {
-        bg->Render(_hdc);
-    }
-}

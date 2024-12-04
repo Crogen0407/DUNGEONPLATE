@@ -10,6 +10,8 @@
 #include "CollisionManager.h"
 #include "EnemySpawner.h"
 #include "ResourceManager.h"
+#include "StageLoader.h"
+#include "GDISelector.h"
 
 GameScene::GameScene()
 {
@@ -17,13 +19,13 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+	delete(_stageLoader);
 	delete(_spawner);
 }
 
 void GameScene::Init()
 {
 	Object* player = new Player;
-
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
@@ -32,6 +34,8 @@ void GameScene::Init()
 	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
 	AddObject(obj, LAYER::ENEMY);
 	
+	_stageLoader = new StageLoader;
+	_stageLoader->Init();
 	_spawner = new EnemySpawner();
 	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
 	/*_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
@@ -49,9 +53,6 @@ void GameScene::Init()
 
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
-	/*for (size_t i = 0; i < 100; i++)
-	{
-	}*/
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
@@ -76,14 +77,13 @@ void GameScene::Update()
 
 void GameScene::Render(HDC hdc)
 {
+	GDISelector::GDISelector(hdc, RGB(15, 56, 15));
+	RECT_RENDER(hdc, SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f,
+		SCREEN_WIDTH, SCREEN_HEIGHT);
+
 	Scene::Render(hdc);
 }
 
 void GameScene::SetEnemyCount()
 {
-}
-
-BackGround* GameScene::GetBackGroundAt(int x, int y)
-{
-	return _grid[x][y];
 }

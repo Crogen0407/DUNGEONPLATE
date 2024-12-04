@@ -1,39 +1,28 @@
 #include "pch.h"
-#include "BackGround.h"
+#include "Background.h"
 #include "Collider.h"
 #include "EventManager.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "SpriteRenderer.h"
 
-BackGround::BackGround()
+Background::Background()
 {
-    m_backTexture = LOADTEXTURE(L"Background", L"Texture\\Background.bmp");
+    AddComponent<SpriteRenderer>();
+    _spriteRenderer = GetComponent<SpriteRenderer>();
+    _spriteRenderer->isRotatable = false;
+    _spriteRenderer->SetTexture(L"Background", L"Texture\\Background.bmp");
 }
 
-BackGround::~BackGround()
+Background::~Background()
 {
 }
 
-void BackGround::Update()
+void Background::Update()
 {
 }
 
-void BackGround::Render(HDC _hdc)
+void Background::Render(HDC _hdc)
 {
-    Vec2 vPos = GetPos();
-    Vec2 vSize = GetSize();
-
-    RECT_RENDER(_hdc, vPos.x, vPos.y, vSize.x, vSize.y);
-
-    if (m_backTexture && m_backTexture->GetTexDC())
-    {
-        TransparentBlt(_hdc,
-            vPos.x - vSize.x / 2, vPos.y - vSize.y / 2,
-            vSize.x, vSize.y,
-            m_backTexture->GetTexDC(), 0, 0,
-            m_backTexture->GetWidth(), m_backTexture->GetHeight(),
-            RGB(255, 0, 255));
-    }
-
     ComponentRender(_hdc);
 }

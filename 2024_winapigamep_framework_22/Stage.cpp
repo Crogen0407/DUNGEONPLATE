@@ -1,62 +1,39 @@
 #include "pch.h"
 #include "Stage.h"
+#include "SceneManager.h"
 #include "Scene.h"
 #include "Object.h"
-#include "CollisionManager.h"
+#include "Background.h"
+#include "EnemySpawner.h"
 
 Stage::Stage()
 {
+    spawner = new EnemySpawner;
 }
 
 Stage::~Stage()
 {
-	Release();
+    delete spawner;
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            delete(grid[i][j]);
 }
 
-void Stage::Update()
+Background* Stage::AddBackground(int x, int y)
 {
-	for (UINT i = 0; i < (UINT)LAYER::END; ++i)
-	{
-		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
-		{
-			if (!m_vecObj[i][j]->GetIsDead())
-				m_vecObj[i][j]->Update();
-		}
-	}
+    Vec2 size = { SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3 };
+    Vec2 pos = { size.x * 0.5f + size.x * x, size.y * 0.5f + size.y * y };
+    Background* bg = new Background;
+    bg->SetSize(size);
+    bg->SetPos(pos);
+    ADDOBJECT(bg, LAYER::BACKGROUND);
+    return bg;
 }
 
-void Stage::LateUpdate()
+Background* Stage::AddBackground(int x, int y, bool isPlayerArea)
 {
-	for (size_t i = 0; i < (UINT)LAYER::END; i++)
-	{
-		for (UINT j = 0; j < m_vecObj[i].size(); ++j)
-		{
-			m_vecObj[i][j]->LateUpdate();
-		}
-	}
+    Background* bg = AddBackground(x, y);
+    bg->isPlayerArea = isPlayerArea;
+    return bg;
 }
 
-void Stage::Render(HDC _hdc)
-{
-	for (UINT i = 0; i < (UINT)LAYER::END; ++i)
-	{
-		for (size_t j = 0; j < m_vecObj[i].size();)
-		{
-			if (!m_vecObj[i][j]->GetIsDead())
-				m_vecObj[i][j++]->Render(_hdc);
-			else
-				m_vecObj[i].erase(m_vecObj[i].begin() + j);
-		}
-	}
-}
-
-void Stage::Release()
-{
-	for (size_t i = 0; i < (UINT)LAYER::END; i++)
-	{
-		for (UINT j = 0; j < m_vecObj[i].size(); j++)
-		{
-			delete m_vecObj[i][j];
-		}
-	}
-}
