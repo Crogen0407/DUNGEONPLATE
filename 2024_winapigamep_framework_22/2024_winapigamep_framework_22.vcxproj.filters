@@ -169,9 +169,6 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="BackGround.h">
-      <Filter>Engine\03. Object</Filter>
-    </ClInclude>
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
@@ -353,6 +350,11 @@
     <ClInclude Include="TitleCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyD.h" />
+    <ClInclude Include="ExplosionEffect.h" />
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -442,9 +444,6 @@
     </ClCompile>
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="BackGround.cpp">
-      <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
@@ -617,6 +616,11 @@
     </ClCompile>
     <ClCompile Include="TitleCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyD.cpp" />
+    <ClCompile Include="ExplosionEffect.cpp" />
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

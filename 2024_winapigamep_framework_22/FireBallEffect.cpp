@@ -4,6 +4,7 @@
 #include "TimeManager.h";
 #include "PoolManager.h";
 #include "Collider.h";
+#include "SceneManager.h";
 #include "HealthCompo.h";
 
 FireBallEffect::FireBallEffect()

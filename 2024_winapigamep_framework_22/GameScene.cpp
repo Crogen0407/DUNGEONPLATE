@@ -11,6 +11,10 @@
 #include "EnemySpawner.h"
 #include "ResourceManager.h"
 
+GameScene::GameScene()
+{
+}
+
 GameScene::~GameScene()
 {
 	delete(_spawner);

@@ -3,6 +3,7 @@
 
 class Canvas;
 class BackGround;
+class EnemySpawner;
 class Stage1;
 class Stage2;
 class Stage3;
@@ -10,6 +11,9 @@ class Stage3;
 class GameScene :
     public Scene
 {
+public: 
+    GameScene();
+    ~GameScene() override;
 private:
     Stage1* stage1;
     Stage2* stage2;
