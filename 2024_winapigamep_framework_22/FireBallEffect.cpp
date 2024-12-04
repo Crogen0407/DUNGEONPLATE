@@ -54,7 +54,7 @@ void FireBallEffect::EnterCollision(Collider* _other)
 
 	if (health != nullptr && layer != LAYER::PLAYER)
 		health->ApplyDamage(_damage);
-
+	
 	PUSH(L"FireBallEffect", this);
 
 	//적들에게 데미지 입히는 거 넣기

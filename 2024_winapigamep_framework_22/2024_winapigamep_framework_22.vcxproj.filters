@@ -350,10 +350,14 @@
     <ClInclude Include="TitleCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyD.h" />
-    <ClInclude Include="ExplosionEffect.h" />
     <ClInclude Include="BackGround.h">
       <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyD.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -617,10 +621,14 @@
     <ClCompile Include="TitleCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyD.cpp" />
-    <ClCompile Include="ExplosionEffect.cpp" />
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyD.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
