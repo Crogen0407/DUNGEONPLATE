@@ -44,5 +44,5 @@ void EnemySpawner::SpawnEnemy(Vec2 pos, EnemyType enemyType)
 	}
 
 	enemy->SetPos(pos);
-	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(enemy, LAYER::ENEMY);
+	ADDOBJECT(enemy, LAYER::ENEMY);
 }

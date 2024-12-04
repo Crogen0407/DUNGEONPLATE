@@ -3,7 +3,6 @@
 
 class Canvas;
 class Background;
-class EnemySpawner;
 class StageLoader;
 
 class GameScene :
@@ -25,9 +24,8 @@ public:
     void Render(HDC hdc) override;
     void SetEnemyCount();
 private:
-    EnemySpawner* _spawner;
+    StageLoader* _stageLoader;
     Canvas* _gameCanvas;
     Canvas* _skillCanvas;
-    StageLoader* _stageLoader;
 };
 

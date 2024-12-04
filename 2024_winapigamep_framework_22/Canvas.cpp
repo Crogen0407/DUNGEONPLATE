@@ -12,7 +12,6 @@ Canvas::Canvas()
 
 Canvas::~Canvas()
 {
-	
 }
 
 void Canvas::Update()

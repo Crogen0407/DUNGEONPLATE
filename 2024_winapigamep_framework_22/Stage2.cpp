@@ -22,19 +22,10 @@ Stage2::~Stage2()
 
 void Stage2::Init()
 {
-    AddBackground(0, 0, false);
-    AddBackground(0, 1, false);
-    AddBackground(0, 2, false);
-    AddBackground(1, 0, false);
+    AddBackground(0, 0);
+    AddBackground(0, 1);
+    AddBackground(0, 2);
+    AddBackground(1, 2);
     AddBackground(1, 1, true);
 }
-
-void Stage2::Update()
-{
-}
-
-void Stage2::Release()
-{
-}
-
 

@@ -49,12 +49,12 @@ void StageScene::Init()
 
 void StageScene::SetEnemyCount()
 {
-    if (m_currentStage == 1)
+   /* if (m_currentStage == 1)
         StageLoader::GetInstance()->enemyCount = 10;
     else if (m_currentStage == 2)
         StageLoader::GetInstance()->enemyCount = 15;
     else if (m_currentStage == 3)
-        StageLoader::GetInstance()->enemyCount = 20;
+        StageLoader::GetInstance()->enemyCount = 20;*/
 }
 
 void StageScene::Update()
@@ -82,10 +82,10 @@ void StageScene::Render(HDC _hdc)
 
     //enemySpawner.SpawnEnemy()
 
-    auto stageManager = StageLoader::GetInstance();
+    //auto stageManager = StageLoader::GetInstance();
     
    /*if (stageManager->IsClear())
-    {
+    {=i
         else if (m_currentStage == 2) {
             stage2->Render(this, _hdc);
         }

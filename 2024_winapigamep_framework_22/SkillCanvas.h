@@ -15,8 +15,8 @@ public:
 	void CreateSlot(Vec2 slotPos);
 	void ShowSlots();
 	void CloseSlot();
-public:
-	vector<SkillSlot*> skillSlots;
+private:
+	vector<SkillSlot*> _skillSlots;
 private:
 	bool showSkillSlots = false;
 };

@@ -22,19 +22,10 @@ Stage3::~Stage3()
 
 void Stage3::Init()
 {
-    AddBackground(0, 0, false);
-    AddBackground(0, 1, false);
-    AddBackground(0, 2, false);
-    AddBackground(1, 0, false);
+    AddBackground(0, 0);
+    AddBackground(0, 1);
+    AddBackground(0, 2);
+    AddBackground(1, 0);
     AddBackground(1, 1, true);
-
-    spawner->SpawnEnemy({ SCREEN_WIDTH / 2.5f, SCREEN_HEIGHT / 2.5f }, EnemyType::EnemyA);
-}
-
-void Stage3::Update()
-{
-}
-
-void Stage3::Release()
-{
+    //spawner->SpawnEnemy({ SCREEN_WIDTH / 2.5f, SCREEN_HEIGHT / 2.5f }, EnemyType::EnemyA);
 }

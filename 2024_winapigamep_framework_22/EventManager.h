@@ -5,7 +5,7 @@ struct tEvent
 {
 	EVENT_TYPE eveType;
 	Object* obj;
-	Scene* scene;
+	std::wstring name;
 	LAYER objType;
 public:
 	bool operator==(const tEvent& other)
@@ -19,7 +19,7 @@ class EventManager
 public:
 	void Update();
 	void DeleteObject(Object* _pObj);
-	void DeleteScene(Scene* pScene);
+	void LoadScene(std::wstring sceneName);
 	// todo..
 private:
 	void Excute(const tEvent& _eve);

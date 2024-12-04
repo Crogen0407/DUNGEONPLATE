@@ -19,8 +19,8 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
-	delete(_stageLoader);
-	delete(_spawner);
+	if (_stageLoader != nullptr)
+		delete(_stageLoader);
 }
 
 void GameScene::Init()
@@ -34,25 +34,11 @@ void GameScene::Init()
 	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
 	AddObject(obj, LAYER::ENEMY);
 	
-	_stageLoader = new StageLoader;
-	_stageLoader->Init();
-	_spawner = new EnemySpawner();
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
-	/*_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyC);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 500 }, EnemyType::EnemyD);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::Boss);*/
-	
-	/*Object* enemyb = new EnemyB;
-	enemyb->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	AddObject(enemyb, LAYER::ENEMY);*/
-
-	/*Object* boss = new Boss;
-	boss->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 });
-	AddObject(boss, LAYER::ENEMY);*/
-
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
+
+	_stageLoader = new StageLoader;
+	_stageLoader->Init();
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
@@ -67,11 +53,14 @@ void GameScene::Init()
 void GameScene::Release()
 {
 	Scene::Release();
+	delete(_stageLoader);
+	_stageLoader = nullptr;
 	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 }
 
 void GameScene::Update()
 {
+	_stageLoader->Update();
 	Scene::Update();
 }
 
