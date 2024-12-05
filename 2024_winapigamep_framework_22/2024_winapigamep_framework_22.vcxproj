@@ -261,6 +261,9 @@
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="Stage5.h" />
     <ClInclude Include="Stage6.h" />
+    <ClInclude Include="Stage7.h" />
+    <ClInclude Include="Stage8.h" />
+    <ClInclude Include="Stage9.h" />
     <ClInclude Include="StageLoader.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
@@ -371,6 +374,9 @@
     <ClCompile Include="Stage4.cpp" />
     <ClCompile Include="Stage5.cpp" />
     <ClCompile Include="Stage6.cpp" />
+    <ClCompile Include="Stage7.cpp" />
+    <ClCompile Include="Stage8.cpp" />
+    <ClCompile Include="Stage9.cpp" />
     <ClCompile Include="StageLoader.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />

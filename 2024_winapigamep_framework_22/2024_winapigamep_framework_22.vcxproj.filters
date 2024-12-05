@@ -68,6 +68,12 @@
     <Filter Include="Engine\03. Object\Enemy\SkillSystem">
       <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\10.Stage">
+      <UniqueIdentifier>{fea48968-69a3-4ec1-a142-4f558bf18b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\10.Stage\Background">
+      <UniqueIdentifier>{5b05d621-2a52-447a-ba21-84a8cf63528b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2024_winapigamep_framework_22.h">
@@ -169,7 +175,6 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2.h" />
     <ClInclude Include="CameraManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
@@ -194,8 +199,6 @@
     <ClInclude Include="AttackCompo.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
-    <ClInclude Include="Stage.h" />
-    <ClInclude Include="Stage1.h" />
     <ClInclude Include="UIScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
@@ -268,9 +271,6 @@
     <ClInclude Include="GameManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="StageManager.h">
-      <Filter>Engine\02. Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Agent.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
@@ -319,7 +319,6 @@
     <ClInclude Include="Razer.h">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Stage3.h" />
     <ClInclude Include="AttackRange.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
@@ -364,6 +363,60 @@
     </ClInclude>
     <ClInclude Include="PlayerCast.h">
       <Filter>Engine\03. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage6.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage7.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage8.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage9.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundA.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundB.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundC.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundD.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundE.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundNull.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="StageLoader.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="ParrySparkEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -455,7 +508,6 @@
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="CameraManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
@@ -477,8 +529,6 @@
     <ClCompile Include="AttackCompo.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Stage.cpp" />
-    <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="UIScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
@@ -545,9 +595,6 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="StageManager.cpp">
-      <Filter>Engine\02. Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Agent.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
@@ -596,7 +643,6 @@
     <ClCompile Include="Razer.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="AttackRange.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
@@ -642,10 +688,59 @@
     <ClCompile Include="PlayerCast.cpp">
       <Filter>Engine\03. Object\Player</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <ClCompile Include="Stage.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage6.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage7.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage8.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage9.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundA.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundB.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundC.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundD.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundE.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundNull.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="StageLoader.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="ParrySparkEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
