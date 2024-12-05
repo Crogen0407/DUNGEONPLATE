@@ -2,7 +2,6 @@
 #include "GuidedMissile.h"
 #include "ResourceManager.h"
 #include "SpriteRenderer.h"
-#include "EventManager.h"
 #include "TimeManager.h"
 #include "Collider.h"
 #include "ExplosionEffect.h"
@@ -10,11 +9,12 @@
 #include "Scene.h"
 #include "AttackCompo.h"
 #include "HealthCompo.h"
+#include "PoolManager.h"
 
 GuidedMissile::GuidedMissile()
 {
+	_poolName = L"GuidedMissile";
 	_damage = 3;
-	_hitEnemy = false;
 	SetSize({ 20,20 });
 	_texture = LOADTEXTURE(L"EnemyMissile", L"Texture\\EnemyMissile.bmp");
 	AddComponent<Collider>();
@@ -25,7 +25,6 @@ GuidedMissile::GuidedMissile()
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
 
 	target = FindObject(L"Player", LAYER::PLAYER);
-	_spawnedTime = TIME;
 	_speed = 400;
 
 	/*_dir = target->GetPos();
@@ -81,7 +80,7 @@ void GuidedMissile::Update()
 		explosion->SetPos(GetPos());
 		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
 
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		PUSH(_poolName, this);
 	}
 }
 
@@ -122,6 +121,16 @@ void GuidedMissile::EnterCollision(Collider* _other)
 		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
 
 		Object* pOtherObj = _other->GetOwner();
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		PUSH(_poolName, this);
 	}
+}
+
+void GuidedMissile::OnPop()
+{
+	_hitEnemy = false;
+	_spawnedTime = TIME;
+}
+
+void GuidedMissile::OnPush()
+{
 }

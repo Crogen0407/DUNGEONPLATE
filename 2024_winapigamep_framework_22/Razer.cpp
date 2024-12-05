@@ -19,7 +19,6 @@ Razer::Razer(float lifeTime)
 
 	AddComponent<Collider>();
 	GetComponent<Collider>()->SetSize(GetSize());
-	_startLifeTime = TIME;
 }
 
 Razer::~Razer()
@@ -82,4 +81,13 @@ void Razer::StayCollision(Collider* _other)
 				health->ApplyDamage(_damage);
 		}
 	}
+}
+
+void Razer::OnPop()
+{
+	_startLifeTime = TIME;
+}
+
+void Razer::OnPush()
+{
 }

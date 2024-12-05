@@ -8,5 +8,9 @@ public:
 	~EnemyBullet() override;
 	void Update() override;
 	void Render(HDC _hdc) override;
+
+	// Projectile을(를) 통해 상속됨
+	void OnPop() override;
+	void OnPush() override;
 };
 

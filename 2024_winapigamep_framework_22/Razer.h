@@ -29,5 +29,9 @@ private:
 	float _startLifeTime = 0.f;
 	float _prevAttackTime = 0;
 	float _attackDelay = 0.1f;
+
+	// Projectile을(를) 통해 상속됨
+	void OnPop() override;
+	void OnPush() override;
 };
 

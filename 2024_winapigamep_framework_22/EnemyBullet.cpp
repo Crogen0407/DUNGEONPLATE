@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "EnemyBullet.h"
 #include "ResourceManager.h"
-#include "EventManager.h"
+#include "PoolManager.h"
 #include "TimeManager.h"
 #include "Collider.h"
 #include "Texture.h"
@@ -10,7 +10,7 @@
 EnemyBullet::EnemyBullet()
 {
 	_damage = 10;
-	_hitEnemy = false;
+	_poolName = L"EnemyBullet";
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 	AddComponent<SpriteRenderer>();
 	AddComponent<Collider>();
@@ -24,18 +24,22 @@ EnemyBullet::~EnemyBullet()
 {
 }
 
+static int cnt = 0;
 void EnemyBullet::Update()
 {
 	Vec2 vPos = GetPos();
+	Vec2 vSize = GetSize();
+	_dir.Normalize();
 
+	cout << TIME << "นึ\n";
 	vPos.x += _dir.x * _speed * fDT;
 	vPos.y += _dir.y * _speed * fDT;
+
 	SetPos(vPos);
-	Vec2 vSize = GetSize();
 	if (vPos.y < -vSize.y / 2 || vPos.x < -vSize.x / 2
 		|| vPos.y > SCREEN_HEIGHT + vSize.y || vPos.x > SCREEN_WIDTH)
 	{
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		PUSH(_poolName, this);
 	}
 }
 
@@ -53,4 +57,14 @@ void EnemyBullet::Render(HDC _hdc)
 		_texture->GetTexDC()
 		, 0, 0, width, height, RGB(255, 0, 255));*/
 	ComponentRender(_hdc);
+}
+
+void EnemyBullet::OnPop()
+{
+	_hitEnemy = false;
+	_speed = 0;
+}
+
+void EnemyBullet::OnPush()
+{
 }

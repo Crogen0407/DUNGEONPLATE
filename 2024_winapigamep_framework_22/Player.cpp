@@ -143,6 +143,7 @@ void Player::Parrying()
 
 	for (Object* projObj : projectiles)
 	{
+
 		Vec2 dist = projObj->GetPos();
 		dist -= vPos;
 		if (dist.Length() > parryDist) continue;
@@ -153,7 +154,8 @@ void Player::Parrying()
 		float rotation = acos(attackDir.Dot(dist)) * Rad2Deg;
 		if (abs(rotation) < 45)
 		{
-			Projectile* proj = (Projectile*)projObj;
+			Projectile* proj = dynamic_cast<Projectile*>(projObj);
+			if (proj == nullptr) continue;
 			proj->Parry();
 			parried = true;
 		}
