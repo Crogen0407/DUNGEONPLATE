@@ -17,7 +17,7 @@ PlayerHealthCompo::~PlayerHealthCompo()
 
 void PlayerHealthCompo::ApplyDamage(int value)
 {
-	cameraShake->ShakeConsoleWindow(4.f, 10);
+	//cameraShake->ShakeConsoleWindow(4.f, 10);
 	isTakedDamage = true;
 	int temp = value;
 	value -= subHp;
