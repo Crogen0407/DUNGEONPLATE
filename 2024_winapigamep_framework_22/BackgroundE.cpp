@@ -4,7 +4,7 @@
 
 BackgroundE::BackgroundE()
 {
-	_currentEnemyCount = 1;
+	_maxEnemyCount = 1;
 	_spawnDelayTime = 10.f;
 	_currentTime = _spawnDelayTime;
 }
