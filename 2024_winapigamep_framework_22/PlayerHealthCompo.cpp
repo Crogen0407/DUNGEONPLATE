@@ -18,6 +18,7 @@ PlayerHealthCompo::~PlayerHealthCompo()
 
 void PlayerHealthCompo::ApplyDamage(int value)
 {
+	if (isInvincible) return;
 	//cameraShake->ShakeConsoleWindow(4.f, 10);
 	isTakedDamage = true;
 	int temp = value;

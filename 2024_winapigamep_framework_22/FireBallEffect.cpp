@@ -14,7 +14,7 @@ FireBallEffect::FireBallEffect()
 
 	_spriteRenderer = GetComponent<SpriteRenderer>();
 	_spriteRenderer->isRotatable = true;
-	_lifeTime = 5.f;
+	_lifeTime = 4.f;
 }
 
 FireBallEffect::~FireBallEffect()
@@ -48,17 +48,20 @@ void FireBallEffect::Render(HDC _hdc)
 void FireBallEffect::EnterCollision(Collider* _other)
 {
 	//Object::EnterCollision(_other);
-
 	LAYER layer = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+
+	if (layer == LAYER::PLAYER)
+	{
+		return;
+	}
+
 	HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
-	if (health != nullptr && layer != LAYER::PLAYER)
+	if (health != nullptr)
+	{
 		health->ApplyDamage(_damage);
-	
-	PUSH(L"FireBallEffect", this);
-
-	//적들에게 데미지 입히는 거 넣기
-	//PUSH(L"FireBallEffect", this);
+		PUSH(L"FireBallEffect", this);
+	}
 }
 
 void FireBallEffect::SetDir(const Vec2& dir)

@@ -49,6 +49,6 @@ void TimeManager::Update()
 						, buf);
 	}
 
-	m_time += m_dT;
+	time += m_dT;
 	m_unscaledTime += m_unscaledDT;
 }

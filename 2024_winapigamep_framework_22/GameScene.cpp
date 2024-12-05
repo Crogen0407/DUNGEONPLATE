@@ -12,6 +12,7 @@
 #include "StageLoader.h"
 #include "GDISelector.h"
 #include "SkillManager.h"
+#include "TimeManager.h"
 
 GameScene::GameScene() :
 	_stageLoader(nullptr)
@@ -34,13 +35,15 @@ void GameScene::Init()
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 
-	_stageLoader->Init();
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
 
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
+
+	TIME = 0.f;
+	_stageLoader->Init();
 
 	GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
 	GET_SINGLE(ResourceManager)->Play(L"Fight_bgm");

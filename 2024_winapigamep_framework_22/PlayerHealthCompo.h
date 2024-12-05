@@ -41,6 +41,8 @@ private:
     bool _isDie = false;
     float curDelay = 0;
     bool isTakedDamage = false;
+    //디버그용
+    bool isInvincible = false;
     float subHp;
     float maxSubHp;
     float autoCureValue = 5.f;
