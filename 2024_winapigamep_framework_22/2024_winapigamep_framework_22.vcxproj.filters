@@ -371,6 +371,9 @@
     <ClInclude Include="Background.h">
       <Filter>Engine\03. Object\Background</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerCast.h">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -648,9 +651,13 @@
     <ClCompile Include="Background.cpp">
       <Filter>Engine\03. Object\Background</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerCast.cpp">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
 </Project>

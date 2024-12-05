@@ -68,7 +68,7 @@ void SpriteRenderer::Render(HDC _hdc)
 		}
 
 		hBmap = CreateCompatibleBitmap(texture->GetTexDC(), maxX - minX, maxY - minY);
-		oldBitmap = (HBITMAP)SelectObject(memDC, hBmap);
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(memDC, hBmap);
 
 		RECT rect = { 0, 0, maxX - minX, maxY - minY };
 		FillRect(memDC, &rect, brush);
@@ -127,8 +127,8 @@ void SpriteRenderer::Render(HDC _hdc)
 			maxY - minY, // 회전 이후 영역 H
 			RGB(255, 0, 255)); // 흰색 영역 투명화
 
+		SelectObject(memDC, oldBitmap);
 		DeleteObject(hBmap);
-		DeleteObject(oldBitmap);
 	}
 	else
 	{

@@ -5,6 +5,7 @@
 class SpriteRenderer;
 class PlayerHealthCompo;
 class AttackRange;
+class PlayerCast;
 class Player : public Agent
 {
 public:
@@ -24,6 +25,7 @@ private:
 	SpriteRenderer* _spriteRenderer;
 	PlayerHealthCompo* healthCompo;
 	Collider* collider;
+	PlayerCast* _playerCast;
 //ÆÐ¸µ
 public:
 	Action<float> ParryCoolTimeEvent;

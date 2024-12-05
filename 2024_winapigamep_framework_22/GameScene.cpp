@@ -35,6 +35,7 @@ void GameScene::Init()
 	AddObject(obj, LAYER::ENEMY);
 	
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
+	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 
 	_stageLoader = new StageLoader;

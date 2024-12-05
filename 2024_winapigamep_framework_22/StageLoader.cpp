@@ -10,6 +10,8 @@
 #include "Stage2.h"
 #include "Stage3.h"
 
+Action<int> StageLoader::StageLoadEvent = Action<int>();
+
 StageLoader::StageLoader()
 {
 	_enemySpawner = std::make_unique<EnemySpawner>();
@@ -53,5 +55,6 @@ void StageLoader::NextStage()
 	//플레이어 위치 정해주기
 	const Background* bg = _currentStage->GetPlayerArea();
 	GET_SINGLE(GameManager)->player->SetPos(bg->GetPos());
-
+	_stageNum++;
+	StageLoadEvent.Invoke(_stageNum);
 }

@@ -14,12 +14,13 @@
 #include "SkillManager.h"
 #include "XPManager.h"
 #include "DashSkill.h"
+#include "StageLoader.h"
 
 GameCanvas::GameCanvas() :
 	healthBar(nullptr),
 	shieldBar(nullptr),
 	attackCountBar(nullptr),
-	scoreText(nullptr),
+	floorText(nullptr),
 	timeText(nullptr)
 {
 	SetName(L"GameCanvas");
@@ -144,16 +145,31 @@ GameCanvas::GameCanvas() :
 		dashCoolTimeBar->SetActive(false);
 	}
 
-	//ScoreText
+	//floorText
 	{
-		Vec2 size = { 50, 60 };
-		Vec2 pos = { SCREEN_WIDTH / 2, (int)size.y/2+15 };
-		scoreText = CreateUI<Text>(pos, size);
+		{
+			Vec2 size = { 70, 70 };
+			Vec2 pos = { SCREEN_WIDTH / 2, (int)size.y / 2 + 15 };
+			Image* floorText = CreateUI<Image>(pos, size);
+			floorText->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.bmp");
+		}
 
-		scoreText->LoadFont(L"PF스타더스트 Bold", 45, 60);
-		scoreText->SetText(L"5");
-		scoreText->SetColor(RGB(139, 172, 15));
-		scoreText->SetPitchAndFamily(DT_VCENTER);
+		Vec2 size = { 50, 60 };
+		Vec2 pos = { SCREEN_WIDTH / 2, (int)size.y/2+ 25 };
+
+		floorText = CreateUI<Text>(pos, size);
+		floorText->LoadFont(L"PF스타더스트 Bold", 40, 55);
+		floorText->SetText(L"1");
+
+		floorText->SetColor(RGB(15, 56, 15));
+		floorText->SetPitchAndFamily(DT_SINGLELINE | DT_CENTER | DT_VCENTER);
+
+		StageLoader::StageLoadEvent +=
+			[ct = floorText](int stage)
+			{
+				ct->SetText(std::to_wstring(stage));
+			};
+
 	}
 
 	//TimeText

@@ -13,7 +13,6 @@ private:
     Texture* texture;
     HDC memDC;
     HBITMAP hBmap;
-    HBITMAP oldBitmap;
     HBRUSH brush;
 public:
     void LateUpdate() override;

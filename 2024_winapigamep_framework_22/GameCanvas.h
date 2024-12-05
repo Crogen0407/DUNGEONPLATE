@@ -23,7 +23,7 @@ private: //UI
 
     Image* bottomDashCoolTimeContainer;
 
-    Text* scoreText;
+    Text* floorText;
     Text* timeText;
     Text* healthText;
     Text* shieldText;
