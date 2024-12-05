@@ -176,6 +176,8 @@
     <ClInclude Include="BackgroundA.h" />
     <ClInclude Include="BackgroundB.h" />
     <ClInclude Include="BackgroundC.h" />
+    <ClInclude Include="BackgroundD.h" />
+    <ClInclude Include="BackgroundE.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BounceBulletSkill.h" />
@@ -254,6 +256,8 @@
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="Stage3.h" />
+    <ClInclude Include="Stage4.h" />
+    <ClInclude Include="Stage5.h" />
     <ClInclude Include="StageLoader.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
@@ -280,6 +284,8 @@
     <ClCompile Include="BackgroundA.cpp" />
     <ClCompile Include="BackgroundB.cpp" />
     <ClCompile Include="BackgroundC.cpp" />
+    <ClCompile Include="BackgroundD.cpp" />
+    <ClCompile Include="BackgroundE.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BounceBulletSkill.cpp" />
@@ -357,6 +363,8 @@
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="Stage3.cpp" />
+    <ClCompile Include="Stage4.cpp" />
+    <ClCompile Include="Stage5.cpp" />
     <ClCompile Include="StageLoader.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
