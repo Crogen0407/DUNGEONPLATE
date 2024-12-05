@@ -4,7 +4,6 @@
 class Canvas;
 class Background;
 class StageLoader;
-
 class GameScene :
     public Scene
 {

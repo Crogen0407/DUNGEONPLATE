@@ -19,16 +19,18 @@
 #include "SkillManager.h"
 #include "PoolManager.h"
 #include "SlashEffect.h"
+#include "PlayerCast.h"
 
 Player::Player()
 {
-	this->AddComponent<Collider>();
 	this->AddComponent<SpriteRenderer>();
 	this->AddComponent<PlayerHealthCompo>();
+	this->AddComponent<Collider>();
 
 	_spriteRenderer = GetComponent<SpriteRenderer>();
 	healthCompo = GetComponent<PlayerHealthCompo>();
 	collider = GetComponent<Collider>();
+	_playerCast = new PlayerCast;
 
 	_spriteRenderer->SetTexture(L"Player", L"Texture\\Player.bmp");
 	_spriteRenderer->isRotatable = false;
@@ -48,6 +50,7 @@ Player::Player()
 
 	ADDOBJECT(attackRange, LAYER::DEFAULT);
 	ADDOBJECT(arrow, LAYER::DEFAULT);
+	ADDOBJECT(_playerCast, LAYER::PLAYERCAST);
 
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
@@ -73,12 +76,14 @@ void Player::Update()
 		Parry();
 	}
 	dir.Normalize();
+	_playerCast->SetPos(GetPos());
+	_playerCast->SetMoveDir(dir);
+	if (_playerCast->IsCast() == true)
+		Move(dir * speed * fDT);
 
 	attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
 	attackDir.Normalize();
 	attackRange->SetDir(attackDir);
-
-	Move(dir * speed * fDT);
 	Parrying();
 
 	Vec2 vPos = GetPos();
