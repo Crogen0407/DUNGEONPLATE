@@ -41,6 +41,9 @@ void Button::OnSelectEnter()
 {
 	if (m_selectedTex != nullptr)
 		texture = m_selectedTex;
+
+	GET_SINGLE(ResourceManager)->LoadSound(L"ButtonSelect", L"Sound\\ButtonSelect.wav", false);
+	GET_SINGLE(ResourceManager)->Play(L"ButtonSelect");
 	OnSelectEnterEvent.Invoke(NULL);
 }
 

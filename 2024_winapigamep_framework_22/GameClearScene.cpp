@@ -8,8 +8,8 @@ void GameClearScene::Init()
 	_canvas = new GameClearCanvas;
 	AddObject(_canvas, LAYER::UI);
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+	GET_SINGLE(ResourceManager)->LoadSound(L"Victory_bgm", L"Sound\\Victory_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->Play(L"Victory_bgm");
 }
 
 void GameClearScene::Release()

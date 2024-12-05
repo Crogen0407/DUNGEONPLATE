@@ -21,7 +21,6 @@ void SceneManager::Init()
 	RegisterScene(L"UIScene",std::make_shared<UIScene>());
 	RegisterScene(L"GameOverScene",std::make_shared<GameOverScene>());
 	RegisterScene(L"GameClearScene",std::make_shared<GameClearScene>());
-	RegisterScene(L"TitleScene",std::make_shared<TitleScene>());
 	RegisterScene(L"HelpScene",std::make_shared<HelpScene>());
 
 	// ¾À ·Îµå

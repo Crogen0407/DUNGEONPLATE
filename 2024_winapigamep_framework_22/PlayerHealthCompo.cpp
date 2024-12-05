@@ -2,12 +2,13 @@
 #include "PlayerHealthCompo.h"
 #include "TimeManager.h"
 #include "FadeManager.h"
+#include "CameraManager.h"
 
 PlayerHealthCompo::PlayerHealthCompo() :
 	subHp(100),
 	maxSubHp(100)
 {
-
+	cameraShake = new CameraManager(GetActiveWindow());
 }
 
 PlayerHealthCompo::~PlayerHealthCompo()
@@ -16,6 +17,7 @@ PlayerHealthCompo::~PlayerHealthCompo()
 
 void PlayerHealthCompo::ApplyDamage(int value)
 {
+	cameraShake->ShakeConsoleWindow(4.f, 10);
 	isTakedDamage = true;
 	int temp = value;
 	value -= subHp;

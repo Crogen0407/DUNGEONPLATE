@@ -41,8 +41,8 @@ void GameScene::Init()
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+	GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->Play(L"Fight_bgm");
 }
 
 void GameScene::Release()

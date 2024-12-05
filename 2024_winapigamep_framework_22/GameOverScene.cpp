@@ -8,14 +8,13 @@ void GameOverScene::Init()
 	_canvas = new GameOverCanvas();
 	AddObject(_canvas, LAYER::UI);
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+	GET_SINGLE(ResourceManager)->LoadSound(L"Gameover_bgm", L"Sound\\Gameover_bgm.wav", false);
+	GET_SINGLE(ResourceManager)->Play(L"Gameover_bgm");
 }
 
 void GameOverScene::Release()
 {
 	Scene::Release();
-	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 }
 
 void GameOverScene::Update()

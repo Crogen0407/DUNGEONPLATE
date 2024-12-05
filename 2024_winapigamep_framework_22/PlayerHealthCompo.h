@@ -1,5 +1,6 @@
 #pragma once
 #include "HealthCompo.h"
+class CameraManager;
 class PlayerHealthCompo :
     public HealthCompo
 {
@@ -43,5 +44,6 @@ private:
     float subHp;
     float maxSubHp;
     float autoCureValue = 5.f;
+    CameraManager* cameraShake;
 };
 

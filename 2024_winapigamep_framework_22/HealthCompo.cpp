@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "HealthCompo.h"
 #include "Object.h"
+#include "ResourceManager.h"
 
 HealthCompo::HealthCompo() :
 	hp(100),
@@ -10,6 +11,7 @@ HealthCompo::HealthCompo() :
 {
 	fillBrush = ::CreateSolidBrush(RGB(139, 172, 15));
 	backBrush = ::CreateSolidBrush(RGB(48, 98, 48));
+	GET_SINGLE(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", false);
 }
 
 HealthCompo::~HealthCompo()
@@ -20,6 +22,7 @@ HealthCompo::~HealthCompo()
 
 void HealthCompo::ApplyDamage(int value)
 {
+	GET_SINGLE(ResourceManager)->Play(L"Hit");
 	SetHp(hp - value);
 	DamagedEvent.Invoke(NULL);
 	if (hp <= 0)
