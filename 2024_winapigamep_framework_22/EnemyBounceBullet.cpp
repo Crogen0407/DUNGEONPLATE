@@ -7,8 +7,8 @@
 
 EnemyBounceBullet::EnemyBounceBullet()
 {
-	_poolName = L"EnemyBounceBullet";
 	_damage = 2;
+	_poolName = L"EnemyBounceBullet";
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 
 	SetSize({ 20.f,20.f });

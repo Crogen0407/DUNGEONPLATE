@@ -74,7 +74,7 @@ void GuidedMissile::Update()
 	vPos.y += _dir.y * _speed * fDT;
 	SetPos(vPos);
 
-	if (_spawnedTime + _lifetime < TIME)
+	if (_spawnedTime + _lifetime < TIME && _isSpawned)
 	{
 		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 		explosion->SetPos(GetPos());
@@ -109,7 +109,7 @@ void GuidedMissile::EnterCollision(Collider* _other)
 	LAYER layer =
 		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 
-	if (layer == LAYER::PLAYER || (layer == LAYER::ENEMY && _hitEnemy))
+	if (layer == LAYER::PLAYER /*|| (layer == LAYER::ENEMY && _hitEnemy)*/)
 	{
 		HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
@@ -128,9 +128,12 @@ void GuidedMissile::EnterCollision(Collider* _other)
 void GuidedMissile::OnPop()
 {
 	_hitEnemy = false;
+	_isParry = false;
+	_isSpawned = true;
 	_spawnedTime = TIME;
 }
 
 void GuidedMissile::OnPush()
 {
+	_isSpawned = false;
 }

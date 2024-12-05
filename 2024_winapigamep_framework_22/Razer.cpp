@@ -15,6 +15,7 @@ Razer::Razer(float lifeTime)
 	_damage = 2;
 	SetSize({ 0,0 });
 	_lifeTime = lifeTime;
+	_startLifeTime = TIME;
 	_texture = LOADTEXTURE(L"Razer", L"Texture\\Razer.bmp");
 
 	AddComponent<Collider>();
@@ -81,13 +82,4 @@ void Razer::StayCollision(Collider* _other)
 				health->ApplyDamage(_damage);
 		}
 	}
-}
-
-void Razer::OnPop()
-{
-	_startLifeTime = TIME;
-}
-
-void Razer::OnPush()
-{
 }

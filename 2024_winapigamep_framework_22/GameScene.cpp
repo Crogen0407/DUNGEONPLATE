@@ -42,7 +42,7 @@ void GameScene::Init()
 	AddObject(_skillCanvas, LAYER::UI);
 
 	EnemySpawner* s = new EnemySpawner();
-	s->SpawnEnemy({ 100,100 }, EnemyType::EnemyE);
+	s->SpawnEnemy({ SCREEN_WIDTH / 2,100 }, EnemyType::Boss);
 
 	//GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
 	GET_SINGLE(ResourceManager)->Play(L"Fight_bgm");

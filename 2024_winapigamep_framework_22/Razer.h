@@ -1,9 +1,8 @@
 #pragma once
-#include "Projectile.h"
+#include "Object.h"
 class Texture;
-class Object;
 class Collider;
-class Razer : public Projectile
+class Razer : public Object
 {
 public:
 	Razer(float lifeTime);
@@ -24,14 +23,11 @@ public:
 private:
 	Texture* _texture;
 	Object* _owner;
+	float _damage;
 	float _targetSize = 0;
 	float _lifeTime = 1.f;
 	float _startLifeTime = 0.f;
 	float _prevAttackTime = 0;
 	float _attackDelay = 0.1f;
-
-	// Projectile을(를) 통해 상속됨
-	void OnPop() override;
-	void OnPush() override;
 };
 
