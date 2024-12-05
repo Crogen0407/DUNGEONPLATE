@@ -54,6 +54,8 @@ Player::Player()
 
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
+	GET_SINGLE(ResourceManager)->LoadSound(L"Parry", L"Sound\\Parry.wav", false);
+
 }
 Player::~Player()
 {
@@ -160,7 +162,8 @@ void Player::Parrying()
 	if (projectiles.size() > 0)
 		AttackEvent.Invoke(NULL);
 
-	if (parried) isParrying = false;
+	if (parried)
+		isParrying = false;
 }
 
 void Player::EnterCollision(Collider* _other)

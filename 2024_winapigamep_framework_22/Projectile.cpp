@@ -80,5 +80,6 @@ void Projectile::ExitCollision(Collider* _other)
 void Projectile::Parry()
 {
 	SetDir(GetDir() * -1);
+	GET_SINGLE(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;
 }
