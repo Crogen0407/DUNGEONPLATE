@@ -31,7 +31,7 @@ void EnemyBullet::Update()
 	Vec2 vSize = GetSize();
 	_dir.Normalize();
 
-	cout << cnt++ << "นึ\n";
+	cout << TIME << "นึ\n";
 	vPos.x += _dir.x * _speed * fDT;
 	vPos.y += _dir.y * _speed * fDT;
 
