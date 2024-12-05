@@ -17,13 +17,13 @@ Stage1::~Stage1()
 
 void Stage1::Init()
 {
-    //AddBackground<BackgroundB>(1, 1);
-    //AddBackground<BackgroundA>(1, 2, true);
+    AddBackground<BackgroundB>(1, 1);
+    AddBackground<BackgroundA>(1, 2, true);
 
-    //AddBackground<BackgroundA>(0, 1);
-    //AddBackground<BackgroundC>(1, 1);
-    //AddBackground<BackgroundB>(1, 2, true);
-    //AddBackground<BackgroundB>(2, 1);
+   /* AddBackground<BackgroundA>(0, 1);
+    AddBackground<BackgroundC>(1, 1);
+    AddBackground<BackgroundB>(1, 2, true);
+    AddBackground<BackgroundB>(2, 1);*/
 
     /*AddBackground<BackgroundA>(0, 0);
     AddBackground<BackgroundB>(0, 2);

@@ -11,6 +11,7 @@
 SkillCanvas::SkillCanvas()
 {
 	SetName(L"SkillCanvas");
+	GET_SINGLE(ResourceManager)->LoadSound(L"LevelUp", L"Sound\\LevelUp.wav", false);
 	int slotCount = 3;
 	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
 	int xDeltaPos = 300;
@@ -132,6 +133,8 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 void SkillCanvas::ShowSlots()
 {
+	GET_SINGLE(ResourceManager)->Play(L"LevelUp");
+
 	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRendomSkills();
 	showSkillSlots = true;
 	int i = 0;

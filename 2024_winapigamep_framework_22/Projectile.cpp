@@ -81,8 +81,9 @@ void Projectile::ExitCollision(Collider* _other)
 
 void Projectile::Parry()
 {
-	SetSpeed(_speed * 1.5f);
+	SetSpeed(_speed * 3.f);
 	SetDir(GetDir() * -1);
+	POP(L"ParrySparkEffect", GetPos());
 	GET_SINGLE(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;
 }

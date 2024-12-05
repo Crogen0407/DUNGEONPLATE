@@ -41,11 +41,6 @@ void SlashEffect::Update()
 	SetSize({ effectSize, effectSize });
 }
 
-void SlashEffect::LateUpdate()
-{
-}
-
-
 void SlashEffect::Render(HDC _hdc)
 {
 	ComponentRender(_hdc);

@@ -14,7 +14,7 @@ public:
 	void FadeOut();
 private:
 	std::wstring _sceneName;
-	FadeObject* _fadeObject;
+	FadeObject* _fadeObject = nullptr;
 	bool _isSceneFading = false;
 	bool _sceneLoadComplete = false;
 	float _curTime = 0.0f;

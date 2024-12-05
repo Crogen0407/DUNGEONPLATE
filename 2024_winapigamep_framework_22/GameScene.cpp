@@ -13,7 +13,8 @@
 #include "GDISelector.h"
 #include "SkillManager.h"
 
-GameScene::GameScene()
+GameScene::GameScene() :
+	_stageLoader(nullptr)
 {
 }
 
@@ -41,10 +42,7 @@ void GameScene::Init()
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
 
-	EnemySpawner* s = new EnemySpawner();
-	s->SpawnEnemy({ 100,100 }, EnemyType::EnemyE);
-
-	//GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
 	GET_SINGLE(ResourceManager)->Play(L"Fight_bgm");
 }
 

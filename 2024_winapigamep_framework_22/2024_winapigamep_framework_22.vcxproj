@@ -230,6 +230,7 @@
     <ClInclude Include="MissileSkill.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ParrySparkEffect.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCast.h" />
@@ -259,6 +260,7 @@
     <ClInclude Include="Stage3.h" />
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="Stage5.h" />
+    <ClInclude Include="Stage6.h" />
     <ClInclude Include="StageLoader.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
@@ -341,6 +343,7 @@
     <ClCompile Include="MissileSkill.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ParrySparkEffect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCast.cpp" />
     <ClCompile Include="PlayerHealthCompo.cpp" />
@@ -367,6 +370,7 @@
     <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="Stage4.cpp" />
     <ClCompile Include="Stage5.cpp" />
+    <ClCompile Include="Stage6.cpp" />
     <ClCompile Include="StageLoader.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
@@ -385,11 +389,6 @@
   <ItemGroup>
     <Image Include="2024_winapigamep_framework_22.ico" />
     <Image Include="small.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

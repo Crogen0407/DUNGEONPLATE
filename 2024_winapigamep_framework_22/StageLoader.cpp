@@ -34,12 +34,6 @@ void StageLoader::Update()
 {
 	if (_currentStage == nullptr)
 		return;
-
-	if (m_isClear)
-	{
-		NextStage();
-		m_isClear = false;
-	}
 }
 
 void StageLoader::TryNextStage()

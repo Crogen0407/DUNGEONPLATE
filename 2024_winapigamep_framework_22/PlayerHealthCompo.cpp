@@ -13,6 +13,7 @@ PlayerHealthCompo::PlayerHealthCompo() :
 
 PlayerHealthCompo::~PlayerHealthCompo()
 {
+	delete(cameraShake);
 }
 
 void PlayerHealthCompo::ApplyDamage(int value)

@@ -55,6 +55,7 @@ Player::Player()
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
 	GET_SINGLE(ResourceManager)->LoadSound(L"Parry", L"Sound\\Parry.wav", false);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Sword", L"Sound\\sword.wav", false);
 
 }
 Player::~Player()
@@ -143,7 +144,6 @@ void Player::Parrying()
 
 	for (Object* projObj : projectiles)
 	{
-
 		Vec2 dist = projObj->GetPos();
 		dist -= vPos;
 		if (dist.Length() > parryDist) continue;
@@ -160,6 +160,8 @@ void Player::Parrying()
 			parried = true;
 		}
 	}
+
+	GET_SINGLE(ResourceManager)->Play(L"Sword");
 
 	if (projectiles.size() > 0)
 		AttackEvent.Invoke(NULL);

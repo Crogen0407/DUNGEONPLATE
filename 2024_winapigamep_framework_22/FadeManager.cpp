@@ -9,12 +9,14 @@
 
 FadeManager::~FadeManager()
 {
-	GET_SINGLE(EventManager)->DeleteObject(_fadeObject);
+	//GET_SINGLE(EventManager)->DeleteObject(_fadeObject);
+	delete(_fadeObject);
 }
 
 void FadeManager::Init()
 {
-	_fadeObject = new FadeObject;
+	if(_fadeObject == nullptr)
+		_fadeObject = new FadeObject;
 }
 
 void FadeManager::Update()

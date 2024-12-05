@@ -24,13 +24,9 @@ public:
 	void NextStage();
 	bool IsClearAllBackground();
 public:
-	void SetClear(bool isClear) { m_isClear = isClear; }
-	bool IsClear() const { return m_isClear; }
-public:
 	static Action<int> StageLoadEvent;
 	int enemyCount;
 	std::vector<std::unique_ptr<Stage>> _stages = {};
-	bool m_isClear = false;
 private:
 	Stage* _currentStage = nullptr;
 	int _stageNum = 0;

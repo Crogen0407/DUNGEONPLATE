@@ -60,6 +60,7 @@ void Background::SubtractEnemyCount()
 
 void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 {
+	cout << isClear << endl;
 	if (_currentSpawnedEnemyCount >= _maxEnemyCount)
 	{
 		isClear = true;

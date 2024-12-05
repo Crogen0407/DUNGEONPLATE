@@ -4,7 +4,7 @@
 
 BackgroundA::BackgroundA()
 {
-	_maxEnemyCount = 1;
+	_maxEnemyCount = 2;
 	_spawnDelayTime = 10.f;
 	_currentTime = _spawnDelayTime;
 
@@ -20,5 +20,6 @@ void BackgroundA::Update()
 	if (_currentTime > _spawnDelayTime)
 	{
 		SpawnEnemyByRandomPos(EnemyType::EnemyA);
+		_currentTime = 0;
 	}
 }
