@@ -11,6 +11,7 @@
 #include "ResourceManager.h"
 #include "StageLoader.h"
 #include "GDISelector.h"
+#include "SkillManager.h"
 
 GameScene::GameScene()
 {
@@ -50,6 +51,7 @@ void GameScene::Release()
 	delete(_stageLoader);
 	_stageLoader = nullptr;
 	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
+	GET_SINGLE(SkillManager)->Release();
 }
 
 void GameScene::Update()

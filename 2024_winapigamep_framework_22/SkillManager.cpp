@@ -48,6 +48,15 @@ void SkillManager::Update()
 	}
 }
 
+void SkillManager::Release()
+{
+	for (auto skill : skills)
+	{
+		skill.second->SetEnable(false);
+		skill.second->SetLevel(0);
+	}
+}
+
 const vector<Skill*> SkillManager::GetRendomSkills()
 {
 	int arr[(UINT)ESkillType::LAST];

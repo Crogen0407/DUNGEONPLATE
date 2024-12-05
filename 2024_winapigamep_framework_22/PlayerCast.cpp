@@ -15,7 +15,6 @@ PlayerCast::~PlayerCast()
 
 void PlayerCast::Update()
 {
-	cout << _isCast << endl;
 }
 
 void PlayerCast::LateUpdate()

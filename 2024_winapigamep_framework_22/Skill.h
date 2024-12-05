@@ -42,6 +42,10 @@ public:
 	{
 		return level;
 	}
+	void SetLevel(int value)
+	{
+		level = value;
+	}
 	virtual void Update() {}
 public:
 	virtual void OnLevelUp(Player* player) {

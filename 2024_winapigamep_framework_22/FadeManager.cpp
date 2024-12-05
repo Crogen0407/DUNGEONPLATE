@@ -9,7 +9,7 @@
 
 FadeManager::~FadeManager()
 {
-	delete(_fadeObject);
+	GET_SINGLE(EventManager)->DeleteObject(_fadeObject);
 }
 
 void FadeManager::Init()

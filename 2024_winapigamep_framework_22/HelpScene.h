@@ -9,6 +9,7 @@ public:
     ~HelpScene() override;
 public:
     void Init() override;
+    void Release() override;
 private:
     Canvas* _canvas;
 };

@@ -22,6 +22,7 @@ private:
 public:
 	void Init();
 	void Update();
+	void Release();
 public:
 	const vector<Skill*> GetRendomSkills();
 	Skill* GetSkill(const ESkillType& type)

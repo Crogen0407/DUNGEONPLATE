@@ -26,6 +26,4 @@ private:
 private:
 	vector<tEvent> m_vecEvent;
 	vector<Object*> m_vecObjectDead;
-	Scene* deadScene;
-	Scene* loadScene;
 };
