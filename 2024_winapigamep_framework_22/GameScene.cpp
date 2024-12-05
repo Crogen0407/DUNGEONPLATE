@@ -8,7 +8,6 @@
 #include "GameCanvas.h"
 #include "SkillCanvas.h"
 #include "CollisionManager.h"
-#include "EnemySpawner.h"
 #include "ResourceManager.h"
 #include "StageLoader.h"
 #include "GDISelector.h"
@@ -30,10 +29,6 @@ void GameScene::Init()
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 
-	Object* obj = new EnemyC;
-	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	AddObject(obj, LAYER::ENEMY);
-	
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);

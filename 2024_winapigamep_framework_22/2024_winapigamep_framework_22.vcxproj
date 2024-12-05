@@ -173,6 +173,7 @@
     <ClInclude Include="AttackDirArrow.h" />
     <ClInclude Include="AttackRange.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BackgroundA.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BounceBulletSkill.h" />
@@ -274,6 +275,7 @@
     <ClCompile Include="AttackDirArrow.cpp" />
     <ClCompile Include="AttackRange.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BackgroundA.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BounceBulletSkill.cpp" />
