@@ -12,8 +12,8 @@ FireBallEffect::FireBallEffect()
 	AddComponent<Collider>();
 	AddComponent<SpriteRenderer>();
 
-	SpriteRenderer* spriteRenderer = GetComponent<SpriteRenderer>();
-	spriteRenderer->isRotatable = true;
+	_spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer->isRotatable = true;
 	_lifeTime = 5.f;
 }
 
@@ -32,7 +32,7 @@ void FireBallEffect::OnPush()
 
 void FireBallEffect::Update()
 {
-	GetComponent<SpriteRenderer>()->LookAt(_moveDir);
+	_spriteRenderer->LookAt(_moveDir);
 	_curTime += fDT;
 	if (_curTime > _lifeTime)
 		PUSH(L"FireBallEffect", this);
