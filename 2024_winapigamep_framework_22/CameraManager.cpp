@@ -22,8 +22,7 @@ CameraManager::~CameraManager()
 {
 }
 
-void CameraManager::ShakeConsoleWindow
-(int duration, int power) 
+void CameraManager::ShakeConsoleWindow(int duration, int power) 
 {
     if (!m_targetWindow)
         return;
