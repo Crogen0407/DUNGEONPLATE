@@ -7,7 +7,7 @@
 
 EnemyBounceBullet::EnemyBounceBullet()
 {
-	damage = 2;
+	_damage = 2;
 	_hitEnemy = false;
 	remainBounce = bounceCnt;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
@@ -29,8 +29,8 @@ void EnemyBounceBullet::Update()
 	Vec2 vPos = GetPos();
 	Vec2 vSize = GetSize();
 
-	vPos.x += _dir.x * speed * fDT;
-	vPos.y += _dir.y * speed * fDT;
+	vPos.x += _dir.x * _speed * fDT;
+	vPos.y += _dir.y * _speed * fDT;
 	SetPos(vPos);
 
 	if (vPos.x < vSize.x / 2 || vPos.x > SCREEN_WIDTH - vSize.x / 2)

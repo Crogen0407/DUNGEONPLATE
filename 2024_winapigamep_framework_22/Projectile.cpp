@@ -62,7 +62,7 @@ void Projectile::EnterCollision(Collider* _other)
 		HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
 		if (health != nullptr)
-			health->ApplyDamage(damage);
+			health->ApplyDamage(_damage);
 
 		Object* pOtherObj = _other->GetOwner();
 		GET_SINGLE(EventManager)->DeleteObject(this);

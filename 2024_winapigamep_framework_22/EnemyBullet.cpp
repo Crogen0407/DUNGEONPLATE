@@ -9,7 +9,7 @@
 
 EnemyBullet::EnemyBullet()
 {
-	damage = 50;
+	_damage = 10;
 	_hitEnemy = false;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 	AddComponent<SpriteRenderer>();
@@ -28,8 +28,8 @@ void EnemyBullet::Update()
 {
 	Vec2 vPos = GetPos();
 
-	vPos.x += _dir.x * speed * fDT;
-	vPos.y += _dir.y * speed * fDT;
+	vPos.x += _dir.x * _speed * fDT;
+	vPos.y += _dir.y * _speed * fDT;
 	SetPos(vPos);
 	Vec2 vSize = GetSize();
 	if (vPos.y < -vSize.y / 2 || vPos.x < -vSize.x / 2

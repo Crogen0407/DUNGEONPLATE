@@ -23,7 +23,7 @@ EnemyC::EnemyC()
 		->CreateAnimation(L"Enemy02Idle", _texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 7, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 	GetComponent<HealthCompo>()->SetOffsetY(60);
-	GetComponent<HealthCompo>()->SetHp(100);
+	GetComponent<HealthCompo>()->SetHp(100, 100);
 
 	_prevShootTime = TIME;
 }
@@ -64,9 +64,9 @@ void EnemyC::Update()
 		Vec2 dir1 = { cos((rotation - 30) * Deg2Rad) , sin((rotation - 30) * Deg2Rad) };
 		Vec2 dir2 = { cos((rotation + 30) * Deg2Rad), sin((rotation + 30) * Deg2Rad) };
 
-		GetComponent<AttackCompo>()->TryFireBullet(dir);
-		GetComponent<AttackCompo>()->TryFireBullet(dir1);
-		GetComponent<AttackCompo>()->TryFireBullet(dir2);
+		GetComponent<AttackCompo>()->TryFireBullet(dir,500);
+		GetComponent<AttackCompo>()->TryFireBullet(dir1,500);
+		GetComponent<AttackCompo>()->TryFireBullet(dir2,500);
 	}
 }
 

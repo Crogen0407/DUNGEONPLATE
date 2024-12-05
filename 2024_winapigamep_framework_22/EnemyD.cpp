@@ -10,29 +10,43 @@
 #include "EventManager.h"
 #include "TimeManager.h"
 #include "Scene.h"
+#include "AttackCompo.h"
+#include "RoundAttackSkill.h"
 
 EnemyD::EnemyD()
 {
 	_startTime = TIME;
 	SetSize({ 50,50 });
+	_roundAttack = new RoundAttackSkill();
+	_roundAttack->SetOwner(this);
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	_texture = LOADTEXTURE(L"EnemyD", L"Texture\\Enemy04.bmp");
 
 	AddComponent<Movement>();
 	AddComponent<HealthCompo>();
 	AddComponent<SpriteRenderer>();
+	AddComponent<AttackCompo>();
 
 	GetComponent<HealthCompo>()->SetOffsetY(60);
-	GetComponent<HealthCompo>()->SetHp(10);
+	GetComponent<HealthCompo>()->SetHp(10, 10);
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
 }
 
 EnemyD::~EnemyD()
 {
+	delete _roundAttack;
 }
 
 void EnemyD::Update()
 {
+	if (_isDead)
+	{
+		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect01");
+		explosion->SetPos(GetPos());
+		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+		GET_SINGLE(EventManager)->DeleteObject(this);
+	}
+
 	if (_startTime + _lifeTime < TIME)
 	{
 		OnDie();
@@ -47,6 +61,8 @@ void EnemyD::Update()
 	if (length < 100)
 	{
 		OnDie();
+
+		_target->GetComponent<HealthCompo>()->ApplyDamage(10);
 	}
 
 	GetComponent<Movement>()->Move(dir);
@@ -61,8 +77,7 @@ void EnemyD::OnDie()
 {
 	Enemy::OnDie();
 
-	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect01");
-	explosion->SetPos(GetPos());
-	GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
-	GET_SINGLE(EventManager)->DeleteObject(this);
+	_roundAttack->Init(0, 20, 18);
+	_roundAttack->UseSkill();
+	_isDead = true;
 }

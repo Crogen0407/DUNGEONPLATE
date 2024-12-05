@@ -24,12 +24,12 @@ void BounceBulletSkill::Update()
 
 		Vec2 dir = { cos(rotation * Deg2Rad), sin(rotation * Deg2Rad) };
 		dir.Normalize();
+
 		_owner->GetComponent<AttackCompo>()->TryFireBounceBullet(dir);
+		_owner->GetComponent<AttackCompo>()->TryFireBounceBullet(dir * -1);
 
 		if (++_curBullet >= _bulletCnt)
 			_isUsingSkill = false;
-
-		cout << _curBullet << " ";
 	}
 }
 

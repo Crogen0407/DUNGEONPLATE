@@ -36,10 +36,11 @@ void GameScene::Init()
 	/*_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyA);
 	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyB);
 	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::EnemyC);
-	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 500 }, EnemyType::EnemyD);*/
+	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 300 }, EnemyType::EnemyE);*/
+	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 500 }, EnemyType::EnemyD);
 	_spawner->SpawnEnemy({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100 }, EnemyType::Boss);
 	
-	/*Object* enemyb = new EnemyB;s
+	/*Object* enemyb = new EnemyB;ss
 	enemyb->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
 	AddObject(enemyb, LAYER::ENEMY);*/
 
@@ -60,7 +61,7 @@ void GameScene::Init()
 	AddObject(_skillCanvas, LAYER::UI);
 
 	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+	//GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
 }
 
 void GameScene::Release()

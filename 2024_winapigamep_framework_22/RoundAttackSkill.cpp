@@ -28,7 +28,7 @@ void RoundAttackSkill::UseSkill()
 		Vec2 pos = _owner->GetPos();
 		Vec2 dir = { cos(_currentRotation * Deg2Rad) , sin(_currentRotation * Deg2Rad) };
 
-		_owner->GetComponent<AttackCompo>()->TryFireBullet(dir);
+		_owner->GetComponent<AttackCompo>()->TryFireBullet(dir,500);
 
 		/*Projectile* bullet = new EnemyBullet();
 		bullet->SetPos(pos);

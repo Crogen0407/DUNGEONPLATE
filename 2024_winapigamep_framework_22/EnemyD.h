@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 class Texture;
+class RoundAttackSkill;
 class EnemyD : public Enemy
 {
 public:
@@ -12,9 +13,11 @@ public:
 	void Render(HDC _hdc) override;
 	void OnDie() override;
 private:
+	bool _isDead = false;
 	float _startTime = 0;
 	float _lifeTime = 3.f;
 	float _moveSpeed = 300.f;
 	Texture* _texture;
+	RoundAttackSkill* _roundAttack;
 };
 

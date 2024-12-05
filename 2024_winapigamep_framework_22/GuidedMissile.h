@@ -19,6 +19,8 @@ private:
 	float _rotation = 0;
 	float _lifetime = 3.f;
 	float _spawnedTime = 0.f;
+	float _prevAttack = 0;
+	float _attackDelay = 0.5f;
 
 	Object* target;
 };

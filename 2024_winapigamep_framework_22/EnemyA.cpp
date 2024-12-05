@@ -36,7 +36,7 @@ EnemyA::EnemyA()
 		->CreateAnimation(L"Enemy01Idle", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 3, 0.2f);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy01Idle", true, 5);
 	GetComponent<HealthCompo>()->SetOffsetY(50);
-	GetComponent<HealthCompo>()->SetHp(100);
+	GetComponent<HealthCompo>()->SetHp(100,100);
 }
 
 EnemyA::~EnemyA()
@@ -69,7 +69,7 @@ void EnemyA::Update()
 		dir -= GetPos();
 
 		_prevShootTime = TIME;
-		GetComponent<AttackCompo>()->TryFireBullet(dir);
+		GetComponent<AttackCompo>()->TryFireBullet(dir, 500);
 	}
 
 	if (_prevDash + 2 < TIME)

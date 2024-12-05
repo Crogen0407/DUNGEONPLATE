@@ -8,23 +8,25 @@
 #include "ExplosionEffect.h"
 #include "SceneManager.h"
 #include "Scene.h"
+#include "AttackCompo.h"
 #include "HealthCompo.h"
 
 GuidedMissile::GuidedMissile()
 {
-	damage = 3;
+	_damage = 3;
 	_hitEnemy = false;
 	SetSize({ 20,20 });
 	_texture = LOADTEXTURE(L"EnemyMissile", L"Texture\\EnemyMissile.bmp");
 	AddComponent<Collider>();
 	AddComponent<SpriteRenderer>();
+	AddComponent<AttackCompo>();
 
 	GetComponent<Collider>()->SetSize({ 20.f,20.f });
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
 
 	target = FindObject(L"Player", LAYER::PLAYER);
 	_spawnedTime = TIME;
-	speed = 400;
+	_speed = 400;
 
 	/*_dir = target->GetPos();
 	_dir -= GetPos();
@@ -58,8 +60,19 @@ void GuidedMissile::Update()
 		_dir = { cos(_rotation), sin(_rotation) };
 	}
 
-	vPos.x += _dir.x * speed * fDT;
-	vPos.y += _dir.y * speed * fDT;
+	if (_prevAttack + _attackDelay < TIME)
+	{
+		_prevAttack = TIME;
+
+		Vec2 dir1 = { cos(_rotation + 150 * Deg2Rad), sin(_rotation + 150 * Deg2Rad) };
+		Vec2 dir2 = { cos(_rotation - 150 * Deg2Rad), sin(_rotation - 150 * Deg2Rad) };
+
+		GetComponent<AttackCompo>()->TryFireBullet(dir1, 200);
+		GetComponent<AttackCompo>()->TryFireBullet(dir2, 200);
+	}
+
+	vPos.x += _dir.x * _speed * fDT;
+	vPos.y += _dir.y * _speed * fDT;
 	SetPos(vPos);
 
 	if (_spawnedTime + _lifetime < TIME)
@@ -102,7 +115,7 @@ void GuidedMissile::EnterCollision(Collider* _other)
 		HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
 		if (health != nullptr)
-			health->ApplyDamage(damage); 
+			health->ApplyDamage(_damage); 
 		
 		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 		explosion->SetPos(GetPos());

@@ -32,7 +32,7 @@ EnemyB::EnemyB()
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 
 	GetComponent<HealthCompo>()->SetOffsetY(60);
-	GetComponent<HealthCompo>()->SetHp(100);
+	GetComponent<HealthCompo>()->SetHp(100,100);
 }
 
 EnemyB::~EnemyB()
@@ -70,7 +70,7 @@ void EnemyB::Update()
 		for (int i = 0; i < 4; i++)
 		{
 			Vec2 attackDir = { sin(_rotation * Deg2Rad), cos(_rotation * Deg2Rad) };
-			GetComponent<AttackCompo>()->TryFireBullet(attackDir);
+			GetComponent<AttackCompo>()->TryFireBullet(attackDir, 500);
 
 			_rotation += 90;
 		}

@@ -18,11 +18,12 @@ AttackCompo::~AttackCompo()
 {
 }
 
-void AttackCompo::TryFireBullet(Vec2 dir)
+void AttackCompo::TryFireBullet(Vec2 dir, float speed = 500)
 {
-	Projectile* projectile = new EnemyBullet();
+	EnemyBullet* projectile = new EnemyBullet();
 	projectile->SetPos(GetOwner()->GetPos());
 	projectile->SetDir(dir);
+	projectile->SetSpeed(speed);
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()
 		->AddObject(projectile, LAYER::PROJECTILE);

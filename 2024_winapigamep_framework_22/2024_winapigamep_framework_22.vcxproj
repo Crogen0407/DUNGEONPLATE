@@ -193,6 +193,7 @@
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EnemyC.h" />
     <ClInclude Include="EnemyD.h" />
+    <ClInclude Include="EnemyE.h" />
     <ClInclude Include="EnemyPaternA.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enums.h" />
@@ -295,6 +296,7 @@
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyC.cpp" />
     <ClCompile Include="EnemyD.cpp" />
+    <ClCompile Include="EnemyE.cpp" />
     <ClCompile Include="EnemyPaternA.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="EventManager.cpp" />

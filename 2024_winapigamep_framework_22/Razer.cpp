@@ -12,7 +12,7 @@
 
 Razer::Razer(float lifeTime)
 {
-	damage = 2;
+	_damage = 2;
 	SetSize({ 0,0 });
 	_lifeTime = lifeTime;
 	_texture = LOADTEXTURE(L"Razer", L"Texture\\Razer.bmp");
@@ -79,7 +79,7 @@ void Razer::StayCollision(Collider* _other)
 			HealthCompo* health = _other->GetOwner()->GetComponent<HealthCompo>();
 
 			if (health != nullptr)
-				health->ApplyDamage(damage);
+				health->ApplyDamage(_damage);
 		}
 	}
 }
