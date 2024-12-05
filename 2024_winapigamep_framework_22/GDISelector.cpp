@@ -23,6 +23,12 @@ GDISelector::GDISelector(HDC _hdc, BRUSH_TYPE _eBrush)
 	m_hDefaultBrush = (HBRUSH)SelectObject(_hdc, hColorBrush);
 }
 
+GDISelector::GDISelector(HDC _hdc, COLORREF _eColor)
+{
+	HBRUSH hSolid = ::CreateSolidBrush(_eColor);
+	m_hDefaultBrush = (HBRUSH)SelectObject(_hdc, hSolid);
+}
+
 GDISelector::GDISelector(HDC _hdc, HFONT _font)
 	: m_hDC(_hdc)
 	, m_hDefaultBrush(nullptr)

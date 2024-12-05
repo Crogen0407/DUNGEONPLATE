@@ -172,7 +172,7 @@
     <ClInclude Include="AttackCompo.h" />
     <ClInclude Include="AttackDirArrow.h" />
     <ClInclude Include="AttackRange.h" />
-    <ClInclude Include="BackGround.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BounceBulletSkill.h" />
@@ -250,7 +250,7 @@
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="Stage3.h" />
-    <ClInclude Include="StageManager.h" />
+    <ClInclude Include="StageLoader.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
@@ -272,7 +272,7 @@
     <ClCompile Include="AttackCompo.cpp" />
     <ClCompile Include="AttackDirArrow.cpp" />
     <ClCompile Include="AttackRange.cpp" />
-    <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BounceBulletSkill.cpp" />
@@ -349,7 +349,7 @@
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="Stage3.cpp" />
-    <ClCompile Include="StageManager.cpp" />
+    <ClCompile Include="StageLoader.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />

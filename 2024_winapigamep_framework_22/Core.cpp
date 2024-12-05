@@ -93,6 +93,7 @@ void Core::MainRender()
 	::PatBlt(m_hBackDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, WHITENESS);
 	// 2. Render
 	GET_SINGLE(SceneManager)->Render(m_hBackDC);
+	GET_SINGLE(FadeManager)->Render(m_hBackDC);
 	// 3. display	
 	::BitBlt(m_hDC, 0,0, SCREEN_WIDTH,SCREEN_HEIGHT,
 			m_hBackDC,0,0, SRCCOPY);

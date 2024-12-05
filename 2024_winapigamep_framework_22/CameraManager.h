@@ -2,12 +2,12 @@
 class CameraManager 
 {
 public:
-    CameraManager();
+    CameraManager(HWND targetWindow = nullptr);
     ~CameraManager();
 public:
     void ShakeConsoleWindow(int duration, int power);
 private:
-    HWND m_consoleWindow;
+    HWND m_targetWindow;
     int m_originalX;
     int m_originalY;
 private:

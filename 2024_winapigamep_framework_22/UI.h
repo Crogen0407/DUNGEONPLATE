@@ -35,6 +35,10 @@ public:
     {
         this->pos = pos;
     }
+    void AddPos(const Vec2& pos)
+    {
+        this->pos += pos;
+    }
     void SetSize(Vec2 size)
     {
         this->size = size;

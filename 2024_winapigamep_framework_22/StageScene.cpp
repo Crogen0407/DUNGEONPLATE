@@ -2,8 +2,8 @@
 #include "Player.h"   
 #include "StageScene.h"
 #include "CameraManager.h"
-#include "StageManager.h"
-#include "BackGround.h"
+#include "StageLoader.h"
+#include "Background.h"
 #include "EnemyA.h"
 #include "EnemyB.h"
 #include "EnemyC.h"
@@ -39,7 +39,7 @@ void StageScene::Init()
     {
         for (int j = 0; j < gridSize; j++)
         {
-            grid[i][j] = new BackGround;
+            grid[i][j] = new Background;
 
             grid[i][j]->SetPos({ startX + i * cellSizeX, startY + j * cellSizeY });
             grid[i][j]->SetSize({ cellSizeX, cellSizeY });
@@ -49,12 +49,12 @@ void StageScene::Init()
 
 void StageScene::SetEnemyCount()
 {
-    if (m_currentStage == 1)
-        StageManager::GetInstance()->enemyCount = 10;
+   /* if (m_currentStage == 1)
+        StageLoader::GetInstance()->enemyCount = 10;
     else if (m_currentStage == 2)
-        StageManager::GetInstance()->enemyCount = 15;
+        StageLoader::GetInstance()->enemyCount = 15;
     else if (m_currentStage == 3)
-        StageManager::GetInstance()->enemyCount = 20;
+        StageLoader::GetInstance()->enemyCount = 20;*/
 }
 
 void StageScene::Update()
@@ -82,10 +82,10 @@ void StageScene::Render(HDC _hdc)
 
     //enemySpawner.SpawnEnemy()
 
-    auto stageManager = StageManager::GetInstance();
+    //auto stageManager = StageLoader::GetInstance();
     
    /*if (stageManager->IsClear())
-    {
+    {=i
         else if (m_currentStage == 2) {
             stage2->Render(this, _hdc);
         }
@@ -100,7 +100,7 @@ void StageScene::Render(HDC _hdc)
     }*/
 }
 
-BackGround* StageScene::GetBackGroundAt(int x, int y)
+Background* StageScene::GetBackgroundAt(int x, int y)
 {
     return grid[x][y];
 }

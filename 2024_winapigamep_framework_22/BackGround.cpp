@@ -1,39 +1,57 @@
 #include "pch.h"
-#include "BackGround.h"
+#include "Background.h"
 #include "Collider.h"
 #include "EventManager.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "SpriteRenderer.h"
 
-BackGround::BackGround()
+Background::Background()
 {
-    m_backTexture = LOADTEXTURE(L"Background", L"Texture\\Background.bmp");
+	AddComponent<SpriteRenderer>();
+	_spriteRenderer = GetComponent<SpriteRenderer>();
+	_spriteRenderer->isRotatable = false;
+	_spriteRenderer->SetTexture(L"Background", L"Texture\\Background.bmp");
+
+	_font = CreateFont(40, 30,
+		0, 0, 0, 0, 0, 0, HANGEUL_CHARSET,
+		0, 0, 0, VARIABLE_PITCH | FF_ROMAN, L"PF스타더스트 Bold");
 }
 
-BackGround::~BackGround()
+Background::~Background()
+{
+
+}
+
+void Background::Update()
 {
 }
 
-void BackGround::Update()
+void Background::Render(HDC _hdc)
 {
-}
-
-void BackGround::Render(HDC _hdc)
-{
-    Vec2 vPos = GetPos();
-    Vec2 vSize = GetSize();
-
-    RECT_RENDER(_hdc, vPos.x, vPos.y, vSize.x, vSize.y);
-
-    if (m_backTexture && m_backTexture->GetTexDC())
-    {
-        TransparentBlt(_hdc,
-            vPos.x - vSize.x / 2, vPos.y - vSize.y / 2,
-            vSize.x, vSize.y,
-            m_backTexture->GetTexDC(), 0, 0,
-            m_backTexture->GetWidth(), m_backTexture->GetHeight(),
-            RGB(255, 0, 255));
-    }
-
     ComponentRender(_hdc);
+
+	if (_currentEnemyCount <= 0) return;
+	Vec2 pos = GetPos();
+	Vec2 size = GetSize();
+	::SetTextColor(_hdc, RGB(155, 188, 15));
+	HFONT oldFont = static_cast<HFONT>(SelectObject(_hdc, _font));
+
+	::SetBkMode(_hdc, 1);
+	RECT rect = { pos.x - size.x / 2, pos.y - size.y / 2, pos.x + size.x / 2, pos.y + size.y / 2 };  // 출력할 영역
+
+	::DrawText(_hdc, std::to_wstring(_currentEnemyCount).c_str(), -1, &rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+	SetTextColor(_hdc, RGB(0, 0, 0));
+	SelectObject(_hdc, oldFont);
+}
+
+void Background::SpawnEnemyByRandomPos(EnemyType enemyType)
+{
+	srand(time(NULL));
+
+	int ranX = (rand() % (int)GetSize().x) + GetPos().x;
+	int ranY = (rand() % (int)GetSize().y) + GetPos().y;
+
+	SpawnEnemy({ ranX, ranY }, enemyType);
 }

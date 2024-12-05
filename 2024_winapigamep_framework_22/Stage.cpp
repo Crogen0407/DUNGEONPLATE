@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "Stage.h"
+#include "SceneManager.h"
 #include "Scene.h"
 #include "Object.h"
-#include "CollisionManager.h"
+#include "Background.h"
+#include "EnemySpawner.h"
+#include "EventManager.h"
 
 Stage::Stage()
 {
@@ -10,53 +13,36 @@ Stage::Stage()
 
 Stage::~Stage()
 {
-	Release();
-}
-
-void Stage::Update()
-{
-	for (UINT i = 0; i < (UINT)LAYER::END; ++i)
-	{
-		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
-		{
-			if (!m_vecObj[i][j]->GetIsDead())
-				m_vecObj[i][j]->Update();
-		}
-	}
-}
-
-void Stage::LateUpdate()
-{
-	for (size_t i = 0; i < (UINT)LAYER::END; i++)
-	{
-		for (UINT j = 0; j < m_vecObj[i].size(); ++j)
-		{
-			m_vecObj[i][j]->LateUpdate();
-		}
-	}
-}
-
-void Stage::Render(HDC _hdc)
-{
-	for (UINT i = 0; i < (UINT)LAYER::END; ++i)
-	{
-		for (size_t j = 0; j < m_vecObj[i].size();)
-		{
-			if (!m_vecObj[i][j]->GetIsDead())
-				m_vecObj[i][j++]->Render(_hdc);
-			else
-				m_vecObj[i].erase(m_vecObj[i].begin() + j);
-		}
-	}
 }
 
 void Stage::Release()
 {
-	for (size_t i = 0; i < (UINT)LAYER::END; i++)
-	{
-		for (UINT j = 0; j < m_vecObj[i].size(); j++)
-		{
-			delete m_vecObj[i][j];
-		}
-	}
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (grid[i][j] == nullptr) continue;
+            GET_SINGLE(EventManager)->DeleteObject(grid[i][j]);
+        }
+    }
 }
+
+Background* Stage::AddBackground(int x, int y)
+{
+    Vec2 size = { SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3 };
+    Vec2 pos = { size.x * 0.5f + size.x * x, size.y * 0.5f + size.y * y };
+    grid[x][y] = new Background;
+    grid[x][y]->SetSize(size);
+    grid[x][y]->SetPos(pos);
+    ADDOBJECT(grid[x][y], LAYER::BACKGROUND);
+    return grid[x][y];
+}
+
+Background* Stage::AddBackground(int x, int y, bool isPlayerArea)
+{
+    AddBackground(x, y);
+    _playerPos = { x, y };
+    grid[x][y]->isPlayerArea = isPlayerArea;
+    return grid[x][y];
+}
+

@@ -58,7 +58,7 @@ const vector<Skill*> SkillManager::GetRendomSkills()
 		lastNum = i;
 	}
 
-	srand((unsigned int)TIME);
+	srand((unsigned int)time(NULL));
 
 	for (int i = 0; i < 30; i++)
 	{

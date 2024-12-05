@@ -1,5 +1,6 @@
 #pragma once
 class Object;
+class Background;
 class Stage
 {
 public:
@@ -7,20 +8,18 @@ public:
 	virtual ~Stage();
 public:
 	virtual void Init() abstract;
-	virtual void Update();
-	virtual void LateUpdate();
-	virtual void Render(HDC _hdc);
-	virtual void Release();
-	bool m_isClear = false;
+	void Release();
 public:
-	void AddObject(Object* _obj, LAYER _type)
+	Background* AddBackground(int x, int y);
+	Background* AddBackground(int x, int y, bool isPlayerArea);
+	int GetEnemyCount() const { return _enemyCount; }
+	const Background* GetPlayerArea() const
 	{
-		m_vecObj[(UINT)_type].push_back(_obj);
+		return grid[(int)_playerPos.x][(int)_playerPos.y];
 	}
-	const vector<Object*>& GetLayerObjects(LAYER _type)
-	{
-		return m_vecObj[(UINT)_type];
-	}
-private:
-	vector<Object*> m_vecObj[(UINT)LAYER::END];
+protected:
+	int _enemyCount;
+	Background* grid[3][3];
+	Vec2 _playerPos;
+	bool m_isClear = false;
 };

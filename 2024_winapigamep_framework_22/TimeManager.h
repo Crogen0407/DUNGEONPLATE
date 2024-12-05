@@ -8,6 +8,7 @@ public:
 public:
 	const float& GetDT() const { return m_dT; }
 	const float& GetUnscaledDT() const { return m_unscaledDT; }
+	const float& GetUnscaledTime() const { return m_unscaledTime; }
 	const float& GetTime() const { return m_time; }
 public:
 	float timeScale = 1.f;
@@ -19,6 +20,7 @@ private:
 	float		  m_dT = 0.f;
 	float		  m_unscaledDT = 0.f;
 	float		  m_time = 0.f;
+	float		  m_unscaledTime = 0.f;
 
 	// FPS(Frame Per Second)
 	UINT		  m_fps = 0;
