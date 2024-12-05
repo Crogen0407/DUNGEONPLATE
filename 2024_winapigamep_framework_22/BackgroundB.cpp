@@ -1,24 +1,24 @@
 #include "pch.h"
-#include "BackgroundA.h"
+#include "BackgroundB.h"
 #include "TimeManager.h"
 
-BackgroundA::BackgroundA()
+BackgroundB::BackgroundB()
 {
 	_currentEnemyCount = 1;
 	_spawnDelayTime = 100.f;
 	_currentTime = _spawnDelayTime;
 }
 
-BackgroundA::~BackgroundA()
+BackgroundB::~BackgroundB()
 {
 }
 
-void BackgroundA::Update()
+void BackgroundB::Update()
 {
 	_currentTime += fDT;
 	if (_currentTime > _spawnDelayTime)
 	{
-		SpawnEnemyByRandomPos(EnemyType::EnemyA);
+		SpawnEnemyByRandomPos(EnemyType::EnemyB);
 		_currentTime = 0.f;
 	}
 }
