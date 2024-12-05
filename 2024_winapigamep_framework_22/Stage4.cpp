@@ -1,21 +1,20 @@
 #include "pch.h"
-#include "Stage1.h"
+#include "Stage4.h"
 #include "BackgroundA.h"
 #include "BackgroundB.h"
 #include "BackgroundC.h"
 #include "BackgroundD.h"
 #include "BackgroundE.h"
 
-Stage1::Stage1()
+Stage4::Stage4()
 {
 }
 
-Stage1::~Stage1()
+Stage4::~Stage4()
 {
 }
 
-void Stage1::Init()
+void Stage4::Init()
 {
-    AddBackground<BackgroundA>(1, 2, true);
-    AddBackground<BackgroundB>(1, 1);
+	AddBackground<BackgroundA>(0, 0);
 }
