@@ -5,6 +5,8 @@
 #include "BackgroundC.h"
 #include "BackgroundD.h"
 #include "BackgroundE.h"
+#include "BackgroundNull.h"
+
 
 Stage4::Stage4()
 {
