@@ -26,10 +26,6 @@ void AttackCompo::TryFireBullet(Vec2 dir, float speed)
 		= dynamic_cast<EnemyBullet*>(POP(L"EnemyBullet", GetOwner()->GetPos()));
 	projectile->SetDir(dir);
 	projectile->SetSpeed(speed);
-
-	GET_SINGLE(SceneManager)->GetCurrentScene()
-		->AddObject(projectile, LAYER::PROJECTILE);
-
 }
 
 void AttackCompo::TryFireBounceBullet(Vec2 dir)
