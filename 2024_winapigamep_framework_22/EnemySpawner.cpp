@@ -17,7 +17,7 @@ EnemySpawner::~EnemySpawner()
 {
 }
 
-void EnemySpawner::SpawnEnemy(Vec2 pos, EnemyType enemyType)
+Enemy* EnemySpawner::SpawnEnemy(Vec2 pos, EnemyType enemyType)
 {
 	Enemy* enemy;
 
@@ -45,4 +45,6 @@ void EnemySpawner::SpawnEnemy(Vec2 pos, EnemyType enemyType)
 
 	enemy->SetPos(pos);
 	ADDOBJECT(enemy, LAYER::ENEMY);
+
+	return enemy;
 }

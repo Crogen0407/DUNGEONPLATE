@@ -35,16 +35,7 @@ void StageScene::Init()
     const int startX = (SCREEN_WIDTH - totalGridSize) / 2 + 160;
     const int startY = (SCREEN_HEIGHT - totalGridSize) / 2 + 140;
 
-    for (int i = 0; i < gridSize; i++)
-    {
-        for (int j = 0; j < gridSize; j++)
-        {
-            grid[i][j] = new Background;
-
-            grid[i][j]->SetPos({ startX + i * cellSizeX, startY + j * cellSizeY });
-            grid[i][j]->SetSize({ cellSizeX, cellSizeY });
-        }
-    }
+    
 }
 
 void StageScene::SetEnemyCount()

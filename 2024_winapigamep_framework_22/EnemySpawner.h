@@ -1,5 +1,5 @@
 #pragma once
-
+class Enemy;
 enum class EnemyType
 {
 	EnemyA,
@@ -15,5 +15,5 @@ public:
 	EnemySpawner();
 	~EnemySpawner();
 
-	void SpawnEnemy(Vec2 pos, EnemyType enemyType);
+	Enemy* SpawnEnemy(Vec2 pos, EnemyType enemyType);
 };

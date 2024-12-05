@@ -5,6 +5,10 @@
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "SpriteRenderer.h"
+#include "Stage.h"
+#include "StageLoader.h"
+#include "Enemy.h"
+#include "HealthCompo.h"
 
 Background::Background()
 {
@@ -20,15 +24,13 @@ Background::Background()
 	_font = CreateFont(40, 30,
 		0, 0, 0, 0, 0, 0, HANGEUL_CHARSET,
 		0, 0, 0, VARIABLE_PITCH | FF_ROMAN, L"PF스타더스트 Bold");
+
+	_enemySpawner = new EnemySpawner;
 }
 
 Background::~Background()
 {
-
-}
-
-void Background::Update()
-{
+	delete(_enemySpawner);
 }
 
 void Background::Render(HDC _hdc)
@@ -50,12 +52,24 @@ void Background::Render(HDC _hdc)
 	SelectObject(_hdc, oldFont);
 }
 
+void Background::SubtractEnemyCount()
+{
+	if (_currentEnemyCount <= 0) return;
+	--_currentEnemyCount;
+	owner->stageLoader->TryNextStage();
+}
+
 void Background::SpawnEnemyByRandomPos(EnemyType enemyType)
 {
+	if (_currentEnemyCount <= 0) return;
 	srand(time(NULL));
 
 	int ranX = (rand() % (int)GetSize().x) + GetPos().x;
 	int ranY = (rand() % (int)GetSize().y) + GetPos().y;
-
-	SpawnEnemy({ ranX, ranY }, enemyType);
+	Enemy* enemy = _enemySpawner->SpawnEnemy({ ranX, ranY }, enemyType);
+	enemy->GetComponent<HealthCompo>()->DieEvent += 
+		[this](int _)
+		{
+			SubtractEnemyCount();
+		};
 }
