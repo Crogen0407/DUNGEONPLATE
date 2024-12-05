@@ -16,6 +16,7 @@
 GameScene::GameScene() :
 	_stageLoader(nullptr)
 {
+	_stageLoader = std::make_unique<StageLoader>();
 }
 
 GameScene::~GameScene()
@@ -33,7 +34,6 @@ void GameScene::Init()
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 
-	_stageLoader = new StageLoader;
 	_stageLoader->Init();
 
 	_gameCanvas = new GameCanvas;
@@ -49,7 +49,6 @@ void GameScene::Init()
 void GameScene::Release()
 {
 	Scene::Release();
-	delete(_stageLoader);
 	_stageLoader = nullptr;
 	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 	GET_SINGLE(SkillManager)->Release();

@@ -23,7 +23,7 @@ public:
     void Render(HDC hdc) override;
     void SetEnemyCount();
 private:
-    StageLoader* _stageLoader;
+    std::unique_ptr<StageLoader> _stageLoader;
     Canvas* _gameCanvas;
     Canvas* _skillCanvas;
 };
