@@ -257,6 +257,7 @@
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="Stage3.h" />
     <ClInclude Include="Stage4.h" />
+    <ClInclude Include="Stage5.h" />
     <ClInclude Include="StageLoader.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="State.h" />
@@ -363,6 +364,7 @@
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="Stage4.cpp" />
+    <ClCompile Include="Stage5.cpp" />
     <ClCompile Include="StageLoader.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="State.cpp" />

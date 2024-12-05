@@ -13,10 +13,9 @@ Stage2::~Stage2()
 
 void Stage2::Init()
 {
-    AddBackground<BackgroundA>(0, 0);
     AddBackground<BackgroundA>(0, 1);
-    AddBackground<BackgroundA>(0, 2);
+    AddBackground<BackgroundA>(1, 1);
     AddBackground<BackgroundA>(1, 2);
-    AddBackground<BackgroundA>(1, 1, true);
+    AddBackground<BackgroundA>(2, 1, true);
 }
 
