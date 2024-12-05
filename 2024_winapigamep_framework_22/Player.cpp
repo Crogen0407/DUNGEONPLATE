@@ -75,10 +75,6 @@ void Player::Update()
 		dir += Vec2(1, 0);
 	if (GET_KEYDOWN(KEY_TYPE::LBUTTON))
 	{
-		{
-			std::cout << "АјАн" << endl;
-			AttackEvent.Invoke(NULL);
-		}
 		if (TIMESCALE <= 0.01f) return;
 		Parry();
 	}
@@ -117,6 +113,7 @@ void Player::Parry()
 		return;
 	}
 	curParryTime = 0;
+	AttackEvent.Invoke(NULL);
 
 	{
 		Vec2 effectPos = GetPos();

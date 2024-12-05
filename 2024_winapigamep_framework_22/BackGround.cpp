@@ -52,15 +52,8 @@ void Background::Render(HDC _hdc)
 	SelectObject(_hdc, oldFont);
 }
 
-void Background::SubtractEnemyCount()
-{
-	if (_maxEnemyCount - _currentSpawnedEnemyCount > 0) return;
-	owner->stageLoader->TryNextStage();
-}
-
 void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 {
-	cout << isClear << endl;
 	if (_currentSpawnedEnemyCount >= _maxEnemyCount)
 	{
 		isClear = true;
@@ -73,6 +66,8 @@ void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 		[this](int _)
 		{
 			_currentEnemyCount+=1;
+			if (_maxEnemyCount - _currentEnemyCount > 0) return;
+			owner->stageLoader->TryNextStage();
 		};
 }
 

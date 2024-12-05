@@ -44,6 +44,10 @@ void StageLoader::TryNextStage()
 {
 	if (IsClearAllBackground())
 	{
+		cout << endl;
+		cout << "NEXT";
+		cout << endl;
+
 		NextStage();
 	}
 }
@@ -52,7 +56,6 @@ void StageLoader::NextStage()
 {
 	if (_currentStage != nullptr)
 		_currentStage->Release();
-
 
 	_currentStage = _stages[_stageNum].get();
 	_currentStage->Init();

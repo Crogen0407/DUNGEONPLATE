@@ -16,8 +16,6 @@ public:
 public:
     virtual void Update() abstract override;
     void Render(HDC _hdc) override;
-public:
-    void SubtractEnemyCount();
 protected:
     void SpawnEnemy(EnemyType enemyType, const Vec2& pos);
     void SpawnEnemyByRandomPos(EnemyType enemyType);
