@@ -5,9 +5,10 @@
 #include "ResourceManager.h"
 #include "SceneManager.h"
 #include "Collider.h"
-#include "EventManager.h"
 #include "HealthCompo.h"
+#include "PoolableObject.h"
 #include "Scene.h"
+#include "PoolManager.h"
 
 Projectile::Projectile() : _dir(1.f, 1.f)
 {
@@ -64,8 +65,9 @@ void Projectile::EnterCollision(Collider* _other)
 		if (health != nullptr)
 			health->ApplyDamage(_damage);
 
-		Object* pOtherObj = _other->GetOwner();
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		PUSH(_poolName, this);
+		/*Object* pOtherObj = _other->GetOwner();
+		GET_SINGLE(EventManager)->DeleteObject(this);*/
 	}
 }
 
@@ -79,6 +81,15 @@ void Projectile::ExitCollision(Collider* _other)
 
 void Projectile::Parry()
 {
+	SetSpeed(_speed * 1.5f);
 	SetDir(GetDir() * -1);
 	_hitEnemy = true;
+}
+
+void Projectile::OnPop()
+{
+}
+
+void Projectile::OnPush()
+{
 }

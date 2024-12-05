@@ -1,15 +1,14 @@
 #include "pch.h"
 #include "EnemyBounceBullet.h"
 #include "TimeManager.h"
-#include "EventManager.h"
+#include "PoolManager.h"
 #include "Collider.h"
 #include "SpriteRenderer.h"
 
 EnemyBounceBullet::EnemyBounceBullet()
 {
+	_poolName = L"EnemyBounceBullet";
 	_damage = 2;
-	_hitEnemy = false;
-	remainBounce = bounceCnt;
 	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
 
 	SetSize({ 20.f,20.f });
@@ -47,10 +46,20 @@ void EnemyBounceBullet::Update()
 
 
 	if (remainBounce <= 0)
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		PUSH(_poolName, this);
 }
 
 void EnemyBounceBullet::Render(HDC _hdc)
 {
 	ComponentRender(_hdc);
+}
+
+void EnemyBounceBullet::OnPop()
+{
+	_hitEnemy = false;
+	remainBounce = bounceCnt;
+}
+
+void EnemyBounceBullet::OnPush()
+{
 }

@@ -9,6 +9,8 @@
 #include "EnemyBullet.h"
 #include "EnemyBounceBullet.h"
 #include "Razer.h"
+#include "PoolManager.h"
+#include "PoolableObject.h"
 
 AttackCompo::AttackCompo()
 {
@@ -18,10 +20,10 @@ AttackCompo::~AttackCompo()
 {
 }
 
-void AttackCompo::TryFireBullet(Vec2 dir, float speed = 500)
+void AttackCompo::TryFireBullet(Vec2 dir, float speed)
 {
-	EnemyBullet* projectile = new EnemyBullet();
-	projectile->SetPos(GetOwner()->GetPos());
+	EnemyBullet* projectile 
+		= dynamic_cast<EnemyBullet*>(POP(L"EnemyBullet", GetOwner()->GetPos()));
 	projectile->SetDir(dir);
 	projectile->SetSpeed(speed);
 
@@ -32,8 +34,8 @@ void AttackCompo::TryFireBullet(Vec2 dir, float speed = 500)
 
 void AttackCompo::TryFireBounceBullet(Vec2 dir)
 {
-	Projectile* missile = new EnemyBounceBullet();
-	missile->SetPos(GetOwner()->GetPos());
+	EnemyBounceBullet* missile 
+		= dynamic_cast<EnemyBounceBullet*>(POP(L"EnemyBounceBullet", GetOwner()->GetPos()));
 	missile->SetDir(dir);
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()
@@ -52,8 +54,8 @@ void AttackCompo::TryFireRazer(float lifeTime)
 
 void AttackCompo::TryFireMissile(Vec2 dir)
 {
-	Projectile* missile = new GuidedMissile();
-	missile->SetPos(GetOwner()->GetPos());
+	GuidedMissile* missile
+		= dynamic_cast<GuidedMissile*>(POP(L"GuidedMissile", GetOwner()->GetPos()));
 	missile->SetDir(dir);
 
 	GET_SINGLE(SceneManager)->GetCurrentScene()

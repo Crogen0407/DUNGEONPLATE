@@ -53,5 +53,5 @@ void Background::SpawnEnemyByRandomPos(EnemyType enemyType)
 	int ranX = (rand() % (int)GetSize().x) + GetPos().x;
 	int ranY = (rand() % (int)GetSize().y) + GetPos().y;
 
-	SpawnEnemy({ ranX, ranY }, enemyType);
+	//SpawnEnemy({ ranX, ranY }, enemyType);
 }

@@ -28,6 +28,7 @@ void Movement::Dash(Vec2 dir, float speed, float time)
 	isDashing = true;
 	dashTime = time;
 	dashDir = dir;
+	dashDir.Normalize();
 }
 
 void Movement::LateUpdate()
@@ -36,14 +37,14 @@ void Movement::LateUpdate()
 	{
 		Vec2 position = GetOwner()->GetPos();
 		Vec2 size = GetOwner()->GetSize();
+		position += dashDir * dashSpeed * fDT;
 
 		if (dashStartTime + dashTime < TIME
-			|| position.x - (size.x / 2) < 0 || position.x + (size.x / 2) > SCREEN_WIDTH)
+			|| position.x < (size.x / 2) || position.x  > SCREEN_WIDTH - (size.x / 2))
 		{
 			isDashing = false;
 		}
 
-		position += dashDir * dashSpeed * fDT;
 		GetOwner()->SetPos(position);
 	}
 }

@@ -2,8 +2,7 @@
 #include "Enemy.h"
 
 class Texture;
-
-class Collider;
+class RoundAttackSkill;
 class EnemyE : public Enemy
 {
 public:
@@ -13,11 +12,11 @@ public:
 	// Enemy을(를) 통해 상속됨
 	void Update() override;
 	void Render(HDC _hdc) override;
-
-	void EnterCollision(Collider* _other) override;
 private:
 	Texture* _texture;
 	float _prevAttack = 0;
-	float _attackDelay = 0.5f;
+	float _attackDelay = 1.f;
+	float _rotation = 0;
+	RoundAttackSkill* _roundAttack;
 };
 

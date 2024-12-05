@@ -1,7 +1,7 @@
 #pragma once
-#include "Object.h"
+#include "PoolableObject.h"
 class Texture;
-class Projectile : public Object
+class Projectile : public PoolableObject
 {
 public:
 	Projectile();
@@ -28,9 +28,14 @@ public:
 	bool _hitEnemy = false;
 protected:
 	//float m_dir;
+	wstring _poolName;
 	Vec2 _dir;
 	Texture* _texture;
 	float _speed = 500.f;
 	int _damage;
+
+	// PoolableObject을(를) 통해 상속됨
+	virtual void OnPop() override;
+	virtual void OnPush() override;
 };
 

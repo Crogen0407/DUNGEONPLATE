@@ -29,10 +29,6 @@ void GameScene::Init()
 	player->SetPos({ SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
-
-	Object* obj = new EnemyC;
-	obj->SetPos({ rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT });
-	AddObject(obj, LAYER::ENEMY);
 	
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
@@ -46,7 +42,12 @@ void GameScene::Init()
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
+	EnemySpawner* spawner = new EnemySpawner();
+	spawner->SpawnEnemy({ 200,200 }, EnemyType::EnemyA);
+
+	//delete spawner;
+
+	//GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
 	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
 }
 
