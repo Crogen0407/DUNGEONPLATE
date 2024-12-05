@@ -43,8 +43,13 @@ void Scene::Render(HDC _hdc)
 	{
 		for (size_t j = 0; j < m_vecObj[i].size();)
 		{
-			if (!m_vecObj[i][j]->GetIsDead() == true || m_vecObj[i][j]->GetActive() == false)
+			if (!m_vecObj[i][j]->GetIsDead() == true)
 			{
+				if (m_vecObj[i][j]->GetActive() == false)
+				{
+					j++;
+					continue;
+				}
 				m_vecObj[i][j++]->Render(_hdc);
 			}
 			else
