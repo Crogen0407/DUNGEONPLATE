@@ -15,7 +15,6 @@ Action<int> StageLoader::StageLoadEvent = Action<int>();
 StageLoader::StageLoader()
 {
 	StageLoadEvent.Clear();
-	_enemySpawner = std::make_unique<EnemySpawner>();
 }
 
 StageLoader::~StageLoader()

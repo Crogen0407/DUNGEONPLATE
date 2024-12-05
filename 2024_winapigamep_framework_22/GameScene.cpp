@@ -18,8 +18,6 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
-	if (_stageLoader != nullptr)
-		delete(_stageLoader);
 }
 
 void GameScene::Init()

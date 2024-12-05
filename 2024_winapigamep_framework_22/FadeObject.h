@@ -8,7 +8,7 @@ class FadeObject :
 {
 public:
     FadeObject();
-    ~FadeObject() override;
+    ~FadeObject();
 public:
     void Update() override; 
     void LateUpdate() override;

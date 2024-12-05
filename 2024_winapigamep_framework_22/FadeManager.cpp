@@ -14,6 +14,7 @@ FadeManager::~FadeManager()
 
 void FadeManager::Init()
 {
+	_fadeObject = new FadeObject;
 }
 
 void FadeManager::Update()
@@ -26,25 +27,17 @@ void FadeManager::Update()
 			GET_SINGLE(EventManager)->LoadScene(_sceneName);
 			_isSceneFading = false;
 			_sceneLoadComplete = false;
-			_fadeObject = nullptr;
 			FadeIn();
 		}
 	}
 
-	if (_fadeObject == nullptr) return;
 	_fadeObject->Update();
 	_fadeObject->LateUpdate();
 }
 
 void FadeManager::Render(HDC hdc)
 {
-	if (_fadeObject == nullptr) return;
 	_fadeObject->Render(hdc);
-}
-
-void FadeManager::CreateFadeObject()
-{
-	_fadeObject = new FadeObject;
 }
 
 void FadeManager::LoadScene(std::wstring sceneName)
@@ -56,14 +49,10 @@ void FadeManager::LoadScene(std::wstring sceneName)
 
 void FadeManager::FadeIn()
 {
-	if (_fadeObject == nullptr)
-		CreateFadeObject();
 	_fadeObject->FadeIn();
 }
 
 void FadeManager::FadeOut()
 {
-	if (_fadeObject == nullptr)
-		CreateFadeObject();
 	_fadeObject->FadeOut();
 }

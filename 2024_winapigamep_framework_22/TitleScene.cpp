@@ -25,8 +25,8 @@ void TitleScene::Init()
 	AddObject(_canvas, LAYER::UI);
 
 	//BGM Àç»ý
-	GET_SINGLE(ResourceManager)->LoadSound(L"Retro_bgm", L"Sound\\Retro_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Retro_bgm");
+	GET_SINGLE(ResourceManager)->LoadSound(L"Title_bgm", L"Sound\\Title_bgm.wav", true);
+	GET_SINGLE(ResourceManager)->Play(L"Title_bgm");
 }
 
 void TitleScene::Release()
