@@ -14,7 +14,7 @@ Action<int> StageLoader::StageLoadEvent = Action<int>();
 
 StageLoader::StageLoader()
 {
-	StageLoadEvent.Clear();
+	
 }
 
 StageLoader::~StageLoader()
@@ -23,11 +23,15 @@ StageLoader::~StageLoader()
 
 void StageLoader::Init()
 {
+	_currentStage = nullptr;
+	_stageNum = 0;
+	_stages.clear();
 	RegisterStage<Stage1>();
 	RegisterStage<Stage2>();
 	RegisterStage<Stage3>();
 
 	NextStage();
+	_isFirstInit = false;
 }
 
 void StageLoader::Update()

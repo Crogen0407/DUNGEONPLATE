@@ -49,7 +49,6 @@ void GameScene::Init()
 void GameScene::Release()
 {
 	Scene::Release();
-	_stageLoader = nullptr;
 	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 	GET_SINGLE(SkillManager)->Release();
 }

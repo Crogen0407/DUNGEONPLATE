@@ -24,7 +24,7 @@ GameCanvas::GameCanvas() :
 	timeText(nullptr)
 {
 	SetName(L"GameCanvas");
-
+	GET_SINGLE(XPManager)->Init();
 	int offset = 30;
 	Player* player = static_cast<Player*>(FindObject(L"Player", LAYER::PLAYER));
 	PlayerHealthCompo* playerHealthCompo = player->GetComponent<PlayerHealthCompo>();
@@ -164,11 +164,11 @@ GameCanvas::GameCanvas() :
 		floorText->SetColor(RGB(15, 56, 15));
 		floorText->SetPitchAndFamily(DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 
-		StageLoader::StageLoadEvent +=
+		/*StageLoader::StageLoadEvent +=
 			[ct = floorText](int stage)
 			{
 				ct->SetText(std::to_wstring(stage));
-			};
+			};*/
 
 	}
 

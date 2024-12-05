@@ -30,4 +30,5 @@ public:
 private:
 	Stage* _currentStage = nullptr;
 	int _stageNum = 0;
+	bool _isFirstInit = true;
 };

@@ -4,6 +4,8 @@ class XPManager
 {
 	DECLARE_SINGLE(XPManager);
 public:
+	void Init();
+public:
 	const float GetXP() const
 	{
 		return _xp;

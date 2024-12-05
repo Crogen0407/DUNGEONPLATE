@@ -75,6 +75,10 @@ void Player::Update()
 		dir += Vec2(1, 0);
 	if (GET_KEYDOWN(KEY_TYPE::LBUTTON))
 	{
+		{
+			std::cout << "АјАн" << endl;
+			AttackEvent.Invoke(NULL);
+		}
 		if (TIMESCALE <= 0.01f) return;
 		Parry();
 	}
@@ -161,10 +165,7 @@ void Player::Parrying()
 		}
 	}
 
-	GET_SINGLE(ResourceManager)->Play(L"Sword");
-
-	if (projectiles.size() > 0)
-		AttackEvent.Invoke(NULL);
+	GET_SINGLE(ResourceManager)->Play(L"Sword");	
 
 	if (parried)
 		isParrying = false;

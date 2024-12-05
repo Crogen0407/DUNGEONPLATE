@@ -13,10 +13,9 @@ ParrySparkEffect::ParrySparkEffect()
 	SetSize({ 100,100 });
 	Texture* texture = LOADTEXTURE(L"ParrySparkEffect", L"Texture\\Effect\\ParrySparkEffect.bmp");
 	Vec2 texSize = { (int)texture->GetWidth() / 4, (int)texture->GetHeight() };
+	_lifeTime = 0.2f;
 	_animator = GetComponent<Animator>();
-	_animator->CreateAnimation(L"ParrySpark", texture, { 0,0 }, texSize, { (int)texSize.x,0 }, 4, 0.1f, false);
-
-	_lifeTime = 0.15f;
+	_animator->CreateAnimation(L"ParrySpark", texture, { 0,0 }, texSize, { (int)texSize.x,0 }, 4, _lifeTime/4.f, false);
 }
 
 ParrySparkEffect::~ParrySparkEffect()
@@ -39,7 +38,7 @@ void ParrySparkEffect::Render(HDC _hdc)
 
 void ParrySparkEffect::OnPop()
 {
-	_animator->PlayAnimation(L"ParrySpark", true);
+	_animator->PlayAnimation(L"ParrySpark", false);
 }
 
 void ParrySparkEffect::OnPush()
