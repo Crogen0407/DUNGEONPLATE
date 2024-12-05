@@ -19,6 +19,7 @@ public:
 public:
     void SubtractEnemyCount();
 protected:
+    void SpawnEnemy(EnemyType enemyType, const Vec2& pos);
     void SpawnEnemyByRandomPos(EnemyType enemyType);
 public:
     bool isPlayerArea = false;
@@ -26,7 +27,9 @@ public:
 protected:
     EnemySpawner* _enemySpawner;
     SpriteRenderer* _spriteRenderer;
-    int _currentEnemyCount = 10;
+    int _currentEnemyCount = 0;
+    int _currentSpawnedEnemyCount = 0;
+    int _maxEnemyCount = 10;
     HFONT _font;
 };
 

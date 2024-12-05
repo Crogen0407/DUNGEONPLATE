@@ -4,7 +4,7 @@
 
 BackgroundB::BackgroundB()
 {
-	_currentEnemyCount = 1;
+	_currentSpawnedEnemyCount = 1;
 	_spawnDelayTime = 100.f;
 	_currentTime = _spawnDelayTime;
 }
