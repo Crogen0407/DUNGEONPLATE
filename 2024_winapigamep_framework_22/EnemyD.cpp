@@ -42,7 +42,7 @@ void EnemyD::Update()
 {
 	if (_startTime + _lifeTime < TIME)
 	{
-		OnDie();
+		GetComponent<HealthCompo>()->ApplyDamage(9999);
 	}
 
 	Vec2 dir = _target->GetPos();
@@ -53,7 +53,7 @@ void EnemyD::Update()
 
 	if (length < 100)
 	{
-		OnDie();
+		GetComponent<HealthCompo>()->ApplyDamage(9999);
 
 		_target->GetComponent<HealthCompo>()->ApplyDamage(10);
 	}
