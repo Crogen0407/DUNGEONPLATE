@@ -23,7 +23,7 @@ EnemyC::EnemyC()
 		->CreateAnimation(L"Enemy02Idle", _texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 7, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 	GetComponent<HealthCompo>()->SetOffsetY(60);
-	GetComponent<HealthCompo>()->SetHp(100, 100);
+	GetComponent<HealthCompo>()->SetHp(30, 30);
 
 	_prevShootTime = TIME;
 }
@@ -34,25 +34,6 @@ EnemyC::~EnemyC()
 
 void EnemyC::Update()
 {
-	if (_isDead)
-	{
-		Vec2 vSize = GetSize();
-		Vec2 curPos = GetPos();
-		curPos += _knockDir * 500 * fDT;
-		_rotation += 420 * fDT;
-
-		SetPos(curPos);
-		//GetComponent<SpriteRenderer>()->SetAngle(_rotation, true);
-
-		if (curPos.x < -vSize.x / 2 || curPos.x > SCREEN_WIDTH + vSize.x / 2
-			|| curPos.y < -vSize.y / 2 || curPos.y > SCREEN_HEIGHT + vSize.y / 2)
-		{
-			GET_SINGLE(EventManager)->DeleteObject(this);
-		}
-		return;
-	}
-
-
 	if (_prevShootTime + _shootDelay < TIME)
 	{
 		_prevShootTime = TIME;

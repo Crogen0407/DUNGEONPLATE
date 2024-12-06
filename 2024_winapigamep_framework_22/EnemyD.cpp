@@ -39,14 +39,6 @@ EnemyD::~EnemyD()
 
 void EnemyD::Update()
 {
-	if (_isDead)
-	{
-		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect01");
-		explosion->SetPos(GetPos());
-		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
-		GET_SINGLE(EventManager)->DeleteObject(this);
-	}
-
 	if (_startTime + _lifeTime < TIME)
 	{
 		OnDie();

@@ -14,8 +14,13 @@ public:
 
 	void Parry() override;
 	void EnterCollision(Collider* _other) override;
+
+	// Projectile을(를) 통해 상속됨
+	void OnPop() override;
+	void OnPush() override;
 private:
 	bool _isParry = false;
+	bool _isSpawned = false;
 	float _rotation = 0;
 	float _lifetime = 3.f;
 	float _spawnedTime = 0.f;
@@ -24,8 +29,5 @@ private:
 
 	Object* target;
 
-	// Projectile을(를) 통해 상속됨
-	void OnPop() override;
-	void OnPush() override;
 };
 
