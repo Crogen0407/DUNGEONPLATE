@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Background.h"
 #include "FadeManager.h"
+#include "TimeManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h"
@@ -55,8 +56,16 @@ void StageLoader::Init()
 
 void StageLoader::Update()
 {
-	if (_currentStage == nullptr)
-		return;
+	if (_isMovingStage)
+	{
+		_curMoveDelay += fDT;
+		if (_curMoveDelay > _moveDelay)
+		{
+			_isMovingStage = false;
+			GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
+			_curMoveDelay = 0.f;
+		}
+	}
 }
 
 void StageLoader::TryNextStage()
@@ -71,7 +80,7 @@ void StageLoader::NextStage()
 {
 	if (_stageNum >= _stages.size())
 	{
-		GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
+		_isMovingStage = true;
 		return;
 	}
 
