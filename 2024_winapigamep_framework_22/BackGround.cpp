@@ -56,7 +56,6 @@ void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 {
 	if (_currentSpawnedEnemyCount >= _maxEnemyCount)
 	{
-		isClear = true;
 		return;
 	}
 
@@ -67,6 +66,7 @@ void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 		{
 			_currentEnemyCount+=1;
 			if (_maxEnemyCount - _currentEnemyCount > 0) return;
+			isClear = true;
 			owner->stageLoader->TryNextStage();
 		};
 }

@@ -21,6 +21,8 @@ public:							\
 #define Rad2Deg 360 / (PI * 2)
 
 #define LOADTEXTURE(key, path) GET_SINGLE(ResourceManager)->TextureLoad(key, path)
+#define PLAY(key) GET_SINGLE(ResourceManager)->Play(key)
+#define LOADSOUND(key, path, channel) GET_SINGLE(ResourceManager)->LoadSound(key, path, channel)
 
 #define ADDXP(value) GET_SINGLE(XPManager)->AddXP(value)
 #define ADDOBJECT(object, layer) GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(object, layer);

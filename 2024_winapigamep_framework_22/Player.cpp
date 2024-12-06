@@ -54,8 +54,8 @@ Player::Player()
 
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
-	GET_SINGLE(ResourceManager)->LoadSound(L"Parry", L"Sound\\Parry.wav", SOUND_CHANNEL::EFFECT0);
-	GET_SINGLE(ResourceManager)->LoadSound(L"Sword", L"Sound\\sword.wav", SOUND_CHANNEL::EFFECT1);
+	LOADSOUND(L"Parry", L"Sound\\Parry.wav", SOUND_CHANNEL::EFFECT0);
+	LOADSOUND(L"Sword", L"Sound\\sword.wav", SOUND_CHANNEL::EFFECT1);
 
 }
 Player::~Player()
@@ -162,7 +162,7 @@ void Player::Parrying()
 		}
 	}
 
-	GET_SINGLE(ResourceManager)->Play(L"Sword");	
+	PLAY(L"Sword");
 
 	if (parried)
 		isParrying = false;
