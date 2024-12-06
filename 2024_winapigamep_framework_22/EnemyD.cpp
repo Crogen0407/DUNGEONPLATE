@@ -15,6 +15,7 @@
 
 EnemyD::EnemyD()
 {
+	_giveExp = 3;
 	_startTime = TIME;
 	SetSize({ 50,50 });
 	_roundAttack = new RoundAttackSkill();

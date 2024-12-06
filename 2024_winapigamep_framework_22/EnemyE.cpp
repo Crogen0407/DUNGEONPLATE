@@ -13,6 +13,7 @@
 
 EnemyE::EnemyE()
 {
+	_giveExp = 3;
 	SetSize({ 50,50 });
 	_prevAttack = TIME;
 	_target = FindObject(L"Player", LAYER::PLAYER);

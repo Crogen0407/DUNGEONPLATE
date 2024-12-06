@@ -11,13 +11,12 @@ public:
 	virtual void Render(HDC _hdc) abstract;
 	virtual void OnDie();
 public:
-	virtual void EnterCollision(Collider* _other);
-	virtual void StayCollision(Collider* _other);
-	virtual void ExitCollision(Collider* _other);
+	virtual void EnterCollision(Collider* _other) {}
+	virtual void StayCollision(Collider* _other) {}
+	virtual void ExitCollision(Collider* _other) {}
 protected:
 	int _originHp;
-	int m_attack;
-	Vec2 m_moveDesire;
+	int _giveExp;
 
 	Object* _target;
 	Vec2 _knockDir;

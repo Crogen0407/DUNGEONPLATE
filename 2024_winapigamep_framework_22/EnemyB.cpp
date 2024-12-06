@@ -17,6 +17,7 @@
 
 EnemyB::EnemyB()
 {
+	_giveExp = 4;
 	SetSize({ 50,50 });
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	texture = LOADTEXTURE(L"Enemy02", L"Texture\\Enemy02.bmp");

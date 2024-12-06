@@ -19,7 +19,7 @@
 
 EnemyA::EnemyA()
 {
-	m_moveDesire = Vec2(0, 0);
+	_giveExp = 3;
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	SetSize({ 50, 50 });
 
