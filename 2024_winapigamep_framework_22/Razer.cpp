@@ -12,7 +12,7 @@
 
 Razer::Razer(float lifeTime)
 {
-	_damage = 2;
+	_damage = 10;
 	SetSize({ 0,0 });
 	_lifeTime = lifeTime;
 	_startLifeTime = TIME;
@@ -31,8 +31,6 @@ void Razer::Update()
 	if (_startLifeTime + _lifeTime < TIME)
 		GET_SINGLE(EventManager)->DeleteObject(this);
 
-	//_dir.Normalize();
-	//GetComponent<SpriteRenderer>()->LookAt({ 0,1 });
 	Vec2 vPos = _owner->GetPos();
 	Vec2 vSize = GetSize();
 

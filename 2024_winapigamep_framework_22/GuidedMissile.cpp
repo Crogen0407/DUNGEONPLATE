@@ -14,7 +14,7 @@
 GuidedMissile::GuidedMissile()
 {
 	_poolName = L"GuidedMissile";
-	_damage = 3;
+	_damage = 7;
 	SetSize({ 20,20 });
 	_texture = LOADTEXTURE(L"EnemyMissile", L"Texture\\EnemyMissile.bmp");
 	AddComponent<Collider>();
