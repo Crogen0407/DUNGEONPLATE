@@ -31,4 +31,7 @@ private:
 	Stage* _currentStage = nullptr;
 	int _stageNum = 0;
 	bool _isFirstInit = true;
+	bool _isMovingStage = false;
+	const float _moveDelay = 0.1f;
+	float _curMoveDelay = 0.f;
 };
