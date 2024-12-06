@@ -10,6 +10,15 @@
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h"
+#include "Stage4.h"
+#include "Stage5.h"
+#include "Stage6.h"
+#include "Stage7.h"
+#include "Stage8.h"
+#include "Stage9.h"
+#include "Stage10.h"
+#include "Stage11.h"
+#include "Stage12.h"
 
 Action<int> StageLoader::StageLoadEvent = Action<int>();
 
@@ -30,6 +39,15 @@ void StageLoader::Init()
 	RegisterStage<Stage1>();
 	//RegisterStage<Stage2>();
 	//RegisterStage<Stage3>();
+	//RegisterStage<Stage4>();
+	//RegisterStage<Stage5>();
+	//RegisterStage<Stage6>();
+	//RegisterStage<Stage7>();
+	//RegisterStage<Stage8>();
+	//RegisterStage<Stage9>();
+	//RegisterStage<Stage10>();
+	//RegisterStage<Stage11>();
+	//RegisterStage<Stage12>();
 
 	NextStage();
 	_isFirstInit = false;

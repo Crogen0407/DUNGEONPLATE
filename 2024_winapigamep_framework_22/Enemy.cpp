@@ -12,7 +12,7 @@
 #include "ExplosionEffect.h"
 #include "SceneManager.h"
 
-Enemy::Enemy() : m_hp(5), m_attack(5), _isDead(false)
+Enemy::Enemy() : _originHp(5), m_attack(5), _isDead(false)
 {
 	this->AddComponent<Collider>();
 	this->AddComponent<HealthCompo>();
