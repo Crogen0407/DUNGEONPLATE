@@ -418,6 +418,14 @@
     <ClInclude Include="ParrySparkEffect.h">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Stage10.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage11.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h" />
+    <ClInclude Include="BackgroundBoss.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -742,5 +750,13 @@
     <ClCompile Include="ParrySparkEffect.cpp">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Stage10.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage11.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp" />
+    <ClCompile Include="BackgroundBoss.cpp" />
   </ItemGroup>
 </Project>
