@@ -12,9 +12,10 @@
 
 Razer::Razer(float lifeTime)
 {
-	_damage = 2;
+	_damage = 10;
 	SetSize({ 0,0 });
 	_lifeTime = lifeTime;
+	_startLifeTime = TIME;
 	_texture = LOADTEXTURE(L"Razer", L"Texture\\Razer.bmp");
 
 	AddComponent<Collider>();
@@ -30,8 +31,6 @@ void Razer::Update()
 	if (_startLifeTime + _lifeTime < TIME)
 		GET_SINGLE(EventManager)->DeleteObject(this);
 
-	//_dir.Normalize();
-	//GetComponent<SpriteRenderer>()->LookAt({ 0,1 });
 	Vec2 vPos = _owner->GetPos();
 	Vec2 vSize = GetSize();
 
@@ -81,13 +80,4 @@ void Razer::StayCollision(Collider* _other)
 				health->ApplyDamage(_damage);
 		}
 	}
-}
-
-void Razer::OnPop()
-{
-	_startLifeTime = TIME;
-}
-
-void Razer::OnPush()
-{
 }

@@ -15,7 +15,7 @@ public:
 	virtual void StayCollision(Collider* _other);
 	virtual void ExitCollision(Collider* _other);
 protected:
-	int m_hp;
+	int _originHp;
 	int m_attack;
 	Vec2 m_moveDesire;
 

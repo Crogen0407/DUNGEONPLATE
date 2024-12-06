@@ -24,7 +24,6 @@ EnemyBullet::~EnemyBullet()
 {
 }
 
-static int cnt = 0;
 void EnemyBullet::Update()
 {
 	Vec2 vPos = GetPos();
@@ -44,17 +43,6 @@ void EnemyBullet::Update()
 
 void EnemyBullet::Render(HDC _hdc)
 {
-	/*Vec2 vPos = GetPos();
-	Vec2 vSize = GetSize();
-
-	int width = _texture->GetWidth();
-	int height = _texture->GetHeight();
-	::TransparentBlt(_hdc
-		, (int)(vPos.x - width / 2)
-		, (int)(vPos.y - height / 2)
-		, width, height,
-		_texture->GetTexDC()
-		, 0, 0, width, height, RGB(255, 0, 255));*/
 	ComponentRender(_hdc);
 }
 

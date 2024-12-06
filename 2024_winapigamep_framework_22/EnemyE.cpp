@@ -23,7 +23,7 @@ EnemyE::EnemyE()
 	AddComponent<AttackCompo>();
 
 	GetComponent<HealthCompo>()->SetOffsetY(100);
-	GetComponent<HealthCompo>()->SetHp(150, 150);
+	GetComponent<HealthCompo>()->SetHp(100, 100);
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
 	_roundAttack = new RoundAttackSkill();
 	_roundAttack->SetOwner(this);
