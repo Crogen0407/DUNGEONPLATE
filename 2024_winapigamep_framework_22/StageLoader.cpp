@@ -6,7 +6,7 @@
 #include "GameManager.h"
 #include "Player.h"
 #include "Background.h"
-#include "EventManager.h"
+#include "FadeManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h"
@@ -51,13 +51,14 @@ void StageLoader::TryNextStage()
 
 void StageLoader::NextStage()
 {
-	if (_currentStage != nullptr)
-		_currentStage->Release();
-
 	if (_stageNum >= _stages.size())
 	{
-		GET_SINGLE(EventManager)->LoadScene(L"GameClearScene");
+		GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
+		return;
 	}
+
+	if (_currentStage != nullptr)
+		_currentStage->Release();
 
 	_currentStage = _stages[_stageNum].get();
 	_currentStage->Init();
