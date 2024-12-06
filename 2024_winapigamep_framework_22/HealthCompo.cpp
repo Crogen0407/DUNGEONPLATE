@@ -11,7 +11,7 @@ HealthCompo::HealthCompo() :
 {
 	fillBrush = ::CreateSolidBrush(RGB(139, 172, 15));
 	backBrush = ::CreateSolidBrush(RGB(48, 98, 48));
-	GET_SINGLE(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", false);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", SOUND_CHANNEL::EFFECT2);
 }
 
 HealthCompo::~HealthCompo()

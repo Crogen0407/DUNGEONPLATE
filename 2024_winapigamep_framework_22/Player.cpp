@@ -54,8 +54,8 @@ Player::Player()
 
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
-	GET_SINGLE(ResourceManager)->LoadSound(L"Parry", L"Sound\\Parry.wav", false);
-	GET_SINGLE(ResourceManager)->LoadSound(L"Sword", L"Sound\\sword.wav", false);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Parry", L"Sound\\Parry.wav", SOUND_CHANNEL::EFFECT0);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Sword", L"Sound\\sword.wav", SOUND_CHANNEL::EFFECT1);
 
 }
 Player::~Player()

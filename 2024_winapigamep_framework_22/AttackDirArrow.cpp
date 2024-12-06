@@ -36,7 +36,7 @@ void AttackDirArrow::Update()
 	dir = mousePos - parent->GetPos();
 	dir.Normalize();
 
-	float distance = 60;
+	float distance = 30;
 
 	Vec2 selfPos = (dir * distance) + parent->GetPos();
 

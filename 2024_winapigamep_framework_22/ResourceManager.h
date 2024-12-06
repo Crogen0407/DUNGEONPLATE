@@ -3,12 +3,12 @@
 #pragma comment(lib, "fmod_vc")
 enum class SOUND_CHANNEL //사운드마다 채널
 {
-	BGM, EFFECT, END
+	BGM, EFFECT0, EFFECT1, EFFECT2, EFFECT3, END
 };
 struct tSoundInfo
 {
 	FMOD::Sound* pSound; // 실제 사운드 메모리
-	bool IsLoop;		// 사운드마다 루프할지말지
+	SOUND_CHANNEL sound_chanel;		// 사운드마다 루프할지말지
 };
 class Texture;
 class ResourceManager
@@ -23,6 +23,7 @@ public:
 	void Release();
 public:
 	void LoadSound(const wstring& _key, const wstring& _path, bool _isLoop);
+	void LoadSound(const wstring& _key, const wstring& _path, SOUND_CHANNEL sound_channel);
 	void Play(const wstring& _key);
 	void Stop(SOUND_CHANNEL _channel);
 	void Volume(SOUND_CHANNEL _channel, float _vol);

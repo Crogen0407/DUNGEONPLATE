@@ -75,13 +75,41 @@ void ResourceManager::LoadSound(const wstring& _key, const wstring& _path, bool 
 	std::string str;
 	str.assign(strFilePath.begin(), strFilePath.end());
 
+	tSoundInfo* ptSound = new tSoundInfo;
+	ptSound->sound_chanel = SOUND_CHANNEL::BGM;
+
 	// 루프할지 말지 결정
 	FMOD_MODE eMode = FMOD_LOOP_NORMAL; // 반복 출력
 	if (!_isLoop)
+	{
+		ptSound->sound_chanel = SOUND_CHANNEL::EFFECT0;
+		eMode = FMOD_DEFAULT; // 사운드 1번만 출력
+	}
+
+	// 사운드 객체를 만드는 것은 system임.
+							//파일경로,  FMOD_MODE, NULL, &sound
+	m_pSoundSystem->createSound(str.c_str(), eMode, nullptr, &ptSound->pSound);
+	m_mapSounds.insert({ _key, ptSound });
+}
+
+void ResourceManager::LoadSound(const wstring& _key, const wstring& _path, SOUND_CHANNEL sound_channel)
+{
+	if (FindSound(_key))
+		return;
+	wstring strFilePath = m_resourcePath;
+	strFilePath += _path;
+
+	// wstring to string
+	std::string str;
+	str.assign(strFilePath.begin(), strFilePath.end());
+
+	// 루프할지 말지 결정
+	FMOD_MODE eMode = FMOD_LOOP_NORMAL; // 반복 출력
+	if (sound_channel != SOUND_CHANNEL::BGM)
 		eMode = FMOD_DEFAULT; // 사운드 1번만 출력
 
 	tSoundInfo* ptSound = new tSoundInfo;
-	ptSound->IsLoop = _isLoop;
+	ptSound->sound_chanel = sound_channel;
 	// 사운드 객체를 만드는 것은 system임.
 							//파일경로,  FMOD_MODE, NULL, &sound
 	m_pSoundSystem->createSound(str.c_str(), eMode, nullptr, &ptSound->pSound);
@@ -94,9 +122,7 @@ void ResourceManager::Play(const wstring& _key)
 	if (!ptSound)
 		return;
 	m_pSoundSystem->update(); // play할때 update를 주기적으로 호출해야 사운드가 정지되지 않음.
-	SOUND_CHANNEL eChannel = SOUND_CHANNEL::BGM;
-	if (!ptSound->IsLoop)
-		eChannel = SOUND_CHANNEL::EFFECT;
+	SOUND_CHANNEL eChannel = ptSound->sound_chanel;
 	// 사운드 재생 함수. &channel로 어떤 채널을 통해 재생되는지 포인터 넘김
 	m_pSoundSystem->playSound(ptSound->pSound, nullptr, false, &m_pChannel[(UINT)eChannel]);
 }
