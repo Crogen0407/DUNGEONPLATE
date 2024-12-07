@@ -68,6 +68,8 @@ public:
 	}
 
 private:
+	Vec2 _lastDir;
+	bool _isMove = false;
 	float speed = 100.f;
 	Vec2 attackDir;
 	float parryDist = 150.f;

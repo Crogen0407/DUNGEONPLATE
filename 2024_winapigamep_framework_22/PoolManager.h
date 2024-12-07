@@ -21,6 +21,7 @@ public:
 		{
 			T* object = new T;
 			_curScene->AddObject(object, layer);
+			object->SetPos({ -100000, -100000 });
 			pool.at(key).push(object);
 			object->SetActive(false);
 		}

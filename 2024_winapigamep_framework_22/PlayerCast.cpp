@@ -1,14 +1,12 @@
 #include "pch.h"
 #include "PlayerCast.h"
 #include "Collider.h"
-#include "DashSkill.h"
-#include "SkillManager.h"
 
 PlayerCast::PlayerCast()
 {
 	AddComponent<Collider>();
 	_collider = GetComponent<Collider>();
-	_collider->SetSize({ 10, 10 });
+	_collider->SetSize({ 5, 5 });
 }
 
 PlayerCast::~PlayerCast()
@@ -31,7 +29,8 @@ void PlayerCast::Render(HDC _hdc)
 
 void PlayerCast::EnterCollision(Collider* _other)
 {    
-	_isCast = true; 
+	other = _other;
+	_isCast = true;
 }
 
 void PlayerCast::StayCollision(Collider* _other)

@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class Canvas;
+class GameCanvas;
 class Background;
 class StageLoader;
 class GameScene :
@@ -22,9 +23,10 @@ public:
     void Update() override;
     void Render(HDC hdc) override;
     void SetEnemyCount();
+    void OnNextStageEffect();
 private:
+    GameCanvas* _gameCanvas;
     std::unique_ptr<StageLoader> _stageLoader;
-    Canvas* _gameCanvas;
     Canvas* _skillCanvas;
 };
 

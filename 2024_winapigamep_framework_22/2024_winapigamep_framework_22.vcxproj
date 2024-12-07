@@ -179,6 +179,7 @@
     <ClInclude Include="BackgroundC.h" />
     <ClInclude Include="BackgroundD.h" />
     <ClInclude Include="BackgroundE.h" />
+    <ClInclude Include="BackgroundF.h" />
     <ClInclude Include="BackgroundNull.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
@@ -224,6 +225,7 @@
     <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="HelpCanvas.h" />
     <ClInclude Include="HelpScene.h" />
+    <ClInclude Include="HitEffect.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
@@ -297,6 +299,7 @@
     <ClCompile Include="BackgroundC.cpp" />
     <ClCompile Include="BackgroundD.cpp" />
     <ClCompile Include="BackgroundE.cpp" />
+    <ClCompile Include="BackgroundF.cpp" />
     <ClCompile Include="BackgroundNull.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
@@ -305,7 +308,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Canvas.cpp" />
@@ -343,6 +346,7 @@
     <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="HelpCanvas.cpp" />
     <ClCompile Include="HelpScene.cpp" />
+    <ClCompile Include="HitEffect.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
@@ -401,6 +405,8 @@
     <ResourceCompile Include="2024_winapigamep_framework_22.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Output\build\GameIcon.ico" />
+    <Image Include="..\output\build\icon2.ico" />
     <Image Include="2024_winapigamep_framework_22.ico" />
     <Image Include="small.ico" />
   </ItemGroup>

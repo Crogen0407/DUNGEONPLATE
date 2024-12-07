@@ -8,7 +8,7 @@
 FireBallSkill::FireBallSkill()
 {
 	nameText = L"파이어볼";
-	descriptionText = L"무려 20년 동안 \n동정을 지켜낸 \n현자만이 사용할 수 \n있는 전설의 마법. \n(공격 시 \n발동합니다)";
+	descriptionText = L"무려 20년 동안 \n동정을 지켜낸 \n현자만이 사용할 수 \n있는 전설의 마법. \n(공격 시 발동합니다)";
 	isActiveSkill = true;
 }
 

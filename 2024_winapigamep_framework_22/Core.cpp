@@ -11,6 +11,7 @@
 
 bool Core::Init(HWND _hwnd)
 {
+	cout << "ÁÖ´¨½Ü »ç¶ûÇØ¿ä¢½";
 	// º¯¼ö ÃÊ±âÈ­
 	m_hWnd = _hwnd;
 	m_hDC = ::GetDC(m_hWnd);

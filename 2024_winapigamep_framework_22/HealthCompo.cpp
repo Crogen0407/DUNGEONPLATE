@@ -2,6 +2,7 @@
 #include "HealthCompo.h"
 #include "Object.h"
 #include "ResourceManager.h"
+#include "PoolManager.h"
 
 HealthCompo::HealthCompo() :
 	hp(100),
@@ -22,7 +23,9 @@ HealthCompo::~HealthCompo()
 
 void HealthCompo::ApplyDamage(int value)
 {
+	Vec2 pos = GetOwner()->GetPos();
 	GET_SINGLE(ResourceManager)->Play(L"Hit");
+	POP(L"HitEffect", pos);
 	SetHp(hp - value);
 	DamagedEvent.Invoke(NULL);
 	if (hp <= 0)
@@ -64,7 +67,7 @@ void HealthCompo::Render(HDC hdc)
 	::Rectangle(hdc,
 		pos.x - size.x / 2,
 		pos.y - size.y / 2,
-		(pos.x + (size.x / 2)*((hp / maxHp)*2-1)),
+		(pos.x + (size.x / 2)*(std::clamp(hp / maxHp, 0.f, 1.f)*2-1)),
 		pos.y + size.y / 2);
 
 	::SelectObject(hdc, oldBrush);

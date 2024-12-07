@@ -164,11 +164,11 @@ GameCanvas::GameCanvas() :
 		floorText->SetColor(RGB(15, 56, 15));
 		floorText->SetPitchAndFamily(DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 
-		/*StageLoader::StageLoadEvent +=
+		StageLoader::StageLoadEvent +=
 			[ct = floorText](int stage)
 			{
-				ct->SetText(std::to_wstring(stage));
-			};*/
+				ct->SetText(std::to_wstring(stage+1));
+			};
 
 	}
 
@@ -206,11 +206,36 @@ GameCanvas::~GameCanvas()
 void GameCanvas::Update()
 {
 	Canvas::Update();
+	if (isMoveToNextStage)
+	{
+		int speed = 400;
+		if (_isMoveToUp)
+		{
+			Vec2 delta = { 0.f,-fUNSCALEDDT * speed };
+			AddPos(delta);
+			if (GetPos().y <= _minOffset)
+			{
+				_isMoveToUp = false;
+			}
+		}
+		else
+		{
+			Vec2 delta = { 0.f,fUNSCALEDDT * speed };
+			AddPos(delta);
+			if (GetPos().y >= 0)
+			{
+				_isMoveToUp = true;
+				isMoveToNextStage = false;
+				Vec2 origin = { 0, 0 };
+				SetPos(origin);
+			}
+		}
+	}
 
 	//Debug
 	if (GET_KEYDOWN(KEY_TYPE::NUM_1))
 	{
-		GET_SINGLE(XPManager)->AddXP(1.f);
+		isMoveToNextStage = true;
 	}
 
 	int s = (int)TIME%60;
@@ -219,11 +244,6 @@ void GameCanvas::Update()
 	std::string finalStr = std::format("{0:02}:{1:02}", m, s);
 	wstring message_w;
 	timeText->SetText(message_w.assign(finalStr.begin(), finalStr.end()).c_str());
-
-	if (GET_KEYDOWN(KEY_TYPE::ENTER))
-	{
-		healthBar->value -= 0.1f;
-	}
 }
 
 void GameCanvas::LateUpdate()

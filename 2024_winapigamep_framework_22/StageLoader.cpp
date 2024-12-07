@@ -7,6 +7,9 @@
 #include "Player.h"
 #include "Background.h"
 #include "FadeManager.h"
+#include "TimeManager.h"
+#include "SceneManager.h"
+#include "ResourceManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h"
@@ -22,31 +25,35 @@
 
 Action<int> StageLoader::StageLoadEvent = Action<int>();
 
-StageLoader::StageLoader()
+StageLoader::StageLoader() :
+	gameScene(nullptr)
 {
-	
+	StageLoadEvent.Clear();
+	LOADSOUND(L"NextLevel", L"Sound\\NextLevel.wav", SOUND_CHANNEL::EFFECT3);
 }
 
 StageLoader::~StageLoader()
 {
+	StageLoadEvent.Clear();
 }
 
 void StageLoader::Init()
 {
+	StageLoadEvent.Clear();
 	_currentStage = nullptr;
 	_stageNum = 0;
 	_stages.clear();
-	RegisterStage<Stage1>();
-	RegisterStage<Stage2>();
-	RegisterStage<Stage3>();
-	RegisterStage<Stage4>();
-	RegisterStage<Stage5>();
-	RegisterStage<Stage6>();
-	RegisterStage<Stage7>();
-	RegisterStage<Stage8>();
-	RegisterStage<Stage9>();
-	RegisterStage<Stage10>();
-	RegisterStage<Stage11>();
+	//RegisterStage<Stage1>();
+	//RegisterStage<Stage2>();
+	//RegisterStage<Stage3>();
+	//RegisterStage<Stage4>();
+	//RegisterStage<Stage5>();
+	//RegisterStage<Stage6>();
+	//RegisterStage<Stage7>();
+	//RegisterStage<Stage8>();
+	//RegisterStage<Stage9>();
+	//RegisterStage<Stage10>();
+	//RegisterStage<Stage11>();
 	RegisterStage<Stage12>();
 
 	NextStage();
@@ -55,15 +62,26 @@ void StageLoader::Init()
 
 void StageLoader::Update()
 {
-	if (_currentStage == nullptr)
-		return;
+	if (_isMovingStage)
+	{
+		_curMoveDelay += fUNSCALEDDT;
+		if (_curMoveDelay > _moveDelay)
+		{
+			NextStage();
+			PLAY(L"NextLevel");
+			_isMovingStage = false;
+			_curMoveDelay = 0.f;
+			TIMESCALE = 1.f;
+		}
+	}
 }
 
 void StageLoader::TryNextStage()
 {
 	if (IsClearAllBackground())
 	{
-		NextStage();
+		TIMESCALE = 0;
+		_isMovingStage = true;
 	}
 }
 
@@ -77,6 +95,8 @@ void StageLoader::NextStage()
 
 	if (_currentStage != nullptr)
 		_currentStage->Release();
+
+	gameScene->OnNextStageEffect();
 
 	_currentStage = _stages[_stageNum].get();
 	_currentStage->Init();

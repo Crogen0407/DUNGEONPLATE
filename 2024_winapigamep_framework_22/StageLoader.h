@@ -4,6 +4,7 @@
 #include "Stage.h"
 class EnemySpawner;
 class Background;
+class GameScene;
 class StageLoader
 {
 public:
@@ -31,4 +32,9 @@ private:
 	Stage* _currentStage = nullptr;
 	int _stageNum = 0;
 	bool _isFirstInit = true;
+	bool _isMovingStage = false;
+	const float _moveDelay = 0.5f;
+	float _curMoveDelay = 0.f;
+public:
+	GameScene* gameScene;
 };

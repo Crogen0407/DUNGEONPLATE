@@ -79,13 +79,16 @@ void Player::Update()
 		if (TIMESCALE <= 0.01f) return;
 		Parry();
 	}
+
 	dir.Normalize();
 
 	Vec2 castPlayer = GetPos();
 	castPlayer += dir * GetSize();
 
 	_playerCast->SetPos(GetPos());
-	_playerCast->SetMoveDir(dir);
+	if(dir.LengthSquared() > 0.1f)
+		_lastDir = dir;
+	_playerCast->SetMoveDir(_lastDir);
 	if (_playerCast->IsCast() == true)
 	{
 		Move(dir * speed * fDT);

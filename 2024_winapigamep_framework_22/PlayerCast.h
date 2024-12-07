@@ -20,6 +20,7 @@ public:
     }
 public:
     void SetMoveDir(Vec2 dir);
+    Collider* other;
 private:
     Vec2 _dir;
     float _distance = 30.f;

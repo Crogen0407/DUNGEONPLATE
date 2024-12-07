@@ -24,7 +24,7 @@ public:
 	void Update();
 	void Release();
 public:
-	const vector<Skill*> GetRendomSkills();
+	const vector<Skill*> GetRandomSkills();
 	Skill* GetSkill(const ESkillType& type)
 	{
 		return skills[type];

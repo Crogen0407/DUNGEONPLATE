@@ -71,11 +71,9 @@ void Slider::Render(HDC _hdc)
 			(int)pos.y + (size.y * valueVec.y) / 2 - offsetY / 2);
 	}
 
-
-	
-
 	::SelectObject(_hdc, oldPen);
 	::SelectObject(_hdc, oldFillBrush);
 	::DeleteObject(myPen);
+	::DeleteObject(oldBackBrush);
 	::DeleteObject(fillBrush);
 }
