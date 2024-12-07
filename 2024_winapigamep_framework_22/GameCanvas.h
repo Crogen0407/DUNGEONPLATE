@@ -27,4 +27,10 @@ private: //UI
     Text* timeText;
     Text* healthText;
     Text* shieldText;
+
+public: //스테이지 바뀔 때 효과
+    bool isMoveToNextStage = false;
+private:
+    bool _isMoveToUp = true;
+    const int _minOffset = -100;
 };

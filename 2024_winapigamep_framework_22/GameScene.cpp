@@ -18,6 +18,7 @@ GameScene::GameScene() :
 	_stageLoader(nullptr)
 {
 	_stageLoader = std::make_unique<StageLoader>();
+	_stageLoader->gameScene = this;
 }
 
 GameScene::~GameScene()
@@ -73,4 +74,9 @@ void GameScene::Render(HDC hdc)
 
 void GameScene::SetEnemyCount()
 {
+}
+
+void GameScene::OnNextStageEffect()
+{
+	_gameCanvas->isMoveToNextStage = true;
 }

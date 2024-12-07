@@ -8,6 +8,7 @@
 #include "Background.h"
 #include "FadeManager.h"
 #include "TimeManager.h"
+#include "SceneManager.h"
 #include "ResourceManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
@@ -24,13 +25,15 @@
 
 Action<int> StageLoader::StageLoadEvent = Action<int>();
 
-StageLoader::StageLoader()
+StageLoader::StageLoader() :
+	gameScene(nullptr)
 {
 	LOADSOUND(L"NextLevel", L"Sound\\NextLevel.wav", SOUND_CHANNEL::EFFECT3);
 }
 
 StageLoader::~StageLoader()
 {
+
 }
 
 void StageLoader::Init()
@@ -63,6 +66,7 @@ void StageLoader::Update()
 		if (_curMoveDelay > _moveDelay)
 		{
 			NextStage();
+			gameScene->OnNextStageEffect();
 			PLAY(L"NextLevel");
 			_isMovingStage = false;
 			_curMoveDelay = 0.f;
