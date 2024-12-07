@@ -66,6 +66,10 @@ void DashSkill::Update()
 			(float)std::lerp(_playerPos.y, _playerPos.y + _dashDir.y * _dashDistance, percent)
 		};
 
+		/*if (pos.x < (size.x / 2) || pos.x > SCREEN_WIDTH - (size.x / 2) ||
+			pos.y < (size.y / 2) || pos.y > SCREEN_HEIGHT - (size.y / 2))
+			_isDashing = false;*/
+
 		_player->SetPos(pos);
 		if (percent >= 1)
 		{
