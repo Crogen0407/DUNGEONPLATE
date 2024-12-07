@@ -29,6 +29,7 @@ void PlayerCast::Render(HDC _hdc)
 
 void PlayerCast::EnterCollision(Collider* _other)
 {    
+	other = _other;
 	_isCast = true;
 }
 
