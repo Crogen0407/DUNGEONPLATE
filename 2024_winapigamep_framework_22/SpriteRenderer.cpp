@@ -5,14 +5,16 @@
 #include<algorithm>
 
 SpriteRenderer::SpriteRenderer():
-	texture(nullptr)
+	texture(nullptr),
+	memDC(nullptr)
+
 {
 	brush = CreateSolidBrush(RGB(255, 0, 255));
 }
 
 SpriteRenderer::~SpriteRenderer()
 {
-	DeleteObject(memDC);
+	DeleteDC(memDC);
 	DeleteObject(brush);
 }
 
@@ -149,6 +151,8 @@ void SpriteRenderer::SetTexture(std::wstring name, std::wstring path)
 {
 	texture = LOADTEXTURE(name, path);
 	if (isRotatable == false) return;
+	if(memDC != nullptr)
+		DeleteDC(memDC);
 	memDC = CreateCompatibleDC(texture->GetTexDC());
 }
 
@@ -156,5 +160,7 @@ void SpriteRenderer::SetTexture(Texture* texture)
 {
 	this->texture = texture;
 	if (isRotatable == false) return;
+	if (memDC != nullptr)
+		DeleteDC(memDC);
 	memDC = CreateCompatibleDC(texture->GetTexDC());
 }
