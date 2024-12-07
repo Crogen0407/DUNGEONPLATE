@@ -20,6 +20,7 @@
 #include "PoolManager.h"
 #include "SlashEffect.h"
 #include "PlayerCast.h"
+#include "DashSkill.h"
 
 Player::Player()
 {
@@ -79,10 +80,21 @@ void Player::Update()
 		Parry();
 	}
 	dir.Normalize();
+
+	Vec2 castPlayer = GetPos();
+	castPlayer += dir * GetSize();
+
 	_playerCast->SetPos(GetPos());
 	_playerCast->SetMoveDir(dir);
 	if (_playerCast->IsCast() == true)
+	{
 		Move(dir * speed * fDT);
+	}
+	else 
+	{
+		DashSkill* dashSkill = dynamic_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
+		dashSkill->StopDash();
+	}
 
 	attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
 	attackDir.Normalize();
@@ -170,6 +182,7 @@ void Player::Parrying()
 
 void Player::EnterCollision(Collider* _other)
 {
+	//if()
 	//healthCompo->ApplyDamage(10);
 }
 

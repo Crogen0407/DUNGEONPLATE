@@ -11,6 +11,7 @@ public:
     void OnUse(Player* player) override;
     void OnLevelUp(Player* player) override;
     void Update() override;
+    void StopDash() { _isDashing = false; }
 private:
     void OnDash();
 private:
