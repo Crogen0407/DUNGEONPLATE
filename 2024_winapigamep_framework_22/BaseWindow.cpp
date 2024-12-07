@@ -92,9 +92,25 @@ void BaseWindow::createWindow()
     RECT rt = { Winposx , Winposy,
                  Winposx + SCREEN_WIDTH,
                  Winposy + SCREEN_HEIGHT };
+#if _DEBUG
     AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, false);
     MoveWindow(m_hWnd, Winposx, Winposy,
         rt.right - rt.left, rt.bottom - rt.top, false);
+    return;
+#endif
+
+    AdjustWindowRect(&rt, WS_POPUP, false);
+    MoveWindow(m_hWnd, Winposx, Winposy,
+        rt.right - rt.left, rt.bottom - rt.top, false);
+
+    // 변경된 스타일 적용
+    SetWindowLong(m_hWnd, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+
+    // 크기와 위치 갱신
+    SetWindowPos(m_hWnd, NULL, 0, 0,
+        rt.right - rt.left,
+        rt.bottom - rt.top,
+        SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE);
 }
 
 void BaseWindow::showWindow(int _CmdShow)
