@@ -32,6 +32,6 @@ private:
 	int _stageNum = 0;
 	bool _isFirstInit = true;
 	bool _isMovingStage = false;
-	const float _moveDelay = 0.1f;
+	const float _moveDelay = 0.5f;
 	float _curMoveDelay = 0.f;
 };

@@ -58,12 +58,13 @@ void StageLoader::Update()
 {
 	if (_isMovingStage)
 	{
-		_curMoveDelay += fDT;
+		_curMoveDelay += fUNSCALEDDT;
 		if (_curMoveDelay > _moveDelay)
 		{
 			_isMovingStage = false;
 			GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
 			_curMoveDelay = 0.f;
+			TIMESCALE = 1.f;
 		}
 	}
 }
@@ -80,6 +81,7 @@ void StageLoader::NextStage()
 {
 	if (_stageNum >= _stages.size())
 	{
+		TIMESCALE = 0;
 		_isMovingStage = true;
 		return;
 	}

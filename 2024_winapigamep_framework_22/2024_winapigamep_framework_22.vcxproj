@@ -179,6 +179,7 @@
     <ClInclude Include="BackgroundC.h" />
     <ClInclude Include="BackgroundD.h" />
     <ClInclude Include="BackgroundE.h" />
+    <ClInclude Include="BackgroundF.h" />
     <ClInclude Include="BackgroundNull.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
@@ -298,6 +299,7 @@
     <ClCompile Include="BackgroundC.cpp" />
     <ClCompile Include="BackgroundD.cpp" />
     <ClCompile Include="BackgroundE.cpp" />
+    <ClCompile Include="BackgroundF.cpp" />
     <ClCompile Include="BackgroundNull.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
