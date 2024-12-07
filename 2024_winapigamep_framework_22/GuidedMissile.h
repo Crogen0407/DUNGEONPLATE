@@ -25,7 +25,7 @@ private:
 	float _lifetime = 3.f;
 	float _spawnedTime = 0.f;
 	float _prevAttack = 0;
-	float _attackDelay = 0.5f;
+	float _attackDelay = 1;
 
 	Object* target;
 
