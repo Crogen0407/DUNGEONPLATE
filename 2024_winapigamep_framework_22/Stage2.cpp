@@ -21,7 +21,7 @@ void Stage2::Init()
 {
     AddBackground<BackgroundA>(0, 1);
     AddBackground<BackgroundB>(1, 1);
-    AddBackground<BackgroundA>(1, 2);
+    AddBackground<BackgroundNull>(1, 2);
     AddBackground<BackgroundB>(2, 1, true);
 }
 
