@@ -164,6 +164,8 @@ GameCanvas::GameCanvas() :
 		floorText->SetColor(RGB(15, 56, 15));
 		floorText->SetPitchAndFamily(DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 
+		StageLoader::StageLoadEvent.Clear();
+
 		StageLoader::StageLoadEvent +=
 			[ct = floorText](int stage)
 			{

@@ -39,7 +39,6 @@ StageLoader::~StageLoader()
 
 void StageLoader::Init()
 {
-	StageLoadEvent.Clear();
 	_currentStage = nullptr;
 	_stageNum = 0;
 	_stages.clear();
