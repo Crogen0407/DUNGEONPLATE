@@ -66,7 +66,6 @@ void StageLoader::Update()
 		if (_curMoveDelay > _moveDelay)
 		{
 			NextStage();
-			gameScene->OnNextStageEffect();
 			PLAY(L"NextLevel");
 			_isMovingStage = false;
 			_curMoveDelay = 0.f;
@@ -94,6 +93,8 @@ void StageLoader::NextStage()
 
 	if (_currentStage != nullptr)
 		_currentStage->Release();
+
+	gameScene->OnNextStageEffect();
 
 	_currentStage = _stages[_stageNum].get();
 	_currentStage->Init();
