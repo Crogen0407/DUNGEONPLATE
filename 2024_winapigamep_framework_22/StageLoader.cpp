@@ -28,6 +28,7 @@ Action<int> StageLoader::StageLoadEvent = Action<int>();
 StageLoader::StageLoader() :
 	gameScene(nullptr)
 {
+	StageLoadEvent.Clear();
 	LOADSOUND(L"NextLevel", L"Sound\\NextLevel.wav", SOUND_CHANNEL::EFFECT3);
 }
 
