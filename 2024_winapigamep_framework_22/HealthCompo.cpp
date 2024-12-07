@@ -67,7 +67,7 @@ void HealthCompo::Render(HDC hdc)
 	::Rectangle(hdc,
 		pos.x - size.x / 2,
 		pos.y - size.y / 2,
-		(pos.x + (size.x / 2)*((hp / maxHp)*2-1)),
+		(pos.x + (size.x / 2)*(std::clamp(hp / maxHp, 0.f, 1.f)*2-1)),
 		pos.y + size.y / 2);
 
 	::SelectObject(hdc, oldBrush);
