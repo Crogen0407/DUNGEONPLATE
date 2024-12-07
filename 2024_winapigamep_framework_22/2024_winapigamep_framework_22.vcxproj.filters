@@ -441,6 +441,12 @@
     <Image Include="2024_winapigamep_framework_22.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="..\Output\build\GameIcon.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\output\build\icon2.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
