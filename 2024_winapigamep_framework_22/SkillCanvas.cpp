@@ -139,7 +139,7 @@ void SkillCanvas::ShowSlots()
 {
 	GET_SINGLE(ResourceManager)->Play(L"LevelUp");
 
-	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRendomSkills();
+	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRandomSkills();
 	showSkillSlots = true;
 	int i = 0;
 	for (auto skillSlot : _skillSlots)
