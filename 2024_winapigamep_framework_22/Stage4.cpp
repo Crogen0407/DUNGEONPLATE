@@ -21,5 +21,5 @@ void Stage4::Init()
 	AddBackground<BackgroundA>(0, 0);
 	AddBackground<BackgroundB>(0, 1);
 	AddBackground<BackgroundA>(0, 2, true);
-	AddBackground<BackgroundE>(1, 2);
+	AddBackground<BackgroundC>(1, 2);
 }
