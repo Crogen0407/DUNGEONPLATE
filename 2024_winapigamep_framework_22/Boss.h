@@ -16,5 +16,7 @@ private:
 	float _skillCoolTime = 2;
 	vector<SkillSystem*> _skills;
 	SkillSystem* _currentSkill;
+	float _prevDash;
+	float _dashDelay = 2.f;
 };
 

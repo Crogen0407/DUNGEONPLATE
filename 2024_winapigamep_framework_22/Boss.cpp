@@ -12,6 +12,7 @@
 #include "RazerSkill.h"
 #include "BounceBulletSkill.h"
 #include "EventManager.h"
+#include "Movement.h"
 
 Boss::Boss() : _currentSkill{ nullptr }
 {
@@ -23,6 +24,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	//AddComponent<HealthCompo>();
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
+	AddComponent<Movement>();
 
 	GetComponent<Collider>()->SetSize({ 100,100 });
 	GetComponent<HealthCompo>()->SetOffsetY(50);
@@ -40,6 +42,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	BounceBulletSkill* bounceBulletSkill = new BounceBulletSkill();
 	bounceBulletSkill->SetOwner(this);
 
+	_prevDash = TIME;
 	_skills.push_back(mSkill);
 	_skills.push_back(paternA);
 	_skills.push_back(razerSkill);
@@ -90,6 +93,17 @@ void Boss::Update()
 			_skills[idx]->UseSkill();
 			_currentSkill = _skills[idx];
 		}
+	}
+
+	if (_prevDash + _dashDelay < TIME)
+	{
+		_prevDash = TIME;
+
+		Vec2 dashDir = { rand() % 2 == 0 ? 1 : -1, 0 };
+		if (GetPos().x < 100) dashDir = { 1,0 };
+		else if (GetPos().x > SCREEN_WIDTH - 100) dashDir = { -1,0 };
+
+		GetComponent<Movement>()->Dash(dashDir, 1000.f, 0.1f);
 	}
 }
 
