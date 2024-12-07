@@ -8,6 +8,7 @@
 #include "Background.h"
 #include "FadeManager.h"
 #include "TimeManager.h"
+#include "ResourceManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
 #include "Stage3.h"
@@ -25,7 +26,7 @@ Action<int> StageLoader::StageLoadEvent = Action<int>();
 
 StageLoader::StageLoader()
 {
-	
+	LOADSOUND(L"NextLevel", L"Sound\\NextLevel.wav", SOUND_CHANNEL::EFFECT3);
 }
 
 StageLoader::~StageLoader()
@@ -61,8 +62,9 @@ void StageLoader::Update()
 		_curMoveDelay += fUNSCALEDDT;
 		if (_curMoveDelay > _moveDelay)
 		{
+			NextStage();
+			PLAY(L"NextLevel");
 			_isMovingStage = false;
-			GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
 			_curMoveDelay = 0.f;
 			TIMESCALE = 1.f;
 		}
@@ -73,7 +75,8 @@ void StageLoader::TryNextStage()
 {
 	if (IsClearAllBackground())
 	{
-		NextStage();
+		TIMESCALE = 0;
+		_isMovingStage = true;
 	}
 }
 
@@ -81,8 +84,7 @@ void StageLoader::NextStage()
 {
 	if (_stageNum >= _stages.size())
 	{
-		TIMESCALE = 0;
-		_isMovingStage = true;
+		GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
 		return;
 	}
 
