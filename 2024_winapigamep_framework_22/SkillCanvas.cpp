@@ -11,6 +11,8 @@
 SkillCanvas::SkillCanvas()
 {
 	SetName(L"SkillCanvas");
+	_skillSlots.clear();
+
 	GET_SINGLE(ResourceManager)->LoadSound(L"LevelUp", L"Sound\\LevelUp.wav", false);
 	int slotCount = 3;
 	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
@@ -40,6 +42,8 @@ SkillCanvas::~SkillCanvas()
 	{
 		delete(_skillSlots[i]);
 	}
+
+	_skillSlots.clear();
 }
 
 void SkillCanvas::Update()

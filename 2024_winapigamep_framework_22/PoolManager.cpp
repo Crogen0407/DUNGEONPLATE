@@ -7,6 +7,7 @@
 #include "GuidedMissile.h"
 #include "EnemyBounceBullet.h"
 #include "ParrySparkEffect.h"
+#include "HitEffect.h"
 
 void PoolManager::Init(Scene* curScene)
 {
@@ -18,6 +19,7 @@ void PoolManager::Init(Scene* curScene)
     MakeObjectPool<EnemyBullet>(L"EnemyBullet", LAYER::PROJECTILE, 200);
     MakeObjectPool<GuidedMissile>(L"GuidedMissile", LAYER::PROJECTILE, 50);
     MakeObjectPool<EnemyBounceBullet>(L"EnemyBounceBullet", LAYER::PROJECTILE, 50);
+    MakeObjectPool<HitEffect>(L"HitEffect", LAYER::PROJECTILE, 40);
 }
 
 PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)

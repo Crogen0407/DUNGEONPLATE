@@ -2,6 +2,7 @@
 #include "HealthCompo.h"
 #include "Object.h"
 #include "ResourceManager.h"
+#include "PoolManager.h"
 
 HealthCompo::HealthCompo() :
 	hp(100),
@@ -22,7 +23,9 @@ HealthCompo::~HealthCompo()
 
 void HealthCompo::ApplyDamage(int value)
 {
+	Vec2 pos = GetOwner()->GetPos();
 	GET_SINGLE(ResourceManager)->Play(L"Hit");
+	POP(L"HitEffect", pos);
 	SetHp(hp - value);
 	DamagedEvent.Invoke(NULL);
 	if (hp <= 0)

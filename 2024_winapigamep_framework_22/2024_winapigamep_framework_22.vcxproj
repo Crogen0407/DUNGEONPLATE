@@ -224,6 +224,7 @@
     <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="HelpCanvas.h" />
     <ClInclude Include="HelpScene.h" />
+    <ClInclude Include="HitEffect.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
@@ -343,6 +344,7 @@
     <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="HelpCanvas.cpp" />
     <ClCompile Include="HelpScene.cpp" />
+    <ClCompile Include="HitEffect.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
