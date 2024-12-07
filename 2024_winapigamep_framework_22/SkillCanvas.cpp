@@ -133,6 +133,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 
 	_skillSlots.push_back(skillSlot);
+	cout << _skillSlots.size();
 }
 
 void SkillCanvas::ShowSlots()

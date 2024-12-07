@@ -13,7 +13,7 @@ void PoolManager::Init(Scene* curScene)
 {
     pool.clear();
     _curScene = curScene;
-    MakeObjectPool<ParrySparkEffect>(L"ParrySparkEffect", LAYER::PROJECTILE, 5);
+    MakeObjectPool<ParrySparkEffect>(L"ParrySparkEffect", LAYER::PROJECTILE, 32);
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
     MakeObjectPool<FireBallEffect>(L"FireBallEffect", LAYER::PROJECTILE, 150);
     MakeObjectPool<EnemyBullet>(L"EnemyBullet", LAYER::PROJECTILE, 200);
