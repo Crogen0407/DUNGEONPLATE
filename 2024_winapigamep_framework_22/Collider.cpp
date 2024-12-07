@@ -45,7 +45,6 @@ void Collider::StayCollision(Collider* _other)
 
 void Collider::ExitCollision(Collider* _other)
 {
-	//cout << "Exit" << endl;
 	GetOwner()->ExitCollision(_other);
 }
 ;

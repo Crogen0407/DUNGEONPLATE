@@ -28,7 +28,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	GetComponent<HealthCompo>()->SetOffsetY(50);
 	GetComponent<Animator>()->CreateAnimation(L"Boss", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 6, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Boss", true, 100);
-	GetComponent<HealthCompo>()->SetHp(750, 750);
+	GetComponent<HealthCompo>()->SetHp(300, 300);
 
 	_prevSkillTime = TIME;
 	MissileSkill* mSkill = new MissileSkill();

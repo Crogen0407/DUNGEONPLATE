@@ -15,7 +15,6 @@ public:
 	{
 		_owner = owner;
 		_targetSize = SCREEN_HEIGHT - owner->GetPos().y + 50;
-		cout << _targetSize << '\n';
 	}
 
 	void EnterCollision(Collider* _other) override;

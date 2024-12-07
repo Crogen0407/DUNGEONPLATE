@@ -43,6 +43,8 @@ void GuidedMissile::Update()
 	Vec2 targetDir = (vPos * -1) + target->GetPos();
 	targetDir.Normalize();
 
+	_curTime += fDT;
+
 	if (_isParry)
 	{
 		//_dir = targetDir;
@@ -74,7 +76,7 @@ void GuidedMissile::Update()
 	vPos.y += _dir.y * _speed * fDT;
 	SetPos(vPos);
 
-	if (_spawnedTime + _lifetime < TIME && _isSpawned)
+	if (_lifetime < _curTime)
 	{
 		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 		explosion->SetPos(GetPos());
@@ -129,11 +131,9 @@ void GuidedMissile::OnPop()
 {
 	_hitEnemy = false;
 	_isParry = false;
-	_isSpawned = true;
-	_spawnedTime = TIME;
 }
 
 void GuidedMissile::OnPush()
 {
-	_isSpawned = false;
+	_curTime = 0.f;
 }

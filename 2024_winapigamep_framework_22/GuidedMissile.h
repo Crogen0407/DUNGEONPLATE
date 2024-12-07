@@ -20,10 +20,9 @@ public:
 	void OnPush() override;
 private:
 	bool _isParry = false;
-	bool _isSpawned = false;
 	float _rotation = 0;
 	float _lifetime = 3.f;
-	float _spawnedTime = 0.f;
+	float _curTime = 0.f;
 	float _prevAttack = 0;
 	float _attackDelay = 1;
 
