@@ -30,6 +30,6 @@ private:
     SpriteRenderer* _spriteRenderer;
     Vec2 _moveDir;
     const float _speed = 400.f;
-    int _damage = 20.f;
+    int _damage = 15.f;
 };
 

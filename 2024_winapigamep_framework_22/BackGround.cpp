@@ -74,9 +74,17 @@ void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 void Background::SpawnEnemyByRandomPos(EnemyType enemyType)
 {
 	srand(time(NULL));
+	int offset = 50;
 
-	int ranX = (rand() % (int)GetSize().x) - (int)GetSize().x / 2 + GetPos().x;
-	int ranY = (rand() % (int)GetSize().y) - (int)GetSize().y / 2 + GetPos().y;
+	Vec2 size = Vec2(( GetSize().x - offset ), (GetSize().y - offset));
+
+	int ranX = 
+		(rand() % (int)size.x)
+		- (int)size.x / 2
+		+ GetPos().x;
+	int ranY = (rand() % (int)size.y)
+		- (int)size.y / 2
+		+ GetPos().y;
 	Vec2 pos = { ranX, ranY };
 
 	SpawnEnemy(enemyType, pos);
