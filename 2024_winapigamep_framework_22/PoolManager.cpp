@@ -36,6 +36,7 @@ PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)
 void PoolManager::Push(const std::wstring& type, PoolableObject* poolableObject)
 {
     poolableObject->OnPush();
+    poolableObject->SetPos({ -100000, -100000 });
     poolableObject->SetActive(false);
     pool[type].push(poolableObject);
 }
