@@ -6,7 +6,7 @@ PlayerCast::PlayerCast()
 {
 	AddComponent<Collider>();
 	_collider = GetComponent<Collider>();
-	_collider->SetSize({ 10, 10 });
+	_collider->SetSize({ 5, 5 });
 }
 
 PlayerCast::~PlayerCast()
