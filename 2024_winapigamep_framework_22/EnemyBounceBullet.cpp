@@ -62,5 +62,4 @@ void EnemyBounceBullet::OnPop()
 
 void EnemyBounceBullet::OnPush()
 {
-	Projectile::OnPush();
 }

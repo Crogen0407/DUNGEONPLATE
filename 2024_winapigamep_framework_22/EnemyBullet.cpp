@@ -54,5 +54,4 @@ void EnemyBullet::OnPop()
 
 void EnemyBullet::OnPush()
 {
-	Projectile::OnPush();
 }

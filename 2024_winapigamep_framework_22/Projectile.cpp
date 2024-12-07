@@ -58,5 +58,4 @@ void Projectile::OnPop()
 
 void Projectile::OnPush()
 {
-	SetPos({100000, 109000});
 }
