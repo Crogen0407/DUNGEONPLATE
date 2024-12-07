@@ -164,11 +164,11 @@ GameCanvas::GameCanvas() :
 		floorText->SetColor(RGB(15, 56, 15));
 		floorText->SetPitchAndFamily(DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 
-		/*StageLoader::StageLoadEvent +=
+		StageLoader::StageLoadEvent +=
 			[ct = floorText](int stage)
 			{
-				ct->SetText(std::to_wstring(stage));
-			};*/
+				ct->SetText(std::to_wstring(stage+1));
+			};
 
 	}
 

@@ -11,7 +11,7 @@
 
 void PoolManager::Init(Scene* curScene)
 {
-    pool = {};
+    pool.clear();
     _curScene = curScene;
     MakeObjectPool<ParrySparkEffect>(L"ParrySparkEffect", LAYER::PROJECTILE, 5);
     MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
