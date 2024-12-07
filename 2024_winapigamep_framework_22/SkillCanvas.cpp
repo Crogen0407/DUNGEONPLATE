@@ -14,8 +14,7 @@ SkillCanvas::SkillCanvas()
 	_skillSlots.clear();
 
 	GET_SINGLE(ResourceManager)->LoadSound(L"LevelUp", L"Sound\\LevelUp.wav", false);
-	int slotCount = 3;
-	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
+	/*Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
 	int xDeltaPos = 300;
 
 	{
@@ -27,7 +26,7 @@ SkillCanvas::SkillCanvas()
 
 	CreateSlot(center - Vec2(xDeltaPos, 0));
 	CreateSlot(center);
-	CreateSlot(center + Vec2(xDeltaPos, 0));
+	CreateSlot(center + Vec2(xDeltaPos, 0));*/
 
 	GET_SINGLE(XPManager)->LevelUpEvent +=
 		[ct = this](int level)
@@ -38,7 +37,7 @@ SkillCanvas::SkillCanvas()
 
 SkillCanvas::~SkillCanvas()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < _skillSlots.size(); i++)
 	{
 		delete(_skillSlots[i]);
 	}
@@ -141,6 +140,32 @@ void SkillCanvas::ShowSlots()
 
 	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRandomSkills();
 	showSkillSlots = true;
+
+	if (_skillSlots.size() == 0)
+	{
+		_skillSlots.clear();
+		Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
+		int xDeltaPos = 300;
+
+		{
+			Vec2 size = { SCREEN_WIDTH * 2, 420 };
+			Vec2 pos = center;
+			Image* backImage = CreateUI<Image>(pos, size);
+			backImage->texture = LOADTEXTURE(L"UISprite2X2", L"Texture\\UISprite2X2.bmp");
+		}
+
+		CreateSlot(center - Vec2(xDeltaPos, 0));
+		CreateSlot(center);
+		CreateSlot(center + Vec2(xDeltaPos, 0));
+
+		GET_SINGLE(XPManager)->LevelUpEvent +=
+			[ct = this](int level)
+			{
+				ct->ShowSlots();
+			};
+	}
+
+
 	int i = 0;
 	for (auto skillSlot : _skillSlots)
 	{

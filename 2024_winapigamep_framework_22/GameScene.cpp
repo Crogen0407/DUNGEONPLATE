@@ -14,6 +14,9 @@
 #include "SkillManager.h"
 #include "TimeManager.h"
 
+//#include "InputManager.h"
+//#include "XPManager.h"
+
 GameScene::GameScene() :
 	_stageLoader(nullptr)
 {
@@ -35,7 +38,6 @@ void GameScene::Init()
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
 	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
-
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
@@ -61,6 +63,10 @@ void GameScene::Update()
 {
 	_stageLoader->Update();
 	Scene::Update();
+	//if (GET_KEYDOWN(KEY_TYPE::NUM_1))
+	//{
+	//	ADDXP(5);
+	//}
 }
 
 void GameScene::Render(HDC hdc)

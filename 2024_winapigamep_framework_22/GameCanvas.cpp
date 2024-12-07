@@ -232,12 +232,6 @@ void GameCanvas::Update()
 		}
 	}
 
-	//Debug
-	if (GET_KEYDOWN(KEY_TYPE::NUM_1))
-	{
-		isMoveToNextStage = true;
-	}
-
 	int s = (int)TIME%60;
 	int m = (TIME / 60);
 
