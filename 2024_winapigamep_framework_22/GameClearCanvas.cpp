@@ -5,7 +5,9 @@
 #include "Slider.h"
 #include "Image.h"
 #include "ResourceManager.h"
+#include "TimeManager.h"
 #include "FadeManager.h"
+#include "GameManager.h"
 #include <format>
 
 GameClearCanvas::GameClearCanvas()
@@ -72,7 +74,6 @@ GameClearCanvas::GameClearCanvas()
 		Text* infoText = CreateUI<Text>(pos, size);
 		wstring str;
 		//스테이지 정보 가지고 오기
-		str += L"SCORE\n\n";
 		str += L"TIME";
 		infoText->SetText(str);
 		infoText->LoadFont(L"PF스타더스트 Bold", 17, 19);
@@ -89,8 +90,7 @@ GameClearCanvas::GameClearCanvas()
 		wstring str;
 
 		//스테이지 정보 가지고 오기
-		str += std::format(L"{0:04}\n\n", 1000);
-		str += std::format(L"{0:02} : {1:02}", 2, 10);
+		str += std::format(L"{0:02} : {1:02}", (int)TIME/60, (int)TIME%60);
 		infoValueText->SetText(str);
 		infoValueText->LoadFont(L"PF스타더스트 Bold", 17, 19);
 		infoValueText->SetPitchAndFamily(DT_RIGHT | DT_VCENTER);
