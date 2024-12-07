@@ -42,7 +42,7 @@ void DashSkill::Update()
 {
 	if (curDelayTime < maxDelayTime) {
 		curDelayTime += fDT;
-		DelayTimeEvent.Invoke(curDelayTime/maxDelayTime);
+		DelayTimeEvent.Invoke(curDelayTime / maxDelayTime);
 	}
 	else
 		_canDash = true;
@@ -59,6 +59,7 @@ void DashSkill::Update()
 	if (_isDashing == true)
 	{
 		_curDashTime += fDT;
+		_prevPos = _player->GetPos();
 		float percent = _curDashTime / _dashTime;
 		Vec2 pos =
 		{
@@ -76,6 +77,15 @@ void DashSkill::Update()
 			_isDashing = false;
 			_player->SetCanMove(true);
 		}
+	}
+}
+
+void DashSkill::StopDash()
+{
+	if (_isDashing)
+	{
+		_isDashing = false;
+		_player->SetPos(_prevPos);
 	}
 }
 
