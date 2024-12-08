@@ -424,10 +424,18 @@
     <ClInclude Include="Stage11.h">
       <Filter>Engine\10.Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Stage12.h" />
-    <ClInclude Include="BackgroundBoss.h" />
-    <ClInclude Include="HitEffect.h" />
-    <ClInclude Include="BackgroundF.h" />
+    <ClInclude Include="BackgroundBoss.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundF.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="HitEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -764,9 +772,17 @@
     <ClCompile Include="Stage11.cpp">
       <Filter>Engine\10.Stage</Filter>
     </ClCompile>
-    <ClCompile Include="Stage12.cpp" />
-    <ClCompile Include="BackgroundBoss.cpp" />
-    <ClCompile Include="HitEffect.cpp" />
-    <ClCompile Include="BackgroundF.cpp" />
+    <ClCompile Include="BackgroundBoss.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundF.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="HitEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
