@@ -1,6 +1,6 @@
 #pragma once
-#include "SkillSystem.h"
-class RazerSkill : public SkillSystem
+#include "Patern.h"
+class RazerSkill : public Patern
 {
 public:
 	RazerSkill();

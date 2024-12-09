@@ -301,7 +301,7 @@
     <ClInclude Include="State.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="SkillSystem.h">
+    <ClInclude Include="Patern.h">
       <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
     </ClInclude>
     <ClInclude Include="RoundAttackSkill.h">
@@ -649,7 +649,7 @@
     <ClCompile Include="State.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="SkillSystem.cpp">
+    <ClCompile Include="Patern.cpp">
       <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
     </ClCompile>
     <ClCompile Include="RoundAttackSkill.cpp">

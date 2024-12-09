@@ -1,7 +1,7 @@
 #pragma once
-#include "SkillSystem.h"
+#include "Patern.h"
 
-class RoundAttackSkill : public SkillSystem
+class RoundAttackSkill : public Patern
 {
 public:
 	RoundAttackSkill();

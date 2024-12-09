@@ -1,6 +1,6 @@
 #pragma once
-#include "SkillSystem.h"
-class BounceBulletSkill : public SkillSystem
+#include "Patern.h"
+class BounceBulletSkill : public Patern
 {
 public:
 	BounceBulletSkill();

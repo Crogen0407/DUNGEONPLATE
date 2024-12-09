@@ -253,7 +253,7 @@
     <ClInclude Include="SkillCanvas.h" />
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="SkillSlot.h" />
-    <ClInclude Include="SkillSystem.h" />
+    <ClInclude Include="Patern.h" />
     <ClInclude Include="SlashEffect.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
@@ -372,7 +372,7 @@
     <ClCompile Include="Skill.cpp" />
     <ClCompile Include="SkillCanvas.cpp" />
     <ClCompile Include="SkillManager.cpp" />
-    <ClCompile Include="SkillSystem.cpp" />
+    <ClCompile Include="Patern.cpp" />
     <ClCompile Include="SlashEffect.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />

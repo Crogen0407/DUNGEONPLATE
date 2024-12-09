@@ -1,11 +1,11 @@
 #pragma once
 
 class Object;
-class SkillSystem
+class Patern
 {
 public:
-	SkillSystem();
-	virtual ~SkillSystem();
+	Patern();
+	virtual ~Patern();
 public:
 	virtual void Update() abstract;
 	virtual void UseSkill() abstract;

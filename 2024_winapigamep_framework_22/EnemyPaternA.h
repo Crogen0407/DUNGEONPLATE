@@ -1,8 +1,8 @@
 #pragma once
-#include "SkillSystem.h"
+#include "Patern.h"
 #include "RoundAttackSkill.h"
 
-class EnemyPaternA : public SkillSystem
+class EnemyPaternA : public Patern
 {
 public:
 	EnemyPaternA();

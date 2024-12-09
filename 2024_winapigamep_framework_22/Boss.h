@@ -1,6 +1,6 @@
 #pragma once
 #include "Enemy.h"
-class SkillSystem;
+class Patern;
 class Texture;
 class Boss : public Enemy
 {
@@ -14,8 +14,8 @@ private:
 	Texture* texture;
 	float _prevSkillTime;
 	float _skillCoolTime = 2;
-	vector<SkillSystem*> _skills;
-	SkillSystem* _currentSkill;
+	vector<Patern*> _skills;
+	Patern* _currentSkill;
 	float _prevDash;
 	float _dashDelay = 2.f;
 };
