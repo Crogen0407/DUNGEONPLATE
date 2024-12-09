@@ -1,12 +1,12 @@
 #pragma once
-#include "Patern.h"
-#include "RoundAttackPatern.h"
+#include "Pattern.h"
+#include "RoundAttackPattern.h"
 
-class EnemyPaternA : public Patern
+class EnemyPatternA : public Pattern
 {
 public:
-	EnemyPaternA();
-	~EnemyPaternA() override;
+	EnemyPatternA();
+	~EnemyPatternA() override;
 
 	// SkillSystem을(를) 통해 상속됨
 	void Update() override;
@@ -17,7 +17,7 @@ public:
 		_roundAttack->SetOwner(owner);
 	}
 private:
-	RoundAttackPatern* _roundAttack;
+	RoundAttackPattern* _roundAttack;
 	float _prevAttack;
 	int _attackCnt = 3;
 	int _curAttackCnt = 0;

@@ -1,6 +1,6 @@
 #pragma once
-#include "Patern.h"
-class RazerPatern : public Patern
+#include "Pattern.h"
+class RazerPatern : public Pattern
 {
 public:
 	RazerPatern();

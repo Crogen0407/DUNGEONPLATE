@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "RazerPatern.h"
+#include "RazerPattern.h"
 #include "TimeManager.h"
 #include "Razer.h"
 #include "AttackCompo.h"

@@ -1,24 +1,24 @@
 #include "pch.h"
-#include "RoundAttackPatern.h"
+#include "RoundAttackPattern.h"
 #include "Projectile.h"
 #include "EnemyBullet.h"
 #include "SceneManager.h"
 #include "Scene.h"
 #include "AttackCompo.h"
 
-RoundAttackPatern::RoundAttackPatern()
+RoundAttackPattern::RoundAttackPattern()
 {
 }
 
-RoundAttackPatern::~RoundAttackPatern()
+RoundAttackPattern::~RoundAttackPattern()
 {
 }
 
-void RoundAttackPatern::Update()
+void RoundAttackPattern::Update()
 {
 }
 
-void RoundAttackPatern::UseSkill()
+void RoundAttackPattern::UseSkill()
 {
 	_isUsingSkill = false;
 	_currentRotation = _startRotation;

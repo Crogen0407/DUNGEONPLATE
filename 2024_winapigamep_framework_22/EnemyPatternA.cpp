@@ -1,19 +1,19 @@
 #include "pch.h"
-#include "EnemyPaternA.h"
-#include "RoundAttackPatern.h"
+#include "EnemyPatternA.h"
+#include "RoundAttackPattern.h"
 #include "TimeManager.h"
 
-EnemyPaternA::EnemyPaternA()
+EnemyPatternA::EnemyPatternA()
 {
-	_roundAttack = new RoundAttackPatern();
+	_roundAttack = new RoundAttackPattern();
 }
 
-EnemyPaternA::~EnemyPaternA()
+EnemyPatternA::~EnemyPatternA()
 {
 	delete(_roundAttack);
 }
 
-void EnemyPaternA::Update()
+void EnemyPatternA::Update()
 {
 	if (!_isUsingSkill) return;
 
@@ -29,7 +29,7 @@ void EnemyPaternA::Update()
 	}
 }
 
-void EnemyPaternA::UseSkill()
+void EnemyPatternA::UseSkill()
 {
 	_isUsingSkill = true;
 	_prevAttack = TIME;

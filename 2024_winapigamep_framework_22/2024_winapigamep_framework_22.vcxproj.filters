@@ -286,7 +286,7 @@
     <ClInclude Include="EnemyC.h">
       <Filter>Engine\03. Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyPaternA.h">
+    <ClInclude Include="EnemyPatternA.h">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
@@ -298,7 +298,7 @@
     <ClInclude Include="State.h">
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Patern.h">
+    <ClInclude Include="Pattern.h">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClInclude>
     <ClInclude Include="Movement.h">
@@ -424,10 +424,18 @@
     <ClInclude Include="HitEffect.h">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="BounceBulletPatern.h" />
-    <ClInclude Include="MissilePatern.h" />
-    <ClInclude Include="RazerPatern.h" />
-    <ClInclude Include="RoundAttackPatern.h" />
+    <ClInclude Include="RoundAttackPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceBulletPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MissilePattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="RazerPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -626,7 +634,7 @@
     <ClCompile Include="EnemyC.cpp">
       <Filter>Engine\03. Object\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyPaternA.cpp">
+    <ClCompile Include="EnemyPatternA.cpp">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
     <ClCompile Include="EnemySpawner.cpp">
@@ -638,7 +646,7 @@
     <ClCompile Include="State.cpp">
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="Patern.cpp">
+    <ClCompile Include="Pattern.cpp">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
     <ClCompile Include="Movement.cpp">
@@ -764,9 +772,17 @@
     <ClCompile Include="HitEffect.cpp">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="BounceBulletPatern.cpp" />
-    <ClCompile Include="MissilePatern.cpp" />
-    <ClCompile Include="RazerPatern.cpp" />
-    <ClCompile Include="RoundAttackPatern.cpp" />
+    <ClCompile Include="BounceBulletPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MissilePattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="RazerPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundAttackPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

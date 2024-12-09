@@ -1,18 +1,18 @@
 #include "pch.h"
-#include "BounceBulletPatern.h"
+#include "BounceBulletPattern.h"
 #include "TimeManager.h"
 #include "AttackCompo.h"
 #include "Object.h"
 
-BounceBulletPatern::BounceBulletPatern()
+BounceBulletPattern::BounceBulletPattern()
 {
 }
 
-BounceBulletPatern::~BounceBulletPatern()
+BounceBulletPattern::~BounceBulletPattern()
 {
 }
 
-void BounceBulletPatern::Update()
+void BounceBulletPattern::Update()
 {
 	if (_isUsingSkill == false) return;
 	
@@ -33,7 +33,7 @@ void BounceBulletPatern::Update()
 	}
 }
 
-void BounceBulletPatern::UseSkill()
+void BounceBulletPattern::UseSkill()
 {
 	_isUsingSkill = true;
 	_prevShootTime = TIME;
