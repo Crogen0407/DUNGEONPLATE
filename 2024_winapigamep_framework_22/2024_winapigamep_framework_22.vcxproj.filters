@@ -65,14 +65,14 @@
     <Filter Include="Engine\03. Object\Enemy">
       <UniqueIdentifier>{d6810418-02bc-47cb-97a3-632b69391d24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Object\Enemy\SkillSystem">
-      <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\10.Stage">
       <UniqueIdentifier>{fea48968-69a3-4ec1-a142-4f558bf18b86}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\10.Stage\Background">
       <UniqueIdentifier>{5b05d621-2a52-447a-ba21-84a8cf63528b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Enemy\EnemyPattern">
+      <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -286,11 +286,8 @@
     <ClInclude Include="EnemyC.h">
       <Filter>Engine\03. Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="BounceBulletSkill.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyPaternA.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
       <Filter>Engine\03. Object\Enemy</Filter>
@@ -302,16 +299,7 @@
       <Filter>Engine\03. Object</Filter>
     </ClInclude>
     <ClInclude Include="Patern.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="RoundAttackSkill.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="RazerSkill.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="MissileSkill.h">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClInclude>
     <ClInclude Include="Movement.h">
       <Filter>Engine\06. Component</Filter>
@@ -436,6 +424,10 @@
     <ClInclude Include="HitEffect.h">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="BounceBulletPatern.h" />
+    <ClInclude Include="MissilePatern.h" />
+    <ClInclude Include="RazerPatern.h" />
+    <ClInclude Include="RoundAttackPatern.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -634,11 +626,8 @@
     <ClCompile Include="EnemyC.cpp">
       <Filter>Engine\03. Object\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="BounceBulletSkill.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyPaternA.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
     <ClCompile Include="EnemySpawner.cpp">
       <Filter>Engine\03. Object\Enemy</Filter>
@@ -650,16 +639,7 @@
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="Patern.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="RoundAttackSkill.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="RazerSkill.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="MissileSkill.cpp">
-      <Filter>Engine\03. Object\Enemy\SkillSystem</Filter>
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
     <ClCompile Include="Movement.cpp">
       <Filter>Engine\06. Component</Filter>
@@ -784,5 +764,9 @@
     <ClCompile Include="HitEffect.cpp">
       <Filter>Engine\03. Object\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="BounceBulletPatern.cpp" />
+    <ClCompile Include="MissilePatern.cpp" />
+    <ClCompile Include="RazerPatern.cpp" />
+    <ClCompile Include="RoundAttackPatern.cpp" />
   </ItemGroup>
 </Project>
