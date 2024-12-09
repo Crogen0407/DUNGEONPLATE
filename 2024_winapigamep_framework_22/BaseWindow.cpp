@@ -121,6 +121,8 @@ void BaseWindow::showWindow(int _CmdShow)
 
 void BaseWindow::updateWindow()
 {
+    ::SetWindowPos(m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
+
     ::UpdateWindow(m_hWnd); // WM_PAINT
 }
 
