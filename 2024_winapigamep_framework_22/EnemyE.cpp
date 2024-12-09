@@ -9,7 +9,7 @@
 #include "Movement.h"
 #include "AttackCompo.h"
 #include "Texture.h"
-#include "RoundAttackSkill.h"
+#include "RoundAttackPatern.h"
 
 EnemyE::EnemyE()
 {
@@ -26,7 +26,7 @@ EnemyE::EnemyE()
 	GetComponent<HealthCompo>()->SetOffsetY(100);
 	GetComponent<HealthCompo>()->SetHp(100, 100);
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
-	_roundAttack = new RoundAttackSkill();
+	_roundAttack = new RoundAttackPatern();
 	_roundAttack->SetOwner(this);
 }
 

@@ -11,14 +11,14 @@
 #include "TimeManager.h"
 #include "Scene.h"
 #include "AttackCompo.h"
-#include "RoundAttackSkill.h"
+#include "RoundAttackPatern.h"
 
 EnemyD::EnemyD()
 {
 	_giveExp = 3;
 	_startTime = TIME;
 	SetSize({ 50,50 });
-	_roundAttack = new RoundAttackSkill();
+	_roundAttack = new RoundAttackPatern();
 	_roundAttack->SetOwner(this);
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	_texture = LOADTEXTURE(L"EnemyD", L"Texture\\Enemy04.bmp");

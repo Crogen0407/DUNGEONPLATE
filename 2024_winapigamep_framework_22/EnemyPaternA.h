@@ -1,6 +1,6 @@
 #pragma once
 #include "Patern.h"
-#include "RoundAttackSkill.h"
+#include "RoundAttackPatern.h"
 
 class EnemyPaternA : public Patern
 {
@@ -17,7 +17,7 @@ public:
 		_roundAttack->SetOwner(owner);
 	}
 private:
-	RoundAttackSkill* _roundAttack;
+	RoundAttackPatern* _roundAttack;
 	float _prevAttack;
 	int _attackCnt = 3;
 	int _curAttackCnt = 0;

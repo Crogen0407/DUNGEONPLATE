@@ -1,18 +1,18 @@
 #include "pch.h"
-#include "RazerSkill.h"
+#include "RazerPatern.h"
 #include "TimeManager.h"
 #include "Razer.h"
 #include "AttackCompo.h"
 
-RazerSkill::RazerSkill()
+RazerPatern::RazerPatern()
 {
 }
 
-RazerSkill::~RazerSkill()
+RazerPatern::~RazerPatern()
 {
 }
 
-void RazerSkill::Update()
+void RazerPatern::Update()
 {
 	if (_isUsingSkill == false) return;
 
@@ -20,7 +20,7 @@ void RazerSkill::Update()
 		_isUsingSkill = false;
 }
 
-void RazerSkill::UseSkill()
+void RazerPatern::UseSkill()
 {
 	_skillStartTime = TIME;
 	_isUsingSkill = true;

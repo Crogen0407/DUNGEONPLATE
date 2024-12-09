@@ -1,20 +1,20 @@
 #include "pch.h"
-#include "MissileSkill.h"
+#include "MissilePatern.h"
 #include "GuidedMissile.h"
 #include "TimeManager.h"
 #include "SceneManager.h"
 #include "Scene.h"
 
-MissileSkill::MissileSkill()
+MissilePatern::MissilePatern()
 {
 
 }
 
-MissileSkill::~MissileSkill()
+MissilePatern::~MissilePatern()
 {
 }
 
-void MissileSkill::Update()
+void MissilePatern::Update()
 {
 	if (_isUsingSkill == false) return;
 
@@ -42,7 +42,7 @@ void MissileSkill::Update()
 	}
 }
 
-void MissileSkill::UseSkill()
+void MissilePatern::UseSkill()
 {
 	_isUsingSkill = true;
 	_currentIdx = 0;

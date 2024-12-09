@@ -1,10 +1,10 @@
 #pragma once
 #include "Patern.h"
-class RazerSkill : public Patern
+class RazerPatern : public Patern
 {
 public:
-	RazerSkill();
-	~RazerSkill() override;
+	RazerPatern();
+	~RazerPatern() override;
 
 	// SkillSystem을(를) 통해 상속됨
 	void Update() override;

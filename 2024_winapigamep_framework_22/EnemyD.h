@@ -1,7 +1,7 @@
 #pragma once
 #include "Enemy.h"
 class Texture;
-class RoundAttackSkill;
+class RoundAttackPatern;
 class EnemyD : public Enemy
 {
 public:
@@ -18,6 +18,6 @@ private:
 	float _lifeTime = 3.f;
 	float _moveSpeed = 300.f;
 	Texture* _texture;
-	RoundAttackSkill* _roundAttack;
+	RoundAttackPatern* _roundAttack;
 };
 

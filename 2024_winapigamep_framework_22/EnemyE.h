@@ -2,7 +2,7 @@
 #include "Enemy.h"
 
 class Texture;
-class RoundAttackSkill;
+class RoundAttackPatern;
 class EnemyE : public Enemy
 {
 public:
@@ -17,6 +17,6 @@ private:
 	float _prevAttack = 0;
 	float _attackDelay = 1.f;
 	float _rotation = 0;
-	RoundAttackSkill* _roundAttack;
+	RoundAttackPatern* _roundAttack;
 };
 

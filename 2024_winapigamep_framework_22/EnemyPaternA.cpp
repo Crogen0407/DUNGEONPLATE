@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "EnemyPaternA.h"
-#include "RoundAttackSkill.h"
+#include "RoundAttackPatern.h"
 #include "TimeManager.h"
 
 EnemyPaternA::EnemyPaternA()
 {
-	_roundAttack = new RoundAttackSkill();
+	_roundAttack = new RoundAttackPatern();
 }
 
 EnemyPaternA::~EnemyPaternA()

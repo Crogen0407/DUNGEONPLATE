@@ -1,10 +1,10 @@
 #pragma once
 #include "Patern.h"
-class BounceBulletSkill : public Patern
+class BounceBulletPatern : public Patern
 {
 public:
-	BounceBulletSkill();
-	~BounceBulletSkill() override;
+	BounceBulletPatern();
+	~BounceBulletPatern() override;
 
 	// SkillSystem을(를) 통해 상속됨
 	void Update() override;

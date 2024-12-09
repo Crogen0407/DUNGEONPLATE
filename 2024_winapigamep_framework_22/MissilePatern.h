@@ -1,11 +1,11 @@
 #pragma once
 #include "Patern.h"
 
-class MissileSkill : public Patern
+class MissilePatern : public Patern
 {
 public:
-	MissileSkill();
-	~MissileSkill() override;
+	MissilePatern();
+	~MissilePatern() override;
 public:
 	void Update() override;
 	void UseSkill() override;

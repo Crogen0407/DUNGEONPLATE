@@ -1,11 +1,11 @@
 #pragma once
 #include "Patern.h"
 
-class RoundAttackSkill : public Patern
+class RoundAttackPatern : public Patern
 {
 public:
-	RoundAttackSkill();
-	virtual ~RoundAttackSkill();
+	RoundAttackPatern();
+	virtual ~RoundAttackPatern();
 
 	void Update() override;
 	void UseSkill() override;

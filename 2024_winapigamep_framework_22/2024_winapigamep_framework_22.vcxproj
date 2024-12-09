@@ -183,7 +183,7 @@
     <ClInclude Include="BackgroundNull.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
-    <ClInclude Include="BounceBulletSkill.h" />
+    <ClInclude Include="BounceBulletPatern.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Canvas.h" />
@@ -230,7 +230,7 @@
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="MissileSkill.h" />
+    <ClInclude Include="MissilePatern.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParrySparkEffect.h" />
@@ -242,11 +242,11 @@
     <ClInclude Include="PoolManager.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Razer.h" />
-    <ClInclude Include="RazerSkill.h" />
+    <ClInclude Include="RazerPatern.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceBase.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="RoundAttackSkill.h" />
+    <ClInclude Include="RoundAttackPatern.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skill.h" />
@@ -303,7 +303,7 @@
     <ClCompile Include="BackgroundNull.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
-    <ClCompile Include="BounceBulletSkill.cpp" />
+    <ClCompile Include="BounceBulletPatern.cpp" />
     <ClCompile Include="Button.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -352,7 +352,7 @@
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MissileSkill.cpp" />
+    <ClCompile Include="MissilePatern.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParrySparkEffect.cpp" />
@@ -363,10 +363,10 @@
     <ClCompile Include="PoolManager.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Razer.cpp" />
-    <ClCompile Include="RazerSkill.cpp" />
+    <ClCompile Include="RazerPatern.cpp" />
     <ClCompile Include="ResourceBase.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="RoundAttackSkill.cpp" />
+    <ClCompile Include="RoundAttackPatern.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skill.cpp" />

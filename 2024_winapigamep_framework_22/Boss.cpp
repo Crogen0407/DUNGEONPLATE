@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Boss.h"
 #include "TimeManager.h"
-#include "MissileSkill.h"
+#include "MissilePatern.h"
 #include "HealthCompo.h"
 #include "Collider.h"
 #include "ResourceManager.h"
@@ -9,8 +9,8 @@
 #include "Texture.h"
 #include "EnemyPaternA.h"
 #include "AttackCompo.h"
-#include "RazerSkill.h"
-#include "BounceBulletSkill.h"
+#include "RazerPatern.h"
+#include "BounceBulletPatern.h"
 #include "EventManager.h"
 #include "Movement.h"
 
@@ -33,13 +33,13 @@ Boss::Boss() : _currentSkill{ nullptr }
 	GetComponent<HealthCompo>()->SetHp(300, 300);
 
 	_prevSkillTime = TIME;
-	MissileSkill* mSkill = new MissileSkill();
+	MissilePatern* mSkill = new MissilePatern();
 	mSkill->SetOwner(this);
 	EnemyPaternA* paternA = new EnemyPaternA();
 	paternA->SetOwner(this);
-	RazerSkill* razerSkill = new RazerSkill();
+	RazerPatern* razerSkill = new RazerPatern();
 	razerSkill->SetOwner(this);
-	BounceBulletSkill* bounceBulletSkill = new BounceBulletSkill();
+	BounceBulletPatern* bounceBulletSkill = new BounceBulletPatern();
 	bounceBulletSkill->SetOwner(this);
 
 	_prevDash = TIME;
