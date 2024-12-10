@@ -44,12 +44,6 @@ SkillCanvas::~SkillCanvas()
 void SkillCanvas::Update()
 {
 	Canvas::Update();
-
-	//약간 둥둥 거리는 거 만들기
-	if (GET_KEYDOWN(KEY_TYPE::U))
-	{
-		ShowSlots();
-	}
 }
 
 void SkillCanvas::LateUpdate()

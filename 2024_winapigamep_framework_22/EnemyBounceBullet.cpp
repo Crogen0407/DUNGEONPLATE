@@ -9,7 +9,7 @@ EnemyBounceBullet::EnemyBounceBullet()
 {
 	_damage = 10;
 	_poolName = L"EnemyBounceBullet";
-	_texture = LOADTEXTURE(L"EnemyBullet", L"Texture\\EnemyBullet.bmp");
+	_texture = LOADTEXTURE(L"EnemyBounceBullet", L"Texture\\EnemyBounceBullet.bmp");
 
 	SetSize({ 20.f,20.f });
 	AddComponent<SpriteRenderer>();

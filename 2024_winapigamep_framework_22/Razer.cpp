@@ -34,8 +34,10 @@ void Razer::Update()
 	Vec2 vPos = _owner->GetPos();
 	Vec2 vSize = GetSize();
 
+	vSize.x = 80.f + (sinf(TIME * 50) * 0.5f + 0.5f) * 20.f;
+
 	if (vSize.y <= _targetSize)
-		vSize = Vec2(100.f, vSize.y + (1000 * fDT));
+		vSize = Vec2(vSize.x, vSize.y + (1000 * fDT));
 
 	vPos = Vec2(vPos.x, vPos.y + 50 + vSize.y / 2);// Vec2(0, 1)* (vSize.y * 2);
 	GetComponent<Collider>()->SetSize(vSize);
