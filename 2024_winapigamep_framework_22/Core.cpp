@@ -8,6 +8,7 @@
 #include "EventManager.h"
 #include "SkillManager.h"
 #include "FadeManager.h"
+#include "GameManager.h"
 
 bool Core::Init(HWND _hwnd)
 {
@@ -34,6 +35,7 @@ bool Core::Init(HWND _hwnd)
 	GET_SINGLE(SkillManager)->Init();
 	GET_SINGLE(SceneManager)->Init();
 	GET_SINGLE(FadeManager)->Init();
+	GET_SINGLE(GameManager)->Init();
 
 	//m_obj.SetPos(Vec2(SCREEN_WIDTH / 2
 	//				,SCREEN_HEIGHT/ 2));
@@ -86,6 +88,7 @@ void Core::MainUpdate()
 	GET_SINGLE(SceneManager)->Update();
 	GET_SINGLE(CollisionManager)->Update();
 	GET_SINGLE(FadeManager)->Update();
+	GET_SINGLE(GameManager)->Update();
 }
 
 void Core::MainRender()

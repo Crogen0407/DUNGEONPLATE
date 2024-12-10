@@ -2,8 +2,8 @@
 #include "PlayerHealthCompo.h"
 #include "TimeManager.h"
 #include "FadeManager.h"
-#include "CameraManager.h"
 #include "Object.h"
+#include "GameManager.h"
 
 PlayerHealthCompo::PlayerHealthCompo() :
 	subHp(100),
@@ -11,24 +11,25 @@ PlayerHealthCompo::PlayerHealthCompo() :
 {
 	SetOffsetY(40);
 	hpBarActive = true;
-	cameraShake = new CameraManager(GetActiveWindow());
 }
 
 PlayerHealthCompo::~PlayerHealthCompo()
 {
-	delete(cameraShake);
 }
 
 void PlayerHealthCompo::ApplyDamage(int value)
 {
 	if (isInvincible) return;
-	cameraShake->ShakeConsoleWindow(4.f, 10);
 	isTakedDamage = true;
 	int temp = value;
 	value -= subHp;
 	if (value < 0)
 		value = 0;
 	SetSubHp((int)std::clamp(subHp - temp, 0.f, maxSubHp));
+
+	//È­¸é Èçµé¸²
+	GET_SINGLE(GameManager)->ShakeConsoleWindow(0.1f, 4, 30);
+
 	HealthCompo::ApplyDamage(value);
 }
 

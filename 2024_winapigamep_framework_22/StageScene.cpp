@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Player.h"   
 #include "StageScene.h"
-#include "CameraManager.h"
 #include "StageLoader.h"
 #include "Background.h"
 #include "EnemyA.h"
