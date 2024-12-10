@@ -77,13 +77,13 @@ void FireBallEffect::SetMode(const EFireBallModeType& mode)
 	switch (mode)
 	{
 	case EFireBallModeType::FireBall_S:
-		SetSize({ 45, 45 });
-		GetComponent<Collider>()->SetSize({ 45, 45 });
+		SetSize({ 32, 32 });
+		GetComponent<Collider>()->SetSize({ 32, 32 });
 		spriteRenderer->SetTexture(L"FireBall_S", L"Texture\\Effect\\FireBall_S.bmp");
 		break;
 	case EFireBallModeType::FireBall_M:
-		SetSize({ 50, 50 });
-		GetComponent<Collider>()->SetSize({ 50, 50 });
+		SetSize({ 39, 39 });
+		GetComponent<Collider>()->SetSize({ 39, 39 });
 		spriteRenderer->SetTexture(L"FireBall_M", L"Texture\\Effect\\FireBall_M.bmp");
 		break;
 	case EFireBallModeType::FireBall_L:

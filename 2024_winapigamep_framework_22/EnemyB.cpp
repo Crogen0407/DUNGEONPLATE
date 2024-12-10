@@ -32,7 +32,7 @@ EnemyB::EnemyB()
 		->CreateAnimation(L"Enemy02Idle", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 7, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Enemy02Idle", true, 100);
 
-	GetComponent<HealthCompo>()->SetOffsetY(60);
+	GetComponent<HealthCompo>()->SetOffsetY(40);
 	GetComponent<HealthCompo>()->SetHp(30,30);
 }
 
