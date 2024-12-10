@@ -24,6 +24,7 @@
 #include "Stage12.h"
 
 Action<int> StageLoader::StageLoadEvent = Action<int>();
+Vec2 StageLoader::mapSize = { 290,290 };
 
 StageLoader::StageLoader() :
 	gameScene(nullptr)

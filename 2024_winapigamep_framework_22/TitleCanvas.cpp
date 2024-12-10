@@ -29,13 +29,10 @@ TitleCanvas::TitleCanvas()
 
 	//TitleText
 	{
-		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
-		Vec2 pos = { size.x * 0.5f, size.y * 0.26f };
-		Text* titleText = CreateUI<Text>(pos, size);
-		titleText->SetText(L"DUNGEONPLATE");
-		titleText->LoadFont(L"PF스타더스트 Bold", 60, 72);
-		titleText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		titleText->SetColor(RGB(155, 188, 15));
+		Vec2 size = { 844, 153 };
+		Vec2 pos = {SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT* 0.26f };
+		Image* titleText = CreateUI<Image>(pos, size);
+		titleText->texture = LOADTEXTURE(L"Title", L"Texture\\Title.bmp");
 	}
 
 	//StartButton
