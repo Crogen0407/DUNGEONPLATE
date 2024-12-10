@@ -35,7 +35,6 @@ Player::Player()
 
 	_spriteRenderer->SetTexture(L"Player", L"Texture\\Player.bmp");
 	_spriteRenderer->isRotatable = false;
-	healthCompo->SetHpBarActive(0);
 	collider->SetSize({ 25, 25 });
 
 	//나중에 밸패하기

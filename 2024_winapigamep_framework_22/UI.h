@@ -4,12 +4,21 @@ class UI
 {
 protected:
     bool active = true;
-    Vec2 pos;
-    Vec2 size;
-    Canvas* owner;
+    Vec2 _position;
+    Vec2 _size;
+    Canvas* _owner;
+    UI* _parent;
 public:
-    UI() = default;
-    virtual ~UI() = default;
+    UI() : 
+        _parent(nullptr),
+        _owner(nullptr)
+    {
+
+    }
+    virtual ~UI()
+    {
+        _parent = nullptr;
+    }
 public:
     virtual void LateUpdate() abstract;
     virtual void Render(HDC _hdc) abstract;
@@ -22,33 +31,44 @@ public:
     {
         this->active = active;
     }
+public:
     void SetOwner(Canvas *canvas)
     {
-        owner = canvas;
+        _owner = canvas;
     }
     void SetPosAndSize(const Vec2& pos, const Vec2& size)
     {
-        this->pos = pos;
-        this->size = size;
+        this->_position = pos;
+        this->_size = size;
     }
+public:
     void SetPos(Vec2 pos)
     {
-        this->pos = pos;
+        this->_position = pos;
     }
     void AddPos(const Vec2& pos)
     {
-        this->pos += pos;
+        this->_position += pos;
     }
     void SetSize(Vec2 size)
     {
-        this->size = size;
+        this->_size = size;
     }
     Vec2& GetPos()
     {
-        return pos;
+        return _position;
     }
     Vec2& GetSize()
     {
-        return size;
+        return _size;
+    }
+public:
+    void SetParent(UI* parent)
+    {
+        this->_parent = parent;
+    }
+    UI* GetParent()
+    {
+        return this->_parent;
     }
 };

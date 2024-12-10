@@ -2,6 +2,7 @@
 #include "BackGround.h"
 #include "Object.h"
 #include "SceneManager.h"
+#include "StageLoader.h"
 #include "Scene.h"
 
 class Object;
@@ -20,8 +21,16 @@ public:
 	template<typename T>
 	T* AddBackground(int x, int y)
 	{
-		Vec2 size = { SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3 };
-		Vec2 pos = { size.x * 0.5f + size.x * x, size.y * 0.5f + size.y * y };
+		Vec2 size = StageLoader::mapSize;
+
+		int xStart = (SCREEN_WIDTH	- size.x * 3) / 2 + (size.x/2);
+		int yStart = (SCREEN_HEIGHT - size.y * 3) / 2 + (size.y/2);
+
+		Vec2 pos = 
+		{ 
+			xStart + size.x * x,
+			yStart + size.y * y
+		};
 		grid[x][y] = new T;
 		grid[x][y]->owner = this;
 		grid[x][y]->SetSize(size);
