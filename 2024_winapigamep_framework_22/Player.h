@@ -69,6 +69,7 @@ public:
 
 private:
 	Vec2 _lastDir;
+	Vec2 lastPos;
 	bool _isMove = false;
 	float speed = 100.f;
 	Vec2 attackDir;

@@ -80,23 +80,28 @@ void Player::Update()
 		Parry();
 	}
 
-	dir.Normalize();
-
-	Vec2 castPlayer = GetPos();
-	castPlayer += dir * GetSize();
-
 	_playerCast->SetPos(GetPos());
-	if(dir.LengthSquared() > 0.1f)
+
+	/*Vec2 castPlayer = GetPos();
+	castPlayer += dir * GetSize();*/
+
+
+	if (dir.LengthSquared() > 0.1f)
 		_lastDir = dir;
 	_playerCast->SetMoveDir(_lastDir);
+	dir.Normalize();
+
 	if (_playerCast->IsCast() == true)
 	{
 		Move(dir * speed * fDT);
+		lastPos = GetPos();
 	}
-	else 
+	else
 	{
+		cout << lastPos.x << " " << lastPos.y << '\n';
 		DashSkill* dashSkill = dynamic_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
 		dashSkill->StopDash();
+		SetPos(lastPos);
 	}
 
 	attackDir = ((Vec2)GET_MOUSEPOS - GetPos());
@@ -104,15 +109,10 @@ void Player::Update()
 	attackRange->SetDir(attackDir);
 	Parrying();
 
-	Vec2 vPos = GetPos();
-
 	if (GET_KEYDOWN(KEY_TYPE::CTRL))
-	{
 		healthCompo->ApplyDamage(55);
-	}
 
 	_spriteRenderer->LookAt(attackDir);
-	SetPos(vPos);
 }
 
 void Player::Render(HDC _hdc)
