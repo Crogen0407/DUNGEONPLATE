@@ -23,7 +23,7 @@ public:
     Collider* other;
 private:
     Vec2 _dir;
-    float _distance = 30.f;
+    float _distance = 20.f;
     Collider* _collider;
     bool _isCast = true;
 };

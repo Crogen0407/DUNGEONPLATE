@@ -26,7 +26,7 @@ void Collider::Render(HDC _hdc)
 {
 	if (m_showDebug == false) return;
 
-	PEN_TYPE ePen = PEN_TYPE::GREEN;
+	PEN_TYPE ePen = PEN_TYPE::RED;
 	GDISelector pen(_hdc, ePen);
 	GDISelector brush(_hdc, BRUSH_TYPE::HOLLOW);
 	RECT_RENDER(_hdc, m_vLatePos.x, m_vLatePos.y,

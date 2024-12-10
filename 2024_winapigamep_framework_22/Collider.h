@@ -27,7 +27,7 @@ public:
         return m_vLatePos;
     }
 private:
-    bool m_showDebug = false;
+    bool m_showDebug = true;
     UINT m_ID; // 충돌체 고유 ID값
     static UINT m_sNextID;
 
