@@ -189,7 +189,7 @@ GameCanvas::GameCanvas() :
 	//XPBar
 	{
 		Vec2 size = {SCREEN_WIDTH, 10};
-		Vec2 pos = { SCREEN_WIDTH / 2.f, size.y / 2 };
+		Vec2 pos = { SCREEN_WIDTH / 2.f, SCREEN_HEIGHT - size.y / 2 };
 		xpBar = CreateUI<Slider>(pos, size);
 		xpBar->offsetX = 0;
 		xpBar->offsetY = 0;

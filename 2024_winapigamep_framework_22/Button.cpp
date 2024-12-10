@@ -56,7 +56,11 @@ void Button::OnSelectExit()
 
 void Button::LateUpdate()
 {
-	Vec2 pos = GetPos() + owner->GetPos();
+	if (_owner == nullptr) return;
+	Vec2 pos = GetPos() + _owner->GetPos();
+	if (_parent != nullptr)
+		pos += _parent->GetPos();
+
 	Vec2 size = GetSize();
 
 	Vec2 mousePos = GET_MOUSEPOS;
@@ -90,7 +94,11 @@ void Button::Render(HDC _hdc)
 {
 	Image::Render(_hdc);
 
-	Vec2 pos = GetPos();
+	if(_owner == nullptr) return;
+	Vec2 pos = GetPos() + _owner->GetPos();
+	if (_parent != nullptr)
+		pos += _parent->GetPos();
+
 	Vec2 size = GetSize();
 
 	if (m_showDebug)

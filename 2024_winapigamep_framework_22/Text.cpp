@@ -20,7 +20,11 @@ void Text::LateUpdate()
 
 void Text::Render(HDC _hdc)
 {
-	Vec2 pos = GetPos() + owner->GetPos();
+	if (_owner == nullptr) return;
+	Vec2 pos = GetPos() + _owner->GetPos();
+	if (_parent != nullptr)
+		pos += _parent->GetPos();
+
 	Vec2 size = GetSize();
 	::SetTextColor(_hdc, color);
 	HFONT oldFont = static_cast<HFONT>(SelectObject(_hdc, pfont));

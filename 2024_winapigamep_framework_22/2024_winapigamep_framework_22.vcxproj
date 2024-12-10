@@ -149,7 +149,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Output\build\Resource\Fmod\inc</AdditionalIncludeDirectories>
@@ -185,7 +185,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BounceBulletPattern.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -252,8 +252,8 @@
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillCanvas.h" />
     <ClInclude Include="SkillManager.h" />
-    <ClInclude Include="SkillSlot.h" />
     <ClInclude Include="Pattern.h" />
+    <ClInclude Include="SkillSlot.h" />
     <ClInclude Include="SlashEffect.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
@@ -310,7 +310,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -351,7 +351,9 @@
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="MissilePattern.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -373,6 +375,7 @@
     <ClCompile Include="SkillCanvas.cpp" />
     <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="Pattern.cpp" />
+    <ClCompile Include="SkillSlot.cpp" />
     <ClCompile Include="SlashEffect.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
@@ -409,6 +412,10 @@
     <Image Include="..\output\build\icon2.ico" />
     <Image Include="2024_winapigamep_framework_22.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

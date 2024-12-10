@@ -16,7 +16,7 @@ Background::Background()
 	AddComponent<Collider>();
 	_spriteRenderer = GetComponent<SpriteRenderer>();
 	Collider* collider = GetComponent<Collider>();
-	collider->SetSize({SCREEN_WIDTH/3, SCREEN_HEIGHT/3});
+	collider->SetSize(StageLoader::mapSize);
 	collider->SetOffSetPos({ 0, 0 });
 	_spriteRenderer->isRotatable = false;
 	_spriteRenderer->SetTexture(L"Background", L"Texture\\Background.bmp");

@@ -1,6 +1,6 @@
 #pragma once
 #include "HealthCompo.h"
-class CameraManager;
+class Camera;
 class PlayerHealthCompo :
     public HealthCompo
 {
@@ -37,6 +37,7 @@ public:
 
 public:
     void LateUpdate() override;
+    void Render(HDC hdc) override;
 private:
     bool _isDie = false;
     float curDelay = 0;
@@ -46,6 +47,5 @@ private:
     float subHp;
     float maxSubHp;
     float autoCureValue = 5.f;
-    CameraManager* cameraShake;
 };
 

@@ -223,9 +223,6 @@
     <ClInclude Include="Action.h">
       <Filter>Engine\01. Core</Filter>
     </ClInclude>
-    <ClInclude Include="SkillSlot.h">
-      <Filter>Engine\08.UI</Filter>
-    </ClInclude>
     <ClInclude Include="HealPackSkill.h">
       <Filter>Engine\09.Skill</Filter>
     </ClInclude>
@@ -435,6 +432,9 @@
     </ClInclude>
     <ClInclude Include="RazerPattern.h">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillSlot.h">
+      <Filter>Engine\08.UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -784,5 +784,12 @@
     <ClCompile Include="RoundAttackPattern.cpp">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
+    <ClCompile Include="SkillSlot.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>

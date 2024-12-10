@@ -37,4 +37,5 @@ private:
 	float _curMoveDelay = 0.f;
 public:
 	GameScene* gameScene;
+	static Vec2 mapSize;
 };

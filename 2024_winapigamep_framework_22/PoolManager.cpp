@@ -13,13 +13,13 @@ void PoolManager::Init(Scene* curScene)
 {
     pool.clear();
     _curScene = curScene;
-    MakeObjectPool<ParrySparkEffect>(L"ParrySparkEffect", LAYER::PROJECTILE, 32);
-    MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::PROJECTILE, 5);
+    MakeObjectPool<ParrySparkEffect>(L"ParrySparkEffect", LAYER::EFFECT, 32);
+    MakeObjectPool<SlashEffect>(L"SlashEffect", LAYER::EFFECT, 5);
     MakeObjectPool<FireBallEffect>(L"FireBallEffect", LAYER::PROJECTILE, 150);
     MakeObjectPool<EnemyBullet>(L"EnemyBullet", LAYER::PROJECTILE, 200);
     MakeObjectPool<GuidedMissile>(L"GuidedMissile", LAYER::PROJECTILE, 50);
     MakeObjectPool<EnemyBounceBullet>(L"EnemyBounceBullet", LAYER::PROJECTILE, 50);
-    MakeObjectPool<HitEffect>(L"HitEffect", LAYER::PROJECTILE, 40);
+    MakeObjectPool<HitEffect>(L"HitEffect", LAYER::EFFECT, 40);
 }
 
 PoolableObject* PoolManager::Pop(const std::wstring& type, Vec2 pos)
