@@ -53,16 +53,19 @@ TitleCanvas::TitleCanvas()
 		_startButton->OnSelectEnterEvent +=
 			[ct = _startButton](int _)
 			{
+				ct->AddPos({ 0, -5 });
 				ct->SetSize({ 260, 36 });
 			};
 		_startButton->OnSelectExitEvent +=
 			[ct = _startButton](int _)
 			{
+				ct->AddPos({ 0, 5 });
 				ct->SetSize({ 250, 32 });
 			};
 		//StartButtonText
 		{
-			Text* startButtonText = CreateUI<Text>(pos, size);
+			Text* startButtonText = CreateUI<Text>({ 0, 0 }, size);
+			startButtonText->SetParent(_startButton);
 			startButtonText->SetText(L"START");
 			startButtonText->LoadFont(L"PF스타더스트 Bold", 18, 21);
 			startButtonText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -85,17 +88,20 @@ TitleCanvas::TitleCanvas()
 		_helpButton->OnSelectEnterEvent +=
 			[ct = _helpButton](int _)
 			{
+				ct->AddPos({ 0, -5 });
 				ct->SetSize({ 260, 36 });
 			};
 		_helpButton->OnSelectExitEvent +=
 			[ct = _helpButton](int _)
 			{
+				ct->AddPos({ 0, 5 });
 				ct->SetSize({ 250, 32 });
 			};
 
 		//HelpButtonText
 		{
-			Text* helpButtonText = CreateUI<Text>(pos, size);
+			Text* helpButtonText = CreateUI<Text>({0, 0}, size);
+			helpButtonText->SetParent(_helpButton);
 			helpButtonText->SetText(L"HELP");
 			helpButtonText->LoadFont(L"PF스타더스트 Bold", 18, 21);
 			helpButtonText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -118,16 +124,19 @@ TitleCanvas::TitleCanvas()
 		_quitButton->OnSelectEnterEvent +=
 			[ct = _quitButton](int _)
 			{
+				ct->AddPos({ 0, -5 });
 				ct->SetSize({ 260, 36 });
 			};
 		_quitButton->OnSelectExitEvent +=
 			[ct = _quitButton](int _)
 			{
+				ct->AddPos({ 0, 5 });
 				ct->SetSize({ 250, 32 });
 			};
 		//QuitButtonText
 		{
-			Text* quitButtonText = CreateUI<Text>(pos, size);
+			Text* quitButtonText = CreateUI<Text>({0, 0}, size);
+			quitButtonText->SetParent(_quitButton);
 			quitButtonText->SetText(L"QUIT");
 			quitButtonText->LoadFont(L"PF스타더스트 Bold", 18, 21);
 			quitButtonText->SetPitchAndFamily(DT_CENTER | DT_VCENTER | DT_SINGLELINE);

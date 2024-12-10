@@ -252,8 +252,8 @@
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillCanvas.h" />
     <ClInclude Include="SkillManager.h" />
-    <ClInclude Include="SkillSlot.h" />
     <ClInclude Include="Pattern.h" />
+    <ClInclude Include="SkillSlot.h" />
     <ClInclude Include="SlashEffect.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SpriteRenderer.h" />
@@ -373,6 +373,7 @@
     <ClCompile Include="SkillCanvas.cpp" />
     <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="Pattern.cpp" />
+    <ClCompile Include="SkillSlot.cpp" />
     <ClCompile Include="SlashEffect.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
@@ -409,6 +410,10 @@
     <Image Include="..\output\build\icon2.ico" />
     <Image Include="2024_winapigamep_framework_22.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

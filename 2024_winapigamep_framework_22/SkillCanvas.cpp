@@ -7,6 +7,7 @@
 #include "TimeManager.h"
 #include "XPManager.h"
 #include "InputManager.h"
+#include "Skill.h"
 
 SkillCanvas::SkillCanvas()
 {
@@ -37,11 +38,6 @@ SkillCanvas::SkillCanvas()
 
 SkillCanvas::~SkillCanvas()
 {
-	for (int i = 0; i < _skillSlots.size(); i++)
-	{
-		delete(_skillSlots[i]);
-	}
-
 	_skillSlots.clear();
 }
 
@@ -70,64 +66,57 @@ void SkillCanvas::Render(HDC hdc)
 
 void SkillCanvas::CreateSlot(Vec2 slotPos)
 {
-	SkillSlot* skillSlot = new SkillSlot;
+	SkillSlot* skillSlot = CreateUI<SkillSlot>(slotPos, Vec2(250, 320));
 
-	skillSlot->pos = slotPos;
-	skillSlot->size = Vec2(250, 320);
+	Vec2 namePos = Vec2(0, -110);
+	Vec2 nameSize = Vec2(skillSlot->GetSize().x - 30, 30.f);
 
-	Vec2 namePos = Vec2(0, -110) + skillSlot->pos;
-	Vec2 nameSize = Vec2(skillSlot->size.x - 30, 30.f);
+	Vec2 levelPos = Vec2(0, -64);
+	Vec2 levelSize = Vec2(skillSlot->GetSize().x - 30, 30.f);
 
-	Vec2 levelPos = Vec2(0, -64) + skillSlot->pos;
-	Vec2 levelSize = Vec2(skillSlot->size.x-30, 30.f);
+	Vec2 descriptionPos = Vec2(0, 110);
+	Vec2 descriptionSize = skillSlot->GetSize() - Vec2(30, 30);
 
-	Vec2 descriptionPos = Vec2(0, 110) + skillSlot->pos;
-	Vec2 descriptionSize = skillSlot->size - Vec2(30, 30);
-
-	skillSlot->base =			CreateUI<Button>(skillSlot->pos, skillSlot->size);
 	skillSlot->name =			CreateUI<Text>(namePos, nameSize);
 	skillSlot->level =			CreateUI<Text>(levelPos, levelSize);
 	skillSlot->description =	CreateUI<Text>(descriptionPos, descriptionSize);
 	skillSlot->level->SetText(L"New!");
-	skillSlot->base->texture = LOADTEXTURE(L"UISpriteSlot", L"Texture\\UISpriteSlot.bmp");
+	skillSlot->texture = LOADTEXTURE(L"UISpriteSlot", L"Texture\\UISpriteSlot.bmp");
 
 	skillSlot->name->LoadFont(L"PF스타더스트 Bold", 25, 30);
 	skillSlot->name->SetPitchAndFamily(DT_VCENTER);
+	skillSlot->name->SetParent(skillSlot);
 
 	skillSlot->level->LoadFont(L"PF스타더스트", 18, 24);
 	skillSlot->level->SetPitchAndFamily(DT_VCENTER);
+	skillSlot->level->SetParent(skillSlot);
 
 	skillSlot->description->LoadFont(L"PF스타더스트", 15, 18);
 	skillSlot->description->SetPitchAndFamily(DT_LEFT | DT_TOP);
+	skillSlot->description->SetParent(skillSlot);
 
 	//Button Events
-	skillSlot->base->OnClickEvent +=
+	skillSlot->OnClickEvent +=
 		[ct = this, skillSlot, player = GET_SINGLE(SkillManager)->player](int _)
 		{
 			skillSlot->skill->OnLevelUp(player);
 			ct->CloseSlot();
 		};
 
-	skillSlot->base->OnSelectEnterEvent +=
+	skillSlot->OnSelectEnterEvent +=
 		[skillSlot](int _)
 		{
 			Vec2 posDelta = { 0, -10 };
-			skillSlot->base->SetSize({250 * 1.05f, 320 * 1.05f });
-			skillSlot->name->AddPos(posDelta);
-			skillSlot->description->AddPos(posDelta);
-			skillSlot->level->AddPos(posDelta);
-			skillSlot->base->AddPos(posDelta);
+			skillSlot->SetSize({250 * 1.05f, 320 * 1.05f });
+			skillSlot->AddPos(posDelta);
 		};
 
-	skillSlot->base->OnSelectExitEvent +=
+	skillSlot->OnSelectExitEvent +=
 		[skillSlot](int _)
 		{
 			Vec2 posDelta = { 0, 10 };
-			skillSlot->base->SetSize({ 250, 320 });
-			skillSlot->name->AddPos(posDelta);
-			skillSlot->description->AddPos(posDelta);
-			skillSlot->level->AddPos(posDelta);
-			skillSlot->base->AddPos(posDelta);
+			skillSlot->SetSize({ 250, 320 });
+			skillSlot->AddPos(posDelta);
 		};
 
 

@@ -20,7 +20,11 @@ void Image::Render(HDC _hdc)
 {
 	if (texture == nullptr) return;
 
-	Vec2 pos = GetPos() + owner->GetPos();
+	if (_owner == nullptr) return;
+	Vec2 pos = GetPos() + _owner->GetPos();
+	if (_parent != nullptr)
+		pos += _parent->GetPos();
+
 	Vec2 size = GetSize();
 
 	TransparentBlt(_hdc,

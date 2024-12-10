@@ -20,7 +20,11 @@ void Slider::LateUpdate()
 
 void Slider::Render(HDC _hdc)
 {
-	Vec2 pos = GetPos() + owner->GetPos();
+	if (_owner == nullptr) return;
+	Vec2 pos = GetPos() + _owner->GetPos();
+	if (_parent != nullptr)
+		pos += _parent->GetPos();
+
 	Vec2 size = GetSize();
 	backBrush = ::CreateSolidBrush(backColor);
 

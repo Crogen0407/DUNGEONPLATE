@@ -1,29 +1,19 @@
 #pragma once
 #include "Button.h"
-#include "Text.h"
-#include "Skill.h";
-
-struct SkillSlot
+class Skill;
+class Text;
+class SkillSlot :
+    public Button
 {
 public:
-	void Init(Skill* skill) {
-		this->skill = skill;
-		name->SetText(skill->GetNameText());
-		description->SetText(skill->GetDescriptionText());
-		if (skill->GetLevel() == 0)
-			level->SetText(L"NEW!");
-		else if(skill->GetLevel() == 9)
-			level->SetText(std::to_wstring(skill->GetLevel()) + L" -> MAX");
-		else
-			level->SetText(std::to_wstring(skill->GetLevel()) + L" -> " + std::to_wstring(skill->GetLevel()+1));
-	}
+    SkillSlot();
+    ~SkillSlot() override;
 public:
-	Button* base = nullptr;
-	Text* name = nullptr;
-	Text* level = nullptr;
-	Text* description = nullptr;
+    void Init(Skill* skill);
 public:
-	Skill* skill;
-	Vec2 pos;
-	Vec2 size;
+    Text* name;
+    Text* level;
+    Text* description;
+    Skill* skill;
 };
+
