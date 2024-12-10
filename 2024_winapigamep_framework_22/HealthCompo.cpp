@@ -13,6 +13,7 @@ HealthCompo::HealthCompo() :
 	fillBrush = ::CreateSolidBrush(RGB(139, 172, 15));
 	backBrush = ::CreateSolidBrush(RGB(48, 98, 48));
 	GET_SINGLE(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", SOUND_CHANNEL::EFFECT2);
+	GET_SINGLE(ResourceManager)->LoadSound(L"Heal", L"Sound\\Heal.wav", SOUND_CHANNEL::EFFECT2);
 }
 
 HealthCompo::~HealthCompo()
@@ -36,6 +37,9 @@ void HealthCompo::ApplyDamage(int value)
 
 void HealthCompo::ApplyHeal(int value)
 {
+	Vec2 pos = GetOwner()->GetPos();
+	POP(L"HealEffect", pos);
+	GET_SINGLE(ResourceManager)->Play(L"Heal");
 	SetHp(hp + value);
 }
 

@@ -28,7 +28,7 @@ void PlayerHealthCompo::ApplyDamage(int value)
 	SetSubHp((int)std::clamp(subHp - temp, 0.f, maxSubHp));
 
 	//È­¸é Èçµé¸²
-	GET_SINGLE(GameManager)->ShakeConsoleWindow(0.1f, 4, 30);
+	GET_SINGLE(GameManager)->ShakeConsoleWindow(0.05f, 10, 90);
 
 	HealthCompo::ApplyDamage(value);
 }

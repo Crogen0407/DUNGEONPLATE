@@ -9,6 +9,14 @@ PlayerCast::PlayerCast()
 	_collider->SetSize({ 5, 5 });
 }
 
+PlayerCast::PlayerCast(float startAngle)
+{
+	AddComponent<Collider>();
+	_startAngle = startAngle;
+	_collider = GetComponent<Collider>();
+	_collider->SetSize({ 5, 5 });
+}
+
 PlayerCast::~PlayerCast()
 {
 }
@@ -45,6 +53,9 @@ void PlayerCast::ExitCollision(Collider* _other)
 
 void PlayerCast::SetMoveDir(Vec2 dir)
 {
-	_collider->SetOffSetPos(_dir * _distance);
 	_dir = dir;
+	float angle = (_startAngle * Deg2Rad);
+	_dir.x = _dir.x * cosf(angle) - _dir.y * sinf(angle);
+	_dir.y = _dir.x * sinf(angle) + _dir.y * cosf(angle);
+	_collider->SetOffSetPos(_dir * _distance);
 }

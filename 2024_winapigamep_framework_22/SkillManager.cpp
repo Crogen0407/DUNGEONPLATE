@@ -2,11 +2,13 @@
 #include "SkillManager.h"
 #include "TimeManager.h"
 #include "Skill.h"
+#include "Item.h"
 #include "HealPackSkill.h"
 #include "IncreaseAttackSpeedSkill.h"
 #include "IncreaseMoveSpeedSkill.h"
 #include "DashSkill.h"
 #include "FireBallSkill.h"
+#include "HealItem.h"
 
 SkillManager::~SkillManager()
 {
@@ -18,11 +20,15 @@ SkillManager::~SkillManager()
 
 void SkillManager::Init()
 {
+	//Skills
 	AddSkill(ESkillType::DashSkill,					static_cast<Skill*>(new DashSkill));
 	AddSkill(ESkillType::HealPack,					static_cast<Skill*>(new HealPackSkill));
 	AddSkill(ESkillType::IncreaseAttackSpeed,		static_cast<Skill*>(new IncreaseAttackSpeedSkill));
 	AddSkill(ESkillType::IncreaseMoveSpeed,			static_cast<Skill*>(new IncreaseMoveSpeedSkill));
 	AddSkill(ESkillType::FireBall,					static_cast<Skill*>(new FireBallSkill));
+
+	//Items
+	AddSkill(ESkillType::HealItem,					static_cast<Item*>(new HealItem));
 }
 
 void SkillManager::Update()

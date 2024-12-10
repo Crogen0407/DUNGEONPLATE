@@ -18,6 +18,8 @@ void SkillSlot::Init(Skill* skill)
 	description->SetText(skill->GetDescriptionText());
 	if (skill->GetLevel() == 0)
 		level->SetText(L"NEW!");
+	else if (skill->GetLevel() == -1)
+		level->SetText(L"Item");
 	else if (skill->GetLevel() == 9)
 		level->SetText(std::to_wstring(skill->GetLevel()) + L" -> MAX");
 	else

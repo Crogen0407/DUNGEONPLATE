@@ -64,14 +64,14 @@ void StageLoader::Update()
 {
 	if (_isMovingStage)
 	{
-		_curMoveDelay += fUNSCALEDDT;
+		_curMoveDelay += fDT;
 		if (_curMoveDelay > _moveDelay)
 		{
 			NextStage();
 			PLAY(L"NextLevel");
 			_isMovingStage = false;
 			_curMoveDelay = 0.f;
-			TIMESCALE = 1.f;
+			//TIMESCALE = 1.f;
 		}
 	}
 }
@@ -80,7 +80,7 @@ void StageLoader::TryNextStage()
 {
 	if (IsClearAllBackground())
 	{
-		TIMESCALE = 0;
+		//TIMESCALE = 0;
 		_isMovingStage = true;
 	}
 }

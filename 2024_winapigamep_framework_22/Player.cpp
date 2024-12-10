@@ -31,7 +31,10 @@ Player::Player()
 	_spriteRenderer = GetComponent<SpriteRenderer>();
 	healthCompo = GetComponent<PlayerHealthCompo>();
 	collider = GetComponent<Collider>();
-	_playerCast = new PlayerCast;
+
+	_playerCasts.push_back(new PlayerCast(30.f));
+	_playerCasts.push_back(new PlayerCast);
+	_playerCasts.push_back(new PlayerCast(-30.f));
 
 	_spriteRenderer->SetTexture(L"Player", L"Texture\\Player.bmp");
 	_spriteRenderer->isRotatable = false;
@@ -50,7 +53,12 @@ Player::Player()
 
 	ADDOBJECT(attackRange, LAYER::DEFAULT);
 	ADDOBJECT(arrow, LAYER::DEFAULT);
-	ADDOBJECT(_playerCast, LAYER::PLAYERCAST);
+
+	for (auto playerCast : _playerCasts)
+	{
+		ADDOBJECT(playerCast, LAYER::PLAYERCAST);
+	}
+
 
 	GET_SINGLE(SkillManager)->player = this;
 	GET_SINGLE(GameManager)->player = this;
@@ -79,18 +87,27 @@ void Player::Update()
 		Parry();
 	}
 
-	_playerCast->SetPos(GetPos());
+	bool isTrigger = false;
 
-	/*Vec2 castPlayer = GetPos();
-	castPlayer += dir * GetSize();*/
+	for (auto playerCast : _playerCasts)
+	{
+		playerCast->SetPos(GetPos());
+	
+		if (dir.LengthSquared() > 0.1f)
+			_lastDir = dir;
+		playerCast->SetMoveDir(_lastDir);
+		dir.Normalize();
+	}
+	for (auto playerCast : _playerCasts)
+	{
+		if (playerCast->IsCast())
+		{
+			isTrigger = true;
+			break;
+		}
+	}
 
-
-	if (dir.LengthSquared() > 0.1f)
-		_lastDir = dir;
-	_playerCast->SetMoveDir(_lastDir);
-	dir.Normalize();
-
-	if (_playerCast->IsCast() == true)
+	if (isTrigger)
 	{
 		Move(dir * speed * fDT);
 		lastPos = GetPos();

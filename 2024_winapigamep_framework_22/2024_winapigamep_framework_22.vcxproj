@@ -221,6 +221,8 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GDISelector.h" />
     <ClInclude Include="GuidedMissile.h" />
+    <ClInclude Include="HealEffect.h" />
+    <ClInclude Include="HealItem.h" />
     <ClInclude Include="HealPackSkill.h" />
     <ClInclude Include="HealthCompo.h" />
     <ClInclude Include="HelpCanvas.h" />
@@ -230,6 +232,7 @@
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="MissilePattern.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
@@ -342,6 +345,8 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GDISelector.cpp" />
     <ClCompile Include="GuidedMissile.cpp" />
+    <ClCompile Include="HealEffect.cpp" />
+    <ClCompile Include="HealItem.cpp" />
     <ClCompile Include="HealPackSkill.cpp" />
     <ClCompile Include="HealthCompo.cpp" />
     <ClCompile Include="HelpCanvas.cpp" />
@@ -351,6 +356,7 @@
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>

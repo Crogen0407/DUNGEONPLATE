@@ -21,7 +21,6 @@ Camera::~Camera()
 
 void Camera::ShakeConsoleWindow(int duration, int frequency, int amplitude)
 {
-    if (_isShaking) return;
     SaveOriginalPosition();
     _amplitude = amplitude;
     _frequency = frequency;

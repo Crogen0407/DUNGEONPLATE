@@ -25,7 +25,7 @@ private:
 	SpriteRenderer* _spriteRenderer;
 	PlayerHealthCompo* healthCompo;
 	Collider* collider;
-	PlayerCast* _playerCast;
+	std::vector<PlayerCast*> _playerCasts;
 //ÆÐ¸µ
 public:
 	Action<float> ParryCoolTimeEvent;

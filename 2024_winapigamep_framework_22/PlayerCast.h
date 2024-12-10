@@ -6,6 +6,7 @@ class PlayerCast :
 {
 public:
     PlayerCast();
+    PlayerCast(float startAngle);
     ~PlayerCast() override;
 public:
     void Update() override;
@@ -22,8 +23,9 @@ public:
     void SetMoveDir(Vec2 dir);
     Collider* other;
 private:
+    float _startAngle = 0.f;
     Vec2 _dir;
-    float _distance = 20.f;
+    float _distance = 10.f;
     Collider* _collider;
     bool _isCast = true;
 };

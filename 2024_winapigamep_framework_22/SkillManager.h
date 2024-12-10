@@ -3,11 +3,14 @@ class Skill;
 class Player;
 enum class ESkillType
 {
+	//Skills
 	DashSkill,
 	HealPack,
 	IncreaseAttackSpeed,
 	IncreaseMoveSpeed,
 	FireBall,
+	//Items
+	HealItem,
 	LAST
 };
 
