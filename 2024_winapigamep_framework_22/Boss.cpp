@@ -13,6 +13,7 @@
 #include "BounceBulletPattern.h"
 #include "EventManager.h"
 #include "Movement.h"
+#include "BombPattern.h"
 
 Boss::Boss() : _currentSkill{ nullptr }
 {
@@ -21,7 +22,6 @@ Boss::Boss() : _currentSkill{ nullptr }
 	_target = FindObject(L"Player", LAYER::PLAYER);
 	Vec2 texSize = { (int)texture->GetWidth() / 6, (int)texture->GetHeight() };
 	AddComponent< Collider>();
-	//AddComponent<HealthCompo>();
 	AddComponent<Animator>();
 	AddComponent<AttackCompo>();
 	AddComponent<Movement>();
@@ -30,7 +30,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	GetComponent<HealthCompo>()->SetOffsetY(50);
 	GetComponent<Animator>()->CreateAnimation(L"Boss", texture, { 0,0 }, texSize, { (int)texSize.x, 0 }, 6, 0.2f, false);
 	GetComponent<Animator>()->PlayAnimation(L"Boss", true, 100);
-	GetComponent<HealthCompo>()->SetHp(300, 300);
+	GetComponent<HealthCompo>()->SetHp(425, 425);
 
 	_prevSkillTime = TIME;
 	MissilePattern* mSkill = new MissilePattern();
@@ -41,12 +41,15 @@ Boss::Boss() : _currentSkill{ nullptr }
 	razerSkill->SetOwner(this);
 	BounceBulletPattern* bounceBulletSkill = new BounceBulletPattern();
 	bounceBulletSkill->SetOwner(this);
+	BombPattern* bombPattern = new BombPattern();
+	bombPattern->SetOwner(this);
 
 	_prevDash = TIME;
 	_skills.push_back(mSkill);
 	_skills.push_back(paternA);
 	_skills.push_back(razerSkill);
 	_skills.push_back(bounceBulletSkill);
+	_skills.push_back(bombPattern);
 }
 
 Boss::~Boss()

@@ -3,9 +3,11 @@
 #include "TimeManager.h"
 #include "Razer.h"
 #include "AttackCompo.h"
+#include "ResourceManager.h"
 
 RazerPatern::RazerPatern()
 {
+	LOADSOUND(L"laserBeam", L"Sound\\laserBeam.wav", SOUND_CHANNEL::EFFECT3);
 }
 
 RazerPatern::~RazerPatern()
@@ -22,6 +24,7 @@ void RazerPatern::Update()
 
 void RazerPatern::UseSkill()
 {
+	PLAY(L"laserBeam");
 	_skillStartTime = TIME;
 	_isUsingSkill = true;
 	_owner->GetComponent<AttackCompo>()->TryFireRazer(_skillTime);

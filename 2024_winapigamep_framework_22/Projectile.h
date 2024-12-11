@@ -33,8 +33,7 @@ protected:
 	Texture* _texture;
 	float _speed = 500.f;
 	int _damage;
-
-	// PoolableObject을(를) 통해 상속됨
+public:
 	virtual void OnPop() override;
 	virtual void OnPush() override;
 };

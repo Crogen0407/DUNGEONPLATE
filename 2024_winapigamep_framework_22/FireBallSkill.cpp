@@ -27,21 +27,22 @@ void FireBallSkill::OnLevelUp(Player* player)
 	player->AttackEvent +=
 		[ct = this, ctPlayer = player](int _)
 		{
-			int count = ct->GetLevel();
+			float x = ct->GetLevel() / 10.f;
+			int count = (int)((1 - cosf((x * PI) / 2.f)) * 9) + 1;
 			EFireBallModeType fireBallModeType = EFireBallModeType::FireBall_L;
 			switch (ct->GetLevel())
 			{	
 			case 1:
 			case 2:
-			case 3:
-			case 4:
 				fireBallModeType = EFireBallModeType::FireBall_S;
 				break;
+			case 3:
+			case 4:
 			case 5:
-			case 6:
-			case 7:
 				fireBallModeType = EFireBallModeType::FireBall_M;
 				break;
+			case 6:
+			case 7:
 			case 8:
 			case 9:
 			case 10:
