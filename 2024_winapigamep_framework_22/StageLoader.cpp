@@ -43,8 +43,8 @@ void StageLoader::Init()
 	_currentStage = nullptr;
 	_stageNum = 0;
 	_stages.clear();
-	//RegisterStage<Stage1>();
-	//RegisterStage<Stage2>();
+	RegisterStage<Stage1>();
+	RegisterStage<Stage2>();
 	RegisterStage<Stage3>();
 	RegisterStage<Stage4>();
 	RegisterStage<Stage5>();
