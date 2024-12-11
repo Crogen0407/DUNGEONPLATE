@@ -239,6 +239,7 @@
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParrySparkEffect.h" />
+    <ClInclude Include="PauseCanvas.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCast.h" />
@@ -368,6 +369,7 @@
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParrySparkEffect.cpp" />
+    <ClCompile Include="PauseCanvas.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCast.cpp" />
     <ClCompile Include="PlayerHealthCompo.cpp" />

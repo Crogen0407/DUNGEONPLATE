@@ -7,12 +7,14 @@
 #include "Boss.h"
 #include "GameCanvas.h"
 #include "SkillCanvas.h"
+#include "PauseCanvas.h"
 #include "CollisionManager.h"
 #include "ResourceManager.h"
 #include "StageLoader.h"
 #include "GDISelector.h"
 #include "SkillManager.h"
 #include "TimeManager.h"
+#include "InputManager.h"
 
 //#include "InputManager.h"
 //#include "XPManager.h"
@@ -41,10 +43,12 @@ void GameScene::Init()
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
+	_pauseCanvas = new PauseCanvas;
 
 	AddObject(_gameCanvas, LAYER::UI);
 	AddObject(_skillCanvas, LAYER::UI);
-
+	AddObject(_pauseCanvas, LAYER::UI);
+	_pauseCanvas->SetActive(false);
 	TIME = 0.f;
 	_stageLoader->Init();
 
@@ -61,6 +65,12 @@ void GameScene::Release()
 
 void GameScene::Update()
 {
+	if (GET_KEYDOWN(KEY_TYPE::ESC))
+	{
+		_pauseCanvas->SetActive(!_pauseCanvas->GetActive());
+		TIMESCALE = !_pauseCanvas->GetActive();
+	}
+
 	_stageLoader->Update();
 	Scene::Update();
 	//if (GET_KEYDOWN(KEY_TYPE::NUM_1))
