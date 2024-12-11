@@ -188,7 +188,7 @@ void Player::Parrying()
 		{
 			Projectile* proj = dynamic_cast<Projectile*>(projObj);
 			if (proj == nullptr) continue;
-			proj->Parry();
+			proj->Parry(GetPos());
 			parried = true;
 		}
 	}
