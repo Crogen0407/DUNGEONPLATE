@@ -9,7 +9,7 @@ public:
 public:
     void Update() override;
     void Render(HDC _hdc) override;
-    void Parry() override;
+    void Parry(Vec2 pos) override;
     void OnPush()override;
 public:
     void SetMoveDirection(Vec2 dir)

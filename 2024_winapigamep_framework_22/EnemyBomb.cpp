@@ -44,8 +44,11 @@ void EnemyBomb::Render(HDC _hdc)
 	ComponentRender(_hdc);
 }
 
-void EnemyBomb::Parry()
+void EnemyBomb::Parry(Vec2 pos)
 {
+	Vec2 dir = (pos * -1) + GetPos();
+	dir.Normalize();
+
 	_damage = 10.f;
 	SetSpeed(_speed * 6.f);
 	SetDir(GetDir() * -1);
