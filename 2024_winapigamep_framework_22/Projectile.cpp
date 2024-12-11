@@ -43,10 +43,13 @@ void Projectile::ExitCollision(Collider* _other)
 {
 }
 
-void Projectile::Parry()
+void Projectile::Parry(Vec2 pos)
 {
+	Vec2 dir = (pos *-1) + GetPos();
+	dir.Normalize();
+
 	SetSpeed(_speed * 3.f);
-	SetDir(GetDir() * -1);
+	SetDir(dir);
 	POP(L"ParrySparkEffect", GetPos());
 	GET_SINGLE(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;
