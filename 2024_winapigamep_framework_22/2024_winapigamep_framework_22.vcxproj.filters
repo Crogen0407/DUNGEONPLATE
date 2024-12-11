@@ -175,9 +175,6 @@
     <ClInclude Include="StageScene.h">
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="CameraManager.h">
-      <Filter>Engine\02. Manager</Filter>
-    </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
@@ -436,6 +433,15 @@
     <ClInclude Include="SkillSlot.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
+    <ClInclude Include="BombPattern.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="EnemyBomb.h" />
+    <ClInclude Include="HealEffect.h" />
+    <ClInclude Include="HealItem.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="PauseCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -531,9 +537,6 @@
     </ClCompile>
     <ClCompile Include="StageScene.cpp">
       <Filter>Engine\04. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraManager.cpp">
-      <Filter>Engine\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>Engine\03. Object\UI</Filter>
@@ -785,6 +788,15 @@
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
     <ClCompile Include="SkillSlot.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BombPattern.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="EnemyBomb.cpp" />
+    <ClCompile Include="HealEffect.cpp" />
+    <ClCompile Include="HealItem.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="PauseCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
   </ItemGroup>

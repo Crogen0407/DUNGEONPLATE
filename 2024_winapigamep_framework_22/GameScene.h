@@ -1,8 +1,9 @@
 #pragma once
 #include "Scene.h"
 
-class Canvas;
+class SkillCanvas;
 class GameCanvas;
+class PauseCanvas;
 class Background;
 class StageLoader;
 class GameScene :
@@ -26,7 +27,8 @@ public:
     void OnNextStageEffect();
 private:
     GameCanvas* _gameCanvas;
+    PauseCanvas* _pauseCanvas;
+    SkillCanvas* _skillCanvas;
     std::unique_ptr<StageLoader> _stageLoader;
-    Canvas* _skillCanvas;
 };
 
