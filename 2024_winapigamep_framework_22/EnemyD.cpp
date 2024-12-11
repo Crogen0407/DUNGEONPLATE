@@ -45,6 +45,9 @@ void EnemyD::Update()
 		GetComponent<HealthCompo>()->ApplyDamage(9999);
 	}
 
+	float sizeDelta = 40 + (sinf(TIME * 50) * 0.5f + 0.5f) * 10;
+	SetSize({ sizeDelta , sizeDelta });
+
 	Vec2 dir = _target->GetPos();
 	dir -= GetPos();
 	float length = dir.Length();
