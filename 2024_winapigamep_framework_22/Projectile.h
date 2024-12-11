@@ -24,7 +24,7 @@ public:
 	virtual void ExitCollision(Collider* _other);
 public:
 	void SetSpeed(float speed) { _speed = speed; }
-	virtual void Parry();
+	virtual void Parry(Vec2 dir);
 	bool _hitEnemy = false;
 protected:
 	//float m_dir;
