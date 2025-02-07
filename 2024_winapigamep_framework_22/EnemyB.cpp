@@ -15,7 +15,7 @@
 #include "Texture.h"
 #include "EventManager.h"
 
-EnemyB::EnemyB()
+EnemyB::EnemyB() : Enemy::Enemy()
 {
 	_giveExp = 4;
 	SetSize({ 50,50 });

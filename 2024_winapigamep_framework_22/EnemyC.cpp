@@ -8,7 +8,7 @@
 #include "HealthCompo.h"
 #include "EventManager.h"
 
-EnemyC::EnemyC()
+EnemyC::EnemyC() : Enemy::Enemy()
 {
 	_giveExp = 4;
 	SetSize({ 50,50 });

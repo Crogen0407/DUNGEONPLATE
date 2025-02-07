@@ -99,12 +99,10 @@ void GuidedMissile::SetDir(Vec2 dir)
 	_rotation = atan2f(_dir.y, _dir.x) * Rad2Deg;
 }
 
-void GuidedMissile::Parry(Vec2 dir)
+void GuidedMissile::Parry()
 {
-	Vec2 parriedDir = (_dir * -1) + GetPos();
-	parriedDir.Normalize();
+	Projectile::Parry();
 
-	SetDir(parriedDir);
 	_hitEnemy = true;
 	_isParry = true;
 }

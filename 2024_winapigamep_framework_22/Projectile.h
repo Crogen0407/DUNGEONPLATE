@@ -1,8 +1,11 @@
 #pragma once
 #include "PoolableObject.h"
+#include "AttackCompo.h"
 class Texture;
+class AttackCompo;
 class Projectile : public PoolableObject
 {
+	friend AttackCompo;
 public:
 	Projectile();
 	virtual ~Projectile();
@@ -24,7 +27,7 @@ public:
 	virtual void ExitCollision(Collider* _other);
 public:
 	void SetSpeed(float speed) { _speed = speed; }
-	virtual void Parry(Vec2 dir);
+	virtual void Parry();
 	bool _hitEnemy = false;
 protected:
 	//float m_dir;

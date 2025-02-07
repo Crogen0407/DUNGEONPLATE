@@ -114,7 +114,6 @@ void Player::Update()
 	}
 	else
 	{
-		cout << lastPos.x << " " << lastPos.y << '\n';
 		DashSkill* dashSkill = dynamic_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
 		dashSkill->StopDash();
 		SetPos(lastPos);
@@ -176,6 +175,8 @@ void Player::Parrying()
 
 	for (Object* projObj : projectiles)
 	{
+		Projectile* proj = dynamic_cast<Projectile*>(projObj);
+
 		Vec2 dist = projObj->GetPos();
 		dist -= vPos;
 		if (dist.Length() > parryDist) continue;
@@ -186,9 +187,8 @@ void Player::Parrying()
 		float rotation = acos(attackDir.Dot(dist)) * Rad2Deg;
 		if (abs(rotation) < 45)
 		{
-			Projectile* proj = dynamic_cast<Projectile*>(projObj);
 			if (proj == nullptr) continue;
-			proj->Parry(GetPos());
+			proj->Parry();
 			parried = true;
 		}
 	}
@@ -201,8 +201,6 @@ void Player::Parrying()
 
 void Player::EnterCollision(Collider* _other)
 {
-	//if()
-	//healthCompo->ApplyDamage(10);
 }
 
 void Player::StayCollision(Collider* _other)

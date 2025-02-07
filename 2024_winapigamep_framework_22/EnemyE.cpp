@@ -11,7 +11,7 @@
 #include "Texture.h"
 #include "RoundAttackPattern.h"
 
-EnemyE::EnemyE()
+EnemyE::EnemyE() : Enemy::Enemy()
 {
 	_giveExp = 3;
 	SetSize({ 50,50 });

@@ -35,11 +35,13 @@ protected:
 	wstring m_name;
 public:
 	template<typename T>
-	void AddComponent()
+	T* AddComponent()
 	{
 		T* com = new T;
 		com->SetOwner(this);
 		m_vecComponents.push_back(com);
+
+		return com;
 	}
 	template<typename T>
 	T* GetComponent()

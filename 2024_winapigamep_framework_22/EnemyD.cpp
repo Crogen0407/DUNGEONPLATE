@@ -13,7 +13,7 @@
 #include "AttackCompo.h"
 #include "RoundAttackPattern.h"
 
-EnemyD::EnemyD()
+EnemyD::EnemyD() : Enemy::Enemy()
 {
 	_giveExp = 3;
 	_startTime = TIME;

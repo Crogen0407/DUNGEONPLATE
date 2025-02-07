@@ -9,6 +9,8 @@
 #include "PoolableObject.h"
 #include "Scene.h"
 #include "PoolManager.h"
+#include "Object.h"
+#include "Component.h"
 
 Projectile::Projectile() : _dir(1.f, 1.f)
 {
@@ -43,13 +45,10 @@ void Projectile::ExitCollision(Collider* _other)
 {
 }
 
-void Projectile::Parry(Vec2 pos)
+void Projectile::Parry()
 {
-	Vec2 dir = (pos *-1) + GetPos();
-	dir.Normalize();
-
 	SetSpeed(_speed * 3.f);
-	SetDir(dir);
+	SetDir(_dir * -1);
 	POP(L"ParrySparkEffect", GetPos());
 	GET_SINGLE(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;

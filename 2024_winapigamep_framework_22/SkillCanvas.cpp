@@ -124,7 +124,7 @@ void SkillCanvas::ShowSlots()
 	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRandomSkills();
 	showSkillSlots = true;
 
-	if (_skillSlots.size() == 0)
+	if (_skillSlots.size() != 3)
 	{
 		_skillSlots.clear();
 		Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
