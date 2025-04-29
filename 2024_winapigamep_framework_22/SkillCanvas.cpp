@@ -28,7 +28,7 @@ SkillCanvas::SkillCanvas()
 	CreateSlot(center - Vec2(xDeltaPos, 0));
 	CreateSlot(center);
 	CreateSlot(center + Vec2(xDeltaPos, 0));*/
-
+	GET_SINGLE(XPManager)->LevelUpEvent.Clear();
 	GET_SINGLE(XPManager)->LevelUpEvent +=
 		[ct = this](int level)
 		{
@@ -140,12 +140,6 @@ void SkillCanvas::ShowSlots()
 		CreateSlot(center - Vec2(xDeltaPos, 0));
 		CreateSlot(center);
 		CreateSlot(center + Vec2(xDeltaPos, 0));
-
-		GET_SINGLE(XPManager)->LevelUpEvent +=
-			[ct = this](int level)
-			{
-				ct->ShowSlots();
-			};
 	}
 
 
