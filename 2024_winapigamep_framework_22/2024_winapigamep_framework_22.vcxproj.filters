@@ -1,0 +1,853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Default">
+      <UniqueIdentifier>{44637711-5c31-4a78-a126-11ad18b294ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{02756ed4-8bc7-4060-96a0-114c97ea37dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\01. Core">
+      <UniqueIdentifier>{7b4f18de-b780-49f6-844a-1acc8c3fdeb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\02. Manager">
+      <UniqueIdentifier>{f2f869a8-d2b1-4c6c-abf6-3942380e48b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\99. Header">
+      <UniqueIdentifier>{db5191d7-db19-476f-bd56-f21636c88e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object">
+      <UniqueIdentifier>{72b1a040-6972-4969-aeb9-fbf7296b123a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Scene">
+      <UniqueIdentifier>{e854d33c-3cbc-4c1a-824d-e6d42d811345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Resource">
+      <UniqueIdentifier>{bbf36fb7-a875-47da-87a2-b1fe97c0a065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\06. Component">
+      <UniqueIdentifier>{2f9dcc2e-ceae-4161-85f0-f652cfcdd506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07. Module">
+      <UniqueIdentifier>{ec499769-3097-4d06-8abb-b25ff4a1a933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\UI">
+      <UniqueIdentifier>{2524838c-6af9-4ef9-871b-f5dbbe72e6b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Crogen">
+      <UniqueIdentifier>{b5e96a18-c5e2-4361-802f-863c76ffab5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Crogen\ObjectPooling">
+      <UniqueIdentifier>{e7a3f073-a260-4d36-ab6b-2ef4f201c94e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Player">
+      <UniqueIdentifier>{98e40155-6ad1-4c34-990a-72a20a254f84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Projectile">
+      <UniqueIdentifier>{04aad006-beaa-4b1f-9945-5d650f525a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\08.UI">
+      <UniqueIdentifier>{080fcf78-1167-493d-af0d-63e9d0c60fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.Skill">
+      <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Effect">
+      <UniqueIdentifier>{6ed72887-2824-4086-831a-cea3848c0e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Enemy">
+      <UniqueIdentifier>{d6810418-02bc-47cb-97a3-632b69391d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\10.Stage">
+      <UniqueIdentifier>{fea48968-69a3-4ec1-a142-4f558bf18b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\10.Stage\Background">
+      <UniqueIdentifier>{5b05d621-2a52-447a-ba21-84a8cf63528b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Object\Enemy\EnemyPattern">
+      <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="2024_winapigamep_framework_22.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Engine\01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Engine\99. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Engine\99. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Engine\99. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseWindow.h">
+      <Filter>Engine\01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Engine\99. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceBase.h">
+      <Filter>Engine\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Engine\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GDISelector.h">
+      <Filter>Engine\07. Module</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolManager.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolableObject.h">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="StageScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="UIScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillManager.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthCompo.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackDirArrow.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Engine\01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="HealPackSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseAttackSpeedSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="DashSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="GuidedMissile.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBounceBullet.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBullet.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreaseMoveSpeedSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBallSkill.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="SlashEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBallEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeObject.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="XPManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyA.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyB.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyC.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyPatternA.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Pattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Engine\06. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Razer.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackRange.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClearScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClearCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.h">
+      <Filter>Engine\04. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyD.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyE.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCast.h">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage6.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage7.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage8.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage9.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundA.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundB.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundC.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundD.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundE.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundNull.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="StageLoader.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="ParrySparkEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage10.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage11.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundBoss.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundF.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="HitEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundAttackPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceBulletPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MissilePattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="RazerPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillSlot.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseCanvas.h">
+      <Filter>Engine\08.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HealEffect.h">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="BombPattern.h">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="HealItem.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Engine\09.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>Engine\07. Module</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBomb.h">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="miniaudio.h">
+      <Filter>Engine\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBounds.h">
+      <Filter>Engine\10.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="FontCollectionLoader.h">
+      <Filter>Engine\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Easings.h">
+      <Filter>Engine\07. Module</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyF.h">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundG.h">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="2024_winapigamep_framework_22.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="2024_winapigamep_framework_22.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Output\build\GameIcon.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\output\build\icon2.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Engine\01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Engine\01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWindow.cpp">
+      <Filter>Engine\01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceBase.cpp">
+      <Filter>Engine\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Engine\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GDISelector.cpp">
+      <Filter>Engine\07. Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolManager.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="StageScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Engine\03. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="UIScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillManager.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHealthCompo.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackDirArrow.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="HealPackSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseAttackSpeedSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="DashSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="GuidedMissile.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBounceBullet.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBullet.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBallSkill.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SlashEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBallEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolableObject.cpp">
+      <Filter>Engine\Crogen\ObjectPooling</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeObject.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="XPManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyA.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyB.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyC.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyPatternA.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Pattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Engine\06. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Razer.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackRange.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClearScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClearCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Engine\04. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyD.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyE.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCast.cpp">
+      <Filter>Engine\03. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage6.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage7.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage8.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage9.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundA.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundB.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundC.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundD.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundE.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundNull.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="StageLoader.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="ParrySparkEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage10.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage11.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundBoss.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundF.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="HitEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="BounceBulletPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MissilePattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="RazerPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundAttackPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillSlot.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseCanvas.cpp">
+      <Filter>Engine\08.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HealEffect.cpp">
+      <Filter>Engine\03. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="BombPattern.cpp">
+      <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="HealItem.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Engine\09.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleMath.cpp">
+      <Filter>Engine\07. Module</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBomb.cpp">
+      <Filter>Engine\03. Object\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniAudioImpl.cpp">
+      <Filter>Engine\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="MapBounds.cpp">
+      <Filter>Engine\10.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyF.cpp">
+      <Filter>Engine\03. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundG.cpp">
+      <Filter>Engine\10.Stage\Background</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl">
+      <Filter>Engine\07. Module</Filter>
+    </None>
+  </ItemGroup>
+</Project>
