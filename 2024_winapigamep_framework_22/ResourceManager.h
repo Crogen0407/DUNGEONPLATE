@@ -1,6 +1,6 @@
 #pragma once
 #include "miniaudio.h"
-
+#include "IManager.h"
 class Texture;
 
 enum class SOUND_CHANNEL // 사운드마다 채널
@@ -15,17 +15,16 @@ struct tSoundInfo
     bool bInitialized = false;  // ma_sound_init 성공 여부
 };
 
-class ResourceManager
+class ResourceManager : public IManager
 {
-    DECLARE_SINGLE(ResourceManager);
 public:
-    void Init();
+    void Init() override;
     const wchar_t* GetResPath() const { return m_resourcePath; }
 
 public:
     Texture* TextureLoad(const wstring& _key, const wstring& _path);
     Texture* TextureFind(const wstring& _key);
-    void Release();
+    void Release() override;
 
 public:
     void LoadSound(const wstring& _key, const wstring& _path, bool _isLoop);

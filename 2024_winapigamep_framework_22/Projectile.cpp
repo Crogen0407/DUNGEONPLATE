@@ -22,8 +22,7 @@ Projectile::~Projectile()
 
 void Projectile::EnterCollision(Collider* _other)
 {
-	LAYER layer =
-		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+	LAYER layer = GET_MANAGER(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 
 	if (layer == LAYER::PLAYER || (layer == LAYER::ENEMY && _hitEnemy))
 	{
@@ -49,7 +48,7 @@ void Projectile::Parry()
 	SetSpeed(_speed * 3.f);
 	SetDir(_dir * -1);
 	POP(L"ParrySparkEffect", GetPosition());
-	GET_SINGLE(ResourceManager)->Play(L"Parry");
+	GET_MANAGER(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;
 }
 

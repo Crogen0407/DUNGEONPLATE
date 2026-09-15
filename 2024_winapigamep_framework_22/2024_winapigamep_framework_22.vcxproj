@@ -193,6 +193,7 @@
     <ClInclude Include="BounceBulletPattern.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -226,7 +227,7 @@
     <ClInclude Include="GameCanvas.h" />
     <ClInclude Include="GameClearCanvas.h" />
     <ClInclude Include="GameClearScene.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="GameOverCanvas.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameScene.h" />
@@ -240,10 +241,12 @@
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="HitEffect.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="IManager.h" />
     <ClInclude Include="IncreaseAttackSpeedSkill.h" />
     <ClInclude Include="IncreaseMoveSpeedSkill.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Managers.h" />
     <ClInclude Include="MapBounds.h" />
     <ClInclude Include="miniaudio.h" />
     <ClInclude Include="MissilePattern.h" />
@@ -329,6 +332,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -356,7 +360,7 @@
     <ClCompile Include="GameCanvas.cpp" />
     <ClCompile Include="GameClearCanvas.cpp" />
     <ClCompile Include="GameClearScene.cpp" />
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="GameOverCanvas.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -377,6 +381,7 @@
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Managers.cpp" />
     <ClCompile Include="MapBounds.cpp" />
     <ClCompile Include="MiniAudioImpl.cpp" />
     <ClCompile Include="MissilePattern.cpp" />

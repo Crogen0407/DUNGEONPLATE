@@ -44,7 +44,7 @@ void EnemyBomb::Parry()
 	SetSpeed(_speed * 6.f);
 	SetDir(GetDir() * -1);
 	POP(L"ParrySparkEffect", GetPosition());
-	GET_SINGLE(ResourceManager)->Play(L"Parry");
+	GET_MANAGER(ResourceManager)->Play(L"Parry");
 	_hitEnemy = true;
 	GetComponent<SpriteRenderer>()->SetTexture(_parriedTexture);
 }

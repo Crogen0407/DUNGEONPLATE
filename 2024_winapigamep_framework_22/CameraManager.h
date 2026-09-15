@@ -1,15 +1,13 @@
 #pragma once
-class Player;
+#include "IManager.h"
 #include "Camera.h"
-class GameManager
+class CameraManager : public IManager
 {
-	DECLARE_SINGLE(GameManager);
 public:
-	void Init();
-	void Update();
-public:
+	void Init() override;
+	void Update() override;
 	void ShakeConsoleWindow(int duration, int frequency, int amplitude);
-	Player* player = nullptr;
 private:
 	std::unique_ptr<Camera> _camera;
 };
+

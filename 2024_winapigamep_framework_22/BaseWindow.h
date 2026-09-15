@@ -5,16 +5,16 @@ public:
 	BaseWindow();
 	~BaseWindow();
 public:
-	int Run(HINSTANCE _hInst, LPWSTR _lpCmdline, int _CmdShow);
+	int Run(HINSTANCE hInstance, LPWSTR lpCmdline, int cmdShow);
 private:
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	ATOM MyRegisterClass(); // 1
 	void createWindow();   // 2
-	void showWindow(int _CmdShow); // 3
-	void updateWindow(); // 4
+	void ShowWindow(int _CmdShow); // 3
+	void UpdateWindow(); // 4
 	int  MessageLoop(); // 5
 private:
-	HINSTANCE m_hInst;
-	HWND	  m_hWnd;
+	HINSTANCE _hInstance;
+	HWND	  _hWnd;
 };
 

@@ -62,7 +62,7 @@ void HelpCanvas::Update()
 		if (_curSlide > _slides.size()-1 && _isFading == false)
 		{
 			_isFading = true;
-			GET_SINGLE(FadeManager)->LoadScene(L"TitleScene");
+			GET_MANAGER(FadeManager)->LoadScene(L"TitleScene");
 			return;
 		}
 		if (_isFading == true) return;

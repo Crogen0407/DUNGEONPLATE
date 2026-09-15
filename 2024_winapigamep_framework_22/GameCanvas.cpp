@@ -133,7 +133,7 @@ GameCanvas::GameCanvas() :
 			dashCoolTimeBar->isVertical = true;
 			dashCoolTimeBar->flip = true;
 
-			DashSkill* dashSkill = static_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
+			DashSkill* dashSkill = static_cast<DashSkill*>(GET_MANAGER(SkillManager)->GetSkill(ESkillType::DashSkill));
 			dashSkill->DelayTimeEvent +=
 				[ct = dashCoolTimeBar](float value)
 				{

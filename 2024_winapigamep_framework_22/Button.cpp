@@ -44,7 +44,7 @@ void Button::OnSelectEnter()
 		texture = _selectedTex;
 
 	LOADSOUND(L"ButtonSelect", L"Sound\\ButtonSelect.wav", SOUND_CHANNEL::EFFECT1);
-	GET_SINGLE(ResourceManager)->Play(L"ButtonSelect");
+	GET_MANAGER(ResourceManager)->Play(L"ButtonSelect");
 	OnSelectEnterEvent.Invoke(NULL);
 }
 
@@ -57,7 +57,7 @@ void Button::OnSelectExit()
 
 void Button::LateUpdate()
 {
-	if (GET_SINGLE(FadeManager)->IsSceneFading()) return;
+	if (GET_MANAGER(FadeManager)->IsSceneFading()) return;
 	if (_owner == nullptr) return;
 	Vec2 pos = GetPosition() + _owner->GetPosition();
 	if (_parent != nullptr)

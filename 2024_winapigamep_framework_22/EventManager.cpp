@@ -6,58 +6,58 @@
 void EventManager::Update()
 {
 	// 이전 프레임에서 등록해둔 
-	for (Object* obj : m_vecObjectDead)
+	for (Object* obj : _deadObjects)
 	{
 		if (obj != nullptr)
 			delete obj;
 	}
-	m_vecObjectDead.clear();
+	_deadObjects.clear();
 
-	for (auto& eve : m_vecEvent)
+	for (auto& eve : _events)
 		Excute(eve);
-	m_vecEvent.clear();
+	_events.clear();
 }
 
 void EventManager::DeleteObject(Object* _pObj)
 {
-	tEvent eve = {};
-	eve.eveType = EVENT_TYPE::DELETE_OBJECT;
+	Event eve = {};
+	eve.eventType = EVENT_TYPE::DELETE_OBJECT;
 	eve.obj = _pObj;
 
-	if (std::find(m_vecEvent.begin(), m_vecEvent.end(), eve) == m_vecEvent.end())
+	if (std::find(_events.begin(), _events.end(), eve) == _events.end())
 	{
-		m_vecEvent.push_back(eve);
+		_events.push_back(eve);
 	}
 }
 
 void EventManager::LoadScene(std::wstring sceneName)
 {
-	tEvent eve = {};
-	eve.eveType = EVENT_TYPE::SCENE_CHANGE;
+	Event eve = {};
+	eve.eventType = EVENT_TYPE::SCENE_CHANGE;
 	eve.name = sceneName;
 
-	if (std::find(m_vecEvent.begin(), m_vecEvent.end(), eve) == m_vecEvent.end())
+	if (std::find(_events.begin(), _events.end(), eve) == _events.end())
 	{
-		m_vecEvent.push_back(eve);
+		_events.push_back(eve);
 	}
 }
 
-void EventManager::Excute(const tEvent& _eve)
+void EventManager::Excute(const Event& _eve)
 {
-	switch (_eve.eveType)
+	switch (_eve.eventType)
 	{
 	case EVENT_TYPE::DELETE_OBJECT:
 	{
 		Object* pDeadObj = _eve.obj;
 		pDeadObj->SetDead();
-		m_vecObjectDead.push_back(pDeadObj);
+		_deadObjects.push_back(pDeadObj);
 	}
 	break;
 	case EVENT_TYPE::CREATE_OBJECT:
 		break;
 	case EVENT_TYPE::SCENE_CHANGE:
 	{
-		GET_SINGLE(SceneManager)->LoadScene(_eve.name);
+		GET_MANAGER(SceneManager)->LoadScene(_eve.name);
 	}
 	break;
 	}

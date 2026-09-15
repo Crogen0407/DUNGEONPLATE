@@ -29,7 +29,7 @@ Razer::~Razer()
 void Razer::Update()
 {
 	if (_startLifeTime + _lifeTime < TIME)
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		GET_MANAGER(EventManager)->DeleteObject(this);
 
 	Vec2 vPos = _owner->GetPosition();
 	Vec2 vSize = GetSize();
@@ -75,7 +75,7 @@ void Razer::StayCollision(Collider* _other)
 	{
 		_prevAttackTime = TIME;
 		LAYER layer =
-			GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+			GET_MANAGER(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 
 		if (layer == LAYER::PLAYER)
 		{

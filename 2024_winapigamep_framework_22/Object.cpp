@@ -62,13 +62,13 @@ void Object::ExitCollision(Collider* _other)
 
 Object* Object::FindObject(std::wstring name, LAYER layer)
 {
-	Object* object = GET_SINGLE(SceneManager)->FindObject(name, layer);
+	Object* object = GET_MANAGER(SceneManager)->FindObject(name, layer);
 	return object;
 }
 
 vector<Object*> Object::FindObjects(LAYER layer)
 {
-	vector<Object*> objects = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayerObjects(layer);
+	vector<Object*> objects = GET_MANAGER(SceneManager)->GetCurrentScene()->GetLayerObjects(layer);
 
 	return objects;
 }

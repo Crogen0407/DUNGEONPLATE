@@ -34,9 +34,9 @@ void GameScene::Init()
 	player->SetName(L"Player");
 	AddObject(player, LAYER::PLAYER);
 
-	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
-	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
-	GET_SINGLE(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
+	GET_MANAGER(CollisionManager)->CheckLayer(LAYER::PLAYER, LAYER::PROJECTILE);
+	GET_MANAGER(CollisionManager)->CheckLayer(LAYER::PLAYERCAST, LAYER::BACKGROUND);
+	GET_MANAGER(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 
 	_gameCanvas = new GameCanvas;
 	_skillCanvas = new SkillCanvas;
@@ -49,15 +49,15 @@ void GameScene::Init()
 	TIME = 0.f;
 	_stageLoader->Init();
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Fight_bgm");
+	GET_MANAGER(ResourceManager)->LoadSound(L"Fight_bgm", L"Sound\\Fight_bgm.wav", true);
+	GET_MANAGER(ResourceManager)->Play(L"Fight_bgm");
 }
 
 void GameScene::Release()
 {
 	Scene::Release();
-	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
-	GET_SINGLE(SkillManager)->Release();
+	GET_MANAGER(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
+	GET_MANAGER(SkillManager)->Release();
 }
 
 void GameScene::Update()

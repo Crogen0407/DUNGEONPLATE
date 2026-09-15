@@ -26,7 +26,7 @@ void FadeManager::Update()
 		_curTime += fDT;
 		if (_curTime > 0.05f * 20.f)
 		{
-			GET_SINGLE(EventManager)->LoadScene(_sceneName);
+			GET_MANAGER(EventManager)->LoadScene(_sceneName);
 			_isSceneFading = false;
 			_sceneLoadComplete = false;
 			FadeIn();
@@ -37,7 +37,7 @@ void FadeManager::Update()
 	_fadeObject->LateUpdate();
 }
 
-void FadeManager::Render(ComPtr<ID2D1RenderTarget> renderTarget)
+void FadeManager::Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget)
 {
 	_fadeObject->Render(renderTarget);
 }

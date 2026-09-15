@@ -1,13 +1,13 @@
 #pragma once
+#include "IManager.h"
 class FadeObject;
-class FadeManager
+class FadeManager : public IManager
 {
-	DECLARE_SINGLE(FadeManager);
 	~FadeManager();
 public:
-	void Init();
-	void Update();
-	void Render(ComPtr<ID2D1RenderTarget> renderTarget);
+	void Init() override;
+	void Update() override;
+	void Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget) override;
 	void LoadScene(std::wstring sceneName);
 public:
 	void FadeIn();

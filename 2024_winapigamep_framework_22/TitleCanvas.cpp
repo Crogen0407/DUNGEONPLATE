@@ -51,7 +51,7 @@ TitleCanvas::TitleCanvas()
 			_startButton->OnClickEvent +=
 				[](int _)
 				{
-					GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
+					GET_MANAGER(FadeManager)->LoadScene(L"GameScene");
 				};
 			_startButton->OnSelectEnterEvent +=
 				[ct = _startButton, selectedSize = selectedSize](int _)
@@ -85,7 +85,7 @@ TitleCanvas::TitleCanvas()
 			_helpButton->OnClickEvent +=
 				[](int _)
 				{
-					GET_SINGLE(FadeManager)->LoadScene(L"HelpScene");
+					GET_MANAGER(FadeManager)->LoadScene(L"HelpScene");
 				};
 			_helpButton->OnSelectEnterEvent +=
 				[ct = _helpButton, selectedSize = selectedSize](int _)

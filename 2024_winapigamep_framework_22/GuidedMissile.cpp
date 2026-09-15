@@ -72,7 +72,7 @@ void GuidedMissile::Update()
 	{
 		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 		explosion->SetPosition(GetPosition());
-		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+		GET_MANAGER(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
 
 		PUSH(_poolName, this);
 	}
@@ -100,8 +100,7 @@ void GuidedMissile::Parry()
 
 void GuidedMissile::EnterCollision(Collider* _other)
 {
-	LAYER layer =
-		GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+	LAYER layer = GET_MANAGER(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 
 	if (layer == LAYER::PLAYER /*|| (layer == LAYER::ENEMY && _hitEnemy)*/)
 	{
@@ -112,7 +111,7 @@ void GuidedMissile::EnterCollision(Collider* _other)
 		
 		ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 		explosion->SetPosition(GetPosition());
-		GET_SINGLE(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
+		GET_MANAGER(SceneManager)->GetCurrentScene()->AddObject(explosion, LAYER::SCREENEFFECT);
 
 		Object* pOtherObj = _other->GetOwner();
 		PUSH(_poolName, this);

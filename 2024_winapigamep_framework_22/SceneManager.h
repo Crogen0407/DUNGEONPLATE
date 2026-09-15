@@ -1,13 +1,13 @@
 #pragma once
+#include "IManager.h"
 class Scene;
 class Object;
-class SceneManager
+class SceneManager : public IManager
 {
-	DECLARE_SINGLE(SceneManager);
 public:
-	void Init(); 
-	void Update();
-	void Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget);
+	void Init() override; 
+	void Update() override;
+	void Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget) override;
 public:
 	void RegisterScene(const wstring& sceneName, 
 					std::shared_ptr<Scene> scene);

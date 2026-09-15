@@ -1,4 +1,5 @@
 #pragma once
+#include "IManager.h"
 class Skill;
 class Player;
 enum class ESkillType
@@ -14,18 +15,17 @@ enum class ESkillType
 	LAST
 };
 
-class SkillManager
+class SkillManager : public IManager
 {
-	DECLARE_SINGLE(SkillManager);
 	~SkillManager();
 public:
-	Player* player;
+	Player* player = nullptr;
 private:
 	map<ESkillType, Skill*> skills;
 public:
-	void Init();
-	void Update();
-	void Release();
+	void Init() override;
+	void Update() override;
+	void Release() override;
 public:
 	const vector<Skill*> GetRandomSkills();
 	Skill* GetSkill(const ESkillType& type)
@@ -34,6 +34,5 @@ public:
 	}
 	void AddSkill(ESkillType type, Skill* skill);
 	void LevelUpSkill(ESkillType type);
-public:
 };
 

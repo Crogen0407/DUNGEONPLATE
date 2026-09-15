@@ -8,7 +8,7 @@
 #include "CollisionManager.h"
 #include "ResourceManager.h"
 #include "TitleCanvas.h"
-
+#include "Managers.h"
 
 TitleScene::TitleScene()
 {
@@ -25,12 +25,12 @@ void TitleScene::Init()
 	AddObject(_canvas, LAYER::UI);
 
 	//BGM Àç»ý
-	GET_SINGLE(ResourceManager)->LoadSound(L"Title_bgm", L"Sound\\Title_bgm.wav", true);
-	GET_SINGLE(ResourceManager)->Play(L"Title_bgm");
+	GET_MANAGER(ResourceManager)->LoadSound(L"Title_bgm", L"Sound\\Title_bgm.wav", true);
+	GET_MANAGER(ResourceManager)->Play(L"Title_bgm");
 }
 
 void TitleScene::Release()
 {
 	Scene::Release();
-	GET_SINGLE(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
+	GET_MANAGER(ResourceManager)->Stop(SOUND_CHANNEL::BGM);
 }

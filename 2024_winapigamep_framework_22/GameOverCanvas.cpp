@@ -53,7 +53,7 @@ GameOverCanvas::GameOverCanvas()
 		_retryButton->OnClickEvent +=
 			[](int _)
 			{
-				GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
+				GET_MANAGER(FadeManager)->LoadScene(L"GameScene");
 			};
 		_retryButton->OnSelectEnterEvent +=
 			[ct = _retryButton, selectedSize = selectedSize](int _)
@@ -89,7 +89,7 @@ GameOverCanvas::GameOverCanvas()
 		_gotoTitleSceneButton->OnClickEvent +=
 			[](int _)
 			{
-				GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
+				GET_MANAGER(FadeManager)->LoadScene(L"GameScene");
 			};
 		_gotoTitleSceneButton->OnSelectEnterEvent +=
 			[ct = _gotoTitleSceneButton, selectedSize = selectedSize](int _)

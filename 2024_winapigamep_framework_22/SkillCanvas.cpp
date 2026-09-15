@@ -15,7 +15,7 @@ SkillCanvas::SkillCanvas()
 	GET_SINGLE(XPManager)->LevelUpEvent.Clear();
 	_skillSlots.clear();
 
-	GET_SINGLE(ResourceManager)->LoadSound(L"LevelUp", L"Sound\\LevelUp.wav", SOUND_CHANNEL::EFFECT3);
+	GET_MANAGER(ResourceManager)->LoadSound(L"LevelUp", L"Sound\\LevelUp.wav", SOUND_CHANNEL::EFFECT3);
 
 	Vec2 center = { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
 	int xDeltaPos = 300;
@@ -80,7 +80,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 	//Button Events
 	skillSlot->OnClickEvent +=
-		[ct = this, skillSlot, player = GET_SINGLE(SkillManager)->player](int _)
+		[ct = this, skillSlot, player = GET_MANAGER(SkillManager)->player](int _)
 		{
 			skillSlot->skill->OnLevelUp(player);
 			ct->CloseSlot();
@@ -108,9 +108,9 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 void SkillCanvas::ShowSlots()
 {
-	GET_SINGLE(ResourceManager)->Play(L"LevelUp");
+	GET_MANAGER(ResourceManager)->Play(L"LevelUp");
 
-	vector<Skill*> selectedSkills = GET_SINGLE(SkillManager)->GetRandomSkills();
+	vector<Skill*> selectedSkills = GET_MANAGER(SkillManager)->GetRandomSkills();
 	enable = true;
 
 	assert(selectedSkills.size() == _skillSlots.size());

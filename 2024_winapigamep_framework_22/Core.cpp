@@ -8,12 +8,12 @@
 #include "EventManager.h"
 #include "SkillManager.h"
 #include "FadeManager.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
+#include "Managers.h"
 
-bool Core::Init(HWND _hwnd)
+bool Core::Init(HWND hwnd)
 {
-	cout << "ÁÖ´¨½Ü »ç¶ûÇØ¿ä¢½" << endl;
-	_hWnd = _hwnd;
+	_hWnd = hwnd;
 	
 	// Direct2D ·»´õ
 	{
@@ -39,13 +39,7 @@ bool Core::Init(HWND _hwnd)
 
 	CreateGDI();
 	// === Manager Init === 
-	GET_SINGLE(TimeManager)->Init();
-	GET_SINGLE(InputManager)->Init();
-	GET_SINGLE(ResourceManager)->Init();
-	GET_SINGLE(SkillManager)->Init();
-	GET_SINGLE(SceneManager)->Init();
-	GET_SINGLE(FadeManager)->Init();
-	GET_SINGLE(GameManager)->Init();
+	GET_SINGLE(Managers)->Init();
 
 	return true;
 }
@@ -54,34 +48,27 @@ void Core::CleanUp()
 {
 	for (int i = 0; i < (UINT)PEN_TYPE::END; ++i)
 	{
-		DeleteObject(m_colorPens[i]);
+		DeleteObject(_colorPens[i]);
 	}
 	for (int i = 1; i < (UINT)BRUSH_TYPE::END; ++i)
 	{
 		// Hollow Á¦¿ÜÇÏ°í
-		DeleteObject(m_colorBrushs[i]);
+		DeleteObject(_colorBrushs[i]);
 	}
 
-	GET_SINGLE(ResourceManager)->Release();
+	GET_SINGLE(Managers)->Release();
 }
 
 void Core::GameLoop()
 {
 	MainUpdate();
 	MainRender();
-	GET_SINGLE(EventManager)->Update();
 }
 
 void Core::MainUpdate()
 {
 	// === Manager Update === 
-	GET_SINGLE(TimeManager)->Update();
-	GET_SINGLE(InputManager)->Update();
-	GET_SINGLE(SkillManager)->Update();
-	GET_SINGLE(SceneManager)->Update();
-	GET_SINGLE(CollisionManager)->Update();
-	GET_SINGLE(FadeManager)->Update();
-	GET_SINGLE(GameManager)->Update();
+	GET_SINGLE(Managers)->Update();
 }
 
 void Core::MainRender()
@@ -92,8 +79,7 @@ void Core::MainRender()
 		_backBuffer->Clear(D2D1::ColorF(0x306230));
 		{
 			// Render
-			GET_SINGLE(SceneManager)->Render(_backBuffer);
-			GET_SINGLE(FadeManager)->Render(_backBuffer);
+			GET_SINGLE(Managers)->Render(_backBuffer);
 		}
 		_backBuffer->EndDraw();
 
@@ -108,16 +94,16 @@ void Core::MainRender()
 void Core::CreateGDI()
 {
 	// HOLLOW
-	m_colorBrushs[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
-	m_colorBrushs[(UINT)BRUSH_TYPE::RED] = (HBRUSH)CreateSolidBrush(RGB(255, 167, 167));
-	m_colorBrushs[(UINT)BRUSH_TYPE::GREEN] = (HBRUSH)CreateSolidBrush(RGB(134, 229, 134));
-	m_colorBrushs[(UINT)BRUSH_TYPE::BLUE] = (HBRUSH)CreateSolidBrush(RGB(103, 153, 255));
-	m_colorBrushs[(UINT)BRUSH_TYPE::YELLOW] = (HBRUSH)CreateSolidBrush(RGB(255, 187, 0));
+	_colorBrushs[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+	_colorBrushs[(UINT)BRUSH_TYPE::RED] = (HBRUSH)CreateSolidBrush(RGB(255, 167, 167));
+	_colorBrushs[(UINT)BRUSH_TYPE::GREEN] = (HBRUSH)CreateSolidBrush(RGB(134, 229, 134));
+	_colorBrushs[(UINT)BRUSH_TYPE::BLUE] = (HBRUSH)CreateSolidBrush(RGB(103, 153, 255));
+	_colorBrushs[(UINT)BRUSH_TYPE::YELLOW] = (HBRUSH)CreateSolidBrush(RGB(255, 187, 0));
 
 	//RED GREEN BLUE PEN
-	m_colorPens[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-	m_colorPens[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
-	m_colorPens[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
-	m_colorPens[(UINT)PEN_TYPE::YELLOW] = CreatePen(PS_SOLID, 1, RGB(255, 255, 0));
-	m_colorPens[(UINT)PEN_TYPE::HOLLOW] = CreatePen(PS_NULL, 0, RGB(0, 0, 0));
+	_colorPens[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	_colorPens[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	_colorPens[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
+	_colorPens[(UINT)PEN_TYPE::YELLOW] = CreatePen(PS_SOLID, 1, RGB(255, 255, 0));
+	_colorPens[(UINT)PEN_TYPE::HOLLOW] = CreatePen(PS_NULL, 0, RGB(0, 0, 0));
 }

@@ -15,7 +15,7 @@
 #include "SceneManager.h"
 #include "AttackDirArrow.h"
 #include "AttackRange.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
 #include "SkillManager.h"
 #include "PoolManager.h"
 #include "SlashEffect.h"
@@ -55,13 +55,12 @@ Player::Player()
 		ADDOBJECT(playerCast, LAYER::PLAYERCAST);
 	}
 
-
-	GET_SINGLE(SkillManager)->player = this;
-	GET_SINGLE(GameManager)->player = this;
+	GET_MANAGER(SkillManager)->player = this;
+	GET_SINGLE(PlayerManager)->player = this;
 	LOADSOUND(L"Parry", L"Sound\\Parry.wav", SOUND_CHANNEL::EFFECT0);
 	LOADSOUND(L"Sword", L"Sound\\sword.wav", SOUND_CHANNEL::EFFECT1);
-
 }
+
 Player::~Player()
 {
 }
@@ -101,7 +100,7 @@ void Player::Update()
 	}
 	else
 	{
-		DashSkill* dashSkill = dynamic_cast<DashSkill*>(GET_SINGLE(SkillManager)->GetSkill(ESkillType::DashSkill));
+		DashSkill* dashSkill = dynamic_cast<DashSkill*>(GET_MANAGER(SkillManager)->GetSkill(ESkillType::DashSkill));
 		dashSkill->StopDash();
 		SetPosition(lastPos);
 	}

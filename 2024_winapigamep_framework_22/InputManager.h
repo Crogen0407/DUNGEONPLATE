@@ -1,4 +1,6 @@
 #pragma once
+#include "IManager.h"
+
 enum class KEY_TYPE
 {
 	LEFT, RIGHT, UP, DOWN,
@@ -20,12 +22,11 @@ struct tKeyInfo
 	bool IsPrevCheck;
 };
 
-class InputManager
+class InputManager : public IManager
 {
-	DECLARE_SINGLE(InputManager);
 public:
-	void Init();
-	void Update();
+	void Init() override;
+	void Update() override;
 	const KEY_STATE& GetKey(KEY_TYPE _eKey) const
 	{
 		return m_vecKey[(int)_eKey].eState;

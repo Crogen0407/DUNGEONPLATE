@@ -7,7 +7,7 @@
 #include "ResourceManager.h"
 #include "TimeManager.h"
 #include "FadeManager.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
 #include <format>
 
 GameClearCanvas::GameClearCanvas()
@@ -55,7 +55,7 @@ GameClearCanvas::GameClearCanvas()
 		_gotoTitleSceneButton->OnClickEvent +=
 			[](int _)
 			{
-				GET_SINGLE(FadeManager)->LoadScene(L"TitleScene");
+				GET_MANAGER(FadeManager)->LoadScene(L"TitleScene");
 			};
 		//GotoTitleButtonText
 		{

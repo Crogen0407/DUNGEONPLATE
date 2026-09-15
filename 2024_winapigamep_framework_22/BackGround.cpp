@@ -93,16 +93,16 @@ void Background::SpawnEnemyByRandomPos(EnemyType enemyType)
 
 void Background::LoadFont(std::wstring fontName, float fontSize)
 {
-    std::wstring fullPath = GET_SINGLE(ResourceManager)->GetResPath();
+    std::wstring fullPath = GET_MANAGER(ResourceManager)->GetResPath();
     fullPath += L"Font\\" + fontName + L".ttf";
 
-    if (!GET_SINGLE(ResourceManager)->LoadFont(fontName, fullPath))
+    if (!GET_MANAGER(ResourceManager)->LoadFont(fontName, fullPath))
     {
         std::wcout << L"Background::LoadFont failed for path: " << fullPath << std::endl;
         return;
     }
 
-    ComPtr<IDWriteFontCollection> fontCollection = GET_SINGLE(ResourceManager)->GetFontCollection();
+    ComPtr<IDWriteFontCollection> fontCollection = GET_MANAGER(ResourceManager)->GetFontCollection();
     if (!fontCollection)
     {
         std::wcout << L"Background::LoadFont - no custom font collection available" << std::endl;
@@ -178,7 +178,7 @@ void Background::LoadFont(std::wstring fontName, float fontSize)
         return;
     }
 
-    HRESULT hr = GET_SINGLE(ResourceManager)->GetWriteFactory()->CreateTextFormat(
+    HRESULT hr = GET_MANAGER(ResourceManager)->GetWriteFactory()->CreateTextFormat(
         familyToUse.c_str(),
         fontCollection.Get(),
         DWRITE_FONT_WEIGHT_NORMAL,

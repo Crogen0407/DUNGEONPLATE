@@ -3,7 +3,7 @@
 #include "EnemySpawner.h"
 #include "Scene.h"
 #include "GameScene.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
 #include "Player.h"
 #include "Background.h"
 #include "FadeManager.h"
@@ -89,7 +89,7 @@ void StageLoader::NextStage()
 {
 	if (_stageNum >= _stages.size())
 	{
-		GET_SINGLE(FadeManager)->LoadScene(L"GameClearScene");
+		GET_MANAGER(FadeManager)->LoadScene(L"GameClearScene");
 		return;
 	}
 
@@ -105,7 +105,7 @@ void StageLoader::NextStage()
 
 	//플레이어 위치 정해주기
 	const Background* bg = _currentStage->GetPlayerArea();
-	GET_SINGLE(GameManager)->player->SetPosition(bg->GetPosition());
+	GET_SINGLE(PlayerManager)->player->SetPosition(bg->GetPosition());
 	StageLoadEvent.Invoke(_stageNum);
 	_stageNum++;
 }

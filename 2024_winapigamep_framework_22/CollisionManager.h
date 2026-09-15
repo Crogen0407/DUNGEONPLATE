@@ -1,4 +1,5 @@
 #pragma once
+#include "IManager.h"
 
 class Collider;
 union COLLIDER_ID
@@ -10,11 +11,12 @@ union COLLIDER_ID
 	};
 	ULONGLONG ID;
 };
-class CollisionManager
+class CollisionManager : public IManager
 {
-	DECLARE_SINGLE(CollisionManager);
 public:
-	void Update();
+	void Init() override { /*Empty*/ }
+	void Update() override;
+	void Release() override { /*Empty*/ }
 	void CheckLayer(LAYER _left, LAYER _right);
 	void CheckReset();
 private:

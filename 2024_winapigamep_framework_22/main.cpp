@@ -2,13 +2,13 @@
 #include "BaseWindow.h"
 #include "Scene.h"
 #include "TitleScene.h"
-#include<crtdbg.h>
+#include <crtdbg.h>
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
-    // COM 초기화: UI 스레드이므로 STA 권장(DirectWrite/Direct2D와 호환)
     HRESULT hr = ::CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
     if (FAILED(hr))
     {

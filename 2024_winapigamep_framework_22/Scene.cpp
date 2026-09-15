@@ -71,5 +71,5 @@ void Scene::Release()
 		_objects[i].clear();
 		_objects[i] = { };
 	}
-	GET_SINGLE(CollisionManager)->CheckReset();
+	GET_MANAGER(CollisionManager)->CheckReset();
 }

@@ -28,5 +28,5 @@ ExplosionEffect::~ExplosionEffect()
 void ExplosionEffect::Update()
 {
 	if (_curTime + _lifeTime < TIME)
-		GET_SINGLE(EventManager)->DeleteObject(this);
+		GET_MANAGER(EventManager)->DeleteObject(this);
 }

@@ -1,29 +1,29 @@
 #pragma once
+#include "IManager.h"
 class Object;
 class Scene;
-struct tEvent
+struct Event
 {
-	EVENT_TYPE eveType;
+	EVENT_TYPE eventType;
 	Object* obj;
 	std::wstring name;
 	LAYER objType;
 public:
-	bool operator==(const tEvent& other)
+	bool operator==(const Event& other)
 	{
-		return eveType == other.eveType && obj == other.obj;
+		return eventType == other.eventType && obj == other.obj;
 	}
 };
-class EventManager
+class EventManager : public IManager
 {
-	DECLARE_SINGLE(EventManager);
 public:
-	void Update();
+	void Init() override { /* Empty */ }
+	void Update() override;
 	void DeleteObject(Object* _pObj);
 	void LoadScene(std::wstring sceneName);
-	// todo..
 private:
-	void Excute(const tEvent& _eve);
+	void Excute(const Event& _eve);
 private:
-	vector<tEvent> m_vecEvent;
-	vector<Object*> m_vecObjectDead;
+	vector<Event> _events;
+	vector<Object*> _deadObjects;
 };

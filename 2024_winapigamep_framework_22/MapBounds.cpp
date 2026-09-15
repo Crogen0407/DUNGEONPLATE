@@ -5,7 +5,7 @@
 #include "Scene.h"
 #include "SceneManager.h"
 #include "Player.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
 
 void MapBounds::Build()
 {
@@ -28,7 +28,7 @@ void MapBounds::Build()
         _rects.push_back(r);
     }
 
-    Player* player = GET_SINGLE(GameManager)->player;
+    Player* player = GET_SINGLE(PlayerManager)->player;
     Vec2 half = player->GetComponent<Collider>()->GetSize() * 0.5f;
 
     auto touchesRight = [&](int i) {

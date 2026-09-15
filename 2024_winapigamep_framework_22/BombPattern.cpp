@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "BombPattern.h"
-#include "GameManager.h"
+#include "PlayerManager.h"
 #include "TimeManager.h"
 #include "Player.h"
 #include "EnemyBomb.h"
@@ -8,7 +8,7 @@
 
 BombPattern::BombPattern()
 {
-	_player = GET_SINGLE(GameManager)->player;
+	_player = GET_SINGLE(PlayerManager)->player;
 }
 
 BombPattern::~BombPattern()

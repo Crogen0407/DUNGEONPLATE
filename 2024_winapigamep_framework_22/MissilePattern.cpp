@@ -34,7 +34,7 @@ void MissilePattern::Update()
 		missile->SetPosition(pos);
 		missile->SetDir(curDir);
 
-		GET_SINGLE(SceneManager)->GetCurrentScene()
+		GET_MANAGER(SceneManager)->GetCurrentScene()
 			->AddObject(missile, LAYER::PROJECTILE);
 
 		if (_currentIdx == 6)

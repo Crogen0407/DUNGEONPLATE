@@ -3,7 +3,7 @@
 #include "TimeManager.h"
 #include "FadeManager.h"
 #include "Object.h"
-#include "GameManager.h"
+#include "CameraManager.h"
 
 PlayerHealthCompo::PlayerHealthCompo() :
 	subHp(100),
@@ -28,7 +28,7 @@ void PlayerHealthCompo::ApplyDamage(int value)
 	SetSubHp((int)std::clamp(subHp - temp, 0.f, maxSubHp));
 
 	//È­¸é Èçµé¸²
-	GET_SINGLE(GameManager)->ShakeConsoleWindow(0.05f, 10, 90);
+	GET_MANAGER(CameraManager)->ShakeConsoleWindow(0.05f, 10, 90);
 
 	HealthCompo::ApplyDamage(value);
 }
@@ -38,7 +38,7 @@ void PlayerHealthCompo::OnDie()
 	if (_isDie) return;
 	HealthCompo::OnDie();
 	_isDie = true;
-	GET_SINGLE(FadeManager)->LoadScene(L"GameOverScene");
+	GET_MANAGER(FadeManager)->LoadScene(L"GameOverScene");
 }
 
 void PlayerHealthCompo::LateUpdate()

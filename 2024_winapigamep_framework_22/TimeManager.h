@@ -1,10 +1,12 @@
 #pragma once
-class TimeManager
+#include "IManager.h"
+
+class TimeManager : public IManager
 {
-	DECLARE_SINGLE(TimeManager);
 public:
-	void Init();
-	void Update();
+	void Init() override;
+	void Update() override;
+
 public:
 	const float& GetDT() const { return m_dT; }
 	const float& GetUnscaledDT() const { return m_unscaledDT; }

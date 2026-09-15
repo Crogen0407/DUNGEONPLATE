@@ -1,5 +1,5 @@
 #pragma once
-// GameManager
+// PlayerManager
 //SAFE_DELETE()
 // µø¿˚ ΩÃ±€≈Ê(¥Ÿ¿Ã≥™πÕ ΩÃ±€≈Ê)
 // ¡§¿˚ ΩÃ±€≈Ê
@@ -9,7 +9,7 @@ class Core
 {
 	DECLARE_SINGLE(Core);
 public:
-	bool Init(HWND _hwnd);
+	bool Init(HWND hwnd);
 	void GameLoop();
 	void CleanUp();
 
@@ -20,20 +20,20 @@ private:
 
 public:
 	const HWND& GetHwnd() const { return _hWnd; }
-	const HBRUSH& GetBrush(BRUSH_TYPE _eType)
+	const HBRUSH& GetBrush(BRUSH_TYPE brushType)
 	{
-		return m_colorBrushs[(UINT)_eType];
+		return _colorBrushs[(UINT)brushType];
 	}
-	const HPEN& GetPen(PEN_TYPE _eType)
+	const HPEN& GetPen(PEN_TYPE penType)
 	{
-		return m_colorPens[(UINT)_eType];
+		return _colorPens[(UINT)penType];
 	}
 	const ComPtr<ID2D1HwndRenderTarget> GetRenderTarget() { return _renderTarget; }
 	const ComPtr<ID2D1Factory> GetFactory() { return _factory; }
 
 private:
-	HBRUSH m_colorBrushs[(UINT)BRUSH_TYPE::END] = {};
-	HPEN m_colorPens[(UINT)PEN_TYPE::END] = {};
+	HBRUSH _colorBrushs[(UINT)BRUSH_TYPE::END] = {};
+	HPEN _colorPens[(UINT)PEN_TYPE::END] = {};
 
 	HWND _hWnd;
 	ComPtr<ID2D1Factory> _factory = nullptr;

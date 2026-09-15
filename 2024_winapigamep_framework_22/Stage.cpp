@@ -19,7 +19,7 @@ void Stage::Release()
         for (int j = 0; j < 3; j++)
         {
             if (grid[i][j] == nullptr) continue;
-            GET_SINGLE(EventManager)->DeleteObject(grid[i][j]);
+            GET_MANAGER(EventManager)->DeleteObject(grid[i][j]);
         }
     }
 }

@@ -41,7 +41,7 @@ void Attacker::TryFireRazer(float lifeTime)
 	Razer* razer = new Razer(lifeTime);
 	razer->SetOwner(GetOwner());
 
-	GET_SINGLE(SceneManager)->GetCurrentScene()
+	GET_MANAGER(SceneManager)->GetCurrentScene()
 		->AddObject(razer, LAYER::PROJECTILE);
 }
 

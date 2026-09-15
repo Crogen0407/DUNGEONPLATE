@@ -42,7 +42,7 @@ void FireBallEffect::Update()
 void FireBallEffect::EnterCollision(Collider* _other)
 {
 	//Object::EnterCollision(_other);
-	LAYER layer = GET_SINGLE(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
+	LAYER layer = GET_MANAGER(SceneManager)->GetCurrentScene()->GetLayer(_other->GetOwner());
 
 	if (layer == LAYER::PLAYER)
 	{

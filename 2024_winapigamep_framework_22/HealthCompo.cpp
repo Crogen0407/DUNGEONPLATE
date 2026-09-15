@@ -9,8 +9,8 @@ HealthCompo::HealthCompo() :
 	hp(100),
 	maxHp(100)
 {
-	GET_SINGLE(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", SOUND_CHANNEL::EFFECT2);
-	GET_SINGLE(ResourceManager)->LoadSound(L"Heal", L"Sound\\Heal.wav", SOUND_CHANNEL::EFFECT2);
+	GET_MANAGER(ResourceManager)->LoadSound(L"Hit", L"Sound\\Hit.wav", SOUND_CHANNEL::EFFECT2);
+	GET_MANAGER(ResourceManager)->LoadSound(L"Heal", L"Sound\\Heal.wav", SOUND_CHANNEL::EFFECT2);
 
 	GET_SINGLE(Core)->GetRenderTarget()->CreateSolidColorBrush(D2D1::ColorF(0x0f380f), _backBrush.GetAddressOf());
 	GET_SINGLE(Core)->GetRenderTarget()->CreateSolidColorBrush(D2D1::ColorF(0x8bac0f), _fillBrush.GetAddressOf());
@@ -23,7 +23,7 @@ HealthCompo::~HealthCompo()
 void HealthCompo::ApplyDamage(int value)
 {
 	Vec2 pos = GetOwner()->GetPosition();
-	GET_SINGLE(ResourceManager)->Play(L"Hit");
+	GET_MANAGER(ResourceManager)->Play(L"Hit");
 	POP(L"HitEffect", pos);
 	SetHp(hp - value);
 	DamagedEvent.Invoke(NULL);
@@ -37,7 +37,7 @@ void HealthCompo::ApplyHeal(unsigned __int8 value)
 {
 	Vec2 pos = GetOwner()->GetPosition();
 	POP(L"HealEffect", pos);
-	GET_SINGLE(ResourceManager)->Play(L"Heal");
+	GET_MANAGER(ResourceManager)->Play(L"Heal");
 	SetHp(hp + value);
 }
 

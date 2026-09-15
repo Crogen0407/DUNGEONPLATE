@@ -40,7 +40,7 @@ void Enemy::Update()
 		auto percent = _hitTime / _hitDuration;
 		OnHiting(percent);
 
-		_hitTime += GET_SINGLE(TimeManager)->GetDT();
+		_hitTime += GET_MANAGER(TimeManager)->GetDT();
 		cout << _hitTime;
 
 		if (percent > 1.f)
@@ -58,7 +58,7 @@ void Enemy::OnDie()
 	ExplosionEffect* explosion = new ExplosionEffect(L"ExplosionEffect02");
 	explosion->SetPosition(GetPosition());
 	ADDOBJECT(explosion, LAYER::EFFECT);
-	GET_SINGLE(EventManager)->DeleteObject(this);
+	GET_MANAGER(EventManager)->DeleteObject(this);
 }
 
 void Enemy::OnHiting(float percent)

@@ -259,7 +259,7 @@
     <ClInclude Include="XPManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
+    <ClInclude Include="PlayerManager.h">
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Agent.h">
@@ -466,6 +466,13 @@
     <ClInclude Include="BackgroundG.h">
       <Filter>Engine\10.Stage\Background</Filter>
     </ClInclude>
+    <ClInclude Include="Managers.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="IManager.h">
+      <Filter>Engine\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -643,7 +650,7 @@
     <ClCompile Include="XPManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="PlayerManager.cpp">
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Agent.cpp">
@@ -844,6 +851,10 @@
     <ClCompile Include="BackgroundG.cpp">
       <Filter>Engine\10.Stage\Background</Filter>
     </ClCompile>
+    <ClCompile Include="Managers.cpp">
+      <Filter>Engine\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleMath.inl">
