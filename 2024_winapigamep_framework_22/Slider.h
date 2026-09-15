@@ -25,7 +25,7 @@ public:
 	int offsetX = 5;
 	int offsetY = 5;
 
-public:
+private:
 	ComPtr<ID2D1SolidColorBrush> _fillBrush;
 	ComPtr<ID2D1SolidColorBrush> _backBrush;
 };

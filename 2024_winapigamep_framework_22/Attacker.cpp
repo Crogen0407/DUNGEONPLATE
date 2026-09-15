@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "TimeManager.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "Projectile.h"
 #include "SceneManager.h"
 #include "Object.h"
@@ -12,15 +12,15 @@
 #include "PoolManager.h"
 #include "PoolableObject.h"
 
-AttackCompo::AttackCompo()
+Attacker::Attacker()
 {
 }
 
-AttackCompo::~AttackCompo()
+Attacker::~Attacker()
 {
 }
 
-void AttackCompo::TryFireBullet(Vec2 dir, float speed)
+void Attacker::TryFireBullet(Vec2 dir, float speed)
 {
 	EnemyBullet* projectile 
 		= dynamic_cast<EnemyBullet*>(POP(L"EnemyBullet", GetOwner()->GetPosition()));
@@ -28,7 +28,7 @@ void AttackCompo::TryFireBullet(Vec2 dir, float speed)
 	projectile->SetSpeed(speed);
 }
 
-void AttackCompo::TryFireBounceBullet(Vec2 dir)
+void Attacker::TryFireBounceBullet(Vec2 dir)
 {
 	EnemyBounceBullet* bounceBullet 
 		= dynamic_cast<EnemyBounceBullet*>(POP(L"EnemyBounceBullet", GetOwner()->GetPosition()));
@@ -36,7 +36,7 @@ void AttackCompo::TryFireBounceBullet(Vec2 dir)
 	bounceBullet->SetSpeed(700);
 }
 
-void AttackCompo::TryFireRazer(float lifeTime)
+void Attacker::TryFireRazer(float lifeTime)
 {
 	Razer* razer = new Razer(lifeTime);
 	razer->SetOwner(GetOwner());
@@ -45,15 +45,15 @@ void AttackCompo::TryFireRazer(float lifeTime)
 		->AddObject(razer, LAYER::PROJECTILE);
 }
 
-void AttackCompo::LateUpdate()
+void Attacker::LateUpdate()
 {
 }
 
-void AttackCompo::Render(ComPtr<ID2D1RenderTarget> renderTarget)
+void Attacker::Render(ComPtr<ID2D1RenderTarget> renderTarget)
 {
 }
 
-void AttackCompo::TryFireMissile(Vec2 dir)
+void Attacker::TryFireMissile(Vec2 dir)
 {
 	GuidedMissile* missile
 		= dynamic_cast<GuidedMissile*>(POP(L"GuidedMissile", GetOwner()->GetPosition()));

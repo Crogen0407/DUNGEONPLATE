@@ -3,11 +3,11 @@
 
 class Object;
 
-class AttackCompo : public Component
+class Attacker : public Component
 {
 public:
-	AttackCompo();
-	virtual ~AttackCompo();
+	Attacker();
+	virtual ~Attacker();
 
 public:
 	void TryFireBullet(Vec2 dir, float speed);

@@ -56,13 +56,13 @@ TitleCanvas::TitleCanvas()
 			_startButton->OnSelectEnterEvent +=
 				[ct = _startButton, selectedSize = selectedSize](int _)
 				{
-					ct->AddPos({ 0, -2 });
+					ct->AddPosition({ 0, -2 });
 					ct->SetSize(selectedSize);
 				};
 			_startButton->OnSelectExitEvent +=
 				[ct = _startButton, size = size](int _)
 				{
-					ct->AddPos({ 0, 2 });
+					ct->AddPosition({ 0, 2 });
 					ct->SetSize(size);
 				};
 			//StartButtonText
@@ -90,13 +90,13 @@ TitleCanvas::TitleCanvas()
 			_helpButton->OnSelectEnterEvent +=
 				[ct = _helpButton, selectedSize = selectedSize](int _)
 				{
-					ct->AddPos({ 0, -2 });
+					ct->AddPosition({ 0, -2 });
 					ct->SetSize(selectedSize);
 				};
 			_helpButton->OnSelectExitEvent +=
 				[ct = _helpButton, size = size](int _)
 				{
-					ct->AddPos({ 0, 2 });
+					ct->AddPosition({ 0, 2 });
 					ct->SetSize(size);
 				};
 
@@ -125,13 +125,13 @@ TitleCanvas::TitleCanvas()
 			_quitButton->OnSelectEnterEvent +=
 				[ct = _quitButton, selectedSize = selectedSize](int _)
 				{
-					ct->AddPos({ 0, -2 });
+					ct->AddPosition({ 0, -2 });
 					ct->SetSize(selectedSize);
 				};
 			_quitButton->OnSelectExitEvent +=
 				[ct = _quitButton, size = size](int _)
 				{
-					ct->AddPos({ 0, 2 });
+					ct->AddPosition({ 0, 2 });
 					ct->SetSize(size);
 				};
 			//QuitButtonText

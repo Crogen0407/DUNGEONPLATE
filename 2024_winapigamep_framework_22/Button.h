@@ -24,10 +24,10 @@ public:
     bool onlyOneCountClick = false;
 private:
     bool _isClicked = false;
-    bool m_isSelected = false;
+    bool _isSelected = false;
 private:
-    Texture* m_defaultTex;
-    Texture* m_selectedTex;
-    Texture* m_pressedTex;
+    Texture* _defaultTex;
+    Texture* _selectedTex;
+    Texture* _pressedTex;
 };
 

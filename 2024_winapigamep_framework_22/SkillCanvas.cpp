@@ -45,11 +45,6 @@ SkillCanvas::~SkillCanvas()
 	_skillSlots.clear();
 }
 
-void SkillCanvas::Update()
-{
-	Canvas::Update();
-}
-
 void SkillCanvas::CreateSlot(Vec2 slotPos)
 {
 	SkillSlot* skillSlot = CreateUI<SkillSlot>(slotPos, Vec2(250, 320));
@@ -96,7 +91,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 		{
 			Vec2 posDelta = { 0, -10 };
 			skillSlot->SetSize({250 * 1.05f, 320 * 1.05f });
-			skillSlot->AddPos(posDelta);
+			skillSlot->AddPosition(posDelta);
 		};
 
 	skillSlot->OnSelectExitEvent +=
@@ -104,7 +99,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 		{
 			Vec2 posDelta = { 0, 10 };
 			skillSlot->SetSize({ 250, 320 });
-			skillSlot->AddPos(posDelta);
+			skillSlot->AddPosition(posDelta);
 		};
 
 

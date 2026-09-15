@@ -10,7 +10,7 @@
 Object::Object()
 	: _position{}
 	, _size{}
-	, m_IsDie(false)
+	, _IsDie(false)
 {
 
 }
@@ -18,17 +18,17 @@ Object::Object()
 Object::~Object()
 {
 	int a = 0;
-	for (Component* com : m_vecComponents)
+	for (Component* com : _components)
 	{
 		if (com != nullptr)
 			delete com;
 	}
-	m_vecComponents.clear();
+	_components.clear();
 }
 
 void Object::LateUpdate()
 {
-	for (Component* com : m_vecComponents)
+	for (Component* com : _components)
 	{
 		if (com)
 		{
@@ -39,7 +39,7 @@ void Object::LateUpdate()
 
 void Object::Render(ComPtr<ID2D1RenderTarget> renderTarget)
 {
-	for (Component* com : m_vecComponents)
+	for (Component* com : _components)
 	{
 		if (com)
 		{

@@ -7,7 +7,7 @@
 #include "ExplosionEffect.h"
 #include "SceneManager.h"
 #include "Scene.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "HealthCompo.h"
 #include "PoolManager.h"
 
@@ -20,7 +20,7 @@ GuidedMissile::GuidedMissile()
 	_parriedTexture = LOADTEXTURE(L"EnemyMissile_R", L"Texture\\EnemyMissile_R.png");
 	AddComponent<Collider>();
 	AddComponent<SpriteRenderer>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 
 	GetComponent<Collider>()->SetSize({ 20.f,20.f });
 	GetComponent<SpriteRenderer>()->SetTexture(_texture);
@@ -60,8 +60,8 @@ void GuidedMissile::Update()
 		Vec2 dir1 = { cos(_rotation + 150 * Deg2Rad), sin(_rotation + 150 * Deg2Rad) };
 		Vec2 dir2 = { cos(_rotation - 150 * Deg2Rad), sin(_rotation - 150 * Deg2Rad) };
 
-		GetComponent<AttackCompo>()->TryFireBullet(dir1, 200);
-		GetComponent<AttackCompo>()->TryFireBullet(dir2, 200);
+		GetComponent<Attacker>()->TryFireBullet(dir1, 200);
+		GetComponent<Attacker>()->TryFireBullet(dir2, 200);
 	}
 
 	vPos.x += _dir.x * _speed * fDT;

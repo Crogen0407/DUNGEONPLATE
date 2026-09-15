@@ -7,7 +7,7 @@
 #include "Texture.h"
 #include "Collider.h"
 #include "Movement.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "RoundAttackPattern.h"
 
 EnemyE::EnemyE() : Enemy::Enemy()
@@ -20,7 +20,7 @@ EnemyE::EnemyE() : Enemy::Enemy()
 
 	AddComponent<SpriteRenderer>();
 	AddComponent<Movement>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 
 	GetComponent<HealthCompo>()->SetOffsetY(100);
 	GetComponent<HealthCompo>()->SetHp(100, 100);

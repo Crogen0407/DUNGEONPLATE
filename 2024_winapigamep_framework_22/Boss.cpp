@@ -8,7 +8,7 @@
 #include "Animator.h"
 #include "Texture.h"
 #include "EnemyPatternA.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "RazerPattern.h"
 #include "BounceBulletPattern.h"
 #include "EventManager.h"
@@ -23,7 +23,7 @@ Boss::Boss() : _currentSkill{ nullptr }
 	Vec2 texSize = { (float)texture->GetWidth() / 6, (float)texture->GetHeight() };
 	AddComponent< Collider>();
 	AddComponent<Animator>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 	AddComponent<Movement>();
 
 	GetComponent<Collider>()->SetSize({ 100,100 });

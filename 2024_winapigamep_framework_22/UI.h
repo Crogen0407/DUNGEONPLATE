@@ -50,7 +50,7 @@ public:
     {
         this->_position = pos;
     }
-    void AddPos(const Vec2& pos)
+    void AddPosition(const Vec2& pos)
     {
         this->_position += pos;
     }

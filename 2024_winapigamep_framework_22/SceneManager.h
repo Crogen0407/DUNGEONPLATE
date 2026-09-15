@@ -1,29 +1,28 @@
 #pragma once
 class Scene;
 class Object;
-class Background;
 class SceneManager
 {
 	DECLARE_SINGLE(SceneManager);
 public:
-	void Init(); // start
+	void Init(); 
 	void Update();
 	void Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget);
 public:
-	void RegisterScene(const wstring& _sceneName, 
-					std::shared_ptr<Scene> _scene);
-	void LoadScene(const wstring& _sceneName);
+	void RegisterScene(const wstring& sceneName, 
+					std::shared_ptr<Scene> scene);
+	void LoadScene(const wstring& sceneName);
 public:
 	const std::shared_ptr<Scene>& GetCurrentScene() const
 	{
-		return m_pCurrentScene;
+		return _currentScene;
 	}
 	Object* FindObject(std::wstring name, LAYER layer);
 private:
 	// ¾ÀµéÀ» mapÀ¸·Î °ü¸®
-	map<wstring, std::shared_ptr<Scene>> m_mapScenes;
+	map<wstring, std::shared_ptr<Scene>> _scenes;
 
 	// ÇöÀç ¾À
-	std::shared_ptr<Scene> m_pCurrentScene;
+	std::shared_ptr<Scene> _currentScene;
 };
 

@@ -23,23 +23,23 @@ GameOverCanvas::GameOverCanvas()
 	{
 		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
 		Vec2 pos = { size.x*0.5f, size.y * 0.3f };
-		titleText = CreateUI<Text>(pos, size);
-		titleText->SetText(L"FAIL...");
-		titleText->SetWeight(DWRITE_FONT_WEIGHT_BOLD);
-		titleText->LoadFont(L"PFstardust", 60);
-		titleText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
-		titleText->SetColor(0x9bbc0f);
+		_titleText = CreateUI<Text>(pos, size);
+		_titleText->SetText(L"FAIL...");
+		_titleText->SetWeight(DWRITE_FONT_WEIGHT_BOLD);
+		_titleText->LoadFont(L"PFstardust", 60);
+		_titleText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
+		_titleText->SetColor(0x9bbc0f);
 	}
 
 	//MentText
 	{
 		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
 		Vec2 pos = { size.x * 0.5f, size.y * 0.4f };
-		mentText = CreateUI<Text>(pos, size);
-		mentText->SetText(L"가끔은 실패할 수도 있는 겁니다");
-		mentText->LoadFont(L"PFstardust", 20);
-		mentText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
-		mentText->SetColor(0x9bbc0f);
+		_mentText = CreateUI<Text>(pos, size);
+		_mentText->SetText(L"가끔은 실패할 수도 있는 겁니다");
+		_mentText->LoadFont(L"PFstardust", 20);
+		_mentText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
+		_mentText->SetColor(0x9bbc0f);
 	}
 
 	//RetryButton
@@ -47,24 +47,24 @@ GameOverCanvas::GameOverCanvas()
 		Vec2 size = { 400, 50 };
 		Vec2 selectedSize = { 405, 55 };
 		Vec2 pos = { SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f };
-		retryButton = CreateUI<Button>(pos, size);
-		retryButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
-		retryButton->onlyOneCountClick = true;
-		retryButton->OnClickEvent +=
+		_retryButton = CreateUI<Button>(pos, size);
+		_retryButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
+		_retryButton->onlyOneCountClick = true;
+		_retryButton->OnClickEvent +=
 			[](int _)
 			{
 				GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
 			};
-		retryButton->OnSelectEnterEvent +=
-			[ct = retryButton, selectedSize = selectedSize](int _)
+		_retryButton->OnSelectEnterEvent +=
+			[ct = _retryButton, selectedSize = selectedSize](int _)
 			{
-				ct->AddPos({ 0, -2 });
+				ct->AddPosition({ 0, -2 });
 				ct->SetSize(selectedSize);
 			};
-		retryButton->OnSelectExitEvent +=
-			[ct = retryButton, size = size](int _)
+		_retryButton->OnSelectExitEvent +=
+			[ct = _retryButton, size = size](int _)
 			{
-				ct->AddPos({ 0, 2 });
+				ct->AddPosition({ 0, 2 });
 				ct->SetSize(size);
 			};
 		//RetryButtonText
@@ -83,24 +83,24 @@ GameOverCanvas::GameOverCanvas()
 		Vec2 size = { 400, 50 };
 		Vec2 selectedSize = { 405, 55 };
 		Vec2 pos = { SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.57f };
-		gotoTitleSceneButton = CreateUI<Button>(pos, size);
-		gotoTitleSceneButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
-		gotoTitleSceneButton->onlyOneCountClick = true;
-		gotoTitleSceneButton->OnClickEvent +=
+		_gotoTitleSceneButton = CreateUI<Button>(pos, size);
+		_gotoTitleSceneButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
+		_gotoTitleSceneButton->onlyOneCountClick = true;
+		_gotoTitleSceneButton->OnClickEvent +=
 			[](int _)
 			{
 				GET_SINGLE(FadeManager)->LoadScene(L"GameScene");
 			};
-		gotoTitleSceneButton->OnSelectEnterEvent +=
-			[ct = gotoTitleSceneButton, selectedSize = selectedSize](int _)
+		_gotoTitleSceneButton->OnSelectEnterEvent +=
+			[ct = _gotoTitleSceneButton, selectedSize = selectedSize](int _)
 			{
-				ct->AddPos({ 0, -2 });
+				ct->AddPosition({ 0, -2 });
 				ct->SetSize(selectedSize);
 			};
-		gotoTitleSceneButton->OnSelectExitEvent +=
-			[ct = gotoTitleSceneButton, size = size](int _)
+		_gotoTitleSceneButton->OnSelectExitEvent +=
+			[ct = _gotoTitleSceneButton, size = size](int _)
 			{
-				ct->AddPos({ 0, 2 });
+				ct->AddPosition({ 0, 2 });
 				ct->SetSize(size);
 			};
 		//GotoTitleButtonText
@@ -117,9 +117,4 @@ GameOverCanvas::GameOverCanvas()
 
 GameOverCanvas::~GameOverCanvas()
 {
-}
-
-void GameOverCanvas::Update()
-{
-
 }

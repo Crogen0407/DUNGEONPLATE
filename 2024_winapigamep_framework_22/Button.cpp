@@ -8,9 +8,9 @@
 #include "FadeManager.h"
 
 Button::Button() :
-	m_defaultTex(nullptr),
-	m_selectedTex(nullptr),
-	m_pressedTex(nullptr)
+	_defaultTex(nullptr),
+	_selectedTex(nullptr),
+	_pressedTex(nullptr)
 	
 {
 }
@@ -21,9 +21,9 @@ Button::~Button()
 
 void Button::Init(Texture* defultTex, Texture* selectedTex, Texture* pressedTex)
 {
-	m_defaultTex = defultTex;
-	m_selectedTex = selectedTex;
-	m_pressedTex = pressedTex;
+	_defaultTex = defultTex;
+	_selectedTex = selectedTex;
+	_pressedTex = pressedTex;
 }
 
 void Button::OnClick()
@@ -33,15 +33,15 @@ void Button::OnClick()
 		if (_isClicked == true) return;
 		_isClicked = true;
 	}
-	if(m_pressedTex != nullptr)
-		texture = m_pressedTex;
+	if(_pressedTex != nullptr)
+		texture = _pressedTex;
 	OnClickEvent.Invoke(NULL);
 }
 
 void Button::OnSelectEnter()
 {
-	if (m_selectedTex != nullptr)
-		texture = m_selectedTex;
+	if (_selectedTex != nullptr)
+		texture = _selectedTex;
 
 	LOADSOUND(L"ButtonSelect", L"Sound\\ButtonSelect.wav", SOUND_CHANNEL::EFFECT1);
 	GET_SINGLE(ResourceManager)->Play(L"ButtonSelect");
@@ -50,8 +50,8 @@ void Button::OnSelectEnter()
 
 void Button::OnSelectExit()
 {
-	if (m_defaultTex != nullptr)
-		texture = m_defaultTex;
+	if (_defaultTex != nullptr)
+		texture = _defaultTex;
 	OnSelectExitEvent.Invoke(NULL);
 }
 
@@ -72,9 +72,9 @@ void Button::LateUpdate()
 		pos.y - (size.y / 2) < mousePos.y &&
 		pos.x - (size.x / 2) < mousePos.x) //마우스가 닿았는지
 	{
-		if (m_isSelected == false)
+		if (_isSelected == false)
 		{
-			m_isSelected = true;
+			_isSelected = true;
 			OnSelectEnter();
 		}
 		if (GET_KEYDOWN(KEY_TYPE::LBUTTON) || GET_KEYDOWN(KEY_TYPE::RBUTTON))
@@ -84,9 +84,9 @@ void Button::LateUpdate()
 	}
 	else
 	{
-		if (m_isSelected == true)
+		if (_isSelected == true)
 		{
-			m_isSelected = false;
+			_isSelected = false;
 			OnSelectExit();
 		}
 	}

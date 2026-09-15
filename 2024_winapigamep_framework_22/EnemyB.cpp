@@ -7,7 +7,7 @@
 #include "Projectile.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "HealthCompo.h"
 #include "Movement.h"
 #include "Animator.h"
@@ -25,7 +25,7 @@ EnemyB::EnemyB() : Enemy::Enemy()
 
 	prevShootTime = TIME;
 	AddComponent<Animator>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 
 	GetComponent<Animator>()
 		->CreateAnimation(L"Enemy02Idle", texture, { 0.f, 0.f }, texSize, { (float)texSize.x, 0.f }, 7, 0.2f, false);
@@ -54,7 +54,7 @@ void EnemyB::Update()
 		for (int i = 0; i < 4; i++)
 		{
 			Vec2 attackDir = { sin(_rotation * Deg2Rad), cos(_rotation * Deg2Rad) };
-			GetComponent<AttackCompo>()->TryFireBullet(attackDir, 500);
+			GetComponent<Attacker>()->TryFireBullet(attackDir, 500);
 
 			_rotation += 90;
 		}

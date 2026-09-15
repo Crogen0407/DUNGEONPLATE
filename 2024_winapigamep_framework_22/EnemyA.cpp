@@ -8,7 +8,7 @@
 #include "Projectile.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "Movement.h"
 #include "GuidedMissile.h"
 #include "SpriteRenderer.h"
@@ -28,7 +28,7 @@ EnemyA::EnemyA() : Enemy::Enemy()
 	Vec2 texSize = Vec2((int)texture->GetWidth() / 3, (int)texture->GetHeight());
 
 	AddComponent<Animator>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 	AddComponent<Movement>();
 
 	GetComponent<Animator>()
@@ -52,7 +52,7 @@ void EnemyA::Update()
 		dir -= GetPosition();
 
 		_prevShootTime = TIME;
-		GetComponent<AttackCompo>()->TryFireBullet(dir, 500);
+		GetComponent<Attacker>()->TryFireBullet(dir, 500);
 	}
 
 	if (_prevDash + 2 < TIME)

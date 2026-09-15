@@ -43,7 +43,3 @@ PauseCanvas::PauseCanvas()
 PauseCanvas::~PauseCanvas()
 {
 }
-
-void PauseCanvas::Update()
-{
-}

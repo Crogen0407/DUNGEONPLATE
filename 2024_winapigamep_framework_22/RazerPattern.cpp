@@ -2,7 +2,7 @@
 #include "RazerPattern.h"
 #include "TimeManager.h"
 #include "Razer.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "ResourceManager.h"
 
 RazerPatern::RazerPatern()
@@ -27,5 +27,5 @@ void RazerPatern::UseSkill()
 	PLAY(L"laserBeam");
 	_skillStartTime = TIME;
 	_isUsingSkill = true;
-	_owner->GetComponent<AttackCompo>()->TryFireRazer(_skillTime);
+	_owner->GetComponent<Attacker>()->TryFireRazer(_skillTime);
 }

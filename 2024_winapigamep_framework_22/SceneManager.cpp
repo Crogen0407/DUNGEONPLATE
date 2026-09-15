@@ -13,7 +13,7 @@
 
 void SceneManager::Init()
 {
-	m_pCurrentScene = nullptr;
+	_currentScene = nullptr;
 
 	// ¾À µî·Ï
 	RegisterScene(L"TitleScene",std::make_shared<TitleScene>());
@@ -29,41 +29,41 @@ void SceneManager::Init()
 
 void SceneManager::Update()
 {
-	if (m_pCurrentScene == nullptr)
+	if (_currentScene == nullptr)
 		return;
-	m_pCurrentScene->Update();
-	m_pCurrentScene->LateUpdate();
+	_currentScene->Update();
+	_currentScene->LateUpdate();
 }
 
 void SceneManager::Render(ComPtr<ID2D1BitmapRenderTarget> renderTarget)
 {
-	if (m_pCurrentScene == nullptr)
+	if (_currentScene == nullptr)
 		return;
-	m_pCurrentScene->Render(renderTarget);
+	_currentScene->Render(renderTarget);
 }
 
 void SceneManager::RegisterScene(const wstring& _sceneName, std::shared_ptr<Scene> _scene)
 {
 	if (_sceneName.empty() || _scene == nullptr)
 		return;
-	m_mapScenes.insert(m_mapScenes.end(), {_sceneName, _scene});
+	_scenes.insert(_scenes.end(), {_sceneName, _scene});
 }
 
 void SceneManager::LoadScene(const wstring& _sceneName)
 {
 	// ¾ÀÀÌ ÀÖÀ¸¸é
-	if (m_pCurrentScene != nullptr)
+	if (_currentScene != nullptr)
 	{
-		m_pCurrentScene->Release();
-		m_pCurrentScene = nullptr;
+		_currentScene->Release();
+		_currentScene = nullptr;
 	}
-	auto iter = m_mapScenes.find(_sceneName);
-	if (iter != m_mapScenes.end())
+	auto iter = _scenes.find(_sceneName);
+	if (iter != _scenes.end())
 	{
-		m_pCurrentScene = iter->second;
-		m_pCurrentScene->Init();
+		_currentScene = iter->second;
+		_currentScene->Init();
 	}
-	GET_SINGLE(PoolManager)->Init(m_pCurrentScene.get());
+	GET_SINGLE(PoolManager)->Init(_currentScene.get());
 }
 
 Object* SceneManager::FindObject(std::wstring name, LAYER layer)

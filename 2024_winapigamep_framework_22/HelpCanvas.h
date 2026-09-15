@@ -34,6 +34,6 @@ private:
 
     bool _isFading = false;
     int _curSlide = 0;
-    std::vector<Slide*> slides;
+    std::vector<Slide*> _slides;
 };
 

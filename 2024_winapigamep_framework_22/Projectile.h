@@ -1,11 +1,11 @@
 #pragma once
 #include "PoolableObject.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 class Texture;
-class AttackCompo;
+class Attacker;
 class Projectile : public PoolableObject
 {
-	friend AttackCompo;
+	friend Attacker;
 public:
 	Projectile();
 	virtual ~Projectile();

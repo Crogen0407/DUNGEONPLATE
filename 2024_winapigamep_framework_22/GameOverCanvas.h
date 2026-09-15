@@ -10,12 +10,10 @@ class GameOverCanvas :
 public:
     GameOverCanvas();
     ~GameOverCanvas() override;
-public:
-    void Update() override;
 private:
-    Text* titleText;
-    Text* mentText;
-    Button* retryButton;
-    Button* gotoTitleSceneButton;
+    Text* _titleText;
+    Text* _mentText;
+    Button* _retryButton;
+    Button* _gotoTitleSceneButton;
 };
 

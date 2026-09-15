@@ -10,7 +10,7 @@
 #include "EventManager.h"
 #include "TimeManager.h"
 #include "Scene.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "RoundAttackPattern.h"
 
 EnemyD::EnemyD() : Enemy::Enemy()
@@ -25,7 +25,7 @@ EnemyD::EnemyD() : Enemy::Enemy()
 
 	AddComponent<Movement>();
 	AddComponent<SpriteRenderer>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 
 	GetComponent<HealthCompo>()->SetOffsetY(60);
 	GetComponent<HealthCompo>()->SetHp(10, 10);

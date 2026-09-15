@@ -4,7 +4,7 @@
 #include "EnemyBullet.h"
 #include "SceneManager.h"
 #include "Scene.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 
 RoundAttackPattern::RoundAttackPattern()
 {
@@ -28,7 +28,7 @@ void RoundAttackPattern::UseSkill()
 		Vec2 pos = _owner->GetPosition();
 		Vec2 dir = { cos(_currentRotation * Deg2Rad) , sin(_currentRotation * Deg2Rad) };
 
-		_owner->GetComponent<AttackCompo>()->TryFireBullet(dir, 350);
+		_owner->GetComponent<Attacker>()->TryFireBullet(dir, 350);
 
 		_currentRotation += _rotateStep;
 	}

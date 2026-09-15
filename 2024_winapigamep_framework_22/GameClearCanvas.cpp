@@ -26,33 +26,33 @@ GameClearCanvas::GameClearCanvas()
 	{
 		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
 		Vec2 pos = { size.x * 0.5f, size.y * 0.3f };
-		titleText = CreateUI<Text>(pos, size);
-		titleText->SetText(L"CLEAR!");
-		titleText->SetWeight(DWRITE_FONT_WEIGHT_BOLD);
-		titleText->LoadFont(L"PFstardust", 60);
-		titleText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
-		titleText->SetColor(0x9bbc0f);
+		_titleText = CreateUI<Text>(pos, size);
+		_titleText->SetText(L"CLEAR!");
+		_titleText->SetWeight(DWRITE_FONT_WEIGHT_BOLD);
+		_titleText->LoadFont(L"PFstardust", 60);
+		_titleText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
+		_titleText->SetColor(0x9bbc0f);
 	}
 
 	//MentText
 	{
 		Vec2 size = { SCREEN_WIDTH, SCREEN_HEIGHT };
 		Vec2 pos = { size.x * 0.5f, size.y * 0.4f };
-		mentText = CreateUI<Text>(pos, size);
-		mentText->SetText(L"축하드립니다!");
-		mentText->LoadFont(L"PFstardust", 20);
-		mentText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
-		mentText->SetColor(0x9bbc0f);
+		_mentText = CreateUI<Text>(pos, size);
+		_mentText->SetText(L"축하드립니다!");
+		_mentText->LoadFont(L"PFstardust", 20);
+		_mentText->SetPitchAndFamily(DWRITE_TEXT_ALIGNMENT_CENTER);
+		_mentText->SetColor(0x9bbc0f);
 	}
 
 	//GotoTitleSceneButton
 	{
 		Vec2 size = { 400, 50 };
 		Vec2 pos = { SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.585f };
-		gotoTitleSceneButton = CreateUI<Button>(pos, size);
-		gotoTitleSceneButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
-		gotoTitleSceneButton->onlyOneCountClick = true;
-		gotoTitleSceneButton->OnClickEvent +=
+		_gotoTitleSceneButton = CreateUI<Button>(pos, size);
+		_gotoTitleSceneButton->texture = LOADTEXTURE(L"UISprite1X1", L"Texture\\UISprite1X1.png");
+		_gotoTitleSceneButton->onlyOneCountClick = true;
+		_gotoTitleSceneButton->OnClickEvent +=
 			[](int _)
 			{
 				GET_SINGLE(FadeManager)->LoadScene(L"TitleScene");

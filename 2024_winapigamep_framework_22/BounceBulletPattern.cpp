@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "BounceBulletPattern.h"
 #include "TimeManager.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "Object.h"
 
 BounceBulletPattern::BounceBulletPattern()
@@ -25,8 +25,8 @@ void BounceBulletPattern::Update()
 		Vec2 dir = { cos(rotation * Deg2Rad), sin(rotation * Deg2Rad) };
 		dir.Normalize();
 
-		_owner->GetComponent<AttackCompo>()->TryFireBounceBullet(dir);
-		_owner->GetComponent<AttackCompo>()->TryFireBounceBullet(dir * -1);
+		_owner->GetComponent<Attacker>()->TryFireBounceBullet(dir);
+		_owner->GetComponent<Attacker>()->TryFireBounceBullet(dir * -1);
 
 		if (++_curBullet >= _bulletCnt)
 			_isUsingSkill = false;

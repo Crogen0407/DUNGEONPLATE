@@ -4,7 +4,7 @@
 #include "TimeManager.h"
 #include "Texture.h"
 #include "Animator.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "HealthCompo.h"
 #include "EventManager.h"
 
@@ -17,7 +17,7 @@ EnemyC::EnemyC() : Enemy::Enemy()
 	Vec2 texSize = Vec2((int)_texture->GetWidth() / 5, (int)_texture->GetHeight());
 
 	AddComponent<Animator>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 	//AddComponent<HealthCompo>();
 
 	GetComponent<Animator>()
@@ -48,8 +48,8 @@ void EnemyC::Update()
 		Vec2 dir1 = { cos((rotation - 30) * Deg2Rad) , sin((rotation - 30) * Deg2Rad) };
 		Vec2 dir2 = { cos((rotation + 30) * Deg2Rad), sin((rotation + 30) * Deg2Rad) };
 
-		GetComponent<AttackCompo>()->TryFireBullet(dir,500);
-		GetComponent<AttackCompo>()->TryFireBullet(dir1,500);
-		GetComponent<AttackCompo>()->TryFireBullet(dir2,500);
+		GetComponent<Attacker>()->TryFireBullet(dir,500);
+		GetComponent<Attacker>()->TryFireBullet(dir1,500);
+		GetComponent<Attacker>()->TryFireBullet(dir2,500);
 	}
 }

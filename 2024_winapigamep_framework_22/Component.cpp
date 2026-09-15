@@ -2,7 +2,7 @@
 #include "Component.h"
 
 Component::Component()
-	: m_pOwner(nullptr)
+	: _owner(nullptr)
 {
 
 }

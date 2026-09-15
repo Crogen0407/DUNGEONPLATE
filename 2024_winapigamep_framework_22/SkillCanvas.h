@@ -9,9 +9,6 @@ public:
 	virtual ~SkillCanvas() override;
 
 public:
-	void Update() override;
-
-public:
 	void CreateSlot(Vec2 slotPos);
 	void ShowSlots();
 	void CloseSlot();

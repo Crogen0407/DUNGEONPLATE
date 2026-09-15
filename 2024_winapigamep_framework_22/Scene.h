@@ -13,27 +13,27 @@ public:
 	virtual void Render(ComPtr<ID2D1RenderTarget> renderTarget);
 	virtual void Release();
 public:
-	void ChangeLayer(Object* _obj, LAYER from, LAYER to)
+	void ChangeLayer(Object* obj, LAYER from, LAYER to)
 	{
-		m_vecObj[(UINT)from].erase(
-			remove(m_vecObj[(UINT)from].begin(), m_vecObj[(UINT)from].end(), _obj),
-			m_vecObj[(UINT)from].end());
+		_objects[(UINT)from].erase(
+			remove(_objects[(UINT)from].begin(), _objects[(UINT)from].end(), obj),
+			_objects[(UINT)from].end());
 
-		AddObject(_obj, to);
+		AddObject(obj, to);
 	}
-	void AddObject(Object* _obj, LAYER _type)
+	void AddObject(Object* obj, LAYER type)
 	{
-		m_vecObj[(UINT)_type].push_back(_obj);
+		_objects[(UINT)type].push_back(obj);
 	}
-	const vector<Object*>& GetLayerObjects(LAYER _type)
+	const vector<Object*>& GetLayerObjects(LAYER type)
 	{
-		return m_vecObj[(UINT)_type];
+		return _objects[(UINT)type];
 	}
-	LAYER GetLayer(Object* _obj)
+	LAYER GetLayer(Object* obj)
 	{
 		for (int i = 0; i < (UINT)LAYER::END; i++)
 		{
-			if (find(m_vecObj[i].begin(), m_vecObj[i].end(), _obj) != m_vecObj[i].end())
+			if (find(_objects[i].begin(), _objects[i].end(), obj) != _objects[i].end())
 			{
 				return (LAYER)i;
 			}
@@ -42,8 +42,6 @@ public:
 		return LAYER::END;
 	}
 private:
-	//Object m_obj;
-	//Object* m_pObj;
-	vector<Object*> m_vecObj[(UINT)LAYER::END];
+	vector<Object*> _objects[(UINT)LAYER::END];
 };
 

@@ -190,7 +190,7 @@
     <ClInclude Include="Canvas.h">
       <Filter>Engine\03. Object\UI</Filter>
     </ClInclude>
-    <ClInclude Include="AttackCompo.h">
+    <ClInclude Include="Attacker.h">
       <Filter>Engine\06. Component</Filter>
     </ClInclude>
     <ClInclude Include="UIScene.h">
@@ -577,7 +577,7 @@
     <ClCompile Include="Canvas.cpp">
       <Filter>Engine\03. Object\UI</Filter>
     </ClCompile>
-    <ClCompile Include="AttackCompo.cpp">
+    <ClCompile Include="Attacker.cpp">
       <Filter>Engine\06. Component</Filter>
     </ClCompile>
     <ClCompile Include="UIScene.cpp">

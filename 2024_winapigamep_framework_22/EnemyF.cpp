@@ -4,7 +4,7 @@
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "Animator.h"
-#include "AttackCompo.h"
+#include "Attacker.h"
 #include "Movement.h"
 #include "HealthCompo.h"
 
@@ -19,7 +19,7 @@ EnemyF::EnemyF()
 	Vec2 texSize = Vec2((float)texture->GetWidth()/2.f, (float)texture->GetHeight());
 
 	AddComponent<Animator>();
-	AddComponent<AttackCompo>();
+	AddComponent<Attacker>();
 	AddComponent<Movement>();
 
 	GetComponent<Animator>()
@@ -64,7 +64,7 @@ void EnemyF::OnShoot()
 	Vec2 dir1 = { cos((rotation - 30) * Deg2Rad) , sin((rotation - 30) * Deg2Rad) };
 	Vec2 dir2 = { cos((rotation + 30) * Deg2Rad), sin((rotation + 30) * Deg2Rad) };
 
-	GetComponent<AttackCompo>()->TryFireBullet(dir, 500);
-	GetComponent<AttackCompo>()->TryFireBounceBullet(dir1);
-	GetComponent<AttackCompo>()->TryFireBounceBullet(dir2);
+	GetComponent<Attacker>()->TryFireBullet(dir, 500);
+	GetComponent<Attacker>()->TryFireBounceBullet(dir1);
+	GetComponent<Attacker>()->TryFireBounceBullet(dir2);
 }

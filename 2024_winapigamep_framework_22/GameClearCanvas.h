@@ -10,7 +10,7 @@ public:
 	GameClearCanvas();
 	~GameClearCanvas() override;
 private:
-	Text* titleText;
-	Text* mentText;
-	Button* gotoTitleSceneButton;
+	Text* _titleText;
+	Text* _mentText;
+	Button* _gotoTitleSceneButton;
 };

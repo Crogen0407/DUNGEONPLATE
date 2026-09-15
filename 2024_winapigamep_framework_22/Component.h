@@ -9,9 +9,9 @@ public:
 	virtual void LateUpdate() abstract;
 	virtual void Render(ComPtr<ID2D1RenderTarget> renderTarget) abstract;
 public:
-	void SetOwner(Object* _owner) { m_pOwner = _owner; }
-	Object* GetOwner() const { return m_pOwner; }
+	void SetOwner(Object* owner) { _owner = owner; }
+	Object* GetOwner() const { return _owner; }
 private:
-	Object* m_pOwner;
+	Object* _owner;
 };
 
