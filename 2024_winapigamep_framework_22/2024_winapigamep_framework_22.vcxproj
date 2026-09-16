@@ -271,7 +271,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SimpleMath.h" />
     <ClInclude Include="Skill.h" />
-    <ClInclude Include="SkillCanvas.h" />
+    <ClInclude Include="SkillSelectCanvas.h" />
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="Pattern.h" />
     <ClInclude Include="SkillSlot.h" />
@@ -377,7 +377,6 @@
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp" />
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -403,8 +402,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SimpleMath.cpp" />
-    <ClCompile Include="Skill.cpp" />
-    <ClCompile Include="SkillCanvas.cpp" />
+    <ClCompile Include="SkillSelectCanvas.cpp" />
     <ClCompile Include="SkillManager.cpp" />
     <ClCompile Include="Pattern.cpp" />
     <ClCompile Include="SkillSlot.cpp" />

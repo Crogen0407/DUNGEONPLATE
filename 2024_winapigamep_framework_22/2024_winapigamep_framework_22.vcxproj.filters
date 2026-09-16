@@ -53,9 +53,6 @@
     <Filter Include="Engine\08.UI">
       <UniqueIdentifier>{080fcf78-1167-493d-af0d-63e9d0c60fa0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\09.Skill">
-      <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\03. Object\Effect">
       <UniqueIdentifier>{6ed72887-2824-4086-831a-cea3848c0e32}</UniqueIdentifier>
     </Filter>
@@ -70,6 +67,12 @@
     </Filter>
     <Filter Include="Engine\03. Object\Enemy\EnemyPattern">
       <UniqueIdentifier>{4b5354fb-a495-4ae1-a108-a0f025b94b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.Skills">
+      <UniqueIdentifier>{1aaff78b-6fc2-4720-9578-8f5331684b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.Skills\Items">
+      <UniqueIdentifier>{3eb75e66-e7cb-4aa3-a46c-0f3d960fa237}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -197,10 +200,10 @@
       <Filter>Engine\04. Scene</Filter>
     </ClInclude>
     <ClInclude Include="Skill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="SkillManager.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
       <Filter>Engine\06. Component</Filter>
@@ -218,13 +221,13 @@
       <Filter>Engine\01. Core</Filter>
     </ClInclude>
     <ClInclude Include="HealPackSkill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="IncreaseAttackSpeedSkill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="DashSkill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="GuidedMissile.h">
       <Filter>Engine\03. Object\Projectile</Filter>
@@ -236,10 +239,10 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="IncreaseMoveSpeedSkill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="FireBallSkill.h">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>Engine\03. Object\Effect</Filter>
@@ -304,7 +307,7 @@
     <ClInclude Include="GameCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
-    <ClInclude Include="SkillCanvas.h">
+    <ClInclude Include="SkillSelectCanvas.h">
       <Filter>Engine\08.UI</Filter>
     </ClInclude>
     <ClInclude Include="GameClearCanvas.h">
@@ -433,12 +436,6 @@
     <ClInclude Include="BombPattern.h">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClInclude>
-    <ClInclude Include="HealItem.h">
-      <Filter>Engine\09.Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Engine\09.Skill</Filter>
-    </ClInclude>
     <ClInclude Include="SimpleMath.h">
       <Filter>Engine\07. Module</Filter>
     </ClInclude>
@@ -473,6 +470,12 @@
       <Filter>Engine\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="Item.h">
+      <Filter>Engine\09.Skills\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="HealItem.h">
+      <Filter>Engine\09.Skills\Items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2024_winapigamep_framework_22.rc">
@@ -590,11 +593,8 @@
     <ClCompile Include="UIScene.cpp">
       <Filter>Engine\04. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Skill.cpp">
-      <Filter>Engine\09.Skill</Filter>
-    </ClCompile>
     <ClCompile Include="SkillManager.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
       <Filter>Engine\06. Component</Filter>
@@ -609,13 +609,13 @@
       <Filter>Engine\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="HealPackSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="IncreaseAttackSpeedSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="DashSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="GuidedMissile.cpp">
       <Filter>Engine\03. Object\Projectile</Filter>
@@ -627,10 +627,10 @@
       <Filter>Engine\03. Object\Projectile</Filter>
     </ClCompile>
     <ClCompile Include="IncreaseMoveSpeedSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="FireBallSkill.cpp">
-      <Filter>Engine\09.Skill</Filter>
+      <Filter>Engine\09.Skills</Filter>
     </ClCompile>
     <ClCompile Include="SlashEffect.cpp">
       <Filter>Engine\03. Object\Effect</Filter>
@@ -695,7 +695,7 @@
     <ClCompile Include="GameCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
-    <ClCompile Include="SkillCanvas.cpp">
+    <ClCompile Include="SkillSelectCanvas.cpp">
       <Filter>Engine\08.UI</Filter>
     </ClCompile>
     <ClCompile Include="GameClearCanvas.cpp">
@@ -824,12 +824,6 @@
     <ClCompile Include="BombPattern.cpp">
       <Filter>Engine\03. Object\Enemy\EnemyPattern</Filter>
     </ClCompile>
-    <ClCompile Include="HealItem.cpp">
-      <Filter>Engine\09.Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Engine\09.Skill</Filter>
-    </ClCompile>
     <ClCompile Include="SimpleMath.cpp">
       <Filter>Engine\07. Module</Filter>
     </ClCompile>
@@ -855,6 +849,9 @@
       <Filter>Engine\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="HealItem.cpp">
+      <Filter>Engine\09.Skills\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleMath.inl">

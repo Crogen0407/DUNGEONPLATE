@@ -5,9 +5,9 @@ class HealItem :
 {
 public:
     HealItem();
-    ~HealItem() override;
+    ~HealItem();
+
 public:
     void OnLevelUp(Player* player) override;
     void OnUse(Player* player) override;
 };
-

@@ -73,24 +73,27 @@ void Core::MainUpdate()
 
 void Core::MainRender()
 {
-	_renderTarget->CreateCompatibleRenderTarget(&_backBuffer);
+	ComPtr<ID2D1BitmapRenderTarget> backBuffer = nullptr;
+	ComPtr<ID2D1Bitmap> bitmap = nullptr;
+
+	_renderTarget->CreateCompatibleRenderTarget(&backBuffer);
+	backBuffer->BeginDraw();
+	backBuffer->Clear(D2D1::ColorF(0x306230));
 	{
-		_backBuffer->BeginDraw();
-		_backBuffer->Clear(D2D1::ColorF(0x306230));
-		{
-			// Render
-			GET_SINGLE(Managers)->Render(_backBuffer);
-		}
-		_backBuffer->EndDraw();
-
-		_backBuffer->GetBitmap(&_bitmap);
-		_renderTarget->BeginDraw();
-		_renderTarget->DrawBitmap(_bitmap.Get());
-		_renderTarget->EndDraw();
-
+		// Render
+		GET_SINGLE(Managers)->Render(backBuffer);
 	}
-	_backBuffer->Release();
- }
+	HRESULT hr = backBuffer->EndDraw();
+	if (FAILED(hr))
+		return;
+	
+	backBuffer->GetBitmap(&bitmap);
+	
+	_renderTarget->BeginDraw();
+	_renderTarget->DrawBitmap(bitmap.Get());
+	_renderTarget->EndDraw();
+}
+
 void Core::CreateGDI()
 {
 	// HOLLOW

@@ -9,11 +9,13 @@ class FireBallSkill :
 {
 public:
     FireBallSkill();
-    ~FireBallSkill() override;
+    ~FireBallSkill();
+
 public:
     void OnUse(Player* player) override;
     void OnLevelUp(Player* player) override;
     void Update() override;
+
 private:
     void Fire(Player* player, const EFireBallModeType& fireBallModeType, const int& count);
 };

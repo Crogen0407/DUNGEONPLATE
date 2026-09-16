@@ -2,11 +2,11 @@
 #include "Canvas.h"
 #include "SkillSlot.h"
 
-class SkillCanvas : public Canvas
+class SkillSelectCanvas : public Canvas
 {
 public:
-	SkillCanvas();
-	virtual ~SkillCanvas() override;
+	SkillSelectCanvas();
+	virtual ~SkillSelectCanvas() override;
 
 public:
 	void CreateSlot(Vec2 slotPos);

@@ -14,7 +14,7 @@ public:
 	float multiplier = 4.f;
 
 public:
-	void LateUpdate() override;
+	void LateUpdate() override {/* Empty */ }
 	void Render(ComPtr<ID2D1RenderTarget> renderTarget) override;
 };
 

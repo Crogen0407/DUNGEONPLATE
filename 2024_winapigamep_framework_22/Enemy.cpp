@@ -41,7 +41,6 @@ void Enemy::Update()
 		OnHiting(percent);
 
 		_hitTime += GET_MANAGER(TimeManager)->GetDT();
-		cout << _hitTime;
 
 		if (percent > 1.f)
 		{

@@ -7,7 +7,6 @@ BackgroundA::BackgroundA()
 	_maxEnemyCount = 2;
 	_spawnDelayTime = 10.f;
 	_currentTime = _spawnDelayTime;
-
 }
 
 BackgroundA::~BackgroundA()

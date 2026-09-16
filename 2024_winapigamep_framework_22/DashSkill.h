@@ -6,14 +6,17 @@ class DashSkill :
 {
 public:
     DashSkill();
-    ~DashSkill() override;
+    ~DashSkill();
+
 public:
     void OnUse(Player* player) override;
     void OnLevelUp(Player* player) override;
     void Update() override;
     void StopDash();
+
 private:
     void OnDash();
+
 private:
     Player* _player;
     Vec2 _dashDir;

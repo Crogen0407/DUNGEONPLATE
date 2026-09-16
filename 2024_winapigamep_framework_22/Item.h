@@ -4,8 +4,9 @@ class Item :
     public Skill
 {
 public:
-    Item();
-    virtual ~Item() override;
+    Item() { level = -1; }
+    ~Item() { /* Emtpy */ }
+
 public:
     virtual void OnUse(Player* player) abstract override;
 };

@@ -39,6 +39,4 @@ private:
 	ComPtr<ID2D1Factory> _factory = nullptr;
 
 	ComPtr<ID2D1HwndRenderTarget> _renderTarget = nullptr;
-	ID2D1BitmapRenderTarget* _backBuffer = nullptr;
-	ComPtr<ID2D1Bitmap> _bitmap = nullptr;
 };

@@ -1,17 +1,18 @@
 #include "pch.h"
-#include "SkillCanvas.h"
+#include "SkillSelectCanvas.h"
 #include "Button.h"
 #include "Text.h"
 #include "ResourceManager.h"
+#include "PlayerManager.h"
 #include "SkillManager.h"
 #include "TimeManager.h"
 #include "XPManager.h"
 #include "InputManager.h"
 #include "Skill.h"
 
-SkillCanvas::SkillCanvas()
+SkillSelectCanvas::SkillSelectCanvas()
 {
-	SetName(L"SkillCanvas");
+	SetName(L"SkillSelectCanvas");
 	GET_SINGLE(XPManager)->LevelUpEvent.Clear();
 	_skillSlots.clear();
 
@@ -40,12 +41,12 @@ SkillCanvas::SkillCanvas()
 	CloseSlot();
 }
 
-SkillCanvas::~SkillCanvas()
+SkillSelectCanvas::~SkillSelectCanvas()
 {
 	_skillSlots.clear();
 }
 
-void SkillCanvas::CreateSlot(Vec2 slotPos)
+void SkillSelectCanvas::CreateSlot(Vec2 slotPos)
 {
 	SkillSlot* skillSlot = CreateUI<SkillSlot>(slotPos, Vec2(250, 320));
 
@@ -80,7 +81,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 
 	//Button Events
 	skillSlot->OnClickEvent +=
-		[ct = this, skillSlot, player = GET_MANAGER(SkillManager)->player](int _)
+		[ct = this, skillSlot, player = GET_SINGLE(PlayerManager)->player](int _)
 		{
 			skillSlot->skill->OnLevelUp(player);
 			ct->CloseSlot();
@@ -106,7 +107,7 @@ void SkillCanvas::CreateSlot(Vec2 slotPos)
 	_skillSlots.push_back(skillSlot);
 }
 
-void SkillCanvas::ShowSlots()
+void SkillSelectCanvas::ShowSlots()
 {
 	GET_MANAGER(ResourceManager)->Play(L"LevelUp");
 
@@ -125,7 +126,7 @@ void SkillCanvas::ShowSlots()
 	TIMESCALE = 0;
 }
 
-void SkillCanvas::CloseSlot()
+void SkillSelectCanvas::CloseSlot()
 {
 	TIMESCALE = 1;
 

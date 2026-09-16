@@ -25,8 +25,8 @@ public:
 protected:
     EnemySpawner* _enemySpawner;
     SpriteRenderer* _spriteRenderer;
-    unsigned __int8 _currentEnemyCount = 0;
-    unsigned __int8 _currentSpawnedEnemyIndex = 0;
+    unsigned __int8 _currentEnemyCount;
+    unsigned __int8 _currentSpawnedEnemyIndex;
     unsigned __int8 _maxEnemyCount = 10;
 
     ComPtr<IDWriteTextFormat> _textFormat = nullptr;

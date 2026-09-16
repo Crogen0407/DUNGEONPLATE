@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "UIScene.h"
 #include "GameCanvas.h"
-#include "SkillCanvas.h"
+#include "SkillSelectCanvas.h"
 #include "ResourceManager.h"
 #include "Player.h"
 #include "InputManager.h"
@@ -26,9 +26,9 @@ void UIScene::Init()
 	AddObject(player, LAYER::PLAYER);
 
 	gameCanvas = new GameCanvas;
-	skillCanvas = new SkillCanvas;
+	skillSelectCanvas = new SkillSelectCanvas;
 	AddObject(gameCanvas, LAYER::UI);
-	AddObject(skillCanvas, LAYER::UI);
+	AddObject(skillSelectCanvas, LAYER::UI);
 }
 
 void UIScene::Update()
@@ -36,5 +36,5 @@ void UIScene::Update()
 	Scene::Update();
 
 	if (GET_KEYDOWN(KEY_TYPE::P))
-		static_cast<SkillCanvas*>(skillCanvas)->ShowSlots();
+		static_cast<SkillSelectCanvas*>(skillSelectCanvas)->ShowSlots();
 }

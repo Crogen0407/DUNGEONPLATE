@@ -12,10 +12,6 @@ Image::~Image()
 {
 }
 
-void Image::LateUpdate()
-{
-}
-
 void Image::Render(ComPtr<ID2D1RenderTarget> renderTarget)
 {
 	if (texture == nullptr) return;

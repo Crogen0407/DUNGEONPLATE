@@ -48,18 +48,6 @@ void Object::Render(ComPtr<ID2D1RenderTarget> renderTarget)
 	}
 }
 
-void Object::EnterCollision(Collider* _other)
-{
-}
-
-void Object::StayCollision(Collider* _other)
-{
-}
-
-void Object::ExitCollision(Collider* _other)
-{
-}
-
 Object* Object::FindObject(std::wstring name, LAYER layer)
 {
 	Object* object = GET_MANAGER(SceneManager)->FindObject(name, layer);

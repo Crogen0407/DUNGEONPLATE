@@ -6,7 +6,7 @@
 #include "Player.h"
 #include "Boss.h"
 #include "GameCanvas.h"
-#include "SkillCanvas.h"
+#include "SkillSelectCanvas.h"
 #include "PauseCanvas.h"
 #include "CollisionManager.h"
 #include "ResourceManager.h"
@@ -39,11 +39,11 @@ void GameScene::Init()
 	GET_MANAGER(CollisionManager)->CheckLayer(LAYER::ENEMY, LAYER::PROJECTILE);
 
 	_gameCanvas = new GameCanvas;
-	_skillCanvas = new SkillCanvas;
+	_SkillSelectCanvas = new SkillSelectCanvas;
 	_pauseCanvas = new PauseCanvas;
 
 	AddObject(_gameCanvas, LAYER::UI);
-	AddObject(_skillCanvas, LAYER::UI);
+	AddObject(_SkillSelectCanvas, LAYER::UI);
 	AddObject(_pauseCanvas, LAYER::UI);
 	_pauseCanvas->SetActive(false);
 	TIME = 0.f;

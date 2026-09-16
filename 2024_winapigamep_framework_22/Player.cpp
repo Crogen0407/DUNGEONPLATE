@@ -55,7 +55,6 @@ Player::Player()
 		ADDOBJECT(playerCast, LAYER::PLAYERCAST);
 	}
 
-	GET_MANAGER(SkillManager)->player = this;
 	GET_SINGLE(PlayerManager)->player = this;
 	LOADSOUND(L"Parry", L"Sound\\Parry.wav", SOUND_CHANNEL::EFFECT0);
 	LOADSOUND(L"Sword", L"Sound\\sword.wav", SOUND_CHANNEL::EFFECT1);

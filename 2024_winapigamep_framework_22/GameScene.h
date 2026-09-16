@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 
-class SkillCanvas;
+class SkillSelectCanvas;
 class GameCanvas;
 class PauseCanvas;
 class Background;
@@ -26,7 +26,7 @@ public:
 private:
     GameCanvas* _gameCanvas;
     PauseCanvas* _pauseCanvas;
-    SkillCanvas* _skillCanvas;
+    SkillSelectCanvas* _SkillSelectCanvas;
     std::unique_ptr<StageLoader> _stageLoader;
 };
 

@@ -5,10 +5,12 @@ class IncreaseMoveSpeedSkill :
 {
 public:
     IncreaseMoveSpeedSkill();
-    ~IncreaseMoveSpeedSkill() override;
+    ~IncreaseMoveSpeedSkill();
+
 private:
     float _playerOriginMoveSpeed = -1;
     float _increasePercent = 0.f;
+
 public:
     void OnUse(Player* player) override;
     void OnLevelUp(Player* player) override;

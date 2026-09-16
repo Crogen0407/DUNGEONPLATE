@@ -5,10 +5,12 @@ class IncreaseAttackSpeedSkill :
 {
 public:
     IncreaseAttackSpeedSkill();
-    ~IncreaseAttackSpeedSkill() override;
+    ~IncreaseAttackSpeedSkill();
+
 public:
     void OnUse(Player* player) override;
     void OnLevelUp(Player* player) override;
+
 private:
     float _originParryCoolTime = -1;
 };

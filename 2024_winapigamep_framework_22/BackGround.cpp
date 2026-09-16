@@ -15,7 +15,9 @@
 #include <locale>
 #include <codecvt>
 
-Background::Background()
+Background::Background() : 
+    _currentEnemyCount(0), 
+    _currentSpawnedEnemyIndex(0)
 {
 	AddComponent<Collider>();
 	_spriteRenderer = AddComponent<SpriteRenderer>();
@@ -66,11 +68,12 @@ void Background::SpawnEnemy(EnemyType enemyType, const Vec2& pos)
 {
 	if (_currentSpawnedEnemyIndex >= _maxEnemyCount) return;
 
-	_currentSpawnedEnemyIndex++;
+    ++_currentSpawnedEnemyIndex;
 	Enemy* enemy = _enemySpawner->SpawnEnemy(pos, enemyType);
 	enemy->GetComponent<HealthCompo>()->DieEvent += [this](int _)
 		{
-			_currentEnemyCount+=1;
+            ++_currentEnemyCount;
+            cout << _currentEnemyCount << endl;
 			if (_maxEnemyCount - _currentEnemyCount > 0) return;
 			isClear = true;
 			owner->stageLoader->TryNextStage();

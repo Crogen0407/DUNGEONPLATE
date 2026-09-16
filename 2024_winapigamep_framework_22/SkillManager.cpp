@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SkillManager.h"
+#include "PlayerManager.h"
 #include "TimeManager.h"
 #include "Skill.h"
 #include "Item.h"
@@ -12,7 +13,7 @@
 
 SkillManager::~SkillManager()
 {
-	for (auto skill : skills)
+	for (auto skill : _skills)
 	{
 		delete skill.second;
 	}
@@ -33,7 +34,7 @@ void SkillManager::Init()
 
 void SkillManager::Update()
 {
-	for (auto skill : skills)
+	for (auto skill : _skills)
 	{
 		Skill* origin = skill.second;
 		//0레벨은 가지고 있지 않은 상태이다.
@@ -49,6 +50,7 @@ void SkillManager::Update()
 		{
 			//쿨타임 다 돌았다면 스킬 쓰기
 			origin->curDelayTime = 0.f;
+			auto player = GET_SINGLE(PlayerManager)->player;
 			origin->OnUse(player);
 		}
 		origin->DelayTimeEvent.Invoke(origin->curDelayTime/ origin->maxDelayTime);
@@ -57,7 +59,7 @@ void SkillManager::Update()
 
 void SkillManager::Release()
 {
-	for (auto skill : skills)
+	for (auto skill : _skills)
 	{
 		skill.second->SetEnable(false);
 		skill.second->SetLevel(0);
@@ -66,9 +68,9 @@ void SkillManager::Release()
 
 const vector<Skill*> SkillManager::GetRandomSkills()
 {
-	int arr[(UINT)ESkillType::LAST];
+	int arr[(UINT)ESkillType::END];
 	int lastNum = 0;
-	for (int i = 0; i < (UINT)ESkillType::LAST; i++)
+	for (int i = 0; i < (UINT)ESkillType::END; i++)
 	{
 		arr[i] = i;
 		lastNum = i;
@@ -78,8 +80,8 @@ const vector<Skill*> SkillManager::GetRandomSkills()
 	
 	for (int i = 0; i < 30; i++)
 	{
-		int dest = rand() % (UINT)ESkillType::LAST;
-		int sour = rand() % (UINT)ESkillType::LAST;
+		int dest = rand() % (UINT)ESkillType::END;
+		int sour = rand() % (UINT)ESkillType::END;
 
 		int temp = arr[dest];
 		arr[dest] = arr[sour];
@@ -89,11 +91,11 @@ const vector<Skill*> SkillManager::GetRandomSkills()
 	vector<Skill*> output;
 
 	//만랩 제외
-	for (int i = 0; i < (UINT)ESkillType::LAST; i++)
+	for (int i = 0; i < (UINT)ESkillType::END; i++)
 	{
 		if (output.size() >= 3) break;
-		if (skills[(ESkillType)arr[i]]->GetLevel() >= 10) continue;
-		output.push_back(skills[(ESkillType)arr[i]]);
+		if (_skills[(ESkillType)arr[i]]->GetLevel() >= 10) continue;
+		output.push_back(_skills[(ESkillType)arr[i]]);
 	}
 
 	return output;
@@ -101,17 +103,18 @@ const vector<Skill*> SkillManager::GetRandomSkills()
 
 void SkillManager::AddSkill(ESkillType type, Skill* skill)
 {
-	skills[type] = skill;
+	_skills[type] = skill;
 }
 
 void SkillManager::LevelUpSkill(ESkillType type)
 {
-	Skill* skill = skills[type];
+	Skill* skill = _skills[type];
 	//활성화가 안되어 있다면
 	if (skill->GetEnable() == false)
 	{
 		skill->SetEnable(true);
 	}
+	auto player = GET_SINGLE(PlayerManager)->player;
 	skill->OnLevelUp(player);
 	skill->OnUse(player);
 }
